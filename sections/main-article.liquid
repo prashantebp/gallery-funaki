@@ -20,7 +20,7 @@
   }
 }
 {%- endstyle -%}
-
+{% assign artist_name = article.metafields.accentuate.choose_author %}
 <section class="section fun-blog-detail__section section-{{ section.id }}-padding" itemscope itemtype="http://schema.org/BlogPosting">
   <div class="container-xxl">
     <div class="row">
@@ -50,40 +50,33 @@
               <div class="fun-blog-detail__content rte" itemprop="articleBody" {{ block.shopify_attributes }}>
                   {{ article.content }}
               </div>
-              {% assign artist_name = article.metafields.accentuate.choose_author %}
-            {{ articles[artist_name].title }}
-            {{ articles[artist_name].image | img_url: '63x63' }}
-            {{ articles[artist_name].excerpt }}
-            {{ articles[artist_name].metafields.custom.artist_sub_title }}
+              <!-- author details -->
+              {%- if block.settings.author_name or block.settings.author_subtitle or block.settings.author_info -%}
+                <div class="fun-blog-detail__author" itemprop="author">
+                  {%- if articles[artist_name].image -%}
+                    <div class="author-image"><img src="{{ articles[artist_name].image | img_url: '63x63' }}" alt="{{ articles[artist_name].title | escape }}" /></div>
+                  {%- endif -%}
+                  <div class="author-info">
+                    {%- if articles[artist_name].title -%}
+                    <h2 class="author-name">{{ articles[artist_name].title | escape }}</h2>
+                    {%- endif -%}
+    
+                    {%- if articles[artist_name].metafields.custom.artist_sub_title -%}
+                    <span class="author-subtitle">{{ articles[artist_name].metafields.custom.artist_sub_title | escape }}</span>
+                    {%- endif -%}
+                    
+                    {%- if articles[artist_name].excerpt -%}
+                    <div class="author-info">{{ articles[artist_name].excerpt | escape }}</div>
+                    {%- endif -%}
+                  </div>
+                </div>
+              {%- endif -%}            
 
-            {%- when 'author'-%}
+              
+
+            {%- when 'author'-%}            
 
             
-
-            <div class="fun-blog-detail__author" itemprop="author" {{ block.shopify_attributes }}>
-              {%- if block.settings.author_image.src -%}
-                <div class="author-image"><img src="{{ block.settings.author_image | img_url: '63x63' }}" alt="{{ block.settings.author_name | escape }}" /></div>
-              {%- endif -%}
-              {%- if block.settings.author_name or block.settings.author_subtitle or block.settings.author_info -%}
-              <div class="author-info">
-                {%- if block.settings.author_subtitle -%}
-                <h2 class="author-name">{{ block.settings.author_name | escape }}</h2>
-                {%- endif -%}
-
-                {%- if block.settings.author_subtitle -%}
-                <span class="author-subtitle">{{ block.settings.author_subtitle | escape }}</span>
-                {%- endif -%}
-                
-                {%- if block.settings.author_info -%}
-                <div class="author-info">{{ block.settings.author_info | escape }}</div>
-                {%- endif -%}
-              </div>
-              {%- endif -%}
-              
-              
-              
-              
-            </div>
 
             {%- when 'share' -%}
                 <div class="fun-blog-detail__actions" {{ block.shopify_attributes }}>
