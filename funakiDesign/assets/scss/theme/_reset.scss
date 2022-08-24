@@ -57,6 +57,7 @@ p{
     @include font-size(16px);
     line-height: rem-calc(30px);
     letter-spacing: normal;
+    color: var(--black);
 }
 
 *:focus-visible{
