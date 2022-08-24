@@ -143,6 +143,16 @@
                         height: 150px !important;
                     }
                 }
+
+                & .artist-name{
+                    font-family: var(--overpass);
+                    font-weight: 400;
+                    font-size: 14px;
+                    line-height: 21px;
+                    letter-spacing: 1.5px;
+                    color: var(--neutral-grey-600);
+                    text-transform: uppercase;
+                }
             }
 
             #{$self}__card-title{
@@ -158,15 +168,6 @@
             #{$self}__past-desc-wrapper{
                 height: calc(100% - 215px - 24px);
 
-                & .artist-name{
-                    font-family: var(--overpass);
-                    font-weight: 400;
-                    font-size: 14px;
-                    line-height: 21px;
-                    letter-spacing: 1.5px;
-                    color: var(--neutral-grey-600);
-                    text-transform: uppercase;
-                }
             }
 
             #{$self}__sub-title{
