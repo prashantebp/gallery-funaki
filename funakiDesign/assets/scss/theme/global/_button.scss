@@ -72,3 +72,9 @@
         color: var(--neutral-white);
     }
 }
+
+.shopify-challenge__button{
+    @extend .btn;
+    @extend .btn-secondary;
+    margin-top: 1.5rem;
+}
