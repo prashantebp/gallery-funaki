@@ -76,6 +76,5 @@
 .shopify-challenge__button{
     @extend .btn;
     @extend .btn-secondary;
-    margin-top: 1.5rem;
-    background-color: red;
+    margin-top: 1.5rem !important;
 }
