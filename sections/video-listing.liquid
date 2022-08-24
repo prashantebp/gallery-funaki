@@ -16,7 +16,7 @@
             {% assign artist_name = article.metafields.accentuate.choose_artist %} 
             {% assign video_url = article.metafields.accentuate.video_url %}    
             <div class="col-sm-8 col-md-4 fun-bookmark__col--past">
-                <article class="fun-bookmark__card fun-bookmark__card--past-new">
+                <article class="fun-bookmark__card fun-bookmark__card--past">
                   <figure class="fun-bookmark__fig">
                     <img
                       srcset="{%- if article.image.src.width >= 165 -%}{{ article.image.src | image_url: width: 165 }} 165w,{%- endif -%}
