@@ -4,10 +4,8 @@
       "type": "fun-event-slider",
       "settings": {
         "blog": "event",
-        "large_title": false,
         "padding_top": 36,
-        "padding_bottom": 64,
-        "margin_bottom": 50
+        "padding_bottom": 64
       }
     },
     "16572652319ce7ead5": {

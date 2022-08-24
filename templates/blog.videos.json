@@ -46,18 +46,13 @@
       "type": "featured-video",
       "settings": {
         "section_heading": "Videos",
-        "video": "videos\/video-1",
-        "padding_top": 36,
-        "padding_bottom": 64
+        "video": "videos\/video-1"
       }
     },
     "1661170076dc8f9cde": {
       "type": "video-listing",
       "settings": {
-        "section_heading": "Videos",
-        "padding_top": 88,
-        "padding_bottom": 148,
-        "margin_bottom": 82
+        "section_heading": "Videos"
       }
     }
   },
