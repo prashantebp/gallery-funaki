@@ -76,7 +76,9 @@
 
             {%- when 'share' -%}
                 <div class="fun-blog-detail__actions" {{ block.shopify_attributes }}>
-                  <a href="{{ file[0].original_src }}" class="share-button__button btn btn-primary">Download PDF</a>
+                  {% if file %}}
+                    <a href="{{ file[0].original_src }}" class="share-button__button btn btn-primary">Download PDF</a>
+                  {% endif %}}
                   <share-button class="share-button" {{ block.shopify_attributes }}>
                     <button class="share-button__button btn btn-primary hidden">
                       {% comment %} {% render 'icon-share' %} {% endcomment %}
