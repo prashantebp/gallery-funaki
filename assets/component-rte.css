@@ -16,6 +16,22 @@
   table-layout: fixed;
 }
 
+.rte h2{
+  font-size: 18px;
+  font-family: var(--overpass);
+  color: var(--black);
+  text-transform: uppercase;
+  font-weight: 400;
+}
+
+.rte h3{
+  font-size: 16px;
+  font-family: var(--overpass);
+  font-weight: 400;
+  color: var(--black);
+  text-transform: uppercase;
+}
+
 @media screen and (min-width: 750px) {
   .rte table td {
     padding-left: 1.2rem;
@@ -38,6 +54,14 @@
 
 .rte li {
   list-style: inherit;
+  font-size: 16px;
+  font-family: var(--nanum);
+}
+
+.rte li span{
+  list-style: inherit;
+  font-size: 16px;
+  font-family: var(--nanum);
 }
 
 .rte li:last-child {

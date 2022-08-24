@@ -54,7 +54,7 @@
                 {% assign today_date = 'now' | date: '%s' %}
                 {% assign pre_date = article.metafields.custom.start_date | date: '%s' %}
                 {% assign post_date = article.metafields.custom.end_date | date: '%s' %}
-                {% if today_date <= pre_date %}
+                {% if today_date < pre_date %}
                     <div class="carousel-item {% if forloop.index == 1 %} active {% endif %}">
                       <article class="fun-ex-blogs__card">
                         <figure class="fun-ex-blogs__fig">
@@ -96,7 +96,6 @@
 
             {%- endfor -%}
           </div>
-          {%- if section.settings.blog.articles > 1 -%}
           <div class="fun-banner__actions">
               <button class="btn fun-banner__prev-btn p-0" aria-label="previous" data-bs-target="#fun_hihc_slider1" data-bs-slide="prev">
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -109,7 +108,6 @@
                   </svg>
               </button>
           </div>
-          {%- endif -%}
       </div>
     </div>
   </div>
