@@ -53,7 +53,7 @@
               </div>
               <!-- author details -->            
 
-              {%- if articles[artist_name].title -%}
+              {%- if articles[artist_name] -%}
                 <div class="fun-blog-detail__author" itemprop="author">
                   {%- if articles[artist_name].image -%}
                     <div class="author-image"><img src="{{ articles[artist_name].image | img_url: '63x63' }}" alt="{{ articles[artist_name].title | escape }}" /></div>
