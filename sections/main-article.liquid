@@ -50,6 +50,40 @@
               <div class="fun-blog-detail__content rte" itemprop="articleBody" {{ block.shopify_attributes }}>
                   {{ article.content }}
               </div>
+              {% assign artist_name = article.metafields.accentuate.choose_author %}
+            {{ articles[artist_name].title }}
+            {{ articles[artist_name].image | img_url: '63x63' }}
+            {{ articles[artist_name].excerpt }}
+            {{ articles[artist_name].metafields.custom.artist_sub_title }}
+
+            {%- when 'author'-%}
+
+            
+
+            <div class="fun-blog-detail__author" itemprop="author" {{ block.shopify_attributes }}>
+              {%- if block.settings.author_image.src -%}
+                <div class="author-image"><img src="{{ block.settings.author_image | img_url: '63x63' }}" alt="{{ block.settings.author_name | escape }}" /></div>
+              {%- endif -%}
+              {%- if block.settings.author_name or block.settings.author_subtitle or block.settings.author_info -%}
+              <div class="author-info">
+                {%- if block.settings.author_subtitle -%}
+                <h2 class="author-name">{{ block.settings.author_name | escape }}</h2>
+                {%- endif -%}
+
+                {%- if block.settings.author_subtitle -%}
+                <span class="author-subtitle">{{ block.settings.author_subtitle | escape }}</span>
+                {%- endif -%}
+                
+                {%- if block.settings.author_info -%}
+                <div class="author-info">{{ block.settings.author_info | escape }}</div>
+                {%- endif -%}
+              </div>
+              {%- endif -%}
+              
+              
+              
+              
+            </div>
 
             {%- when 'share' -%}
                 <div class="fun-blog-detail__actions" {{ block.shopify_attributes }}>
@@ -259,6 +293,35 @@
       "type": "content",
       "name": "t:sections.main-article.blocks.content.name",
       "limit": 1
+    },
+    {
+      "type": "author",
+      "name": "Author",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "author_image",
+          "label": "Author Image"
+        },
+        {
+          "type": "text",
+          "id": "author_name",
+          "label": "Author Name",
+          "default": "Hylie Botosh"
+        },
+        {
+          "type": "text",
+          "id": "author_subtitle",
+          "label": "Subtitle",
+          "default": "Subtitle"
+        },
+        {
+          "type": "textarea",
+          "id": "author_info",
+          "label": "Author Info"
+        }
+      ]
     },
     {
       "type": "share",
