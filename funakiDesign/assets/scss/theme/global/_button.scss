@@ -74,5 +74,6 @@
 }
 
 .shopify-challenge__button{
+    @extend .btn;
     @extend .btn-primary;
 }
