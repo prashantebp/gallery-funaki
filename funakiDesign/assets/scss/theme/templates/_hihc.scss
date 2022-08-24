@@ -1,0 +1,204 @@
+.fun-slider-hihc{
+    &__section{
+
+    }
+
+    &__figure{
+        margin-top: 25px;
+        @include media-breakpoint-up(md){
+            margin-top: 0;
+        }
+        & img{
+            max-height: 204px;
+            @include media-breakpoint-up(sm){
+                max-height: 250px;
+            }
+            @include media-breakpoint-up(md){
+                max-height: 444px;
+            }
+            width: 100%;
+            object-fit: cover;
+        }
+    }
+
+    &__content{
+        & h2{
+            margin-bottom: 16px;
+            @include breakpoint(md){
+                margin-bottom: 27px;
+            }
+        }
+    }
+
+    &__desc{
+        margin-bottom: 16px;
+        @include breakpoint(md){
+            margin-bottom: 7px;
+        }
+        & p{
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 30px;
+            color: var(--neutral-grey-800);
+            letter-spacing: normal;
+            &:last-child{
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    &__author{
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 21px;
+        font-family: var(--overpass);
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        color: var(--neutral-grey-600);
+        position: relative;
+        &::after{
+            position: absolute;
+            content: "";
+            width:0;
+            height: 1px;
+            bottom: 0;
+            left: 50%;
+            right: 50%;
+            transition: 0.3s;
+            background-color: var(--black);
+        }
+        &:hover{
+            color: var(--neutral-grey-800);
+            &::after{
+                width: 100%;
+                right: 0;
+                left: 0;
+            }
+        }
+    }
+}
+
+.fun-hihc{
+    $self: &;
+    &__section{
+        @extend %divider;
+        #{$self}__content{
+            margin-bottom: 1.5rem;
+            @include breakpoint(md){
+                margin-bottom: 0;
+            }
+        }
+
+        &--right{
+            #{$self}__figure{
+                @include media-breakpoint-up(xl){
+                    // padding-left: 26px;
+                }
+            }
+        }
+        &--left{
+            & .row{
+                flex-direction: column;
+                @include breakpoint(md){
+                    flex-direction: row;
+                }
+            }
+            #{$self}__figure{
+                margin-bottom: 1.5rem;
+                @include media-breakpoint-up(md){
+                    // padding-right: 26px;
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+
+    &__figure{
+        & img{
+            width: 100%;
+            max-height: 300px;
+            @include breakpoint(sm){
+                max-height: 400px;
+            }
+            @include breakpoint(lg){
+                max-height: 541px;
+            }
+            object-fit: cover;
+        }
+    }
+
+    &__content{
+        display: flex;
+        flex-direction: column;
+        @include media-breakpoint-up(md){
+            justify-content: center;
+            height: 100%;
+            align-items: flex-start;
+        }
+
+        // @include media-breakpoint-up(xl){
+        //     padding: 0 54px 0 0;
+        // }
+
+        & h2{
+            font-weight: 400;
+            font-size: 20px;
+            line-height: 42px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: $black;
+            margin-bottom: 16px;
+            @include breakpoint(md){
+                margin-bottom: 24px;
+            }
+        }
+    }
+
+    &__desc{
+        margin-bottom: 16px;
+        @include breakpoint(md){
+            margin-bottom: 32px;
+        }
+        & p{
+            font-family: var(--nanum);
+            color: $black;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 30px;
+            letter-spacing: normal;
+            &:last-child{
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    &__author{
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 21px;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        font-family: var(--overpass);
+        color: $black;
+        position: relative;
+        &::after{
+            position: absolute;
+            content: "";
+            width:0;
+            height: 1px;
+            bottom: 0;
+            left: 50%;
+            right: 50%;
+            transition: 0.3s;
+            background-color: var(--black);
+        }
+        &:hover{
+            color: var(--neutral-grey-800);
+            &::after{
+                width: 100%;
+                right: 0;
+                left: 0;
+            }
+        }
+    }
+}

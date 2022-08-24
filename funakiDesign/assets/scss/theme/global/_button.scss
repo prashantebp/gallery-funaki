@@ -1,0 +1,74 @@
+.btn{
+    & .loading-overlay__spinner{
+        width: 16px;
+        height: 16px;
+        position: absolute;
+    }
+
+    &-large{
+        padding: 12px 36px;
+    }
+
+    &-primary{
+        background-color: $white;
+        border: 1px solid var(--neutral-grey-800);
+        // outline: 1px solid var(--neutral-grey-800);
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 21px;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        padding: 12px 30px;
+        border-radius: 1px;
+        color: var(--neutral-grey-800);
+        transition: 0.3s all;
+        &:hover{
+            background-color: $white;
+            box-shadow: 0 0 0 1px var(--neutral-grey-800);
+            border: 1px solid var(--neutral-grey-800);
+            color: var(--neutral-grey-800);
+            border-radius: 1px;
+        }
+
+        &:active , &:focus{
+            background-color: $white;
+            color: var(--neutral-grey-800);
+            border-color: var(--neutral-grey-800);
+        }
+    }
+
+    &-secondary{
+        background-color: var(--neutral-grey-800);
+        border: 1px solid var(--neutral-grey-800);
+        // outline: 1px solid var(--neutral-grey-800);
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 21px;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        padding: 14px 30px 10px;
+        border-radius: 1px;
+        color: var(--neutral-white);
+        transition: 0.3s all;
+        &:hover{
+            background-color: #4F4F4F;
+            box-shadow: 0 0 0 1px #4F4F4F;
+            border: 1px solid #4F4F4F;
+            color: var(--neutral-white);
+            border-radius: 1px;
+        }
+        &--large{
+            padding: 12px 36px;
+        }
+
+        &:active , &:focus{
+            background-color: #4F4F4F;
+            color: var(--neutral-white);
+        }
+    }
+
+    &:disabled{
+        background-color: var(--neutral-grey-500);
+        color: var(--neutral-white);
+    }
+}

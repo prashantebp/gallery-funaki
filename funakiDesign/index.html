@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funaki</title>
+    <!-- css part -->
+    <link rel="stylesheet" href="./dist/style.css">
+
+    <!-- js part -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+    <!-- jquery -->
+    <script src="./assets/js/jquery-3.6.0.min.js"></script>
+
+    <!-- splide css-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@2.4.21/dist/css/splide.min.css">
+</head>
+<body>
+    <header class="fun-header__main-menu">
+        <nav class="navbar navbar-expand-lg fun-header__navbar">
+            <div class="container-xxl">
+                <div class="fun-header__logo-wrapper">
+                    <a class="fun-header__navbar-brand navbar-brand" href="#">
+                        <img class="fun-header__logo-img" src="./assets/icons/logo.svg"/>
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon">
+                            <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M4.25 25.5H29.75V22.6667H4.25V25.5ZM4.25 18.4167H29.75V15.5833H4.25V18.4167ZM4.25 8.5V11.3333H29.75V8.5H4.25Z" fill="#323232"/>
+                            </svg>
+                        </span>
+                    </button>
+                </div>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="fun-header__nav-link nav-link active" aria-current="page" href="#">artists</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="fun-header__nav-link nav-link" href="#">exhibitions</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="fun-header__nav-link nav-link" href="#">events</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="fun-header__nav-link nav-link" href="#">News + Essays</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="fun-header__nav-link nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Shop
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="#">Action</a></li>
+                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="fun-header__nav-link nav-link" href="#">Contact</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="fun-header__nav-link nav-link" href="#" aria-label="cart">
+                                <svg width="25" height="30" viewBox="0 0 25 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M24.1666 6.25033H18.3333C18.3333 3.02741 15.7229 0.416992 12.5 0.416992C9.27706 0.416992 6.66665 3.02741 6.66665 6.25033H0.833313V29.5837H24.1666V6.25033ZM12.5 3.33366C14.1041 3.33366 15.4166 4.64616 15.4166 6.25033H9.58331C9.58331 4.64616 10.8958 3.33366 12.5 3.33366Z" fill="#323232"/>
+                                </svg>
+
+                                <span class="fun-header__nav-link--counter">1</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section class="section fun-banner__section pb-0">
+            <div class="container-xxl">
+                <div class="row">
+                    <div class="col-12">
+                        <div id="fun_banner_slider" class="fun-banner__carousel carousel slide" data-bs-ride="carousel">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img src="./assets/images/banner1.png" class="fun-banner__slider-img" alt="...">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="./assets/images/banner2.png" class="fun-banner__slider-img" alt="...">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="./assets/images/banner1.png" class="fun-banner__slider-img" alt="...">
+                                </div>
+                            </div>
+
+                            <div class="fun-banner__actions">
+                                <button class="btn fun-banner__prev-btn p-0" aria-label="previous" data-bs-target="#fun_banner_slider" data-bs-slide="prev">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M15.41 7.41L14 6L8 12L14 18L15.41 16.59L10.83 12L15.41 7.41Z" fill="#323232"/>
+                                    </svg>
+                                </button>
+                                <button class="btn fun-banner__next-btn p-0" aria-label="next" data-bs-target="#fun_banner_slider" data-bs-slide="next">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M10 6L8.59003 7.41L13.17 12L8.59003 16.59L10 18L16 12L10 6Z" fill="#323232"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section fun-bookmark__section">
+            <div class="container-xxl">
+                <div class="row">
+                    <div class="col-12">
+                        <h2 class="section-title">Long headline to turn your visitors into users</h2>
+                        <h4 class="section-subtitle">Subtitle</h4>
+                        <p class="fun-bookmark__para">Separated they live in Bookmarksgrove right at the coast of the famous Semantics, large language ocean and many more stuff and more more more</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section fun-bookmark__section">
+            <div class="container-xxl">
+                <div class="row fun-bookmark__row d-none d-md-flex">
+                    <div class="col-md-3">
+                        <article class="fun-bookmark__card">
+                            <figure class="fun-bookmark__fig">
+                                <img src="./assets/images/img1.png" alt="..." class="fun-bookmark__img">
+                            </figure>
+                            <div>
+                                <a class="fun-bookmark__card-title" href="#">News title</a>
+                                <h4 class="fun-bookmark__subtitle section-subtitle">subtitle</h4>
+                                <date class="fun-bookmark__date">18 april 2019</date>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col-md-3">
+                        <article class="fun-bookmark__card">
+                            <figure class="fun-bookmark__fig">
+                                <img src="./assets/images/img2.png" alt="..." class="fun-bookmark__img">
+                            </figure>
+                            <div>
+                                <a class="fun-bookmark__card-title" href="#">News title</a>
+                                <h4 class="fun-bookmark__subtitle section-subtitle">subtitle</h4>
+                                <date class="fun-bookmark__date">18 april 2019</date>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col-md-3">
+                        <article class="fun-bookmark__card">
+                            <figure class="fun-bookmark__fig">
+                                <img src="./assets/images/img3.png" alt="..." class="fun-bookmark__img">
+                            </figure>
+                            <div>
+                                <a class="fun-bookmark__card-title" href="#">News title</a>
+                                <h4 class="fun-bookmark__subtitle section-subtitle">subtitle</h4>
+                                <date class="fun-bookmark__date">18 april 2019</date>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col-md-3">
+                        <article class="fun-bookmark__card">
+                            <figure class="fun-bookmark__fig">
+                                <img src="./assets/images/img4.png" alt="..." class="fun-bookmark__img">
+                            </figure>
+                            <div>
+                                <a class="fun-bookmark__card-title" href="#">News title</a>
+                                <h4 class="fun-bookmark__subtitle section-subtitle">subtitle</h4>
+                                <date class="fun-bookmark__date">18 april 2019</date>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+                <div class="row splide js-splide-1">
+
+                    <div class="splide__track d-flex d-md-none">
+                        <ul class="splide__list">
+                            <li class="splide__slide">
+                                <article class="fun-bookmark__card">
+                                    <figure class="fun-bookmark__fig">
+                                        <img src="./assets/images/img1.png" alt="..." class="fun-bookmark__img">
+                                    </figure>
+                                    <div>
+                                        <a class="fun-bookmark__card-title" href="#">News title</a>
+                                        <h4 class="fun-bookmark__subtitle section-subtitle">subtitle</h4>
+                                        <date class="fun-bookmark__date">18 april 2019</date>
+                                    </div>
+                                </article>
+                            </li>
+                            <li class="splide__slide">
+                                <article class="fun-bookmark__card">
+                                    <figure class="fun-bookmark__fig">
+                                        <img src="./assets/images/img2.png" alt="..." class="fun-bookmark__img">
+                                    </figure>
+                                    <div>
+                                        <a class="fun-bookmark__card-title" href="#">News title</a>
+                                        <h4 class="fun-bookmark__subtitle section-subtitle">subtitle</h4>
+                                        <date class="fun-bookmark__date">18 april 2019</date>
+                                    </div>
+                                </article>
+                            </li>
+                            <li class="splide__slide">
+                                <article class="fun-bookmark__card">
+                                    <figure class="fun-bookmark__fig">
+                                        <img src="./assets/images/img3.png" alt="..." class="fun-bookmark__img">
+                                    </figure>
+                                    <div>
+                                        <a class="fun-bookmark__card-title" href="#">News title</a>
+                                        <h4 class="fun-bookmark__subtitle section-subtitle">subtitle</h4>
+                                        <date class="fun-bookmark__date">18 april 2019</date>
+                                    </div>
+                                </article>
+                            </li>
+                            <li class="splide__slide">
+                                <article class="fun-bookmark__card">
+                                    <figure class="fun-bookmark__fig">
+                                        <img src="./assets/images/img4.png" alt="..." class="fun-bookmark__img">
+                                    </figure>
+                                    <div>
+                                        <a class="fun-bookmark__card-title" href="#">News title</a>
+                                        <h4 class="fun-bookmark__subtitle section-subtitle">subtitle</h4>
+                                        <date class="fun-bookmark__date">18 april 2019</date>
+                                    </div>
+                                </article>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="splide__arrows fun-bookmark__arrows d-flex d-md-none">
+                        <button class="splide__arrow splide__arrow--prev fun-bookmark__arrow fun-bookmark__arrow--prev">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M15.41 7.41L14 6L8 12L14 18L15.41 16.59L10.83 12L15.41 7.41Z" fill="#323232"/>
+                            </svg>
+                        </button>
+                        <button class="splide__arrow splide__arrow--next fun-bookmark__arrow fun-bookmark__arrow--next">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M9.99997 6L8.58997 7.41L13.17 12L8.58997 16.59L9.99997 18L16 12L9.99997 6Z" fill="#323232"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section-lg fun-events__section">
+            <div class="container-xxl">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="title-wrapper">
+                            <h2 class="section-title">Events</h2>
+                            <a href="#" class="section-more">view all</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 fun-events__col">
+                        <article class="fun-events__card">
+                            <figure class="fun-events__figure">
+                                <img class="fun-events__img" src="./assets/images/event1.png" alt="..">
+                            </figure>
+                            <div class="fun-events__card-detail">
+                                <h3>Hold: Exploring the contempory vessel</h3>
+                                <span>18 April - 27 may 2017</span>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col-md-4 fun-events__col">
+                        <article class="fun-events__card">
+                            <figure class="fun-events__figure">
+                                <img class="fun-events__img" src="./assets/images/event2.png" alt="..">
+                            </figure>
+                            <div class="fun-events__card-detail">
+                                <h3>Hold: Exploring the contempory vessel</h3>
+                                <span>18 April - 27 may 2017</span>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col-md-4 fun-events__col">
+                        <article class="fun-events__card">
+                            <figure class="fun-events__figure">
+                                <img class="fun-events__img" src="./assets/images/event3.png" alt="..">
+                            </figure>
+                            <div class="fun-events__card-detail">
+                                <h3>Hold: Exploring the contempory vessel</h3>
+                                <span>18 April - 27 may 2017</span>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section-lg fun-hihc__section">
+            <div class="container-xxl">
+                <div class="row">
+                    <div class="col-12">
+                        <div id="fun_hihc_slider1" class="fun-banner__carousel carousel slide" data-bs-ride="carousel">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <div class="row">
+                                        <div class="col-xl-5 col-md-6">
+                                            <div class="fun-hihc__content">
+                                                <h2 class="section-title">Heading example</h2>
+                                                <div class="fun-hihc__desc">
+                                                    <p>I see nothing arcane or mysterious in my work, but if some people find some of it enigmatic or inexplicable I could take it as a compliment. Alchemists belived in the connection of things in taking them apart and putting them together again. This is a thought I find rather appealing as a metaphot. The esoteric part of alchemy is largly overrated
+                                                        Peter Bauhuis</p>
+                                                </div>
+                                                <a class="fun-hihc__author" href="#">Peter Bauhuis</a>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 offset-xl-1">
+                                            <div class="fun-hihc__figure">
+                                                <img src="./assets/images/hihc.png" class="fun-banner__slider-img" alt="...">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <div class="row">
+                                        <div class="col-xl-5 col-md-6">
+                                            <div class="fun-hihc__content">
+                                                <h2 class="section-title">Heading example</h2>
+                                                <div class="fun-hihc__desc">
+                                                    <p>I see nothing arcane or mysterious in my work, but if some people find some of it enigmatic or inexplicable I could take it as a compliment. Alchemists belived in the connection of things in taking them apart and putting them together again. This is a thought I find rather appealing as a metaphot. The esoteric part of alchemy is largly overrated
+                                                        Peter Bauhuis</p>
+                                                </div>
+                                                <a class="fun-hihc__author" href="#">Peter Bauhuis</a>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 offset-xl-1">
+                                            <div class="fun-hihc__figure">
+                                                <img src="./assets/images/hihc.png" class="fun-banner__slider-img" alt="...">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="fun-banner__actions">
+                                <button class="btn fun-banner__prev-btn p-0" aria-label="previous" data-bs-target="#fun_hihc_slider1" data-bs-slide="prev">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M15.41 7.41L14 6L8 12L14 18L15.41 16.59L10.83 12L15.41 7.41Z" fill="#323232"/>
+                                    </svg>
+                                </button>
+                                <button class="btn fun-banner__next-btn p-0" aria-label="next" data-bs-target="#fun_hihc_slider1" data-bs-slide="next">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M10 6L8.59003 7.41L13.17 12L8.59003 16.59L10 18L16 12L10 6Z" fill="#323232"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section-md fun-featured__section">
+            <div class="container-xxl">
+                <div class="row">
+                    <div classs="col-12">
+                        <h2 class="section-title">FEATURED WORKS</h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 col-lg-3 fun-featured__col">
+                        <article class="fun-featured__card">
+                            <figure class="fun-featured__figure">
+                                <img class="fun-featured__img" src="./assets/images/featured1.png" alt="...">
+                            </figure>
+                            <div class="fun-featured__details">
+                                <span class="fun-featured__desc">Otto Kunzli</span>
+                                <span class="fun-featured__desc">1cm of love, 1992</span>
+                                <span class="fun-featured__desc">22k gold nylon cord</span>
+                                <span class="fun-featured__desc">1cm</span>
+                                <span class="fun-featured__desc">unlimited edition</span>
+                                <span class="fun-featured__price">$ 550.00</span>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col-md-6 col-lg-3 fun-featured__col">
+                        <article class="fun-featured__card fun-featured__card--portrait">
+                            <figure class="fun-featured__figure">
+                                <img class="fun-featured__img" src="./assets/images/featured2.png" alt="...">
+                            </figure>
+                            <div class="fun-featured__details">
+                                <span class="fun-featured__desc">Otto Kunzli</span>
+                                <span class="fun-featured__desc">1cm of love, 1992</span>
+                                <span class="fun-featured__desc">22k gold nylon cord</span>
+                                <span class="fun-featured__desc">1cm</span>
+                                <span class="fun-featured__desc">unlimited edition</span>
+                                <span class="fun-featured__price">$ 550.00</span>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col-md-6 col-lg-3 fun-featured__col">
+                        <article class="fun-featured__card">
+                            <figure class="fun-featured__figure">
+                                <img class="fun-featured__img" src="./assets/images/featured3.png" alt="...">
+                            </figure>
+                            <div class="fun-featured__details">
+                                <span class="fun-featured__desc">Otto Kunzli</span>
+                                <span class="fun-featured__desc">1cm of love, 1992</span>
+                                <span class="fun-featured__desc">22k gold nylon cord</span>
+                                <span class="fun-featured__desc">1cm</span>
+                                <span class="fun-featured__desc">unlimited edition</span>
+                                <span class="fun-featured__price">$ 550.00</span>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col-md-6 col-lg-3 fun-featured__col">
+                        <article class="fun-featured__card">
+                            <figure class="fun-featured__figure">
+                                <img class="fun-featured__img" src="./assets/images/featured4.png" alt="...">
+                            </figure>
+                            <div class="fun-featured__details">
+                                <span class="fun-featured__desc">Otto Kunzli</span>
+                                <span class="fun-featured__desc">1cm of love, 1992</span>
+                                <span class="fun-featured__desc">22k gold nylon cord</span>
+                                <span class="fun-featured__desc">1cm</span>
+                                <span class="fun-featured__desc">unlimited edition</span>
+                                <span class="fun-featured__price">$ 550.00</span>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section-lg fun-gallery__section">
+            <div class="container-xxl">
+                <div class="row d-none d-lg-flex">
+                    <div class="col-md-6 col-lg-3 fun-gallery__col">
+                        <div class="fun-gallery__images-wrapper">
+                            <img src="./assets/images/gallery1.png" alt="...">
+                            <img src="./assets/images/gallery5.png" alt="...">
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3 fun-gallery__col">
+                        <div class="fun-gallery__images-wrapper">
+                            <img src="./assets/images/gallery2.png" alt="...">
+                            <img src="./assets/images/gallery6.png" alt="...">
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3 fun-gallery__col">
+                        <div class="fun-gallery__images-wrapper">
+                            <img src="./assets/images/gallery3.png" alt="...">
+                            <img src="./assets/images/gallery7.png" alt="...">
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3 fun-gallery__col">
+                        <div class="fun-gallery__images-wrapper">
+                            <img src="./assets/images/gallery4.png" alt="...">
+                            <img src="./assets/images/gallery8.png" alt="...">
+                        </div>
+                    </div>
+                </div>
+                <div class="row splide js-splide-2">
+                    <div class="splide__track d-flex d-lg-none">
+                        <ul class="splide__list">
+                            <li class="splide__slide">
+                                <img src="./assets/images/gallery1.png" alt="...">
+                            </li>
+                            <li class="splide__slide">
+                                <img src="./assets/images/gallery2.png" alt="...">
+                            </li>
+                            <li class="splide__slide">
+                                <img src="./assets/images/gallery3.png" alt="...">
+                            </li>
+                            <li class="splide__slide">
+                                <img src="./assets/images/gallery4.png" alt="...">
+                            </li>
+                            <li class="splide__slide">
+                                <img src="./assets/images/gallery5.png" alt="...">
+                            </li>
+                            <li class="splide__slide">
+                                <img src="./assets/images/gallery6.png" alt="...">
+                            </li>
+                            <li class="splide__slide">
+                                <img src="./assets/images/gallery7.png" alt="...">
+                            </li>
+                            <li class="splide__slide">
+                                <img src="./assets/images/gallery8.png" alt="...">
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="splide__arrows fun-bookmark__arrows d-flex d-lg-none">
+                        <button class="splide__arrow splide__arrow--prev fun-bookmark__arrow fun-bookmark__arrow--prev">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M15.41 7.41L14 6L8 12L14 18L15.41 16.59L10.83 12L15.41 7.41Z" fill="#323232"/>
+                            </svg>
+                        </button>
+                        <button class="splide__arrow splide__arrow--next fun-bookmark__arrow fun-bookmark__arrow--next">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M9.99997 6L8.58997 7.41L13.17 12L8.58997 16.59L9.99997 18L16 12L9.99997 6Z" fill="#323232"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@2.4.21/dist/js/splide.min.js"></script>
+    <script src="./assets/js/main.js"></script>
+</body>
+</html>

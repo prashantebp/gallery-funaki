@@ -1,0 +1,92 @@
+.fun-events{
+    &__section{
+        @extend %divider;
+    }
+
+    &__col{
+        margin-bottom: 1.5rem;
+        @include breakpoint(md){
+            margin-bottom: 0;
+        }
+    }
+
+    &__card{
+        display: flex;
+        justify-content: flex-start;
+        flex-direction: row;
+        align-items: flex-start;
+        @include breakpoint(md){
+            align-items: flex-start;
+            flex-direction: column;
+        }
+        @include breakpoint(xl){
+            flex-direction: row;
+        }
+    }
+
+    &__figure{
+        margin-right: 15px;
+        margin-bottom: 0;
+        @include breakpoint(md){
+            margin-bottom: 1.5rem;
+            margin-right: 0;
+        }
+        @include breakpoint(lg){
+            margin-right: 25px;
+        }
+        @include breakpoint(xl){
+            margin-bottom: 0;
+        }
+    }
+
+    &__img{
+        object-fit: cover;
+        width: 164px;
+        height: 164px;
+        // height: 235px;
+        @include breakpoint(xl){
+            width: 180px;
+            height: 180px;
+        }
+        @include breakpoint(xxl){
+            width: 235px;
+            height: 235px;
+        }
+    }
+
+    &__card-detail{
+        display: flex;
+        flex-direction: column;
+        width: calc(100% - 164px - 15px);
+        @include breakpoint(md){
+            width: 100%;
+        }
+        @include breakpoint(xl){
+            width: calc(100% - 235px - 25px);
+            max-width: 149px;
+        }
+
+        & h3{
+            font-weight: 400;
+            font-size: 20px;
+            line-height: 21px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--black);
+            font-family: var(--overpass);
+            margin-bottom: 0;
+            word-break: break-word;
+        }
+
+        & span{
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 21px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--neutral-grey-500);
+            font-family: var(--overpass);
+            word-break: break-word;
+        }
+    }
+}
