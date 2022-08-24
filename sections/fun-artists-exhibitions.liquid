@@ -69,15 +69,13 @@
       </div>
     </div>
     <div class="row fun-event__row fun-event__upcoming-row {% if section.settings.blog.articles.size > 2 %} justify-content-between {% endif %}">
-      {% assign artist_name = article.title | upcase | strip %}
+      {% assign artist_name = article.title | upcase %}
       {%- for article in section.settings.blog.articles limit: section.settings.post_limits -%}
       {% assign today_date = 'now' | date: '%s' %}
           {% assign pre_date = article.metafields.custom.start_date | date: '%s' %}
           {% assign post_date = article.metafields.custom.end_date | date: '%s' %}
           {% for tag in article.tags %}
-          {% assign tag2 = tag | strip %}
-          {{ tag2 }}
-          {%- if tag2 == artist_name -%}
+          {%- if tag == artist_name -%}
             <div class="col-sm-8 col-lg-5 fun-event__col">
               <article class="fun-event__card fun-event__card--events">
                 <figure class="fun-event__fig">
