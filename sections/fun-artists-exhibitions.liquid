@@ -75,7 +75,6 @@
           {% assign pre_date = article.metafields.custom.start_date | date: '%s' %}
           {% assign post_date = article.metafields.custom.end_date | date: '%s' %}
           {% for tag in article.tags %}
-          {{ article.title }} <br>
           {%- if blogs.exhibitions.all_tags contains artist_name -%}
             <div class="col-sm-8 col-lg-5 fun-event__col">
               <article class="fun-event__card fun-event__card--events">
