@@ -1,0 +1,29 @@
+a{
+    text-decoration: none;
+}
+
+p{
+    font-family: var(--nanum);
+}
+*{
+    font-family: var(--overpass);
+}
+h1,h2,h3,h4,h5{
+    font-family: var(--overpass);
+}
+
+.container-fluid{
+    padding-left: 16px;
+    padding-right: 16px;
+    @include breakpoint(md){
+        padding-left: calc(40px - 16px);
+        padding-right: calc(40px - 16px);
+    }
+}
+
+// $primary : var(--neutral-grey-800);
+// $light: 300;
+// $regular : 400;
+// $medium : 500;
+// $sbold : 600;
+// $bold : 700;

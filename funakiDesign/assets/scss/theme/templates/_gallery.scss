@@ -1,0 +1,21 @@
+.fun-gallery{
+    &__section{
+
+    }
+
+    &__col{
+        margin-bottom: 30px;
+        @include breakpoint(lg){
+            margin-bottom: 0;
+        }
+    }
+
+    &__images-wrapper{
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        & img{
+            width: 100%;
+        }
+    }
+}

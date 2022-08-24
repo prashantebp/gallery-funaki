@@ -1,0 +1,39 @@
+/*------------------------------
+Replace Default font variable
+>> copy veriable from bootstrap/veriable.scss
+*/
+:root{
+    --nanum: 'Nanum Myeongjo', serif;
+    --overpass: 'Overpass', sans-serif;
+    //color variables
+    --black: #000000;
+    --neutral-grey-900: #212121;
+    --neutral-grey-800: #323232;
+    --neutral-grey-600: #666666;
+    --neutral-grey-500: #949494;
+    --neutral-grey-200:#EDEDED;
+    --neutral-white:#FFFFFF;
+    --green-a700: #00C853;
+    --green-a200: #69F0AE;
+    --green-a100: #B9F6CA;
+    --deep-orange-a700: #D84315;
+    --deep-orange-a200: #FFAB91;
+    --deep-orange-a100: #FBE9E7;
+    --amber-500: #FFC107;
+    --amber-100: #FFE57F;
+    --amber-50: #FFF8E1;
+}
+
+$grid-columns: 16 !default;
+$grid-gutter-width: 1.5rem !default;
+$font : var(--overpass);
+
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px,
+  xxl: 1360px
+);
+
+

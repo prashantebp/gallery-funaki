@@ -1,0 +1,78 @@
+ul,ol{
+    padding-left: 1rem;
+}
+
+figcaption {
+    text-align:center;
+    padding: rem-calc(5 0);
+}
+
+button.btn{
+    &:focus{
+        box-shadow: none;
+    }
+}
+
+a{
+    text-decoration: none;
+}
+
+h1{
+    font-weight: $light;
+    @include font-size(32px);
+    line-height: 42px;
+    letter-spacing: 1.5px;
+}
+
+h2{
+    font-weight: $light;
+    @include font-size(20px);
+    letter-spacing: 1.5px;
+    line-height: 21px;
+}
+
+h3{
+    font-weight: $light;
+    @include font-size(18px);
+    letter-spacing: 1.5px;
+    line-height: 21px;
+}
+
+h4{
+    font-weight: $light;
+    @include font-size(16px);
+    letter-spacing: 1.5px;
+    line-height: 21px;
+}
+
+h5{
+    font-weight: $light;
+    @include font-size(14px);
+    letter-spacing: 1.5px;
+}
+
+p{
+    font-family: var(--nanum);
+    font-weight: 400;
+    @include font-size(16px);
+    line-height: rem-calc(30px);
+    letter-spacing: normal;
+}
+
+*:focus-visible{
+    outline: none;
+    box-shadow: none;
+}
+
+.boost-pfs-action-list-wrapper.boost-pfs-action-extend{
+    display: none !important;
+}
+.boost-pfs-action-list-enabled:hover{
+    .boost-pfs-action-list-wrapper.boost-pfs-action-extend{
+        display: none !important;
+    }
+}
+.boost-pfs-filter-right-col{
+    width:100% !important;
+
+}

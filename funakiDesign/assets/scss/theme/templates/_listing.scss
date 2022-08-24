@@ -1,0 +1,167 @@
+.fun-artist-list{
+    &__title{
+        margin-bottom: 24px;
+        @include media-breakpoint-up(md){
+            margin-bottom: 80px;
+        }
+        & h2{
+            font-weight: 400;
+            font-size: 20px;
+            line-height: 42px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--black);
+        }
+    }
+
+    &__container{
+        margin-bottom: 50px;
+        @include breakpoint(md){
+            margin-bottom: 88px;
+        }
+        &:last-child{
+            margin-bottom: 0;
+        }
+    }
+
+    &__row{
+        flex-direction: column-reverse;
+        @include breakpoint(md){
+            flex-direction: row;
+        }
+    }
+
+    &__subtitle{
+        font-weight: 300;
+        font-size: 16px;
+        line-height: 21px;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        font-family: var(--overpass);
+        color: var(--neutral-grey-800);
+        margin-bottom: 32px;
+        @include media-breakpoint-up(md){
+            margin-bottom: 52px;
+        }
+        position: relative;
+        & span{
+            background-color: $white;
+            padding-right: 1rem;
+        }
+        &::after{
+            content: "";
+            position: absolute;
+            right: 0;
+            top: calc(50% - 2.5px);
+            width: 67%;
+            height: 1px;
+            background-color: var(--neutral-grey-200);
+            z-index: -1;
+        }
+    }
+
+    &__wrapper{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        padding-left: 0;
+        max-height: 320px;
+        overflow: auto;
+        margin-bottom: 0;
+        @include media-breakpoint-up(sm){
+            gap: 1rem;
+        }
+        @include media-breakpoint-up(md){
+            max-height: 600px;
+        }
+
+        @media only screen and (device-width: 768px) and (device-height: 1024px) and (orientation : landscape) {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-row-gap: 1rem;
+        }
+
+        @media only screen and (device-width: 768px) and (device-height: 1024px) and (orientation : portrait) {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-row-gap: 1rem;
+        }
+    }
+
+    &__item{
+        width: 100%;
+        @include breakpoint(sm){
+            width: calc(100%/2 - 16px);
+        }
+        list-style: none;
+        margin-bottom: 16px;
+        &:last-child{
+            margin-bottom: 0;
+        }
+        @include breakpoint(sm){
+            margin-bottom: 0;
+            &:nth-last-child(-n+2){
+                // margin-bottom: 0;
+            }
+        }
+
+        @media only screen and (device-width: 768px) and (device-height: 1024px) {
+            width: 100%;
+        }
+
+        & a{
+            font-weight: 400;
+            font-size: 18px;
+            line-height: 21px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--black);
+            font-family: var(--overpass);
+            position: relative;
+            &::after{
+                content: "";
+                width: 0;
+                height: 1px;
+                background-color: var(--black);
+                position: absolute;
+                bottom: 0;
+                left: 50%;
+                transition: 0.3s;
+            }
+
+            &.active{
+                &::after{
+                    width: 100%;
+                    left: 0;
+                    right: 0;
+                }
+            }
+            &:hover{
+                &::after{
+                    width: 100%;
+                    left: 0;
+                    right: 0;
+                }
+            }
+        }
+    }
+
+    &__img-wrapper{
+        display: flex;
+        justify-content: flex-end;
+        margin-bottom: 2rem;
+        @include breakpoint(md){
+            margin-bottom: 0;
+        }
+
+        & img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            // @include breakpoint(xl){
+            //     width: calc(7/8*100%);
+            // }
+            aspect-ratio: 1/1.1;
+        }
+    }
+}
