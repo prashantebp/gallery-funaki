@@ -22,6 +22,7 @@
 {%- endstyle -%}
 {% assign artist_name = article.metafields.accentuate.choose_author %}
 {% assign file = article.metafields.accentuate.download_file %}
+{{ file.src }}
 <section class="section fun-blog-detail__section section-{{ section.id }}-padding" itemscope itemtype="http://schema.org/BlogPosting">
   <div class="container-xxl">
     <div class="row">
