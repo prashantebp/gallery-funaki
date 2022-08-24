@@ -39,7 +39,6 @@
         "subheading": "SUBTITLE",
         "discription": "<p>Separated they live in Bookmarksgrove right at the coast of the famous Semantics, large language ocean and many more stuff and more more more<\/p>",
         "hide_divider": false,
-        "text_content_position": "left",
         "padding_top": 32,
         "padding_bottom": 32
       }
@@ -47,7 +46,6 @@
     "165518962316c4ac3a": {
       "type": "custom-bookmark-list",
       "settings": {
-        "heading": "Blog posts",
         "heading_size": "h1",
         "blog": "news-essays",
         "post_limit": 4,
