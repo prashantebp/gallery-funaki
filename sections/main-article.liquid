@@ -51,7 +51,8 @@
                   {{ article.content }}
               </div>
               <!-- author details -->
-              {%- if block.settings.author_name or block.settings.author_subtitle or block.settings.author_info -%}
+
+              {%- if articles[artist_name].title -%}
                 <div class="fun-blog-detail__author" itemprop="author">
                   {%- if articles[artist_name].image -%}
                     <div class="author-image"><img src="{{ articles[artist_name].image | img_url: '63x63' }}" alt="{{ articles[artist_name].title | escape }}" /></div>
@@ -71,12 +72,6 @@
                   </div>
                 </div>
               {%- endif -%}            
-
-              
-
-            {%- when 'author'-%}            
-
-            
 
             {%- when 'share' -%}
                 <div class="fun-blog-detail__actions" {{ block.shopify_attributes }}>
