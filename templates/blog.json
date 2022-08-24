@@ -1,0 +1,48 @@
+{
+  "sections": {
+    "165646623758e36076": {
+      "type": "custom-home-textbanner",
+      "settings": {
+        "heading": "NEWS + ESSAYS",
+        "subheading": "",
+        "discription": "",
+        "hide_divider": true,
+        "text_content_position": "left",
+        "padding_top": 32,
+        "padding_bottom": 32
+      }
+    },
+    "1656465290ce5db440": {
+      "type": "fun-featured-header",
+      "settings": {
+        "product_image_banner": "shopify:\/\/shop_images\/Rectangle_51_d2732539-c342-4f85-ba67-7a50fc893ff0.png",
+        "product_list_header": "Long headline on two lines to turn your visitors into users and achieve more",
+        "product_list_description": "<p>Separated they live in Bookmarks right at the coast of the famous Semantics, large language ocean Separated they live in Bookmarks right at the coast<\/p>",
+        "product_list_url": "#",
+        "product_list_url_button": "Read more",
+        "padding_top": 0,
+        "padding_bottom": 60
+      }
+    },
+    "main": {
+      "type": "main-blog",
+      "settings": {
+        "news_label": "Latest News",
+        "essay_label": "Latest Essays",
+        "show_image": true,
+        "image_height": "medium",
+        "show_date": true,
+        "show_author": false,
+        "news_padding_top": 64,
+        "news_padding_bottom": 88,
+        "essays_padding_top": 88,
+        "essays_padding_bottom": 162
+      }
+    }
+  },
+  "order": [
+    "165646623758e36076",
+    "1656465290ce5db440",
+    "main"
+  ]
+}

@@ -1,0 +1,130 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<section class="section section-lg fun-hihc__section fun-hihc__section--{% if section.settings.image_position == "right" %}right {% else %}left {% endif %}section-{{ section.id }}-padding">
+    <div class="container-xxl">
+        <div class="row">
+            <div class="col-lg-10">
+                <div class="fun-product-list__banner-wrapper fun-product-list__banner-wrapper--padding mb-4 mb-lg-0">
+                  {%- if section.settings.product_image_banner -%}
+                    <img
+                        class="fun-product-list__banner-img"
+                        srcset="{%- if section.settings.product_image_banner.width >= 375 -%}{{ section.settings.product_image_banner | image_url: width: 375 }} 375w,{%- endif -%}
+                        {%- if section.settings.product_image_banner.width >= 550 -%}{{ section.settings.product_image_banner | image_url: width: 550 }} 550w,{%- endif -%}
+                        {%- if section.settings.product_image_banner.width >= 750 -%}{{ section.settings.product_image_banner | image_url: width: 750 }} 750w,{%- endif -%}
+                        {%- if section.settings.product_image_banner.width >= 1100 -%}{{ section.settings.product_image_banner | image_url: width: 1100 }} 1100w,{%- endif -%}
+                        {%- if section.settings.product_image_banner.width >= 1500 -%}{{ section.settings.product_image_banner | image_url: width: 1500 }} 1500w,{%- endif -%}
+                        {%- if section.settings.product_image_banner.width >= 1780 -%}{{ section.settings.product_image_banner | image_url: width: 1780 }} 1780w,{%- endif -%}
+                        {%- if section.settings.product_image_banner.width >= 2000 -%}{{ section.settings.product_image_banner | image_url: width: 2000 }} 2000w,{%- endif -%}
+                        {%- if section.settings.product_image_banner.width >= 3000 -%}{{ section.settings.product_image_banner | image_url: width: 3000 }} 3000w,{%- endif -%}
+                        {%- if section.settings.product_image_banner.width >= 3840 -%}{{ section.settings.product_image_banner | image_url: width: 3840 }} 3840w,{%- endif -%}
+                        {{ section.settings.product_image_banner | image_url }} {{ section.settings.product_image_banner.width }}w"
+                        sizes="100vw"
+                        src="{{ section.settings.product_image_banner | image_url: width: 1500 }}"
+                        loading="lazy"
+                        alt="{{ section.settings.product_image_banner.alt | escape }}"
+                        width="{{ section.settings.product_image_banner.width }}"
+                        height="{{ section.settings.product_image_banner.width | divided_by: section.settings.product_image_banner.aspect_ratio | round }}"
+                    >
+                  {%- else -%}
+                  {{ 'lifestyle-2' | placeholder_svg_tag: 'placeholder-svg' }}
+                  {%- endif -%}
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="fun-product-list__banner-header fun-product-list__banner-header--full">
+                  <header>
+                    <h1>
+                      {{ section.settings.product_list_header }}
+                    </h1>
+                    <div class="fun-product-list__banner-content">
+                      {{ section.settings.product_list_description }}
+                    </div>
+                    <a href="{{ section.settings.product_list_url }}" class="fun-product-list__link">{{ section.settings.product_list_url_button }}</a>
+                  </header>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{%- if request.design_mode -%}
+  <script src="{{ 'theme-editor.js' | asset_url }}" defer="defer"></script>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Fun featured header",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+        "type": "header",
+        "content": "Half image half content"
+    },
+    {
+        "type": "image_picker",
+        "id": "product_image_banner",
+        "label": "Product List image banner"
+    },
+    {
+        "type": "text",
+        "id": "product_list_header",
+        "default": "Header Product",
+        "label":"Product List Header "
+    },
+    {
+        "type": "richtext",
+        "id": "product_list_description",
+        "default": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+        "label": "Product List Description"
+    },
+    {
+        "type": "url",
+        "id": "product_list_url",
+        "label": "Link url"
+    },
+    {
+        "type": "text",
+        "id": "product_list_url_button",
+        "label": "Product List Url button"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 120,
+      "step": 2,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    }
+  ],
+  "presets": [
+    {
+      "name": "Fun featured header"
+    }
+  ]
+}
+{% endschema %}

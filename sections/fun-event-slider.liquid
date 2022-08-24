@@ -1,0 +1,171 @@
+<link rel="stylesheet" href="{{ 'component-slider.css' | asset_url }}" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="{{ 'component-card.css' | asset_url }}" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="{{ 'component-article-card.css' | asset_url }}" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="{{ 'section-featured-blog.css' | asset_url }}" media="print" onload="this.media='all'">
+
+<noscript>{{ 'component-slider.css' | asset_url | stylesheet_tag }}</noscript>
+<noscript>{{ 'component-card.css' | asset_url | stylesheet_tag }}</noscript>
+<noscript>{{ 'component-article-card.css' | asset_url | stylesheet_tag }}</noscript>
+
+{{ 'section-featured-blog.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  .card{
+    border: 0;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+{%- liquid
+  assign posts_displayed = section.settings.blog.articles_count
+  if section.settings.post_limit <= section.settings.blog.articles_count
+    assign posts_exceed_limit = true
+    assign posts_displayed = section.settings.post_limit
+  endif
+-%}
+
+<section class="section fun-ex-blogs__section section-{{ section.id }}-padding">
+  <div class="container-xxl">
+    <div class="row fun-ex-blogs__row">
+      <div class="col-16">
+        <h2 class="fun-ex-blogs__title">{{ section.settings.heading }}</h2>
+        <div class='fun-ex-blogs__sub-title-wrapper'>
+          <h3 class="fun-ex-blogs__sub-title mb-0">Upcoming</h3>
+        </div>
+      </div>
+
+      <div class="col-md-16">
+        <div id="fun_hihc_slider1" class="fun-banner__carousel carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            {%- for article in section.settings.blog.articles -%}
+                {% comment %} {% assign activeClass = '' %}
+                {% if forloop.first == true %} {% assign activeClass = 'active' %}{% endif %} {% endcomment %}
+                {% assign today_date = 'now' | date: '%s' %}
+                {% assign pre_date = article.metafields.custom.start_date | date: '%s' %}
+                {% assign post_date = article.metafields.custom.end_date | date: '%s' %}
+                {% if today_date < pre_date %}
+                    <div class="carousel-item {% if forloop.index == 1 %} active {% endif %}">
+                      <article class="fun-ex-blogs__card">
+                        <figure class="fun-ex-blogs__fig">
+                          <img
+                            srcset="{%- if article.image.src.width >= 165 -%}{{ article.image.src | image_url: width: 165 }} 165w,{%- endif -%}
+                              {%- if article.image.src.width >= 360 -%}{{ article.image.src | image_url: width: 360 }} 360w,{%- endif -%}
+                              {%- if article.image.src.width >= 533 -%}{{ article.image.src | image_url: width: 533 }} 533w,{%- endif -%}
+                              {%- if article.image.src.width >= 720 -%}{{ article.image.src | image_url: width: 720 }} 720w,{%- endif -%}
+                              {%- if article.image.src.width >= 1000 -%}{{ article.image.src | image_url: width: 1000 }} 1000w,{%- endif -%}
+                              {%- if article.image.src.width >= 1500 -%}{{ article.image.src | image_url: width: 1500 }} 1500w,{%- endif -%}
+                              {{ article.image.src | image_url }} {{ article.image.src.width }}w"
+                            src="{{ article.image.src | image_url: width: 533 }}"
+                            sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px, (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)"
+                            alt="{{ article.image.src.alt | escape }}"
+                            class="motion-reduce fun-ex-blogs__img"
+                            loading="lazy"
+                            width="{{ article.image.width }}"
+                            height="{{ article.image.height }}"
+                          >
+                        </figure>
+                        <div class="fun-ex-blogs__card-desc">
+                            <a class="fun-ex-blogs__card-title" href="{{ article.url }}">{{ article.title }}</a>
+                            <date class="fun-event__date">{{ article.metafields.custom.start_date | date: "%b %d" }} - {{ article.metafields.custom.end_date | date: "%b %d, %Y" }}</date>
+
+                            <p class="fun-ex-blogs__card-subtitle">
+                              {%- if article.excerpt.size > 0 or article.content.size > 0 -%}
+                                  {%- if article.excerpt.size > 0 -%}
+                                    {{ article.excerpt | strip_html | truncatewords: 30 }}
+                                  {%- else -%}
+                                    {{ article.content | strip_html | truncatewords: 30 }}
+                                  {%- endif -%}
+                              {%- endif -%}
+                            </p>
+
+                        </div>
+                      </article>
+                    </div>
+                {% endif %}
+
+            {%- endfor -%}
+          </div>
+          {%- if section.settings.blog.articles > 1 -%}
+          <div class="fun-banner__actions">
+              <button class="btn fun-banner__prev-btn p-0" aria-label="previous" data-bs-target="#fun_hihc_slider1" data-bs-slide="prev">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M15.41 7.41L14 6L8 12L14 18L15.41 16.59L10.83 12L15.41 7.41Z" fill="#323232"/>
+                  </svg>
+              </button>
+              <button class="btn fun-banner__next-btn p-0" aria-label="next" data-bs-target="#fun_hihc_slider1" data-bs-slide="next">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M10 6L8.59003 7.41L13.17 12L8.59003 16.59L10 18L16 12L10 6Z" fill="#323232"/>
+                  </svg>
+              </button>
+          </div>
+          {%- endif -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+<script src="{{ 'bootstrap.min.js' | asset_url }}" defer></script>
+
+{% schema %}
+{
+  "name": "fun event slider",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+
+    {
+      "type": "blog",
+      "id": "blog",
+      "label": "t:sections.featured-blog.settings.blog.label"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Header title"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    }
+  ],
+  "presets": [
+    {
+      "name": "fun event slider",
+      "settings": {
+        "blog": "Events"
+      }
+    }
+  ]
+}
+{% endschema %}

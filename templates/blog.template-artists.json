@@ -1,0 +1,15 @@
+{
+  "sections": {
+    "165708280786d9e7fd": {
+      "type": "featured-artists",
+      "settings": {
+        "heading": "Artists",
+        "blog": "artists",
+        "image": "shopify:\/\/shop_images\/Rectangle_49.jpg"
+      }
+    }
+  },
+  "order": [
+    "165708280786d9e7fd"
+  ]
+}

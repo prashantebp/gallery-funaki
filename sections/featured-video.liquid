@@ -1,0 +1,144 @@
+{{ 'video-section.css' | asset_url | stylesheet_tag }}
+{{ 'component-deferred-media.css' | asset_url | stylesheet_tag }}
+{% assign video_url = section.settings.video.metafields.accentuate.video_url %}
+
+{% comment %} First of all, we get last part of the URL that's supposedly the Youtube Video ID {% endcomment %}
+
+{% assign video_type = video_url | split: '.com' | first %}
+{% assign video_type = video_type | split: 'www.' | last %}
+
+{% assign video_id = video_url | split: '/' | last %}
+
+{% comment %} but we need strip any extra URL params {% endcomment %}
+{% assign video_id = video_id | split: '?' | last %}
+
+
+{% comment %} Finally, remove any hash string {% endcomment %}
+{% assign video_id = video_id | split: 'v=' | last %}
+
+{% if video_url contains "vimeo.com" %}
+  {% assign video_id = video_url | split: '/' | last %}
+  {% assign video_id = video_id | split: 'vimeo.com' | last %}
+{% endif %}
+
+<section class="section section-{{ section.id }}-padding">
+  <div class="container-xxl">
+    <div class="row">
+      <div class="col-16">
+          {%- unless section.settings.section_heading == blank -%}
+            <div class="fun-product-list__title-wrapper">
+              <div class="fun-product-list__title">
+                <h2>{{ section.settings.section_heading }}</h2>
+              </div>
+            </div>
+          {%- endunless -%}
+          
+        <noscript>
+          <div class="video-section__media"
+            {% if section.settings.video.image != blank %} style="padding-bottom: {{ 1 | divided_by: section.settings.video.image.aspect_ratio | times: 100 }}%;"{% endif %}
+          >
+            <a href="{{ video_url }}" class="video-section__poster media media--transparent media--landscape{% if section.settings.video.image == blank %} video-section__placeholder{% endif %}">
+              {%- if section.settings.video.image != blank -%}
+                <img
+                  srcset="{%- if section.settings.video.image.width >= 375 -%}{{ section.settings.video.image | image_url: width: 375 }} 375w,{%- endif -%}
+                    {%- if section.settings.video.image.width >= 750 -%}{{ section.settings.video.image | image_url: width: 750 }} 750w,{%- endif -%}
+                    {%- if section.settings.video.image.width >= 1100 -%}{{ section.settings.video.image | image_url: width: 1100 }} 1100w,{%- endif -%}
+                    {%- if section.settings.video.image.width >= 1500 -%}{{ section.settings.video.image | image_url: width: 1500 }} 1500w,{%- endif -%}
+                    {%- if section.settings.video.image.width >= 1780 -%}{{ section.settings.video.image | image_url: width: 1780 }} 1780w,{%- endif -%}
+                    {%- if section.settings.video.image.width >= 2000 -%}{{ section.settings.video.image | image_url: width: 2000 }} 2000w,{%- endif -%}
+                    {%- if section.settings.video.image.width >= 3000 -%}{{ section.settings.video.image | image_url: width: 3000 }} 3000w,{%- endif -%}
+                    {%- if section.settings.video.image.width >= 3840 -%}{{ section.settings.video.image | image_url: width: 3840 }} 3840w,{%- endif -%}
+                    {{ section.settings.video.image | image_url }} {{ section.settings.video.image.width }}w"
+                  src="{{ section.settings.video.image | image_url: width: 1920 }}"
+                  sizes="{% if section.settings.full_width %}100vw{% else %}(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 }}px, (min-width: 750px) calc(100vw - 10rem), 100vw{% endif %}"
+                  alt="{{ 'sections.video.load_video' | t: description: section.settings.description | escape }}"
+                  loading="lazy"
+                  width="{{ section.settings.video.image.width }}"
+                  height="{{ section.settings.video.image.height }}"
+                >
+              {%- else -%}
+                {{ 'collection-2' | placeholder_svg_tag: 'placeholder-svg placeholder' }}
+              {%- endif -%}
+            </a>
+          </div>
+        </noscript>
+        <deferred-media class="video-section__media deferred-media no-js-hidden gradient global-media-settings" data-media-id="{{ video_id }}"
+          {% if section.settings.video.image != blank %} style="padding-bottom: {{ 1 | divided_by: section.settings.video.image.aspect_ratio | times: 100 }}%;"{% endif %}
+        >
+          <button
+            id="Deferred-Poster-Modal-{{ video_id }}"
+            class="video-section__poster media deferred-media__poster media--landscape"
+            type="button"
+          >
+            {%- if section.settings.video.image != blank -%}
+              <img
+                srcset="{%- if section.settings.video.image.width >= 375 -%}{{ section.settings.video.image | image_url: width: 375 }} 375w,{%- endif -%}
+                  {%- if section.settings.video.image.width >= 750 -%}{{ section.settings.video.image | image_url: width: 750 }} 750w,{%- endif -%}
+                  {%- if section.settings.video.image.width >= 1100 -%}{{ section.settings.video.image | image_url: width: 1100 }} 1100w,{%- endif -%}
+                  {%- if section.settings.video.image.width >= 1500 -%}{{ section.settings.video.image | image_url: width: 1500 }} 1500w,{%- endif -%}
+                  {%- if section.settings.video.image.width >= 1780 -%}{{ section.settings.video.image | image_url: width: 1780 }} 1780w,{%- endif -%}
+                  {%- if section.settings.video.image.width >= 2000 -%}{{ section.settings.video.image | image_url: width: 2000 }} 2000w,{%- endif -%}
+                  {%- if section.settings.video.image.width >= 3000 -%}{{ section.settings.video.image | image_url: width: 3000 }} 3000w,{%- endif -%}
+                  {%- if section.settings.video.image.width >= 3840 -%}{{ section.settings.video.image | image_url: width: 3840 }} 3840w,{%- endif -%}
+                  {{ section.settings.video.image | image_url }} {{ section.settings.video.image.width }}w"
+                src="{{ section.settings.video.image | image_url: width: 1920 }}"
+                sizes="{% if section.settings.full_width %}100vw{% else %}(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 }}px, (min-width: 750px) calc(100vw - 10rem), 100vw{% endif %}"
+                alt="{{ 'sections.video.load_video' | t: description: section.settings.description | escape }}"
+                loading="lazy"
+                width="{{ section.settings.video.image.width }}"
+                height="{{ section.settings.video.image.height }}"
+              >
+            {%- else -%}
+              {{ 'collection-2' | placeholder_svg_tag: 'placeholder-svg placeholder' }}
+            {%- endif -%}
+            <span class="deferred-media__poster-button motion-reduce">
+              {%- render 'icon-play' -%}
+            </span>
+          </button>
+          <template>
+            {%- if video_type == 'youtube' -%}
+              <iframe src="https://www.youtube.com/embed/{{ video_id }}?enablejsapi=1" class="js-youtube" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            {%- else -%}
+              <iframe src="https://player.vimeo.com/video/{{ video_id }}" class="js-vimeo" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            {%- endif -%}
+          </template>
+        </deferred-media>
+        <div class='fun-video-banner__content'>
+          <h2>{{ section.settings.video.title }}</h2>
+          <div class="date">{{ section.settings.video.published_at | date: "%b %d %Y" }}</div>
+          <div class="content">{{ section.settings.video.content }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+  {
+    "name": "Featured Video",
+    "settings": [
+      {
+        "type": "text",
+        "id": "section_heading",
+        "label": "Section Heading",
+        "default": "Videos"
+      },
+      {
+        "type": "article",
+        "id": "video",
+        "label": "Choose Video"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Featured Video"
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

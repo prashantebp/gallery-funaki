@@ -1,0 +1,226 @@
+{{ 'section-image-banner.css' | asset_url | stylesheet_tag }}
+{{ 'component-slider.css' | asset_url | stylesheet_tag }}
+{{ 'component-slideshow.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+{%- if section.settings.slide_height == 'adapt_image' and section.blocks.first.settings.image != blank -%}
+  {%- style -%}
+  @media screen and (max-width: 749px) {
+    #Slider-{{ section.id }}::before,
+    #Slider-{{ section.id }} .media::before,
+    #Slider-{{ section.id }}:not(.banner--mobile-bottom) .banner__content::before {
+      padding-bottom: {{ 1 | divided_by: section.blocks.first.settings.image.aspect_ratio | times: 100 }}%;
+      content: '';
+      display: block;
+    }
+  }
+
+  @media screen and (min-width: 750px) {
+    #Slider-{{ section.id }}::before,
+    #Slider-{{ section.id }} .media::before {
+      padding-bottom: {{ 1 | divided_by: section.blocks.first.settings.image.aspect_ratio | times: 100 }}%;
+      content: '';
+      display: block;
+    }
+  }
+  {%- endstyle -%}
+{%- endif -%}
+
+<section class="section section-lg fun-hihc__section fun-hihc__section--{% if section.settings.image_position == "right" %}right {% else %}left {% endif %}section-{{ section.id }}-padding">
+    <div class="container-xxl">
+        <div class="row">
+            {% if section.settings.image_position == "right" %}
+                <div class="col-md-8 col-xl-5 offset-xl-1">
+                  <div class="fun-hihc__content">
+                    <h2 class="section-title">{{ section.settings.header }}</h2>
+                    <div class="fun-hihc__desc">
+                        <p>{{ section.settings.content }}</p>
+                    </div>
+                    {% if section.settings.show_link %}
+                        <a class="fun-hihc__author" href="{{ section.settings.url_link }}">{{ section.settings.url_text }}</a>
+                    {% endif %}
+                  </div>
+                </div>
+                <div class="col-md-8 col-xl-9 offset-xl-1">
+                  <div class="fun-hihc__figure">
+                    {%- if section.settings.image -%}
+                        <img
+                            class="fun-banner__slider-img"
+                            srcset="{%- if section.settings.image.width >= 375 -%}{{ section.settings.image | image_url: width: 375 }} 375w,{%- endif -%}
+                            {%- if section.settings.image.width >= 550 -%}{{ section.settings.image | image_url: width: 550 }} 550w,{%- endif -%}
+                            {%- if section.settings.image.width >= 750 -%}{{ section.settings.image | image_url: width: 750 }} 750w,{%- endif -%}
+                            {%- if section.settings.image.width >= 1100 -%}{{ section.settings.image | image_url: width: 1100 }} 1100w,{%- endif -%}
+                            {%- if section.settings.image.width >= 1500 -%}{{ section.settings.image | image_url: width: 1500 }} 1500w,{%- endif -%}
+                            {%- if section.settings.image.width >= 1780 -%}{{ section.settings.image | image_url: width: 1780 }} 1780w,{%- endif -%}
+                            {%- if section.settings.image.width >= 2000 -%}{{ section.settings.image | image_url: width: 2000 }} 2000w,{%- endif -%}
+                            {%- if section.settings.image.width >= 3000 -%}{{ section.settings.image | image_url: width: 3000 }} 3000w,{%- endif -%}
+                            {%- if section.settings.image.width >= 3840 -%}{{ section.settings.image | image_url: width: 3840 }} 3840w,{%- endif -%}
+                            {{ section.settings.image | image_url }} {{ section.settings.image.width }}w"
+                            sizes="100vw"
+                            src="{{ section.settings.image | image_url: width: 1500 }}"
+                            loading="lazy"
+                            alt="{{ section.settings.image.alt | escape }}"
+                            width="{{ section.settings.image.width }}"
+                            height="{{ section.settings.image.width | divided_by: section.settings.image.aspect_ratio | round }}"
+                        >
+                    {%- else -%}
+                    {{ 'lifestyle-2' | placeholder_svg_tag: 'placeholder-svg' }}
+                    {%- endif -%}
+                  </div>
+                </div>
+            {% else %}
+                <div class="col-md-8 col-xl-9">
+                  <div class="fun-hihc__figure">
+                    {%- if section.settings.image -%}
+                      <img
+                          class="fun-banner__slider-img"
+                          srcset="{%- if section.settings.image.width >= 375 -%}{{ section.settings.image | image_url: width: 375 }} 375w,{%- endif -%}
+                          {%- if section.settings.image.width >= 550 -%}{{ section.settings.image | image_url: width: 550 }} 550w,{%- endif -%}
+                          {%- if section.settings.image.width >= 750 -%}{{ section.settings.image | image_url: width: 750 }} 750w,{%- endif -%}
+                          {%- if section.settings.image.width >= 1100 -%}{{ section.settings.image | image_url: width: 1100 }} 1100w,{%- endif -%}
+                          {%- if section.settings.image.width >= 1500 -%}{{ section.settings.image | image_url: width: 1500 }} 1500w,{%- endif -%}
+                          {%- if section.settings.image.width >= 1780 -%}{{ section.settings.image | image_url: width: 1780 }} 1780w,{%- endif -%}
+                          {%- if section.settings.image.width >= 2000 -%}{{ section.settings.image | image_url: width: 2000 }} 2000w,{%- endif -%}
+                          {%- if section.settings.image.width >= 3000 -%}{{ section.settings.image | image_url: width: 3000 }} 3000w,{%- endif -%}
+                          {%- if section.settings.image.width >= 3840 -%}{{ section.settings.image | image_url: width: 3840 }} 3840w,{%- endif -%}
+                          {{ section.settings.image | image_url }} {{ section.settings.image.width }}w"
+                          sizes="100vw"
+                          src="{{ section.settings.image | image_url: width: 1500 }}"
+                          loading="lazy"
+                          alt="{{ section.settings.image.alt | escape }}"
+                          width="{{ section.settings.image.width }}"
+                          height="{{ section.settings.image.width | divided_by: section.settings.image.aspect_ratio | round }}"
+                      >
+                  {%- else -%}
+                  {{ 'lifestyle-2' | placeholder_svg_tag: 'placeholder-svg' }}
+                  {%- endif -%}
+                </div>
+              </div>
+              <div class="col-md-8 col-xl-6 offset-xl-1">
+                <div class="fun-hihc__content">
+                    <h2 class="section-title">{{ section.settings.header }}</h2>
+                    <div class="fun-hihc__desc">
+                        <p>{{ section.settings.content }}</p>
+                    </div>
+                    {% if section.settings.show_link %}
+                        <a class="fun-hihc__author" href="{{ section.settings.url_link }}">{{ section.settings.url_text }}</a>
+                    {% endif %}
+                </div>
+              </div>
+            {% endif %}
+        </div>
+    </div>
+</section>
+
+{%- if request.design_mode -%}
+  <script src="{{ 'theme-editor.js' | asset_url }}" defer="defer"></script>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Fun hihc",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+        "type": "header",
+        "content": "Half image half content"
+    },
+    {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image picker"
+    },
+    {
+        "type": "select",
+        "id": "image_position",
+        "options": [
+            {
+            "value": "left",
+            "label": "left"
+            },
+            {
+            "value": "right",
+            "label": "right"
+            }
+        ],
+        "default": "left",
+        "label": "Position of image in hihc"
+    },
+    {
+        "type": "text",
+        "id": "header",
+        "placeholder": "Heading text",
+        "default": "Header text",
+        "label": "Content header of hihc"
+    },
+    {
+        "type": "textarea",
+        "id": "content",
+        "placeholder": "hihc content",
+        "default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ultricies ullamcorper tellus, scelerisque et ipsum. Molestie condimentum sed vitae, facilisis rhoncus. Tempus, interdum turpis sagittis volutpat suspendisse id. Semper commodo interdum tellus pulvinar sit lacus at at molestie. In arcu elit molestie non in. Sed aliquet ut lacus in felis. ",
+        "label": "Content text of HIHC"
+    },
+    {
+        "type": "checkbox",
+        "id": "show_link",
+        "default": false,
+        "label": "show shortcut link"
+    },
+    {
+        "type": "text",
+        "id": "url_text",
+        "placeholder": "Url text",
+        "label": "contact us",
+        "default": "write url text to navigate"
+    },
+    {
+        "type": "url",
+        "id": "url_link",
+        "label": "URL"
+    },
+    {
+      "type": "header",
+      "content": "Section Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 160,
+      "step": 2,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    }
+  ],
+  "presets": [
+    {
+      "name": "Fun hihc"
+    }
+  ]
+}
+{% endschema %}

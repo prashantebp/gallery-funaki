@@ -1,0 +1,184 @@
+<link rel="stylesheet" href="{{ 'component-slider.css' | asset_url }}" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="{{ 'component-card.css' | asset_url }}" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="{{ 'component-article-card.css' | asset_url }}" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="{{ 'section-featured-blog.css' | asset_url }}" media="print" onload="this.media='all'">
+
+<noscript>{{ 'component-slider.css' | asset_url | stylesheet_tag }}</noscript>
+<noscript>{{ 'component-card.css' | asset_url | stylesheet_tag }}</noscript>
+<noscript>{{ 'component-article-card.css' | asset_url | stylesheet_tag }}</noscript>
+
+{{ 'section-featured-blog.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.5 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.5 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 769px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<section class="section fun-artist-list__section section-{{ section.id }}-padding">
+  <div class="container-xxl">
+      <div class="row">
+          <div class="col-16">
+              <div class="fun-artist-list__title">
+                  <h2 class="mb-0">Artists</h2>
+              </div>
+          </div>
+      </div>
+      <div class="row fun-artist-list__row">
+          <div class="col-md-8">
+              <div class="fun-artist-list__container">
+                  <h3 class="fun-artist-list__subtitle"><span>exhibiting artists</span></h3>
+                  <ul class="fun-artist-list__wrapper">
+
+                    {% assign blog_tag = "exhibiting artists" %}
+                    {%- for article in section.settings.blog.articles limit: section.settings.post_limit -%}
+                        {% if article.tags contains blog_tag %}
+                          <li class="fun-artist-list__item" id="Slide-{{ section.id }}-{{ forloop.index }}">
+                            <a href="{{ article.url }}" data-image-url="{{ article.image.src | image_url }}" class="">
+                              {{ article.title | truncate: 50 | escape }}
+                            </a>
+                          </li>
+                        {% endif %}
+                    {%- endfor -%}
+                  </ul>
+              </div>
+              <div class="fun-artist-list__container">
+                  <h3 class="fun-artist-list__subtitle"><span>Stock + Guest Artists</span></h3>
+                  <ul class="fun-artist-list__wrapper">
+                    {% assign blog_tag_2 = "Stock + Guest Artists" %}
+                    {%- for article in section.settings.blog.articles limit: section.settings.post_limit -%}
+                      {% if article.tags contains blog_tag_2 %}                         
+                        <li class="fun-artist-list__item" id="Slide-{{ section.id }}-{{ forloop.index }}">
+                          <a href="{{ article.url }}" data-image-url="{{ article.image.src | image_url }}" class="">
+                            {{ article.title | truncate: 50 | escape }}                            
+                          </a>
+                        </li>
+                      {% endif %}
+                    {%- endfor -%}
+                  </ul>
+              </div>
+          </div>
+          <div class="col-md-8 col-xl-7 offset-xl-1">
+              <div class="fun-artist-list__img-wrapper">
+                  {%- if section.settings.image != blank -%}
+                    {% comment %}
+                    <img
+                      srcset="{%- if section.settings.image.width >= 165 -%}{{ section.settings.image | image_url: width: 165 }} 165w,{%- endif -%}
+                        {%- if section.settings.image.width >= 360 -%}{{ section.settings.image | image_url: width: 360 }} 360w,{%- endif -%}
+                        {%- if section.settings.image.width >= 535 -%}{{ section.settings.image | image_url: width: 535 }} 535w,{%- endif -%}
+                        {%- if section.settings.image.width >= 750 -%}{{ section.settings.image | image_url: width: 750 }} 750w,{%- endif -%}
+                        {%- if section.settings.image.width >= 1070 -%}{{ section.settings.image | image_url: width: 1070 }} 1070w,{%- endif -%}
+                        {%- if section.settings.image.width >= 1500 -%}{{ section.settings.image | image_url: width: 1500 }} 1500w,{%- endif -%}
+                        {{ section.settings.image | image_url }} {{ section.settings.image.width }}w"
+                      src="{{ section.settings.image | image_url: width: 1500 }}"
+                      sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px, (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)"
+                      alt="{{ section.settings.image.alt | escape }}"
+                      loading="lazy"
+                      width="{{ section.settings.image.width }}"
+                      height="{{ section.settings.image.height }}"
+                    >
+                     {% endcomment %}
+                    <img                      
+                      src="{{ section.settings.image | image_url: width: 1500 }}"
+                      sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px, (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)"
+                      alt="{{ section.settings.image.alt | escape }}"
+                      loading="lazy"
+                      width="{{ section.settings.image.width }}"
+                      height="{{ section.settings.image.height }}"
+                    >
+                  {%- else -%}
+                    {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+                  {%- endif -%}
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+<script>
+  var artistImage = document.querySelector(".fun-artist-list__item a"),
+    imageWrapper = document.querySelector(".fun-artist-list__img-wrapper img");
+    
+  document.addEventListener("mouseover", changeImageSrc);
+  
+  function changeImageSrc(e) {
+    var imageSrc = e.target.getAttribute('data-image-url');
+    if(imageSrc != null) {
+      var allList = document.querySelectorAll('.fun-artist-list__item a');
+      for (let i = 0; i < allList.length; i++) {
+        allList[i].classList.remove("active");
+      }
+      e.target.classList.add("active");
+
+      imageWrapper.src=imageSrc;
+    }
+  }
+ 
+
+  
+</script>
+
+{% schema %}
+{
+  "name": " Featured Artists",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "default": "Blog posts",
+      "label": "t:sections.featured-blog.settings.heading.label"
+    },
+    {
+      "type": "blog",
+      "id": "blog",
+      "label": "t:sections.featured-blog.settings.blog.label"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Thumb Image"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 150,
+      "step": 2,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 128
+    }
+  ],
+  "presets": [
+    {
+      "name": "Featured Artists",
+      "settings": {
+        "blog": "artists"
+      }
+    }
+  ]
+}
+{% endschema %}

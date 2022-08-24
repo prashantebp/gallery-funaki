@@ -1,0 +1,53 @@
+{
+  "sections": {
+    "banner": {
+      "type": "main-collection-banner",
+      "disabled": true,
+      "settings": {
+        "show_collection_description": true,
+        "show_collection_image": false,
+        "color_scheme": "background-1"
+      }
+    },
+    "product-grid": {
+      "type": "main-collection-product-grid-boost-pfs-original",
+      "settings": {
+        "seasonal_filter_no_1_enable": true,
+        "seasonal_filter_no_1_label": "test",
+        "seasonal_filter_no_1_linklist": "main-menu",
+        "seasonal_filter_no_2_enable": false,
+        "seasonal_filter_no_2_label": "",
+        "seasonal_filter_no_2_linklist": "",
+        "seasonal_filter_no_3_enable": false,
+        "seasonal_filter_no_3_label": "",
+        "seasonal_filter_no_3_linklist": "",
+        "seasonal_filter_no_4_enable": false,
+        "seasonal_filter_no_4_label": "",
+        "seasonal_filter_no_4_linklist": "",
+        "products_per_page": 16,
+        "columns_desktop": 4,
+        "image_ratio": "adapt",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": false,
+        "enable_quick_add": false,
+        "enable_filtering": true,
+        "filter_type": "vertical",
+        "enable_sorting": true,
+        "columns_mobile": "2",
+        "padding_top": 36,
+        "padding_bottom": 152,
+        "product_list_enable_header": true,
+        "product_image_banner": "shopify:\/\/shop_images\/Rectangle_51_d2732539-c342-4f85-ba67-7a50fc893ff0.png",
+        "product_list_header": "New collection",
+        "product_list_description": "<p>Separated they live in Bookmarks right at the coast of the famous Semantics, large language ocean Separated they live in Bookmarks right at the coast<\/p>",
+        "product_list_url": "shopify:\/\/collections\/frontpage",
+        "product_list_url_button": "View collection"
+      }
+    }
+  },
+  "order": [
+    "banner",
+    "product-grid"
+  ]
+}

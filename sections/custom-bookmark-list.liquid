@@ -1,0 +1,302 @@
+<link rel="stylesheet" href="{{ 'component-slider.css' | asset_url }}" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="{{ 'component-card.css' | asset_url }}" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="{{ 'component-article-card.css' | asset_url }}" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="{{ 'section-featured-blog.css' | asset_url }}" media="print" onload="this.media='all'">
+
+<noscript>{{ 'component-slider.css' | asset_url | stylesheet_tag }}</noscript>
+<noscript>{{ 'component-card.css' | asset_url | stylesheet_tag }}</noscript>
+<noscript>{{ 'component-article-card.css' | asset_url | stylesheet_tag }}</noscript>
+
+{{ 'section-featured-blog.css' | asset_url | stylesheet_tag }}
+{{ 'splide.min.css' | asset_url | stylesheet_tag }}
+{%- style -%}
+  @media screen and (min-width: 560px){
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+      padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+    }
+  }
+
+  .card{
+    border: 0;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+{%- liquid
+  assign posts_displayed = section.settings.blog.articles_count
+  if section.settings.post_limit <= section.settings.blog.articles_count
+    assign posts_exceed_limit = true
+    assign posts_displayed = section.settings.post_limit
+  endif
+-%}
+
+<section class="section fun-bookmark__section section-{{ section.id }}-padding">
+  <div class="container-xxl">
+    <div class="row fun-bookmark__row d-none d-md-flex justify-content-center justify-content-lg-between">
+      {%- for article in section.settings.blog.articles limit: section.settings.post_limit -%}
+        <div class="col-md-4">
+          <article class="fun-bookmark__card">
+            <figure class="fun-bookmark__fig">
+
+              <img
+                srcset="{%- if article.image.src.width >= 165 -%}{{ article.image.src | image_url: width: 165 }} 165w,{%- endif -%}
+                  {%- if article.image.src.width >= 360 -%}{{ article.image.src | image_url: width: 360 }} 360w,{%- endif -%}
+                  {%- if article.image.src.width >= 533 -%}{{ article.image.src | image_url: width: 533 }} 533w,{%- endif -%}
+                  {%- if article.image.src.width >= 720 -%}{{ article.image.src | image_url: width: 720 }} 720w,{%- endif -%}
+                  {%- if article.image.src.width >= 1000 -%}{{ article.image.src | image_url: width: 1000 }} 1000w,{%- endif -%}
+                  {%- if article.image.src.width >= 1500 -%}{{ article.image.src | image_url: width: 1500 }} 1500w,{%- endif -%}
+                  {{ article.image.src | image_url }} {{ article.image.src.width }}w"
+                src="{{ article.image.src | image_url: width: 533 }}"
+                sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px, (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)"
+                alt="{{ article.image.src.alt | escape }}"
+                class="motion-reduce fun-bookmark__img"
+                loading="lazy"
+                width="{{ article.image.width }}"
+                height="{{ article.image.height }}"
+              >
+              <a href="{{ article.url }}" class="fun-bookmark__link fun-bookmark__link--hidden">
+                <span>{{ article.url }}</span>
+              </a>
+            </figure>
+            <div class="d-flex flex-column fun-bookmark__content-wrapper">
+                <a class="fun-bookmark__card-title" href="{{ article.url }}">{{ article.title }}</a>
+                <h4 class="fun-bookmark__subtitle section-subtitle mb-0">
+                  {%- if article.excerpt.size > 0 or article.content.size > 0 -%}
+                      {%- if article.excerpt.size > 0 -%}
+                        {{ article.excerpt | strip_html | truncatewords: 10 }}
+                      {%- else -%}
+                        {{ article.content | strip_html | truncatewords: 10 }}
+                      {%- endif -%}
+                  {%- endif -%}
+                </h4>
+                <date class="fun-bookmark__date">{{ article.published_at | time_tag: format: 'date' }}</date>
+            </div>
+          </article>
+
+        </div>
+      {%- endfor -%}
+    </div>
+    <div class="row splide js-splide-1">
+        <div class="splide__track d-flex d-md-none">
+            <ul class="splide__list">
+              {%- for article in section.settings.blog.articles limit: section.settings.post_limit -%}
+                <li class="splide__slide">
+                    <article class="fun-bookmark__card">
+                        <figure class="fun-bookmark__fig">
+                            <a href="{{ article.url }}" class="fun-bookmark__link fun-bookmark__link--hidden">
+                              {{ article.url }}
+                            </a>
+                            <img
+                                srcset="{%- if article.image.src.width >= 165 -%}{{ article.image.src | image_url: width: 165 }} 165w,{%- endif -%}
+                                  {%- if article.image.src.width >= 360 -%}{{ article.image.src | image_url: width: 360 }} 360w,{%- endif -%}
+                                  {%- if article.image.src.width >= 533 -%}{{ article.image.src | image_url: width: 533 }} 533w,{%- endif -%}
+                                  {%- if article.image.src.width >= 720 -%}{{ article.image.src | image_url: width: 720 }} 720w,{%- endif -%}
+                                  {%- if article.image.src.width >= 1000 -%}{{ article.image.src | image_url: width: 1000 }} 1000w,{%- endif -%}
+                                  {%- if article.image.src.width >= 1500 -%}{{ article.image.src | image_url: width: 1500 }} 1500w,{%- endif -%}
+                                  {{ article.image.src | image_url }} {{ article.image.src.width }}w"
+                                src="{{ article.image.src | image_url: width: 533 }}"
+                                sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px, (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)"
+                                alt="{{ article.image.src.alt | escape }}"
+                                class="motion-reduce fun-bookmark__img"
+                                loading="lazy"
+                                width="{{ article.image.width }}"
+                                height="{{ article.image.height }}"
+                            >
+                        </figure>
+                        <div class="d-flex flex-column fun-bookmark__content-wrapper">
+                            <a class="fun-bookmark__card-title" href="{{ article.url }}">{{ article.title }}</a>
+                            <h4 class="fun-bookmark__subtitle section-subtitle mb-0">
+                              {%- if article.excerpt.size > 0 or article.content.size > 0 -%}
+                                  {%- if article.excerpt.size > 0 -%}
+                                    {{ article.excerpt | strip_html | truncatewords: 10 }}
+                                  {%- else -%}
+                                    {{ article.content | strip_html | truncatewords: 10 }}
+                                  {%- endif -%}
+                              {%- endif -%}
+                            </h4>
+                            <date class="fun-bookmark__date">{{ article.published_at | time_tag: format: 'date' }}</date>
+                        </div>
+                    </article>
+                </li>
+              {%- endfor -%}
+            </ul>
+            </div>
+            <div class="splide__arrows fun-bookmark__arrows d-flex d-md-none">
+                <button class="splide__arrow splide__arrow--prev fun-bookmark__arrow fun-bookmark__arrow--prev">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M15.41 7.41L14 6L8 12L14 18L15.41 16.59L10.83 12L15.41 7.41Z" fill="#323232"/>
+                    </svg>
+                </button>
+                <button class="splide__arrow splide__arrow--next fun-bookmark__arrow fun-bookmark__arrow--next">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M9.99997 6L8.58997 7.41L13.17 12L8.58997 16.59L9.99997 18L16 12L9.99997 6Z" fill="#323232"/>
+                    </svg>
+                </button>
+            </div>
+    </div>
+  </div>
+</section>
+<script src="{{ 'splide.min.js' | asset_url }}" defer></script>
+<script defer>
+  document.addEventListener('DOMContentLoaded', function(){
+    new Splide( '.js-splide-1', {
+        perMove: 1,
+        {% comment %} gap: "29px", {% endcomment %}
+        autoWidth:true,
+        pagination: false,
+
+    } ).mount();
+  });
+</script>
+{% schema %}
+{
+  "name": "fun bookmark list",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+  /*
+    {
+      "type": "text",
+      "id": "heading",
+      "default": "Blog posts",
+      "label": "t:sections.featured-blog.settings.heading.label"
+    }, */
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        {
+          "value": "h2",
+          "label": "t:sections.all.heading_size.options__1.label"
+        },
+        {
+          "value": "h1",
+          "label": "t:sections.all.heading_size.options__2.label"
+        },
+        {
+          "value": "h0",
+          "label": "t:sections.all.heading_size.options__3.label"
+        }
+      ],
+      "default": "h1",
+      "label": "t:sections.all.heading_size.label"
+    },
+    {
+      "type": "blog",
+      "id": "blog",
+      "label": "t:sections.featured-blog.settings.blog.label"
+    },
+    {
+      "type": "range",
+      "id": "post_limit",
+      "min": 2,
+      "max": 4,
+      "step": 1,
+      "default": 3,
+      "label": "t:sections.featured-blog.settings.post_limit.label"
+    },
+    {
+      "type": "range",
+      "id": "columns_desktop",
+      "min": 1,
+      "max": 4,
+      "step": 1,
+      "default": 3,
+      "label": "t:sections.featured-blog.settings.columns_desktop.label"
+    },
+    {
+      "type": "select",
+      "id": "color_scheme",
+      "options": [
+        {
+          "value": "accent-1",
+          "label": "t:sections.all.colors.accent_1.label"
+        },
+        {
+          "value": "accent-2",
+          "label": "t:sections.all.colors.accent_2.label"
+        },
+        {
+          "value": "background-1",
+          "label": "t:sections.all.colors.background_1.label"
+        },
+        {
+          "value": "background-2",
+          "label": "t:sections.all.colors.background_2.label"
+        },
+        {
+          "value": "inverse",
+          "label": "t:sections.all.colors.inverse.label"
+        }
+      ],
+      "default": "background-1",
+      "label": "t:sections.all.colors.label",
+      "info": "t:sections.all.colors.has_cards_info"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_image",
+      "default": true,
+      "label": "t:sections.featured-blog.settings.show_image.label",
+      "info": "t:sections.featured-blog.settings.show_image.info"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_date",
+      "default": true,
+      "label": "t:sections.featured-blog.settings.show_date.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_author",
+      "default": false,
+      "label": "t:sections.featured-blog.settings.show_author.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_view_all",
+      "default": true,
+      "label": "t:sections.featured-blog.settings.show_view_all.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    }
+  ],
+  "presets": [
+    {
+      "name": "fun bookmark list",
+      "settings": {
+        "blog": "News"
+      }
+    }
+  ]
+}
+{% endschema %}

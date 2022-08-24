@@ -1,0 +1,39 @@
+{
+  "sections": {
+    "16572586200c82480b": {
+      "type": "fun-exhibitions-slider",
+      "settings": {
+        "blog": "exhibitions",
+        "heading": "Exhibitions",
+        "padding_top": 36,
+        "padding_bottom": 28
+      }
+    },
+    "1657267378767ef1ad": {
+      "type": "fun-upcoming-event",
+      "settings": {
+        "section_heading": "Upcoming",
+        "blog": "exhibitions",
+        "large_title": false,
+        "margin_bottom": 88,
+        "post_limits": 12,
+        "padding_top": 24,
+        "padding_bottom": 36
+      }
+    },
+    "165726543288017daf": {
+      "type": "fun-past-event",
+      "settings": {
+        "blog": "exhibitions",
+        "padding_top": 40,
+        "padding_bottom": 152,
+        "margin_bottom": 88
+      }
+    }
+  },
+  "order": [
+    "16572586200c82480b",
+    "1657267378767ef1ad",
+    "165726543288017daf"
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "sections": {
+    "1657253061ca00b37a": {
+      "type": "fun-event-slider",
+      "settings": {
+        "blog": "event",
+        "large_title": false,
+        "padding_top": 36,
+        "padding_bottom": 64,
+        "margin_bottom": 50
+      }
+    },
+    "16572652319ce7ead5": {
+      "type": "fun-past-event",
+      "settings": {
+        "blog": "event",
+        "custom_class": "fun-bookmark__card--past-new",
+        "section_heading": "Past events",
+        "large_title": true,
+        "padding_top": 88,
+        "padding_bottom": 64,
+        "margin_bottom": 54
+      }
+    },
+    "1659429468f6ebcdce": {
+      "type": "fun-hihc",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/Rectangle_52.jpg",
+        "image_position": "left",
+        "header": "Come join us for tea!",
+        "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tristique ipsum in enim semper. At molestie blandit euismod massa sit vel arcu. Non massa tristique nec.",
+        "show_link": true,
+        "url_text": "Find out more",
+        "url_link": "#",
+        "padding_top": 56,
+        "padding_bottom": 152
+      }
+    }
+  },
+  "order": [
+    "1657253061ca00b37a",
+    "16572652319ce7ead5",
+    "1659429468f6ebcdce"
+  ]
+}

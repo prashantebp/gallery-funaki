@@ -1,0 +1,133 @@
+{{ 'component-newsletter.css' | asset_url | stylesheet_tag }}
+{{ 'newsletter-section.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+
+<section class="section section-lg fun-newsletter__section section-{{ section.id }}-padding">
+    <div class="container-xxl">
+        <div class="row">
+            <div class="col-16 col-lg-12 col-xl-8 m-auto">
+                <div class="fun-newsletter__header">
+                    {% if section.settings.heading_title != "" %}
+                        <h2>{{ section.settings.heading_title }}</h2>
+                        <p>{{ section.settings.subtitle }}</p>
+                    {% endif %}
+                </div>
+                <div class="fun-newsletter__form-wrapper">
+                    {% form 'customer',  class: 'newsletter-form' %}
+                        <input type="hidden" name="contact[tags]" value="newsletter">
+
+                        <div class="form-element__wrapper">
+                            <div class="form-element">
+                                <input id="NewsletterForm--{{ section.id }}"
+                                    type="email"
+                                    name="contact[email]"
+                                    class="form-control "
+                                    value="{{ form.email }}"
+                                    aria-required="true"
+                                    autocorrect="off"
+                                    autocapitalize="off"
+                                    autocomplete="email"
+                                    {% if form.posted_successfully? %}
+                                      aria-describedby="Newsletter-success--{{ section.id }}"
+                                    {% endif %}
+                                    placeholder="{{ 'newsletter.label' | t }}"
+                                    required
+                                >
+                                <label class="form-label" for="NewsletterForm--{{ section.id }}">
+                                    {{ 'newsletter.label' | t }}
+                                </label>
+                                {% comment %}
+                                {%- if form.errors contains 'email' -%}
+                                    <small class="form-element__error d-none" id="Newsletter-error--{{ section.id }}">{{ form.errors.translated_fields['email'] | capitalize }} {{ form.errors.messages['email'] }}</small>
+                                {%- endif -%}
+                                {% endcomment %}
+
+                                {%- if form.posted_successfully? -%}
+                                    <small class="form-element__success" id="Newsletter-success--{{ section.id }}" tabindex="-1" autofocus>{{ 'newsletter.success' | t }}</small>
+                                {%- endif -%}
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-submit" name="commit" id="Subscribe" aria-label="{{ 'newsletter.button_label' | t }}">
+                                Join!
+                            </button>
+                        </div>
+                    {% endform %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{%- if request.design_mode -%}
+  <script src="{{ 'theme-editor.js' | asset_url }}" defer="defer"></script>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Fun newsletter",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+        "type": "header",
+        "content": "Newsletter"
+    },
+    {
+        "type": "text",
+        "id": "heading_title",
+        "placeholder": "Heading text",
+        "default": "Header text",
+        "label": "Newsletter Header"
+    },
+    {
+        "type": "textarea",
+        "id": "subtitle",
+        "placeholder": "sub heading text",
+        "default": "Sub heading text",
+        "label": "Newsletter Header"
+    },
+    {
+      "type": "header",
+      "content": "Section Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 120,
+      "step": 2,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    }
+  ],
+  "presets": [
+    {
+      "name": "Fun newsletter"
+    }
+  ]
+}
+{% endschema %}

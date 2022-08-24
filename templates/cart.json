@@ -1,0 +1,53 @@
+{
+  "sections": {
+    "cart-items": {
+      "type": "main-cart-items",
+      "blocks": {
+        "e8706f3c-dad6-4fee-aeec-8f1e0bd6fa53": {
+          "type": "subtotal",
+          "settings": {
+          }
+        },
+        "3f4551ce-ebd2-4bbc-a91f-e73a4513128b": {
+          "type": "buttons",
+          "settings": {
+          }
+        }
+      },
+      "block_order": [
+        "e8706f3c-dad6-4fee-aeec-8f1e0bd6fa53",
+        "3f4551ce-ebd2-4bbc-a91f-e73a4513128b"
+      ],
+      "settings": {
+        "padding_top": 32,
+        "padding_bottom": 152
+      }
+    },
+    "cart-footer": {
+      "type": "main-cart-footer",
+      "disabled": true,
+      "blocks": {
+        "subtotal": {
+          "type": "subtotal",
+          "settings": {
+          }
+        },
+        "buttons": {
+          "type": "buttons",
+          "settings": {
+          }
+        }
+      },
+      "block_order": [
+        "subtotal",
+        "buttons"
+      ],
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "cart-items",
+    "cart-footer"
+  ]
+}

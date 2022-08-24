@@ -1,0 +1,127 @@
+{
+  "sections": {
+    "165605883158a8dfa6": {
+      "type": "fun-contact-detail-map",
+      "blocks": {
+        "4490ed47-d551-4d45-9a83-28a14768ed0d": {
+          "type": "featured_collection",
+          "settings": {
+            "detail_title": "Contact info",
+            "detail_content": "T <a href=\"tel:+61458758000\">+61 458 758 000<\/a>\n<br>\nE <a href=\"mailto:gallery@galleryfunaki.com.au\">gallery@galleryfunaki.com.au<\/a>",
+            "margin_bottom": 70
+          }
+        },
+        "ec48ee7b-3d2d-4d16-9f4d-b079b278507d": {
+          "type": "featured_collection",
+          "settings": {
+            "detail_title": "Opening hours",
+            "detail_content": "Thursday &amp; Friday 11am - 5pm <br>\nWednesday &amp; Saturday by appointment",
+            "margin_bottom": 70
+          }
+        },
+        "9d61a3d5-9a27-4241-8f05-cfd8fae4baea": {
+          "type": "featured_collection",
+          "settings": {
+            "detail_title": "Visit us",
+            "detail_content": "<a href=\"https:\/\/www.google.com\/maps\/place\/Sackville+House\/@-37.814732,144.973366,15z\/data=!4m5!3m4!1s0x0:0x93fcc527f43b20b3!8m2!3d-37.8147317!4d144.9733655?hl=en\" target=\"blank\"><p>Apatment 33, Level 3 <br>Sackville House 27 Flinders Lane <br>Melbourne 3000 <br>Australia<\/p>\n<p>Press 33 on the intercom by the font door during opening hours. Same day appointments may be avaiable, please call or text<\/p><\/a>",
+            "margin_bottom": 32
+          }
+        },
+        "5774f1ea-bb46-4aea-91fa-79d828a4f10d": {
+          "type": "featured_collection",
+          "settings": {
+            "detail_title": "Getting there",
+            "detail_content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Porta interdum posuere dolor sed nisi, duis. Consectetur netus purus accumsan sapien, vitae ultrices eget dignissim. Turpis congue pellentesque et gravida. Auctor diam sed aenean vivamus ultrices. Habitasse dui sed amet faucibus blandit suscipit. Mi nunc amet blandit.<\/p>",
+            "margin_bottom": 0
+          }
+        }
+      },
+      "block_order": [
+        "4490ed47-d551-4d45-9a83-28a14768ed0d",
+        "ec48ee7b-3d2d-4d16-9f4d-b079b278507d",
+        "9d61a3d5-9a27-4241-8f05-cfd8fae4baea",
+        "5774f1ea-bb46-4aea-91fa-79d828a4f10d"
+      ],
+      "settings": {
+        "map_html": "<iframe src=\"https:\/\/www.google.com\/maps\/embed?pb=!1m14!1m8!1m3!1d12607.784360493311!2d144.9733655!3d-37.8147317!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x93fcc527f43b20b3!2sSackville%20House!5e0!3m2!1sen!2snp!4v1658471747281!5m2!1sen!2snp\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"><\/iframe>",
+        "padding_top": 54,
+        "padding_bottom": 40
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "16560381018bc048a0": {
+      "type": "fun-hihc",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/Rectangle_52.png",
+        "image_position": "left",
+        "header": "Planning a group visit?",
+        "content": "We welcome groups of up to six by prior arrangement, with morning or afternoon tea if required. Contact us for details.",
+        "show_link": true,
+        "url_text": "Contact Us",
+        "url_link": "shopify:\/\/pages\/contact",
+        "padding_top": 44,
+        "padding_bottom": 82
+      }
+    },
+    "165604177489b72370": {
+      "type": "custom-home-textbanner",
+      "settings": {
+        "heading": "",
+        "subheading": "",
+        "discription": "<p>Acknowledge of country, consectetur adipiscing elit. Sed vitae amet etiam mattis tristique sed metus, aliquam. Sed at duis risus faucibus. Risus ultricies turpis dictum cursus nec commodo proin. Ultricies phasellus ut eget eget mattis leo, diam odio sollicitudin. Fermentum dolor.<\/p>",
+        "text_center": true,
+        "hide_divider": false,
+        "padding_top": 32,
+        "padding_bottom": 32
+      }
+    },
+    "1656047795ed02f0ab": {
+      "type": "fun-hihc",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/Rectangle_52_1.png",
+        "image_position": "right",
+        "header": "About us",
+        "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ultricies ullamcorper tellus, scelerisque et ipsum. Molestie condimentum sed vitae, facilisis rhoncus. Tempus, interdum turpis sagittis volutpat suspendisse id. Semper commodo interdum tellus pulvinar sit lacus at at molestie. In arcu elit molestie non in. Sed aliquet ut lacus in felis.",
+        "show_link": false,
+        "url_text": "write url text to navigate",
+        "url_link": "",
+        "padding_top": 84,
+        "padding_bottom": 82
+      }
+    },
+    "16560488181854b832": {
+      "type": "fun-newsletter",
+      "settings": {
+        "heading_title": "Join our news letter!",
+        "subtitle": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dolor enim vel urna, quam vel arcu at. Feugiat morbi nunc nisl sit.",
+        "padding_top": 42,
+        "padding_bottom": 72
+      }
+    },
+    "1656056515b798ca9e": {
+      "type": "fun-contact-form",
+      "settings": {
+        "heading_title": "Contact us",
+        "subtitle": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dolor enim vel urna, quam vel arcu at. Feugiat morbi nunc nisl sit.",
+        "padding_top": 70,
+        "padding_bottom": 120
+      }
+    }
+  },
+  "order": [
+    "165605883158a8dfa6",
+    "main",
+    "16560381018bc048a0",
+    "165604177489b72370",
+    "1656047795ed02f0ab",
+    "16560488181854b832",
+    "1656056515b798ca9e"
+  ]
+}

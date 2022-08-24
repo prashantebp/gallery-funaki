@@ -1,0 +1,108 @@
+<div class="page-width" data-section-id="{{ section.id }}" data-section-type="threecol">
+
+ {% if section.blocks.size > 0 %}
+ <div class="c-tagline">
+   <div class="row d-flex justify-content-center text-center">
+      {% for block in section.blocks %}
+       <div class="col-md-3">
+
+         {% if block.settings.col_link %}
+         <a href="{{  block.settings.col_link }}">
+         {% endif %}
+
+           <div class="char_item">
+             {% if block.settings.col_image %}
+               <div class="char_icon">
+                   <img width="300" height="300" src="{{ block.settings.col_image | img_url: "grande" }}" loading="lazy">
+               </div>
+               {% endif %}
+               <div class="char_content">
+                   <div class="char_title">
+                     {{ block.settings.title }}
+                   </div>
+                   <div class="char_subtitle">
+                     {{ block.settings.sub_title }}
+                   </div>
+               </div>
+           </div>
+
+         {% if block.settings.col_link %}
+         </a>
+         {% endif %}
+
+       </div>
+     {%- endfor -%}
+    </div>
+ </div>
+ {% endif %}
+
+ {% if section.blocks.size == 0 %}
+    <div> No Section items</div>
+ {% endif %}
+</div>
+
+{% schema %}
+{
+  "name": "Four Column Card",
+  "class": "index-section",
+  "max_blocks": 12,
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Four Column Card"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "fourcol",
+      "name": "Block",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Title"
+        },
+        {
+          "type": "text",
+          "id": "sub_title",
+          "label": "Sub Title",
+          "default": "Sub Title"
+        },
+        {
+          "type": "url",
+          "id": "col_link",
+          "label": "Link"
+        },
+        {
+          "type": "image_picker",
+          "id": "col_image",
+          "label": "Image"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Four Column Card",
+      "category": "Text",
+      "blocks": [
+        {
+          "type": "fourcol"
+        },
+        {
+          "type": "fourcol"
+        },
+        {
+          "type": "fourcol"
+        },
+        {
+          "type": "fourcol"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
