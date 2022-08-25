@@ -11,7 +11,9 @@
             {%- endunless -%}
                 <div class="artist-list">
                     {% assign artist_name = article.metafields.exhibition.choose_artist | split: "|" %}
-                    {{ artist_name }}
+                    {% for artist in artist_name %}
+                      {{ artist }}
+                    {% endfor %}
                 </div>
             </div>
         </div>
