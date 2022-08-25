@@ -22,9 +22,11 @@
                 width="{{ section_img.width }}"
                 height="{{ section_img.height }}"
                 alt="{{ section_img.alt | escape }}">
-              <figcaption>
-                  {{ section_img.alt }}
-              </figcaption>
+                {% if article.metafields.accentuate.image_caption[forloop.index0] != blank %}
+                <figcaption>
+                    {{ article.metafields.accentuate.image_caption[forloop.index0] }}
+                </figcaption>
+                {% endif %}
             </div>
           </div>
           {% endif %}
