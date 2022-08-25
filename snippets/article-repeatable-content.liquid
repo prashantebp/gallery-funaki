@@ -1,3 +1,4 @@
+<div class="article-repeatable-wrapper">
 {% for section_heading in article.metafields.accentuate.section_heading %}
     {% assign section_img = '' %}
     {% if article.metafields.accentuate.section_image[forloop.index0] != blank %}      
@@ -33,4 +34,5 @@
         </div>    
       </div>
     </div>
-  {% endfor %} 
+  {% endfor %}
+</div> 
