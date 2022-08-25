@@ -85,6 +85,12 @@
             margin-bottom: 24px;
         }
 
+        & p{
+            &:last-child{
+                margin-bottom: 0;
+            }
+        }
+
         & blockquote{
             margin-bottom: 24px;
             & > *{
@@ -205,8 +211,19 @@
 
     &__actions{
         padding-top: 32px;
+        display: grid;
+        grid-gap: 15px;
+        grid-template-columns: 1fr;
+        @include media-breakpoint-up(sm){
+            
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: center;
+        }
         & .btn{
             min-width: 236px;
+            max-width: 236px;
             &:hover{
                 text-decoration: none;
             }
@@ -216,11 +233,18 @@
     &__author{
         display: flex;
         flex-direction: column;
-        
+        padding: 32px 0;
+        border-top: 1px solid var(--neutral-grey-200);
+        border-bottom: 1px solid var(--neutral-grey-200);
+        margin-top:40px;
         @include media-breakpoint-up(sm){
             flex-direction: row;
+            margin-top: 60px;
         }
 
+        @include media-breakpoint-up(lg){
+            margin-top: 132px;
+        }
         & .author-image{
             margin-bottom: 1rem;
             width: 63px;
@@ -267,7 +291,7 @@
             > *{
                 font-family: var(--nanum);
                 font-weight: 400;
-                font-size: 14px;
+                font-size: 16px;
                 line-height: 24px;
                 color: var(--black);
             }
