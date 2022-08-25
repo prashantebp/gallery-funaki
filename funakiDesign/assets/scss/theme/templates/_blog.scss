@@ -329,7 +329,7 @@
         grid-template-columns: 1fr 1fr 1fr;
         grid-gap: 8px;
         &--item{
-            width: calc(100%/3);
+            width: 100%;
             max-width: 408px;
             display: flex;
             align-items: center;
