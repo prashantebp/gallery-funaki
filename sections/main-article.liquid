@@ -22,10 +22,9 @@
 {%- endstyle -%}
 {% assign artist_name = article.metafields.accentuate.choose_author %}
 {% assign file = article.metafields.accentuate.download_file %}
-
+{% assign section_img = '' %}
   {% for section_heading in article.metafields.accentuate.section_heading %}
-    {% if article.metafields.accentuate.section_image[forloop.index0] != blank %}
-      {% assign section_img = '' %}
+    {% if article.metafields.accentuate.section_image[forloop.index0] != blank %}      
       {% for image in article.metafields.accentuate.section_image[forloop.index0] %}
         {% assign section_img = image %}
       {% endfor %}
