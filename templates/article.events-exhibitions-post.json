@@ -25,6 +25,15 @@
         "padding_bottom": 80
       }
     },
+    "16614245600b1828c3": {
+      "type": "exibitation-exhibiting-works",
+      "settings": {
+        "section_heading": "Exhibiting works",
+        "product_list": [
+
+        ]
+      }
+    },
     "166142194278c5ea54": {
       "type": "exibitation-installation-views",
       "blocks": {
@@ -79,6 +88,7 @@
   },
   "order": [
     "main",
+    "16614245600b1828c3",
     "166142194278c5ea54",
     "1661418643dde721d2"
   ]
