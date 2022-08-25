@@ -23,8 +23,6 @@
 {% assign artist_name = article.metafields.accentuate.choose_author %}
 {% assign file = article.metafields.accentuate.download_file %}
 
-
-{% if section_heading != blank %}
   {% for section_heading in article.metafields.accentuate.section_heading %}
     <section class="section fun-blog-detail__section section-{{ section.id }}-padding" itemscope itemtype="http://schema.org/BlogPosting">
       <div class="container-xxl">
@@ -52,7 +50,6 @@
       </div>
     </section>
   {% endfor %} 
-{% endif %}
 
 
 <section class="section fun-blog-detail__section section-{{ section.id }}-padding" itemscope itemtype="http://schema.org/BlogPosting">
