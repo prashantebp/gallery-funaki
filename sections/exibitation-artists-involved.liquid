@@ -10,6 +10,16 @@
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
   }
+
+  .title-{{ section.id }}-margin {
+    margin-bottom: {{ section.settings.title_gap | times: 0.4 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 769px) {
+    .title-{{ section.id }}-margin {
+      margin-bottom: {{ section.settings.title_gap }}px;
+    }
+  }
 {%- endstyle -%}
 
 <section class="section section-artists-involved section-{{ section.id }}-padding">
@@ -17,7 +27,7 @@
       <div class="row">
         <div class="col-16">
             {%- unless section.settings.section_heading == blank -%}
-              <div class="fun-product-list__title-wrapper">
+              <div class="fun-product-list__title-wrapper title-{{ section.id }}-margin">
                 <div class="fun-product-list__title">
                   <h2>{{ section.settings.section_heading }}</h2>
                 </div>
@@ -75,6 +85,16 @@
         "unit": "px",
         "label": "t:sections.all.padding.padding_bottom",
         "default": 36
+      },
+      {
+        "type": "range",
+        "id": "title_gap",
+        "min": 0,
+        "max": 120,
+        "step": 2,
+        "unit": "px",
+        "label": "SECTION TITLE GAP",
+        "default": 48
       }     
     ],
     "presets": [
