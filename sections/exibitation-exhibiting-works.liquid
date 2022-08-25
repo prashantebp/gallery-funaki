@@ -12,13 +12,20 @@
               </div>
             {%- endunless -%}
             {% assign products = section.settings.product_list  %}
-            {% for product in products %}
-              <div class="product-list-item">
-              {{ product.title }}
-              {{ product.featured_media | image_url: width: 320 | image_tag }}
-              {{ product.description }}
-              </div>
+            <div class="row fun-featured__row">
+              {% for product in products %}
+                <div class="col-sm-8 col-lg-4 fun-featured__col">
+                  <article class="fun-featured__card ">
+                    <figure class="fun-featured__figure">
+                      {{ product.featured_media | image_url: width: 320 | image_tag }}
+                    </figure>
+                    {{ product.title }}
+                    
+                    {{ product.description }}
+                  </article>
+                </div>
               {% endfor %}
+            </div>
             
             </div>
         </div>
