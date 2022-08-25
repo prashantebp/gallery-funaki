@@ -1,4 +1,5 @@
 {{ 'section-blog-post.css' | asset_url | stylesheet_tag }}
+<script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=63070baf7db1160019f4274e&product=inline-share-buttons' async='defer'></script>
 
 {%- style -%}
 .section-{{ section.id }}-padding {
@@ -74,8 +75,7 @@
           {% if file %}
             <a href="{{ file[0].original_src }}" class="share-button__button btn btn-primary">Download PDF</a>
           {% endif %}
-          <!-- ShareThis BEGIN --><div class="sharethis-inline-share-buttons"></div><!-- ShareThis END -->
-          <script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=63070baf7db1160019f4274e&product=inline-share-buttons' async='defer'></script>
+          <!-- ShareThis BEGIN --><div class="sharethis-inline-share-buttons"><span>Share</span></div><!-- ShareThis END -->
         </div>
       </div>
     </div>
