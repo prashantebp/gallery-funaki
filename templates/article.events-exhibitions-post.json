@@ -35,7 +35,9 @@
           "billowing-haze",
           "blue-wildflower",
           "otto-kunzli-1cm-of-love-1992-22k-gold-nylon-cord-1cm-unlimited-edition-1",
-          "shy-flower"
+          "shy-flower",
+          "hidden-river",
+          "book-name-2"
         ]
       }
     },
@@ -78,7 +80,10 @@
         "509c6910-727d-4949-9fea-e018dd8a6e04"
       ],
       "settings": {
-        "section_heading": "Installation views"
+        "section_heading": "Installation views",
+        "padding_top": 36,
+        "padding_bottom": 80,
+        "title_gap": 80
       }
     },
     "1661418643dde721d2": {
