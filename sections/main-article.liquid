@@ -55,8 +55,8 @@
             <h2 class="author-name">{{ articles[artist_name].title | escape }}</h2>
             {%- endif -%}
 
-            {%- if articles[artist_name].metafields.custom.artist_sub_title -%}
-            <span class="author-subtitle">{{ articles[artist_name].metafields.custom.artist_sub_title | escape }}</span>
+            {%- if articles[artist_name].metafields.accentuate.artist_subtitle -%}
+            <span class="author-subtitle">{{ articles[artist_name].metafields.accentuate.artist_subtitle | escape }}</span>
             {%- endif -%}
             
             {%- if articles[artist_name].excerpt -%}
@@ -71,14 +71,12 @@
             <a href="{{ file[0].original_src }}" class="share-button__button btn btn-primary">Download PDF</a>
           {% endif %}
           <share-button class="share-button" {{ block.shopify_attributes }}>
-            <button class="share-button__button btn btn-primary hidden">
-              
-              {{ block.settings.share_label | escape }}
+            <button class="share-button__button btn btn-primary hidden">              
+              Share
             </button>
             <details id="Details-{{ block.id }}-{{ section.id }}">
-              <summary class="share-button__button btn btn-primary">
-               
-                {{ block.settings.share_label | escape }}
+              <summary class="share-button__button btn btn-primary">               
+                Share
               </summary>
               <div id="Article-share-{{ section.id }}" class="share-button__fallback motion-reduce">
                 <div class="field">
