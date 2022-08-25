@@ -191,7 +191,7 @@
     {% endstyle %}
 
     {{ 'base.css' | asset_url | stylesheet_tag }}
-    <script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=63070baf7db1160019f4274e&product=inline-share-buttons' async='async'></script>
+    
 
     {%- unless settings.type_body_font.system? -%}
       <link rel="preload" as="font" href="{{ settings.type_body_font | font_url }}" type="font/woff2" crossorigin>
@@ -215,7 +215,7 @@
  <!--begin-boost-pfs-filter-css-->
    {% render 'boost-pfs-style' %}
  <!--end-boost-pfs-filter-css-->
-
+ <script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=63070baf7db1160019f4274e&product=inline-share-buttons' async='async'></script>
  
 </head>
 
