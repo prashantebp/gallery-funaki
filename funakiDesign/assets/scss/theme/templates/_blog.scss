@@ -85,6 +85,12 @@
             margin-bottom: 24px;
         }
 
+        & p{
+            &:last-child{
+                margin-bottom: 0;
+            }
+        }
+
         & blockquote{
             margin-bottom: 24px;
             & > *{
@@ -230,11 +236,15 @@
         padding: 32px 0;
         border-top: 1px solid var(--neutral-grey-200);
         border-bottom: 1px solid var(--neutral-grey-200);
-        
+        margin-top:40px;
         @include media-breakpoint-up(sm){
             flex-direction: row;
+            margin-top: 60px;
         }
 
+        @include media-breakpoint-up(lg){
+            margin-top: 132px;
+        }
         & .author-image{
             margin-bottom: 1rem;
             width: 63px;
