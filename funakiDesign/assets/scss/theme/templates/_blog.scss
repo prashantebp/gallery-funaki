@@ -5,6 +5,10 @@
         }
 
         & .article-repeatable-content{
+            margin-bottom: 48px;
+            &:last-child{
+                margin-bottom: 0;
+            }
             & h1 {
                 font-weight: 400;
                 font-size: 18px;
