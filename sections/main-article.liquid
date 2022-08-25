@@ -38,6 +38,7 @@
             <h2 class="h1">{{ section_heading }}</h2>
             <div class="content">{{ article.metafields.accentuate.section_content[forloop.index0].html  }}</div>
           </div>
+          {% if section_img != blank %}
           <div class="col-md-8 col-lg-7 offset-lg-1 fun-blog-detail__right-col">
             <div class="fun-blog-detail__images" itemprop="image">
               <img
@@ -49,9 +50,9 @@
               <figcaption>
                   {{ section_img.alt }}
               </figcaption>
-              <div>{{ article.metafields.accentuate.section_image[forloop.index0] }}</div>
             </div>
           </div>
+          {% endif %}
         </div>
     
       </div>
