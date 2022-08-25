@@ -13,7 +13,7 @@
             {%- endunless -%}
             <div class="fun-product-list__gallery-wrapper">
                {% for block in section.blocks %}  
-                   <div class="link" {{ block.shopify_attributes }}>    
+                   <div class="link {% if block.settings.video_url != blank %} link--anchor {% endif %}" {{ block.shopify_attributes }}>    
                      {{ block.settings.image | image_url: width: 320 | image_tag }}
                      {% if block.settings.video_url != blank %}
                        <a class="fun-bookmark__card-title" href="{{ block.settings.video_url }}" data-fancybox>
