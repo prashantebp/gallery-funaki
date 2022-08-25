@@ -11,7 +11,7 @@
             {%- endunless -%}
                 <div class="artist-list">
                     {% assign artist_name = article.metafields.exhibition.choose_artist %}
-                    {{ articles[artist_name] }}
+                    {{ articles[artist_name].title }}
                 </div>
             </div>
         </div>
