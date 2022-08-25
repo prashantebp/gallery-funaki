@@ -10,7 +10,7 @@
               </div>
             {%- endunless -%}
                 <div class="artist-list">
-                    {% assign artist_name = article.metafields.accentuate.choose_artist %}
+                    {% assign artist_name = article.metafields.exhibition.choose_artist %}
                     {{ artist_name | json }}
                 </div>
             </div>
