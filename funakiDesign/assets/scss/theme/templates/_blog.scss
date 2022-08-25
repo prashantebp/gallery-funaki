@@ -223,6 +223,7 @@
 
         & .author-image{
             margin-bottom: 1rem;
+            width: 63px;
             & img{
                 width: 63px;
                 height: 63px;
@@ -237,6 +238,9 @@
         & .author-info{
             display: flex;
             flex-direction: column;
+            @include media-breakpoint-up(sm){
+                width: calc(100% - 63px - 24px);
+            }
         }
 
         & .author-name{
