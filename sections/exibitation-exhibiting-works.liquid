@@ -13,9 +13,11 @@
             {%- endunless -%}
             {% assign products = section.settings.product_list  %}
             {% for product in products %}
+              <div class="product-list-item">
               {{ product.title }}
               {{ product.featured_media | image_url: width: 320 | image_tag }}
               {{ product.description }}
+              </div>
               {% endfor %}
             
             </div>
