@@ -1,0 +1,35 @@
+<section class="section section-artists-involved section-{{ section.id }}-padding">
+    <div class="container-xxl">
+      <div class="row">
+        <div class="col-16">
+            {%- unless section.settings.section_heading == blank -%}
+              <div class="fun-product-list__title-wrapper">
+                <div class="fun-product-list__title">
+                  <h2>{{ section.settings.section_heading }}</h2>
+                </div>
+              </div>
+            {%- endunless -%}
+            </div>
+        </div>
+    </div>
+</section>
+
+{% schema %}
+  {
+    "name": "Artists involved",
+    "settings": [
+      {
+        "type": "text",
+        "id": "section_heading",
+        "label": "Section Heading",
+        "default": "Artists involved",
+        "info": "Artisit list can be managable from custom fields"
+      }     
+    ],
+    "presets": [
+      {
+        "name": "Artists involved"
+      }
+    ]
+  }
+{% endschema %}
