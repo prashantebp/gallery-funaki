@@ -24,9 +24,12 @@
 {% assign file = article.metafields.accentuate.download_file %}
 
   {% for section_heading in article.metafields.accentuate.section_heading %}
-    {% for image in article.metafields.accentuate.section_image[forloop.index0] %}
-      {% assign section_img = image %}
-    {% endfor %}
+    {% if article.metafields.accentuate.section_image[forloop.index0] != blank %}
+      {% assign section_img = '' %}
+      {% for image in article.metafields.accentuate.section_image[forloop.index0] %}
+        {% assign section_img = image %}
+      {% endfor %}
+    {% endif %}
     <section class="section fun-blog-detail__section section-{{ section.id }}-padding" itemscope itemtype="http://schema.org/BlogPosting">
       <div class="container-xxl">
         <div class="row">
