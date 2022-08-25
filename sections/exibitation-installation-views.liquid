@@ -11,7 +11,7 @@
             {%- endunless -%}
             {% for block in section.blocks %}  
                 <div class="link" {{ block.shopify_attributes }}>   
-                {{ block.settings.image | json }}
+                {{ block.settings.image | image_tag }}
                 </div> 
             {% endfor %}
             </div>
