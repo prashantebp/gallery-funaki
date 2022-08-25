@@ -209,10 +209,15 @@
         grid-gap: 15px;
         grid-template-columns: 1fr;
         @include media-breakpoint-up(sm){
-            grid-template-columns: 1fr 1fr;
+            
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: center;
         }
         & .btn{
             min-width: 236px;
+            max-width: 236px;
             &:hover{
                 text-decoration: none;
             }
