@@ -27,6 +27,7 @@
 {% for section_heading in article.metafields.accentuate.section_heading %} 
   <h3>{{ section_heading }}</h3>
   <div>{{ article.metafields.accentuate.section_content[forloop.index0].html  }}</div>
+  <div>{{ article.metafields.accentuate.section_image[forloop.index0]  }}</div>
 {% endfor %} 
 
 
