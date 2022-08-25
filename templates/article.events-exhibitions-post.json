@@ -28,12 +28,58 @@
     "1661418643dde721d2": {
       "type": "exibitation-artists-involved",
       "settings": {
-        "section_heading": "Artists involved"
+        "section_heading": "Artists involved",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "title_gap": 48
+      }
+    },
+    "166142194278c5ea54": {
+      "type": "exibitation-installation-views",
+      "blocks": {
+        "88d0af93-7859-4924-bd25-1cf070ff04c9": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/kg-cat02.jpg",
+            "video_url": ""
+          }
+        },
+        "0372bcc3-5cb7-4f83-817e-f921cd2cfacc": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/EX12-CT2.gif",
+            "video_url": ""
+          }
+        },
+        "cb508e8f-9ce4-4f0a-982a-e51f06e6d120": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/708.gif",
+            "video_url": ""
+          }
+        },
+        "509c6910-727d-4949-9fea-e018dd8a6e04": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/woman-side-profile-looking-up.jpg",
+            "video_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "88d0af93-7859-4924-bd25-1cf070ff04c9",
+        "0372bcc3-5cb7-4f83-817e-f921cd2cfacc",
+        "cb508e8f-9ce4-4f0a-982a-e51f06e6d120",
+        "509c6910-727d-4949-9fea-e018dd8a6e04"
+      ],
+      "settings": {
+        "section_heading": "Installation views"
       }
     }
   },
   "order": [
     "main",
-    "1661418643dde721d2"
+    "1661418643dde721d2",
+    "166142194278c5ea54"
   ]
 }
