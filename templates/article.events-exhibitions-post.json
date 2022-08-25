@@ -25,15 +25,6 @@
         "padding_bottom": 80
       }
     },
-    "1661418643dde721d2": {
-      "type": "exibitation-artists-involved",
-      "settings": {
-        "section_heading": "Artists involved",
-        "padding_top": 80,
-        "padding_bottom": 80,
-        "title_gap": 48
-      }
-    },
     "166142194278c5ea54": {
       "type": "exibitation-installation-views",
       "blocks": {
@@ -75,11 +66,20 @@
       "settings": {
         "section_heading": "Installation views"
       }
+    },
+    "1661418643dde721d2": {
+      "type": "exibitation-artists-involved",
+      "settings": {
+        "section_heading": "Artists involved",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "title_gap": 48
+      }
     }
   },
   "order": [
     "main",
-    "1661418643dde721d2",
-    "166142194278c5ea54"
+    "166142194278c5ea54",
+    "1661418643dde721d2"
   ]
 }
