@@ -24,8 +24,8 @@
 {% assign file = article.metafields.accentuate.download_file %}
 
 {{ article.metafields.accentuate.news_and_essay_content | json }}
-{% for section_heading in article.metafields.accentuate.news_and_essay_content %} 
-  <h3>{{ article.metafields.accentuate.section_heading[forloop.index0] }}</h3>
+{% for section_image in article.metafields.accentuate.news_and_essay_content %} 
+  <h3>{{ article.metafields.accentuate.section_image }}</h3>
   <div>{{ article.metafields.accentuate.section_content[forloop.index0] }}</div>
 {% endfor %} 
 
