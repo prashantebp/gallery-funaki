@@ -5,9 +5,19 @@
         }
 
         & .article-repeatable-content{
-            & h1 , & h2 , & h3{
+            & h1 {
                 font-weight: 400;
                 font-size: 18px;
+                line-height: 21px;
+                letter-spacing: 1.5px;
+                text-transform: uppercase;
+                color: $black;
+                margin-bottom: 12px;
+            }
+
+            & h2, h3{
+                font-weight: 400;
+                font-size: 16px;
                 line-height: 21px;
                 letter-spacing: 1.5px;
                 text-transform: uppercase;
