@@ -34,7 +34,7 @@
           <div class="col-md-8 col-lg-7 offset-lg-1 fun-blog-detail__right-col">
             <div class="fun-blog-detail__images" itemprop="image">
               <img
-                src="{{ article.metafields.accentuate.section_image[forloop.index0] | image_url }}"
+                src="{{ article.metafields.accentuate.section_image[forloop.index0].src }}"
                 loading="lazy"
                 width="{{ article.metafields.accentuate.section_image[forloop.index0].width }}"
                 height="{{ article.metafields.accentuate.section_image[forloop.index0].height }}"
