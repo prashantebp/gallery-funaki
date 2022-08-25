@@ -11,9 +11,9 @@
             {%- endunless -%}
             {% assign artist_name = article.metafields.exhibition.choose_artist | split: "|" %}
             {% if artist_name != blank %}
-                <div class="artist-list">                    
+                <div class="fun-blog-detail__artist-list">                    
                     {% for artist in artist_name %}
-                      <div class="artist-list--item">
+                      <div class="fun-blog-detail__artist-list--item">
                         {%- if articles[artist].image -%}
                         <div class="author-image"><img src="{{ articles[artist].image | img_url: '63x63' }}" alt="{{ articles[artist].title | escape }}" /></div>
                         {%- endif -%}

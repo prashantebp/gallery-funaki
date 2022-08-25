@@ -323,6 +323,35 @@
             }
         }
     }
+
+    &__artist-list{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        &--item{
+            width: calc(100%/3);
+            max-width: 408px;
+            display: flex;
+            align-items: center;
+            flex-direction: row;
+            & author-image{
+                margin-right: 25px;
+                & img{
+                    width: 63px;
+                    height: 63px;
+                }
+            }
+
+            & h5{
+                font-weight: 400;
+                font-size: 20px;
+                line-height: 21px;
+                letter-spacing: 1.5px;
+                text-transform: uppercase;
+            }
+        }
+    }
 }
 
 .fun-ex-blogs{
