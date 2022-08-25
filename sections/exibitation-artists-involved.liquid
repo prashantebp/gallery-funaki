@@ -9,8 +9,9 @@
                 </div>
               </div>
             {%- endunless -%}
-                <div class="artist-list">
-                    {% assign artist_name = article.metafields.exhibition.choose_artist | split: "|" %}
+            {% assign artist_name = article.metafields.exhibition.choose_artist | split: "|" %}
+            {% if artist_name != blank %}
+                <div class="artist-list">                    
                     {% for artist in artist_name %}
                       <div class="artist-list--item">
                         {%- if articles[artist].image -%}
@@ -18,9 +19,9 @@
                         {%- endif -%}
                         <h5>{{ articles[artist].title | escape }}</h5>
                       </div>
-                    {% endfor %}
-                    
+                    {% endfor %}                    
                 </div>
+              {% endif %}
             </div>
         </div>
     </div>
