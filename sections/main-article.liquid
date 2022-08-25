@@ -31,14 +31,10 @@
         <header class="fun-blog-detail__header" {{ block.shopify_attributes }}>
           <h1 class="article-template__title" itemprop="headline">{{ article.title | escape }}</h1>
           <div>
-            {%- if block.settings.blog_show_date -%}
               <span class="circle-divider caption-with-letter-spacing" itemprop="dateCreated pubdate datePublished">{{ article.published_at | time_tag: format: 'date' }}</span>
-            {%- endif -%}
-            {%- if block.settings.blog_show_author -%}
               <span class="caption-with-letter-spacing" itemprop="author" itemscope itemtype="http://schema.org/Person">
                 <span itemprop="name">{{ article.author }}</span>
               </span>
-            {%- endif -%}
           </div>
         </header>
       </div>
@@ -73,8 +69,7 @@
         <div class="fun-blog-detail__actions" {{ block.shopify_attributes }}>
           {% if file %}
             <a href="{{ file[0].original_src }}" class="share-button__button btn btn-primary">Download PDF</a>
-          {% endif %}
-          <!-- ShareThis BEGIN --><div class="sharethis-inline-share-buttons"><span>Share</span></div><!-- ShareThis END -->
+          {% endif %}          
         </div>
       </div>
     </div>
