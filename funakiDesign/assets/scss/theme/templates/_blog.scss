@@ -3,6 +3,32 @@
         &--divider{
             @extend %divider;
         }
+
+        & .article-repeatable-content{
+            margin-bottom: 48px;
+            &:last-child{
+                margin-bottom: 0;
+            }
+            & h1 {
+                font-weight: 400;
+                font-size: 18px;
+                line-height: 21px;
+                letter-spacing: 1.5px;
+                text-transform: uppercase;
+                color: $black;
+                margin-bottom: 12px;
+            }
+
+            & h2, h3{
+                font-weight: 400;
+                font-size: 16px;
+                line-height: 21px;
+                letter-spacing: 1.5px;
+                text-transform: uppercase;
+                color: $black;
+                margin-bottom: 12px;
+            }
+        }
     }
 
 
@@ -112,10 +138,10 @@
     }
 
     &__right-col{
-        margin-top: 50px;
-        @include breakpoint(md){
-            margin-top: 120px;
-        }
+        // margin-top: 50px;
+        // @include breakpoint(md){
+        //     margin-top: 120px;
+        // }
     }
 
     &__bottom-col{
