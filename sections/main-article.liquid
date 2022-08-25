@@ -22,6 +22,15 @@
 {%- endstyle -%}
 {% assign artist_name = article.metafields.accentuate.choose_author %}
 {% assign file = article.metafields.accentuate.download_file %}
+
+
+{% for section_heading in article.metafields.accentuate.section_heading %} 
+  <h3>{{ section_heading }}</h3>
+  <div>{{ article.metafields.accentuate.section_content[forloop.index0].html  }}</div>
+  <div>{{ article.metafields.accentuate.section_image[forloop.index0] }}</div>
+{% endfor %} 
+
+
 <section class="section fun-blog-detail__section section-{{ section.id }}-padding" itemscope itemtype="http://schema.org/BlogPosting">
   <div class="container-xxl">
     <div class="row">
@@ -51,9 +60,9 @@
               <div class="fun-blog-detail__content rte" itemprop="articleBody" {{ block.shopify_attributes }}>
                   {{ article.content }}
               </div>
-              <!-- author details -->
+              <!-- author details -->            
 
-              {%- if articles[artist_name].title -%}
+              {%- if articles[artist_name] != blank -%}
                 <div class="fun-blog-detail__author" itemprop="author">
                   {%- if articles[artist_name].image -%}
                     <div class="author-image"><img src="{{ articles[artist_name].image | img_url: '63x63' }}" alt="{{ articles[artist_name].title | escape }}" /></div>
@@ -76,7 +85,9 @@
 
             {%- when 'share' -%}
                 <div class="fun-blog-detail__actions" {{ block.shopify_attributes }}>
-                  <a href="{{ file.src }}" class="share-button__button btn btn-primary">Download PDF</a>
+                  {% if file %}
+                    <a href="{{ file[0].original_src }}" class="share-button__button btn btn-primary">Download PDF</a>
+                  {% endif %}
                   <share-button class="share-button" {{ block.shopify_attributes }}>
                     <button class="share-button__button btn btn-primary hidden">
                       {% comment %} {% render 'icon-share' %} {% endcomment %}
