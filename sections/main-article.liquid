@@ -23,7 +23,7 @@
 {% assign artist_name = article.metafields.accentuate.choose_author %}
 {% assign file = article.metafields.accentuate.download_file %}
 
-{{ article.metafields.accentuate.section_image | json }}
+{{ article.metafields.accentuate.section_heading | json }}
 {% for section_image in article.metafields.accentuate.news_and_essay_content %} 
   <h3>{{ article.metafields.accentuate.section_image }}</h3>
   <div>{{ article.metafields.accentuate.section_content[forloop.index0] }}</div>
