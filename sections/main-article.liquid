@@ -25,7 +25,7 @@
 
   {% for section_heading in article.metafields.accentuate.section_heading %}
     {% for image in article.metafields.accentuate.section_image[forloop.index0] %}
-      <img src="{{ image.src }}" alt="{{ image.alt }}"/>
+      {% assign section_img = image %}
     {% endfor %}
     <section class="section fun-blog-detail__section section-{{ section.id }}-padding" itemscope itemtype="http://schema.org/BlogPosting">
       <div class="container-xxl">
@@ -37,13 +37,13 @@
           <div class="col-md-8 col-lg-7 offset-lg-1 fun-blog-detail__right-col">
             <div class="fun-blog-detail__images" itemprop="image">
               <img
-                src="{{ article.metafields.accentuate.section_image[forloop.index0].src }}"
+                src="{{ section_img.src }}"
                 loading="lazy"
-                width="{{ article.metafields.accentuate.section_image[forloop.index0].width }}"
-                height="{{ article.metafields.accentuate.section_image[forloop.index0].height }}"
-                alt="{{ article.metafields.accentuate.section_image[forloop.index0].alt | escape }}">
+                width="{{ section_img.width }}"
+                height="{{ section_img.height }}"
+                alt="{{ section_img.alt | escape }}">
               <figcaption>
-                  {{ article.metafields.accentuate.section_image[forloop.index0].alt }}
+                  {{ section_img.alt }}
               </figcaption>
               <div>{{ article.metafields.accentuate.section_image[forloop.index0] }}</div>
             </div>
