@@ -1,0 +1,45 @@
+<link rel="stylesheet" href="{{ 'fancybox.css' | asset_url }}" media="print" onload="this.media='all'">
+
+<section class="section section-artists-involved section-{{ section.id }}-padding">
+    <div class="container-xxl">
+      <div class="row">
+        <div class="col-16">
+            {%- unless section.settings.section_heading == blank -%}
+              <div class="fun-product-list__title-wrapper">
+                <div class="fun-product-list__title">
+                  <h2>{{ section.settings.section_heading }}</h2>
+                </div>
+              </div>
+            {%- endunless -%}
+            {{ section.settings.product_list | json }}
+            
+            </div>
+        </div>
+    </div>
+</section>
+
+{% schema %}
+{
+    "name":"Exhibiting works",
+    "settings":[
+       {
+          "type":"text",
+          "id":"section_heading",
+          "label":"Section Heading",
+          "default":"Exhibiting works",
+          "info":"Exhibiting works list can be managable from custom fields"
+       },
+       {
+        "type": "product_list",
+        "id": "product_list",
+        "label": "Products",
+        "limit": 12
+      }
+    ],
+    "presets":[
+       {
+          "name":"Exhibiting works"
+       }
+    ]
+ }
+{% endschema %}
