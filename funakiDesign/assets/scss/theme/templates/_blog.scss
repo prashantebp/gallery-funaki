@@ -335,7 +335,7 @@
             display: flex;
             align-items: center;
             flex-direction: row;
-            & author-image{
+            & .author-image{
                 margin-right: 25px;
                 & img{
                     width: 63px;
@@ -343,12 +343,16 @@
                 }
             }
 
-            & h5{
+            & .author-link{
                 font-weight: 400;
                 font-size: 20px;
                 line-height: 21px;
                 letter-spacing: 1.5px;
                 text-transform: uppercase;
+                color: var(--black);
+                &:hover{
+                    color: var(--black);
+                }
             }
         }
     }
