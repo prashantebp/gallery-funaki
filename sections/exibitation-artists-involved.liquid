@@ -10,8 +10,8 @@
               </div>
             {%- endunless -%}
                 <div class="artist-list">
-                    {% assign artist_name = article.metafields.exhibition.choose_artist %}
-                    {{ articles[artist_name].title }}
+                    {% assign artist_name = article.metafields.exhibition.choose_artist | split: "|" %}
+                    {{ artist_name }}
                 </div>
             </div>
         </div>
