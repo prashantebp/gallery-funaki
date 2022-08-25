@@ -200,7 +200,10 @@
 
     &__gallery-wrapper{
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr;
+        @include media-breakpoint-up(sm){
+            grid-template-columns: 1fr 1fr;
+        }
         grid-gap: 26px;
         @include media-breakpoint-up(md){
             grid-template-columns: 1fr 1fr 1fr 1fr;

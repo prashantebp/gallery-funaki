@@ -326,7 +326,10 @@
 
     &__artist-list{
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-columns: 1fr;
+        @include media-breakpoint-up(md){
+            grid-template-columns: 1fr 1fr 1fr;
+        }
         grid-gap: 8px;
         &--item{
             width: 100%;
