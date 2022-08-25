@@ -263,7 +263,7 @@
         }
 
         & .author-desc{
-            & span{
+            > *{
                 font-family: var(--nanum);
                 font-weight: 400;
                 font-size: 14px;
