@@ -12,6 +12,7 @@
             {% for block in section.blocks %}  
                 <div class="link" {{ block.shopify_attributes }}>    
                   {{ block.settings.image | image_url: width: 320 | image_tag }}
+              {{ block.settings.video_url }}
                 </div> 
             {% endfor %}
             </div>
