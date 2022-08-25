@@ -24,13 +24,64 @@
 {% assign file = article.metafields.accentuate.download_file %}
 
 
-
-
-
-  
-
-
 <section class="section fun-blog-detail__section section-{{ section.id }}-padding" itemscope itemtype="http://schema.org/BlogPosting">
+  <div class="container-xxl">
+    <div class="row">
+      <div class="col-md-8">
+        <header class="fun-blog-detail__header" {{ block.shopify_attributes }}>
+          <h1 class="article-template__title" itemprop="headline">{{ article.title | escape }}</h1>
+          <div>
+            {%- if block.settings.blog_show_date -%}
+              <span class="circle-divider caption-with-letter-spacing" itemprop="dateCreated pubdate datePublished">{{ article.published_at | time_tag: format: 'date' }}</span>
+            {%- endif -%}
+            {%- if block.settings.blog_show_author -%}
+              <span class="caption-with-letter-spacing" itemprop="author" itemscope itemtype="http://schema.org/Person">
+                <span itemprop="name">{{ article.author }}</span>
+              </span>
+            {%- endif -%}
+          </div>
+        </header>
+      </div>
+    </div>
+  </div>
+  {% render 'article-repeatable-content', article: article %}
+  <div class="container-xxl">
+    <div class="row">
+      <div class="col-md-8">
+        <!-- author details -->
+        {%- if articles[artist_name] != blank -%}
+        <div class="fun-blog-detail__author" itemprop="author">
+          {%- if articles[artist_name].image -%}
+            <div class="author-image"><img src="{{ articles[artist_name].image | img_url: '63x63' }}" alt="{{ articles[artist_name].title | escape }}" /></div>
+          {%- endif -%}
+          <div class="author-info">
+            {%- if articles[artist_name].title -%}
+            <h2 class="author-name">{{ articles[artist_name].title | escape }}</h2>
+            {%- endif -%}
+
+            {%- if articles[artist_name].metafields.custom.artist_sub_title -%}
+            <span class="author-subtitle">{{ articles[artist_name].metafields.custom.artist_sub_title | escape }}</span>
+            {%- endif -%}
+            
+            {%- if articles[artist_name].excerpt -%}
+            <div class="author-desc">{{ articles[artist_name].excerpt }}</div>
+            {%- endif -%}
+          </div>
+        </div>
+        {%- endif -%}
+        
+        <div class="fun-blog-detail__actions" {{ block.shopify_attributes }}>
+          {% if file %}
+            <a href="{{ file[0].original_src }}" class="share-button__button btn btn-primary">Download PDF</a>
+          {% endif %}
+          <!-- ShareThis BEGIN --><div class="sharethis-inline-share-buttons"></div><!-- ShareThis END -->
+          <script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=63070baf7db1160019f4274e&product=inline-share-buttons' async='defer'></script>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {% comment %}
   <div class="container-xxl">
     <div class="row">
       <div class="col-md-8">
@@ -89,12 +140,12 @@
                   {% endif %}
                   <share-button class="share-button" {{ block.shopify_attributes }}>
                     <button class="share-button__button btn btn-primary hidden">
-                      {% comment %} {% render 'icon-share' %} {% endcomment %}
+                      
                       {{ block.settings.share_label | escape }}
                     </button>
                     <details id="Details-{{ block.id }}-{{ section.id }}">
                       <summary class="share-button__button btn btn-primary">
-                        {% comment %} {% render 'icon-share' %} {% endcomment %}
+                       
                         {{ block.settings.share_label | escape }}
                       </summary>
                       <div id="Article-share-{{ section.id }}" class="share-button__fallback motion-reduce">
@@ -126,43 +177,12 @@
                 </div>
           {%- endcase -%}
         {%- endfor -%}
-      </div>
-      <div class="col-md-8 col-lg-7 offset-lg-1 fun-blog-detail__right-col">
-        {%- for block in section.blocks -%}
-          {%- case block.type -%}
-            {%- when '@app' -%}
-              <div class="page-width page-width--narrow">
-                {% render block %}
-              </div>
-            {%- when 'featured_image'-%}
-              {%- if article.image -%}
-                <div class="fun-blog-detail__images" {{ block.shopify_attributes }} itemprop="image">
-                  <img
-                    srcset="{% if article.image.width >= 350 %}{{ article.image | image_url: width: 350 }} 350w,{% endif %}
-                      {% if article.image.width >= 750 %}{{ article.image | image_url: width: 750 }} 750w,{% endif %}
-                      {% if article.image.width >= 1100 %}{{ article.image | image_url: width: 1100 }} 1100w,{% endif %}
-                      {% if article.image.width >= 1500 %}{{ article.image | image_url: width: 1500 }} 1500w,{% endif %}
-                      {% if article.image.width >= 2200 %}{{ article.image | image_url: width: 2200 }} 2200w,{% endif %}
-                      {% if article.image.width >= 3000 %}{{ article.image | image_url: width: 3000 }} 3000w,{% endif %}
-                      {{ article.image | image_url }} {{ article.image.width }}w"
-                    sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 }}px, (min-width: 750px) calc(100vw - 10rem), 100vw"
-                    src="{{ article.image | image_url: width: 1100 }}"
-                    loading="lazy"
-                    width="{{ article.image.width }}"
-                    height="{{ article.image.height }}"
-                    alt="{{ article.image.alt | escape }}">
-                  <figcaption>
-                      {{ article.image.alt }}
-                  </figcaption>
-                </div>
-              {%- endif -%}
-          {%- endcase -%}
-        {%- endfor -%}
-      </div>
+      </div>      
     </div>
   </div>
+  {% endcomment %}
 </section>
-{% render 'article-repeatable-content', article: article %}
+
 
 <script type="application/ld+json">
   {
