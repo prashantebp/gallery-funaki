@@ -112,10 +112,10 @@
     }
 
     &__right-col{
-        margin-top: 50px;
-        @include breakpoint(md){
-            margin-top: 120px;
-        }
+        // margin-top: 50px;
+        // @include breakpoint(md){
+        //     margin-top: 120px;
+        // }
     }
 
     &__bottom-col{
