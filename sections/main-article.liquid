@@ -22,13 +22,15 @@
 {%- endstyle -%}
 {% assign artist_name = article.metafields.accentuate.choose_author %}
 {% assign file = article.metafields.accentuate.download_file %}
-{% assign section_img = '' %}
+
   {% for section_heading in article.metafields.accentuate.section_heading %}
+    {% assign section_img = '' %}
     {% if article.metafields.accentuate.section_image[forloop.index0] != blank %}      
-      {% for image in article.metafields.accentuate.section_image[forloop.index0] %}
-        {% assign section_img = image %}
-      {% endfor %}
+        {% for image in article.metafields.accentuate.section_image[forloop.index0] %}
+          {% assign section_img = image %}
+        {% endfor %}
     {% endif %}
+
     <section class="section fun-blog-detail__section section-{{ section.id }}-padding" itemscope itemtype="http://schema.org/BlogPosting">
       <div class="container-xxl">
         <div class="row">
