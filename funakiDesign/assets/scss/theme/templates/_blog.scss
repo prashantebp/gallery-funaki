@@ -223,11 +223,9 @@
 
         & .author-image{
             margin-bottom: 1rem;
-            width: 63px;
-            height: 63px;
             & img{
-                width: 100%;
-                height: 100%;
+                width: 63px;
+                height: 63px;
                 object-fit: cover;
             }
             @include media-breakpoint-up(sm){
