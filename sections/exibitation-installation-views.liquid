@@ -11,7 +11,7 @@
             {%- endunless -%}
             {% for block in section.blocks %}  
                 <div class="link" {{ block.shopify_attributes }}>   
-              <img src="{{ block.settings.image | image_url: width: 320 }}"/>
+                  <img src="{{ block.settings.image | image_url: width: 320 }}" alt="{{ block.settings.image.alt }}"/>
                 </div> 
             {% endfor %}
             </div>
