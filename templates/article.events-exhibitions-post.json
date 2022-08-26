@@ -25,6 +25,15 @@
         "padding_bottom": 80
       }
     },
+    "166142843135aaa5b4": {
+      "type": "fun-repeatable-content",
+      "settings": {
+        "section_heading": "Repeatable content",
+        "padding_top": 80,
+        "padding_bottom": 36,
+        "title_gap": 88
+      }
+    },
     "16614245600b1828c3": {
       "type": "exibitation-exhibiting-works",
       "settings": {
@@ -61,22 +70,13 @@
         "padding_bottom": 80,
         "title_gap": 48
       }
-    },
-    "166142843135aaa5b4": {
-      "type": "fun-repeatable-content",
-      "settings": {
-        "section_heading": "Repeatable content",
-        "padding_top": 80,
-        "padding_bottom": 36,
-        "title_gap": 88
-      }
     }
   },
   "order": [
     "main",
+    "166142843135aaa5b4",
     "16614245600b1828c3",
     "166142194278c5ea54",
-    "1661418643dde721d2",
-    "166142843135aaa5b4"
+    "1661418643dde721d2"
   ]
 }
