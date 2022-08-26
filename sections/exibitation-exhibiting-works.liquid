@@ -26,7 +26,7 @@
 {%- endstyle -%}
 {% assign exhibiting_works = article.metafields.exhibition.choose_exhibiting_works | split: "|" %}
 {% assign exhibiting_works_size = article.metafields.exhibition.choose_exhibiting_works | size %}
-{{ exhibiting_works }}
+ 
 <section class="section section-artists-involved1 section-{{ section.id }}-padding">
     <div class="container-xxl">
       <div class="row">
@@ -40,7 +40,7 @@
             {%- endunless -%}
             {% assign products = section.settings.product_list  %}
             <div class="row fun-featured__row">
-              {% for product in products %}
+              {% for product in exhibiting_works %}
                 <div class="col-sm-8 col-lg-4 fun-featured__col">
                   <article class="fun-featured__card {% if product.type == "Art"%} fun-featured__card--portrait {% endif %}">
                     <figure class="fun-featured__figure">
