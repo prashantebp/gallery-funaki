@@ -21,10 +21,13 @@
   }
 }
 {%- endstyle -%}
-{{ article.metafields.accentuate.section_content | size }}
-<section class="section fun-blog-detail__section section-{{ section.id }}-padding" itemscope itemtype="http://schema.org/BlogPosting">
-    {% render 'article-repeatable-content', article: article %}
-</section>
+{%  assign section_content_size = article.metafields.accentuate.section_content | size %}
+{%  assign section_heading_size = article.metafields.accentuate.section_heading | size %}
+{% if section_content_size > 0 or section_heading_size > 0  %}
+  <section class="section fun-blog-detail__section section-{{ section.id }}-padding" itemscope itemtype="http://schema.org/BlogPosting">
+      {% render 'article-repeatable-content', article: article %}
+  </section>
+{% endif %}
 
 {% schema %}
 {
