@@ -59,6 +59,21 @@
                                 {%- else -%}
                                 {{ 'lifestyle-2' | placeholder_svg_tag: 'placeholder-svg' }}
                                 {%- endif -%}
+                                {% if block.settings.slider_heading != blank or block.settings.slider_sub_title != blank or block.settings.slider_desc  != blank  %}
+                                  <div class="fun-banner-conetnt-wrapper">
+                                    {% if block.settings.slider_heading %}
+                                    <h2 class="section-title ">{{ block.settings.slider_heading }}</h2>
+                                    {% endif %}
+                                    {% if block.settings.slider_sub_title %}
+                                    <h4 class="section-subtitle">{{ block.settings.slider_sub_title }}</h4> 
+                                    {% endif %}
+                                    {% if block.settings.slider_desc %}                                 
+                                      <div class="fun-text-banner__content ">
+                                        {{ block.settings.slider_desc }}
+                                      </div>
+                                    {% endif %}
+                                  </div>
+                                {% endif %}
                             </div>
                         {%- endfor -%}
                     </div>
@@ -104,6 +119,21 @@
                                 {%- else -%}
                                 {{ 'lifestyle-2' | placeholder_svg_tag: 'placeholder-svg' }}
                                 {%- endif -%}
+                                {% if block.settings.slider_heading != blank or block.settings.slider_sub_title != blank or block.settings.slider_desc  != blank  %}
+                                  <div class="fun-banner-conetnt-wrapper">
+                                    {% if block.settings.slider_heading %}
+                                    <h2 class="section-title ">{{ block.settings.slider_heading }}</h2>
+                                    {% endif %}
+                                    {% if block.settings.slider_sub_title %}
+                                    <h4 class="section-subtitle">{{ block.settings.slider_sub_title }}</h4> 
+                                    {% endif %}
+                                    {% if block.settings.slider_desc %}                                 
+                                      <div class="fun-text-banner__content ">
+                                        {{ block.settings.slider_desc }}
+                                      </div>
+                                    {% endif %}
+                                  </div>
+                                {% endif %}
                             </div>
                         {%- endfor -%}
                     </div>
@@ -252,6 +282,21 @@
             "type": "image_picker",
             "id": "mobile_image",
             "label": "t:sections.slideshow.blocks.slide.settings.image.label"
+        }
+        {
+            "type": "text",
+            "id": "slider_heading",
+            "label": "Slider Heading"
+        },
+        {
+            "type": "text",
+            "id": "slider_sub_title",
+            "label": "Slider Sub Title"
+        },
+        {
+            "type": "textarea",
+            "id": "slider_desc",
+            "label": "Slider Description"
         }
       ]
     }
