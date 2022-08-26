@@ -95,6 +95,7 @@
                         </div>
                       </article>
                     </div>
+            {% if count != 1 %} 
           <div class="fun-banner__actions ">
               <button class="btn fun-banner__prev-btn p-0" aria-label="previous" data-bs-target="#fun_hihc_slider1" data-bs-slide="prev">
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -107,6 +108,7 @@
                   </svg>
               </button>
           </div>
+              {% endif %}
                 {% endif %}
 
             {%- endfor -%}
