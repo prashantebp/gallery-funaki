@@ -21,7 +21,8 @@
     }
   }
 {%- endstyle -%}
-
+{% assign artist_name = article.metafields.exhibition.choose_artist | split: "|" %}
+{% assign artist_size = article.metafields.exhibition.choose_artist | size %}
 <section class="section section-artists-involved section-{{ section.id }}-padding">
     <div class="container-xxl">
       <div class="row">
@@ -33,7 +34,10 @@
                 </div>
               </div>
             {%- endunless -%}
-            {% assign artist_name = article.metafields.exhibition.choose_artist | split: "|" %}
+            {% if artist_size == 0  %}
+              <div class="error">No Installation view added for this exibation.</div>
+            {% endif %}
+            
             {% if artist_name != blank %}
                 <div class="fun-blog-detail__artist-list">                    
                     {% for artist in artist_name %}
