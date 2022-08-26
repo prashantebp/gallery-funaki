@@ -23,7 +23,6 @@
   }
 {%- endstyle -%}
 {% assign list_size = article.metafields.exhibition.image | size %}
-{% if list_size > 0  %}
 <section class="section section-artists-involved section-{{ section.id }}-padding">
     <div class="container-xxl">
       <div class="row">
@@ -35,6 +34,9 @@
                   </div>
                </div>
             {%- endunless -%}
+            {% if list_size > 0  %}
+              <div class="error">No Installation view added for this exibation.</div>
+            {% endif %}
             <div class="fun-product-list__gallery-wrapper">
              {% for image in article.metafields.exhibition.image %}
                {% assign installation_img = '' %}
@@ -87,7 +89,7 @@
    </div>
 </section>
 <script src="{{ 'fancybox.min.js' | asset_url }}" defer></script>
-  {% endif %}
+
 {% schema %}
 {
     "name":"Installation views",
