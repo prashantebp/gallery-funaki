@@ -22,7 +22,8 @@
     }
   }
 {%- endstyle -%}
-{{ article.metafields.exhibition.image | size }}
+{% assign list_size = article.metafields.exhibition.image | size %}
+{% if list_size > 0  %}
 <section class="section section-artists-involved section-{{ section.id }}-padding">
     <div class="container-xxl">
       <div class="row">
@@ -86,6 +87,7 @@
    </div>
 </section>
 <script src="{{ 'fancybox.min.js' | asset_url }}" defer></script>
+  {% endif %}
 {% schema %}
 {
     "name":"Installation views",
