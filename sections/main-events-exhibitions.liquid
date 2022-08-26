@@ -54,12 +54,12 @@
              {%- when 'share' -%}
                  <div class="fun-blog-detail__actions" {{ block.shopify_attributes }}>
                    <share-button class="share-button" {{ block.shopify_attributes }}>
-                     <button class="share-button__button btn btn-primary hidden">
+                     <button class="btn btn-primary hidden">
                        {% comment %} {% render 'icon-share' %} {% endcomment %}
                        {{ block.settings.share_label | escape }}
                      </button>
                      <details id="Details-{{ block.id }}-{{ section.id }}">
-                       <summary class="share-button__button btn btn-primary">
+                       <summary class="btn btn-primary">
                          {% comment %} {% render 'icon-share' %} {% endcomment %}
                          {{ block.settings.share_label | escape }}
                        </summary>
