@@ -55,6 +55,7 @@
 
             {% if file %}
               <div class="btn-wrapper">
+              {{ file[0] | json }}
               <a href="{{ file[0].original_src }}" download class="share-button__button btn btn-primary">Download PDF</a>
               </div>
             {% endif %}
