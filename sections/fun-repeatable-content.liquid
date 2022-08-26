@@ -21,6 +21,7 @@
   }
 }
 {%- endstyle -%}
+{{ article.metafields.accentuate.section_content | size }}
 <section class="section fun-blog-detail__section section-{{ section.id }}-padding" itemscope itemtype="http://schema.org/BlogPosting">
     {% render 'article-repeatable-content', article: article %}
 </section>
