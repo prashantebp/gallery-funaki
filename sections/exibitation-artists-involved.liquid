@@ -45,7 +45,7 @@
                         {%- if articles[artist].image -%}
                         <div class="author-image"><img src="{{ articles[artist].image | img_url: '63x63' }}" alt="{{ articles[artist].title | escape }}" /></div>
                         {%- endif -%}
-                        <a class="author-link" href="#">{{ articles[artist].title | escape }}</a>
+                        <a class="author-link" href="{{ articles[artist].url | escape }}">{{ articles[artist].title | escape }}</a>
                       </div>
                     {% endfor %}                    
                 </div>
