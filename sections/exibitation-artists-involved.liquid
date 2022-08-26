@@ -23,6 +23,8 @@
 {%- endstyle -%}
 {% assign artist_name = article.metafields.exhibition.choose_artist | split: "|" %}
 {% assign artist_size = article.metafields.exhibition.choose_artist | size %}
+{% assign file = article.metafields.exhibition.download_file %}
+
 <section class="section section-artists-involved section-{{ section.id }}-padding">
     <div class="container-xxl">
       <div class="row">
@@ -50,6 +52,10 @@
                     {% endfor %}                    
                 </div>
               {% endif %}
+
+            {% if file %}
+              <a href="{{ file[0].original_src }}" class="share-button__button btn btn-primary">Download PDF</a>
+            {% endif %}
             </div>
         </div>
     </div>
