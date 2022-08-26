@@ -61,13 +61,13 @@
                                 {%- endif -%}
                                 {% if block.settings.slider_heading != blank or block.settings.slider_sub_title != blank or block.settings.slider_desc  != blank  %}
                                   <div class="fun-banner-conetnt-wrapper">
-                                    {% if block.settings.slider_heading %}
+                                    {% if block.settings.slider_heading != blank %}
                                     <h2 class="section-title ">{{ block.settings.slider_heading }}</h2>
                                     {% endif %}
-                                    {% if block.settings.slider_sub_title %}
+                                    {% if block.settings.slider_sub_title != blank %}
                                     <h4 class="section-subtitle">{{ block.settings.slider_sub_title }}</h4> 
                                     {% endif %}
-                                    {% if block.settings.slider_desc %}                                 
+                                    {% if block.settings.slider_desc != blank %}                                 
                                       <div class="fun-text-banner__content ">
                                         {{ block.settings.slider_desc }}
                                       </div>
@@ -121,13 +121,13 @@
                                 {%- endif -%}
                                 {% if block.settings.slider_heading != blank or block.settings.slider_sub_title != blank or block.settings.slider_desc  != blank  %}
                                   <div class="fun-banner-conetnt-wrapper">
-                                    {% if block.settings.slider_heading %}
+                                    {% if block.settings.slider_heading != blank %}
                                     <h2 class="section-title ">{{ block.settings.slider_heading }}</h2>
                                     {% endif %}
-                                    {% if block.settings.slider_sub_title %}
+                                    {% if block.settings.slider_sub_title != blank %}
                                     <h4 class="section-subtitle">{{ block.settings.slider_sub_title }}</h4> 
                                     {% endif %}
-                                    {% if block.settings.slider_desc %}                                 
+                                    {% if block.settings.slider_desc != blank %}                                 
                                       <div class="fun-text-banner__content ">
                                         {{ block.settings.slider_desc }}
                                       </div>
@@ -282,7 +282,7 @@
             "type": "image_picker",
             "id": "mobile_image",
             "label": "t:sections.slideshow.blocks.slide.settings.image.label"
-        }
+        },
         {
             "type": "text",
             "id": "slider_heading",
