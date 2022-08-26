@@ -275,6 +275,10 @@ cart-remove-button .icon-remove {
   min-width: 600px;
 }
 
+.cart-item > td + td {
+  padding-left: 18px;
+}
+
 @media screen and (min-width: 750px) {
   .cart-items {
     border-spacing: 0;
