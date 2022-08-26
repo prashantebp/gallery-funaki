@@ -40,8 +40,8 @@
             {%- endunless -%}
             {% assign products = section.settings.product_list  %}
             <div class="row fun-featured__row">
-              {% for product in exhibiting_works %}
-                {{ all_products[product].title }}
+              {% for product_item in exhibiting_works %}
+                {% assign product = all_products[product].title %}
                 <div class="col-sm-8 col-lg-4 fun-featured__col">
                   <article class="fun-featured__card {% if product.type == "Art"%} fun-featured__card--portrait {% endif %}">
                     <figure class="fun-featured__figure">
