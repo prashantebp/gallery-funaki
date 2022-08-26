@@ -272,11 +272,15 @@ cart-remove-button .icon-remove {
 }
 
 .cart-items{
-  min-width: 600px;
+  min-width: 300px;
 }
 
 .cart-item > td + td {
   padding-left: 18px;
+}
+
+.cart-item .cart-item__details{
+  min-width: 300px;
 }
 
 @media screen and (min-width: 750px) {
@@ -286,6 +290,7 @@ cart-remove-button .icon-remove {
     box-shadow: none;
     width: 100%;
     display: table;
+    min-width: 600px;
   }
 
   .cart-items th {
