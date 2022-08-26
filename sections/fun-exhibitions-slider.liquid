@@ -54,9 +54,6 @@
                 {% assign today_date = 'now' | date: '%Y-%m-%d' %}
                 {% assign pre_date = article.metafields.custom.start_date | date: '%Y-%m-%d' %}
                 {% assign post_date = article.metafields.custom.end_date | date: '%Y-%m-%d' %}
-              <p>today {{ today_date }} </p>
-              <p>pre {{ pre_date }} </p>
-              <p>{{ post_date }} </p>
                 {% if today_date >= pre_date and today_date <= post_date %}
                     <div class="carousel-item {% if forloop.index == 1 %} active {% endif %}">
                       <article class="fun-ex-blogs__card">
