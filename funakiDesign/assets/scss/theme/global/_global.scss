@@ -99,3 +99,9 @@
 .divider{
     @extend %divider;
 }
+
+div.error{
+    text-align: center;
+    font-family: var(--overpass);
+    text-transform: uppercase;
+}
