@@ -22,6 +22,10 @@
                     }
                 }
 
+                & .section-title{
+                    max-width: calc(100% - 44px);
+                }
+
                 & .fun-banner-conetnt-wrapper{
                     padding: 32px 0;
                     & .fun-text-banner__content{
