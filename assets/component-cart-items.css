@@ -273,6 +273,7 @@ cart-remove-button .icon-remove {
 
 .cart-items{
   min-width: 300px;
+  display: block;
 }
 
 .cart-item > td + td {
