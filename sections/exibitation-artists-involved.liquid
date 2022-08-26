@@ -54,7 +54,9 @@
               {% endif %}
 
             {% if file %}
-              <a href="{{ file[0].original_src }}" class="share-button__button btn btn-primary">Download PDF</a>
+              <div class="btn-wrapper">
+              <a href="{{ file[0].original_src }}" download class="share-button__button btn btn-primary">Download PDF</a>
+              </div>
             {% endif %}
             </div>
         </div>
