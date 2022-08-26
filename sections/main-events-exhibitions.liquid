@@ -93,6 +93,7 @@
            {%- endcase -%}
          {%- endfor -%}
        </div>
+       {% comment %}
        <div class="col-md-8 col-lg-7 offset-lg-1 fun-blog-detail__right-col">
          {%- for block in section.blocks -%}
            {%- case block.type -%}
@@ -126,6 +127,8 @@
            </div>
        </div>
      </div>
+     {% endcomment %}
+     
      <div class="row d-none">
        <div class="col-16 fun-blog-detail__bottom-col">
          {%- if article.image -%}
