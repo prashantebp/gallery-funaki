@@ -24,7 +24,9 @@
     }
   }
 {%- endstyle -%}
-
+{% assign exhibiting_works = article.metafields.exhibition.choose_exhibiting_works | split: "|" %}
+{% assign exhibiting_works_size = article.metafields.exhibition.choose_exhibiting_works | size %}
+{{ exhibiting_works }}
 <section class="section section-artists-involved1 section-{{ section.id }}-padding">
     <div class="container-xxl">
       <div class="row">
