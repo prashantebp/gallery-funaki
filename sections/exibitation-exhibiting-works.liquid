@@ -45,7 +45,7 @@
                 <div class="col-sm-8 col-lg-4 fun-featured__col">
                   <article class="fun-featured__card {% if product.type == "Art"%} fun-featured__card--portrait {% endif %}">
                     <figure class="fun-featured__figure">
-                        {% if product.featured_media %}
+                        {% if product.featured_image %}
                           <img
                               srcset="{%- if product.featured_media.width >= 165 -%}{{ product.featured_media | image_url: width: 165 }} 165w,{%- endif -%}
                                 {%- if product.featured_media.width >= 360 -%}{{ product.featured_media | image_url: width: 360 }} 360w,{%- endif -%}
