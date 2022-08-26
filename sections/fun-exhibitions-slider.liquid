@@ -48,7 +48,7 @@
       <div class="col-md-16">
         <div id="fun_hihc_slider1" class="fun-banner__carousel carousel slide" data-bs-ride="carousel">
           <div class="carousel-inner">
-            {{ section.settings.blog.articles | size }}
+    
             {%- for article in section.settings.blog.articles -%}
                 {% comment %} {% assign activeClass = '' %}
                 {% if forloop.first == true %} {% assign activeClass = 'active' %}{% endif %} {% endcomment %}
@@ -56,7 +56,8 @@
                 {% assign pre_date = article.metafields.custom.start_date | date: '%s' %}
                 {% assign post_date = article.metafields.custom.end_date | date: '%s' %}
               
-                {% if today_date >= pre_date and today_date <= post_date %}                  
+                {% if today_date >= pre_date and today_date <= post_date %}   
+                  {{ forloop.index }}
                     <div class="carousel-item {% if forloop.index == 1 %} active {% endif %}">
                       <article class="fun-ex-blogs__card">
                         <figure class="fun-ex-blogs__fig">
