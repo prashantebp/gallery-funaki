@@ -42,7 +42,7 @@
               {% for product_item in exhibiting_works %}
                 {% assign product = all_products[product_item] %}
                 {{ product_item }}
-                {{ product | size }}
+                {{ product.title | size }}
                 <div class="col-sm-8 col-lg-4 fun-featured__col">
                   <article class="fun-featured__card {% if product.type == "Art"%} fun-featured__card--portrait {% endif %}">
                     <figure class="fun-featured__figure">
