@@ -36,19 +36,23 @@
                   </div>
                </div>
             {%- endunless -%}
-
-           {% for image in article.metafields.exhibition.image %}
-             {% assign installation_img = '' %}
-             {% assign video_url = '' %}
-                {% if article.metafields.exhibition.image[forloop.index0] != blank %}      
-                    {% for image in article.metafields.exhibition.image[forloop.index0] %}
-                      {% assign installation_img = image %}
-                    {% endfor %}
-                {% endif %}
-               {% if article.metafields.exhibition.video_url[forloop.index0] != blank %}     
-                  {% assign video_url = article.metafields.exhibition.video_url[forloop.index0] %}
-               {% endif %}
-             {%  endfor %}
+            <div class="fun-product-list__gallery-wrapper">
+             {% for image in article.metafields.exhibition.image %}
+               {% assign installation_img = '' %}
+               {% assign video_url = '' %}
+                  {% if article.metafields.exhibition.image[forloop.index0] != blank %}      
+                      {% for image in article.metafields.exhibition.image[forloop.index0] %}
+                        {% assign installation_img = image %}
+                      {% endfor %}
+                  {% endif %}
+                 {% if article.metafields.exhibition.video_url[forloop.index0] != blank %}     
+                    {% assign video_url = article.metafields.exhibition.video_url[forloop.index0] %}
+                 {% endif %}
+               <div class="link {% if video_url != blank %} link--anchor {% endif %}" {{ block.shopify_attributes }}>    
+               { block.settings.image | image_url: width: 320 | image_tag }}
+               </div>
+               {%  endfor %}
+            </div>
              {% comment %}
             <div class="fun-product-list__gallery-wrapper">
                {% for block in section.blocks %}  
