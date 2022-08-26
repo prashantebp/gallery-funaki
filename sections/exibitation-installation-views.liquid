@@ -37,6 +37,7 @@
                </div>
             {%- endunless -%}
             <div class="fun-product-list__gallery-wrapper">
+              {{ article.metafields.exhibition.image }}
              {% for image in article.metafields.exhibition.image %}
                {% assign installation_img = '' %}
                {% assign video_url = '' %}
