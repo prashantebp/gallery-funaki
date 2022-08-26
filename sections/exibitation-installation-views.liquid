@@ -49,21 +49,28 @@
                  {% if article.metafields.exhibition.video_url[forloop.index0] != blank %}     
                     {% assign video_url = article.metafields.exhibition.video_url[forloop.index0] %}
                  {% endif %}
-               <div class="link {% if video_url != blank %} link--anchor {% endif %}" {{ block.shopify_attributes }}>    
-                 <img
-                  src="{{ installation_img.src }}"
-                  loading="lazy"
-                  width="{{ installation_img.width }}"
-                  height="{{ installation_img.height }}"
-                  alt="{{ installation_img.alt | escape }}">
+               <div class="link {% if video_url != blank %} link--anchor {% endif %}" {{ block.shopify_attributes }}>  
                  {% if video_url contains "https://" or video_url contains "www." %}
                    <a class="fun-bookmark__card-title" href="{{ video_url }}" data-fancybox>
+                     <img
+                        src="{{ installation_img.src }}"
+                        loading="lazy"
+                        width="{{ installation_img.width }}"
+                        height="{{ installation_img.height }}"
+                        alt="{{ installation_img.alt | escape }}">
                      <svg width="89" height="89" viewBox="0 0 89 89" fill="none" xmlns="http://www.w3.org/2000/svg">
                        <circle opacity="0.3" cx="44.5" cy="44.5" r="44.5" fill="white"/>
                        <path d="M30.7266 26.78V61.4251C30.7266 64.067 33.6359 65.6722 35.8765 64.2342L63.0977 46.9116C65.171 45.6074 65.171 42.5977 63.0977 41.2601L35.8765 23.971C33.6359 22.533 30.7266 24.1382 30.7266 26.78Z" fill="#323232"/>
                      </svg>              
                    </a>
-                 {% endif %}
+                  {% else %}
+                     <img
+                        src="{{ installation_img.src }}"
+                        loading="lazy"
+                        width="{{ installation_img.width }}"
+                        height="{{ installation_img.height }}"
+                        alt="{{ installation_img.alt | escape }}">
+                  {% endif %}
                </div>
                {%  endfor %}
             </div>

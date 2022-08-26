@@ -215,22 +215,25 @@
             & img{
                 width: 100%;
                 height: 100%;
-                min-height: 380px;
+                max-height: 380px;
                 object-fit: contain;
-            }
-            
-            &--anchor{
-                & img{
-                    // min-height: 320px;
-                    // max-height: 100%;
-                }
+                object-position: top;
             }
 
             & a{
-                position: absolute;
-                left: 50%;
-                top: 50%;
-                transform: translate(-50% , -50%);
+                width: 100%;
+                position: relative;
+                & svg{
+                    position: absolute;
+                    left: 50%;
+                    top: 50%;
+                    transform: translate(-50% , -50%);
+                }
+
+                & img{
+                    object-fit: contain;
+                    min-height: auto;
+                }
             }
         }
     }
