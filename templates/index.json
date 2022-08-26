@@ -40,6 +40,7 @@
     },
     "16551853499d8978dd": {
       "type": "custom-home-textbanner",
+      "disabled": true,
       "settings": {
         "heading": "LONG HEADLINE TO TURN YOUR VISITORS INTO USERS",
         "subheading": "SUBTITLE",
