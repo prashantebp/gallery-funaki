@@ -64,7 +64,7 @@
         @include media-breakpoint-up(sm){
             top: 625px;
         }
-        @include media-breakpoint-up(lg){
+        @include media-breakpoint-up(md){
             top: calc(100vh - 234px);
         }
         right: 0;
