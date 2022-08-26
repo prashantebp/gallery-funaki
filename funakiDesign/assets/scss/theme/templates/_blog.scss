@@ -329,6 +329,9 @@
         padding-bottom: 40px;
         grid-template-columns: 1fr;
         @extend %divider;
+        &::after{
+            width: 100%;
+        }
         @include media-breakpoint-up(sm){
             grid-template-columns: 1fr 1fr;
         }
