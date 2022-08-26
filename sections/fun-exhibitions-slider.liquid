@@ -58,7 +58,7 @@
               
                 {% if today_date >= pre_date and today_date <= post_date %}   
                   {% assign count = count | plus: 1  %}            
-                    <div class="carousel-item index-{{ count }}">
+                    <div class="carousel-item {% if count == 1 %} active {% endif %}">
                       <article class="fun-ex-blogs__card">
                         <figure class="fun-ex-blogs__fig">
                           <img
