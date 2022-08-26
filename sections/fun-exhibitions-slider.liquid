@@ -57,9 +57,8 @@
                 {% assign post_date = article.metafields.custom.end_date | date: '%s' %}
               
                 {% if today_date >= pre_date and today_date <= post_date %}   
-                  {% assign count = count | plus: 1  %}
-            {{ count }}
-                    <div class="carousel-item">
+                  {% assign count = count | plus: 1  %}            
+                    <div class="carousel-item index-{{ count }}">
                       <article class="fun-ex-blogs__card">
                         <figure class="fun-ex-blogs__fig">
                           <img
