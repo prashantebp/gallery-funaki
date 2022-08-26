@@ -49,7 +49,7 @@
                     {% assign video_url = article.metafields.exhibition.video_url[forloop.index0] %}
                  {% endif %}
                <div class="link {% if video_url != blank %} link--anchor {% endif %}" {{ block.shopify_attributes }}>    
-               {{ installation_img | image_url: width: 320 | image_tag }}
+               {{ installation_img }}
                </div>
                {%  endfor %}
             </div>
