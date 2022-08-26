@@ -4,6 +4,7 @@
       "type": "fun-event-slider",
       "settings": {
         "blog": "event",
+        "heading": "Events",
         "padding_top": 36,
         "padding_bottom": 64
       }
