@@ -24,6 +24,7 @@
     }
   }
 {%- endstyle -%}
+{{ article.metafields.exhibition.choose_exhibiting_works }}
 {% assign exhibiting_works = article.metafields.exhibition.choose_exhibiting_works | split: "|" %}
 {% assign exhibiting_works_size = article.metafields.exhibition.choose_exhibiting_works | size %}
  
@@ -38,8 +39,7 @@
                 </div>
               </div>
             {%- endunless -%}
-            <div class="row fun-featured__row">
-              {{ exhibiting_works }}
+            <div class="row fun-featured__row">              
               {% for product_item in exhibiting_works %}
                 {% assign product = all_products[product_item] %}
                 <div class="col-sm-8 col-lg-4 fun-featured__col">
