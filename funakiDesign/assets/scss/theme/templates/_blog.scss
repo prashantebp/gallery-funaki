@@ -326,12 +326,17 @@
 
     &__artist-list{
         display: grid;
+        padding-bottom: 40px;
         grid-template-columns: 1fr;
+        @extend %divider;
         @include media-breakpoint-up(sm){
             grid-template-columns: 1fr 1fr;
         }
         @include media-breakpoint-up(md){
             grid-template-columns: 1fr 1fr 1fr;
+        }
+        @include media-breakpoint-up(lg){
+            padding-bottom: 80px;
         }
         grid-gap: 8px;
         &--item{
@@ -359,6 +364,10 @@
                     color: var(--black);
                 }
             }
+        }
+
+        & + .btn-wrapper{
+            margin-top: 40px;
         }
     }
 }
