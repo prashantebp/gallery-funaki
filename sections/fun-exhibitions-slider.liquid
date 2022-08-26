@@ -48,7 +48,7 @@
       <div class="col-md-16">
         <div id="fun_hihc_slider1" class="fun-banner__carousel carousel slide" data-bs-ride="carousel">
           <div class="carousel-inner">
-            {{ section.settings.blog.articles }}
+            {{ section.settings.blog.articles | json }}
             {%- for article in section.settings.blog.articles -%}
                 {% comment %} {% assign activeClass = '' %}
                 {% if forloop.first == true %} {% assign activeClass = 'active' %}{% endif %} {% endcomment %}
