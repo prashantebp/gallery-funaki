@@ -58,6 +58,7 @@
   font-family: var(--nanum);
   color: var(--black);
   letter-spacing: normal;
+  line-height: 1.875rem;
 }
 
 .rte li span{
@@ -66,6 +67,7 @@
   font-family: var(--nanum);
   color: var(--black);
   letter-spacing: normal;
+  line-height: 1.875rem;
 }
 
 .rte li:last-child {
