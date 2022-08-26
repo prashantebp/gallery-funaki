@@ -55,7 +55,7 @@
                   width="{{ installation_img.width }}"
                   height="{{ installation_img.height }}"
                   alt="{{ installation_img.alt | escape }}">
-                 {% if video_url contains "https://" %}
+                 {% if video_url contains "https://" or video_url contains "www." %}
                    <a class="fun-bookmark__card-title" href="{{ video_url }}" data-fancybox>
                      <svg width="89" height="89" viewBox="0 0 89 89" fill="none" xmlns="http://www.w3.org/2000/svg">
                        <circle opacity="0.3" cx="44.5" cy="44.5" r="44.5" fill="white"/>
