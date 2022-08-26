@@ -47,7 +47,7 @@
                 {% if product_size > 0 %} 
                 <div class="col-sm-8 col-lg-4 fun-featured__col">
                   <article class="fun-featured__card {% if product.type == "Art"%} fun-featured__card--portrait {% endif %}">
-                    <figure class="fun-featured__figure">
+                    <figure class="fun-featured__figure original">
                         {% if product.featured_image %}
                           <img
                               srcset="{%- if product.featured_image.width >= 165 -%}{{ product.featured_image | image_url: width: 165 }} 165w,{%- endif -%}
