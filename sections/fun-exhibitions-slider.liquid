@@ -56,7 +56,7 @@
                 {% assign post_date = article.metafields.custom.end_date | date: '%s' %}
                 {% if today_date >= pre_date and today_date <= post_date %}
                   
-                    <div class="carousel-item {% if forloop.index == 1 %} active {% endif %}">
+                    <div class="carousel-item">
                       {{ article.title }}
                       <article class="fun-ex-blogs__card">
                         <figure class="fun-ex-blogs__fig">
