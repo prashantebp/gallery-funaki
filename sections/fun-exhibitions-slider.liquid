@@ -51,9 +51,9 @@
             {%- for article in section.settings.blog.articles -%}
                 {% comment %} {% assign activeClass = '' %}
                 {% if forloop.first == true %} {% assign activeClass = 'active' %}{% endif %} {% endcomment %}
-                {% assign today_date = 'now' | date: '%s' %}
-                {% assign pre_date = article.metafields.custom.start_date | date: '%s' %}
-                {% assign post_date = article.metafields.custom.end_date | date: '%s' %}
+                {% assign today_date = 'now' | date: '%Y-%m-%d' %}
+                {% assign pre_date = article.metafields.custom.start_date | date: '%Y-%m-%d' %}
+                {% assign post_date = article.metafields.custom.end_date | date: '%Y-%m-%d' %}
               <p>today {{ today_date }} </p>
               <p>pre {{ pre_date }} </p>
               <p>{{ post_date }} </p>
