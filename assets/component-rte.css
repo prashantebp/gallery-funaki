@@ -56,12 +56,14 @@
   list-style: inherit;
   font-size: 16px;
   font-family: var(--nanum);
+  color: var(--black);
 }
 
 .rte li span{
   list-style: inherit;
   font-size: 16px;
   font-family: var(--nanum);
+  color: var(--black);
 }
 
 .rte li:last-child {
