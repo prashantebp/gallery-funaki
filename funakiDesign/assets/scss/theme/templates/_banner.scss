@@ -20,6 +20,21 @@
                         height: calc(100vh - 55px - 188px);
                     }
                 }
+
+                & .fun-banner-conetnt-wrapper{
+                    padding: 32px 0;
+                    & .fun-text-banner__content{
+                        & p{
+                            font-family: var(--nanum);
+                            font-weight: 400;
+                            font-size: 16px;
+                            line-height: 30px;
+                            color: #000;
+                            max-width: 841px;
+                            letter-spacing: normal;
+                        }
+                    }
+                }
             }
         }
         // border-bottom: 1px solid var(--neutral-grey-200);
