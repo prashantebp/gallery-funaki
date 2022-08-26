@@ -75,7 +75,7 @@
                         <div class="price__container"><div class="price__regular">
                             <span class="visually-hidden visually-hidden--inline">Regular price</span>
                             <span class="price-item price-item--regular">
-                              {{ product.price }}
+                              {{ product.price | money_with_currency }}
                             </span>
                           </div>
                           <div class="price__sale">
