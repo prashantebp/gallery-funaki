@@ -26,7 +26,6 @@
 {%- endstyle -%}
 {% assign exhibiting_works = article.metafields.exhibition.choose_exhibiting_works | split: "|" %}
 {% assign exhibiting_works_size = article.metafields.exhibition.choose_exhibiting_works | size %}
- 
 <section class="section section-artists-involved1 section-{{ section.id }}-padding">
     <div class="container-xxl">
       <div class="row">
@@ -38,6 +37,9 @@
                 </div>
               </div>
             {%- endunless -%}
+            {% if exhibiting_works_size == 0  %}
+              <div class="error">No Exhibiting works for this exibation.</div>
+            {% endif %}
             <div class="row fun-featured__row">              
               {% for product_item in exhibiting_works %}
                 {% assign product = all_products[product_item] %}
