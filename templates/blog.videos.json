@@ -54,7 +54,9 @@
     "1661170076dc8f9cde": {
       "type": "video-listing",
       "settings": {
-        "section_heading": "Videos"
+        "section_heading": "Videos",
+        "padding_top": 88,
+        "padding_bottom": 100
       }
     }
   },
