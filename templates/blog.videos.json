@@ -46,7 +46,9 @@
       "type": "featured-video",
       "settings": {
         "section_heading": "Videos",
-        "video": "videos\/video-1"
+        "video": "videos\/video-1",
+        "padding_top": 36,
+        "padding_bottom": 64
       }
     },
     "1661170076dc8f9cde": {
