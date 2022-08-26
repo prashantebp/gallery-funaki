@@ -8,8 +8,8 @@
           "settings": {
             "image": "shopify:\/\/shop_images\/Rectangle_1.jpg",
             "mobile_image": "shopify:\/\/shop_images\/Rectangle_1.png",
-            "slider_heading": "LONG HEADLINE TO TURN YOUR VISITORS INTO USERS 1",
-            "slider_sub_title": "SUBTITLE 1",
+            "slider_heading": "LONG HEADLINE TO TURN YOUR VISITORS INTO USERS",
+            "slider_sub_title": "SUBTITLE",
             "slider_desc": "Separated they live in Bookmarksgrove right at the coast of the famous Semantics, large language ocean and many more stuff and more more more"
           }
         },
@@ -18,8 +18,8 @@
           "settings": {
             "image": "shopify:\/\/shop_images\/unsplash_DgCaEOnfBdo.jpg",
             "mobile_image": "shopify:\/\/shop_images\/unsplash_DgCaEOnfBdo.jpg",
-            "slider_heading": "LONG HEADLINE TO TURN YOUR VISITORS INTO USERS 2",
-            "slider_sub_title": "SUBTITLE 2",
+            "slider_heading": "LONG HEADLINE TO TURN YOUR VISITORS INTO USERS",
+            "slider_sub_title": "SUBTITLE",
             "slider_desc": "Separated they live in Bookmarksgrove right at the coast of the famous Semantics, large language ocean and many more stuff and more more more"
           }
         }
