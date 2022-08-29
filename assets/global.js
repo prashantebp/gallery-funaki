@@ -1,5 +1,5 @@
 //Product slider
-jQuery(function(jQuery){
+jQuery(document).ready(function(jQuery){
   jQuery('.fun-product__carousel-inner').slick({
       slidesToShow: 1,
       slidesToScroll: 1,
