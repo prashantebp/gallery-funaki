@@ -83,10 +83,19 @@
                 {%- if articles[exhibition].image -%}
                 <figure class="fun-event__fig">
                   <img
-                  src="{{ articles[exhibition].image | img_url: 533 }}"
+                  srcset="{%- if articles[exhibition].image.src.width >= 165 -%}{{ articles[exhibition].image.src | image_url: width: 165 }} 165w,{%- endif -%}
+                      {%- if articles[exhibition].image.src.width >= 360 -%}{{ articles[exhibition].image.src | image_url: width: 360 }} 360w,{%- endif -%}
+                      {%- if articles[exhibition].image.src.width >= 533 -%}{{ articles[exhibition].image.src | image_url: width: 533 }} 533w,{%- endif -%}
+                      {%- if articles[exhibition].image.src.width >= 720 -%}{{ articles[exhibition].image.src | image_url: width: 720 }} 720w,{%- endif -%}
+                      {%- if articles[exhibition].image.src.width >= 1000 -%}{{ articles[exhibition].image.src | image_url: width: 1000 }} 1000w,{%- endif -%}
+                      {%- if articles[exhibition].image.src.width >= 1500 -%}{{ articles[exhibition].image.src | image_url: width: 1500 }} 1500w,{%- endif -%}
+                      {{ articles[exhibition].image.src | image_url }} {{ articles[exhibition].image.src.width }}w"
+                  src="{{ articles[exhibition].image | img_url: 533 }}"            
                   alt="{{ articles[exhibition].title | escape }}"
                   class="motion-reduce fun-event__img"
                   loading="lazy"
+                  width="{{ articles[exhibition].image.width }}"
+                    height="{{ articles[exhibition].image.height }}"
                   />
                   <a href="{{ articles[exhibition].url }}" class="fun-event__link fun-event__link--hidden">
                     <span>{{ articles[exhibition].url }}</span>
@@ -114,7 +123,7 @@
       </div>
     {% endif %}
 
- 
+    {% comment %}
     <div class="row fun-event__row fun-event__upcoming-row {% if section.settings.blog.articles.size > 2 %} justify-content-between {% endif %}">
       {% assign artist_name = article.title | upcase %}
       {%- for article in section.settings.blog.articles limit: section.settings.post_limits -%}
@@ -170,6 +179,7 @@
               
       {%- endfor -%}
     </div>
+    {% endcomment %}
   </div>
 </section>
 <script src="{{ 'splide.min.js' | asset_url }}" defer></script>
