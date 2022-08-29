@@ -164,6 +164,11 @@ div.error{
         & .cart__blocks{
             margin: 0;
             width: 100%;
+            display: flex;
+            flex-direction: column;
+            & .cart__ctas{
+                order: 1;
+            }
         }
     }
 }
