@@ -21,10 +21,6 @@
   margin-left: 2rem;
 }
 
-.totals__subtotal-value {
-  font-size: 1.8rem;
-}
-
 .cart__ctas + .totals {
   margin-top: 2rem;
 }
@@ -33,4 +29,30 @@
   .totals {
     justify-content: space-between;
   }
+}
+
+
+.totals .totals_subtotal{
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 21px;
+  font-family: var(--overpass);
+  display: flex;
+  align-items: center;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--black);
+}
+
+.totals .totals__subtotal-value{
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 21px;
+  font-family: var(--overpass);
+  color: var(--neutral-grey-800);
+  display: flex;
+  align-items: center;
+  text-align: right;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
 }
