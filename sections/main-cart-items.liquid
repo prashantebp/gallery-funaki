@@ -284,14 +284,11 @@
 
                           <td>
                             <div class="cart-item__quantity-wrapper">
-                              <label class="visually-hidden" for="Quantity-{{ item.index | plus: 1 }}">
-                                {{ 'products.product.quantity.label' | t }}
-                              </label>
                               <quantity-input class="quantity visually-hidden">
-                                <button class="quantity__button no-js-hidden" name="minus" type="button">
+                                {% comment %} <button class="quantity__button no-js-hidden" name="minus" type="button">
                                   <span class="visually-hidden">{{ 'products.product.quantity.decrease' | t: product: item.product.title | escape }}</span>
                                   {% render 'icon-minus' %}
-                                </button>
+                                </button> {% endcomment %}
                                 <input class="quantity__input"
                                   type="number"
                                   name="updates[]"
@@ -301,13 +298,13 @@
                                   id="Quantity-{{ item.index | plus: 1 }}"
                                   data-index="{{ item.index | plus: 1 }}"
                                 >
-                                <button class="quantity__button no-js-hidden" name="plus" type="button">
+                                {% comment %} <button class="quantity__button no-js-hidden" name="plus" type="button">
                                   <span class="visually-hidden">{{ 'products.product.quantity.increase' | t: product: item.product.title | escape }}</span>
                                   {% render 'icon-plus' %}
-                                </button>
+                                </button> {% endcomment %}
                               </quantity-input>
 
-                              <cart-remove-button id="Remove-{{ item.index | plus: 1 }}" data-index="{{ item.index | plus: 1 }}">
+                              <cart-remove-button id="Remove-{{ item.index | plus: 1 }}" data-index="{{ item.index | plus: 1 }}" class="ms-0">
                                 <a href="{{ item.url_to_remove }}" class="button button--tertiary" aria-label="{{ 'sections.cart.remove_title' | t: title: item.title }}">
                                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M19 6.41L17.59 5L12 10.59L6.41 5L5 6.41L10.59 12L5 17.59L6.41 19L12 13.41L17.59 19L19 17.59L13.41 12L19 6.41Z" fill="#323232"/>
