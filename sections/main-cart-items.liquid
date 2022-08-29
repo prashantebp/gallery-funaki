@@ -346,7 +346,7 @@
               <ul class="fun-checkout__list">
                 {%- for item in cart.items -%}
                   <li>
-                    <span><a href="{{ item.url }}" class="cart-item__name h4 break">{{ item.product.title | escape }}</a></span>
+                    <span><a href="{{ item.url }}">{{ item.product.title | escape }}</a></span>
                     <span>
                       {%- if item.original_line_price != item.final_line_price -%}
                         <dl class="cart-item__discounted-prices">
