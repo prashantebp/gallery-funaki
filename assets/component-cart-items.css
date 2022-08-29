@@ -139,7 +139,7 @@
 cart-remove-button .button {
   width: 52px;
   height: 52px;
-
+  min-width: 52px;
 }
 @media screen and (min-width: 750px) and (max-width: 989px) {
   .cart-item cart-remove-button {
