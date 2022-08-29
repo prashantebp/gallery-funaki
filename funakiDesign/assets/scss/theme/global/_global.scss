@@ -151,4 +151,16 @@ div.error{
             }
         }
     }
+
+    &__footer{
+        display: flex;
+        flex-direction: column;
+
+        & .cart__note{
+            width: 100%;
+        }
+        & .cart__blocks{
+            margin: 0;
+        }
+    }
 }
