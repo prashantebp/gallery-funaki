@@ -156,6 +156,8 @@ div.error{
         display: flex;
         flex-direction: column;
 
+        padding: 0;
+
         & .cart__note{
             width: 100%;
         }
