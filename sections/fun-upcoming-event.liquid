@@ -68,7 +68,7 @@
         </div>
       </div>
     </div>
-    <div class="row fun-event__row fun-event__upcoming-row {% if section.settings.blog.articles.size > 2 %} justify-content-between {% endif %}">
+    <div class="row fun-event__row fun-event__upcoming-row">
       {%- for article in section.settings.blog.articles limit: section.settings.post_limits -%}
       {% assign today_date = 'now' | date: '%s' %}
           {% assign pre_date = article.metafields.custom.start_date | date: '%s' %}
