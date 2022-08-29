@@ -305,6 +305,10 @@ td.cart-item__totals{
   width: 149px;
 }
 
+td.cart-item__actions .cart-item__quantity-wrapper{
+  justify-content: flex-end;
+}
+
 .cart-item > td + td {
   padding-left: 10px;
 }
