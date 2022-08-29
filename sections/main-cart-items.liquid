@@ -343,7 +343,7 @@
         <div class="cart__items" id="main-cart-items1" data-id="{{ section.id }}">
           <div class="js-contents1">
             {%- if cart != empty -%}
-              <table class="cart-items">
+            <table class="cart-items">
                 <tbody>
                   {%- for item in cart.items -%}
                     <tr class="cart-item" id="CartItem-{{ item.index | plus: 1 }}">
