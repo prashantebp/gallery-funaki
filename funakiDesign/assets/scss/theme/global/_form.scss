@@ -79,14 +79,14 @@ textarea{
         font-weight: 400;
         font-size: 10px;
         line-height: 16px;
-        color: var(--neutral-grey-800);
+        color: var(--neutral-grey-500);
         margin-bottom: 0;
         text-transform: uppercase;
     }
     &:focus,&:focus-visible{
-        border-color: var(--neutral-grey-800);
+        border-color: var(--neutral-grey-500);
         outline: 0;
-        box-shadow: 0 0 0 1px var(--neutral-grey-800);
+        box-shadow: 0 0 0 1px var(--neutral-grey-500);
 
     }
 }
@@ -96,15 +96,15 @@ textarea{
         content: unset;
     }
     .field__input{
-        border: 1px solid var(--neutral-grey-800);
+        border: 1px solid var(--neutral-grey-500);
         &:hover{
             &::after,&::before{
                 content: unset;
             }
-            box-shadow: 0 0 0 1px var(--neutral-grey-800);
+            box-shadow: 0 0 0 1px var(--neutral-grey-500);
         }
         &:focus , &:focus-visible{
-            box-shadow: 0 0 0 1px var(--neutral-grey-800);
+            box-shadow: 0 0 0 1px var(--neutral-grey-500);
         }
     }
 }
