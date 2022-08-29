@@ -3,20 +3,20 @@
     "cart-items": {
       "type": "main-cart-items",
       "blocks": {
-        "e8706f3c-dad6-4fee-aeec-8f1e0bd6fa53": {
-          "type": "subtotal",
+        "3f4551ce-ebd2-4bbc-a91f-e73a4513128b": {
+          "type": "buttons",
           "settings": {
           }
         },
-        "3f4551ce-ebd2-4bbc-a91f-e73a4513128b": {
-          "type": "buttons",
+        "e8706f3c-dad6-4fee-aeec-8f1e0bd6fa53": {
+          "type": "subtotal",
           "settings": {
           }
         }
       },
       "block_order": [
-        "e8706f3c-dad6-4fee-aeec-8f1e0bd6fa53",
-        "3f4551ce-ebd2-4bbc-a91f-e73a4513128b"
+        "3f4551ce-ebd2-4bbc-a91f-e73a4513128b",
+        "e8706f3c-dad6-4fee-aeec-8f1e0bd6fa53"
       ],
       "settings": {
         "padding_top": 32,
