@@ -72,8 +72,8 @@
       {%- for article in section.settings.blog.articles limit: section.settings.post_limit -%}
 
           {% assign today_date = 'now' | date: '%s' %}
-          {% assign pre_date = article.metafields.custom.start_date | date: '%s' %}
-          {% assign post_date = article.metafields.custom.end_date | date: '%s' %}
+          {% assign pre_date = article.metafields.exhibitions.start_date | date: '%s' %}
+          {% assign post_date = article.metafields.exhibitions.end_date | date: '%s' %}
           {% if today_date > pre_date and today_date > post_date %}
         <div class="col-sm-8 col-md-4 fun-bookmark__col--past">
             <article class="fun-bookmark__card fun-bookmark__card--past {{ section.settings.custom_class }}">
@@ -129,7 +129,7 @@
                         {%- endif -%}
                       </h4>
                     {%- else -%}
-                      <date class="fun-event__date">{{ article.metafields.custom.start_date | date: "%b %d" }} - {{ article.metafields.custom.end_date | date: "%b %d, %Y" }}</date>
+                      <date class="fun-event__date">{{ article.metafields.exhibitions.start_date | date: "%b %d" }} - {{ article.metafields.exhibitions.end_date | date: "%b %d, %Y" }}</date>
                     {%- endif -%}
                   </div>
               </div>
