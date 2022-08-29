@@ -114,9 +114,9 @@
                       {%- endif -%}
                   {%- endif -%}
                     </h4>
-                    {% assign start_date =  articles[exhibition].metafields.exhibitions.start_date | split: "-" %}
-                    {{ start_date[0] }} {{ start_date[1] }}
+                    {% if articles[exhibition].metafields.exhibitions.start_date != blank or articles[exhibition].metafields.exhibitions.end_date != blank %}
                       <date class="fun-event__date">{{ articles[exhibition].metafields.exhibitions.start_date | date: "%b %d" }} - {{ articles[exhibition].metafields.exhibitions.end_date | date: "%b %d, %Y" }}</date>
+                    {% endif %}
                     </div>
                 </div>
               </article>
