@@ -50,7 +50,7 @@ class CartItems extends HTMLElement {
       },
       {
         id: 'main-cart-footer',
-        section: document.getElementById('main-cart-footer2').dataset.id,
+        section: document.getElementById('main-cart-footer').dataset.id,
         selector: '.js-contents',
       },
       {
