@@ -35,7 +35,6 @@
                  <h1 class="article-template__title article-template__title-exhibitions" itemprop="headline">{{ article.title | escape }}</h1>
 
                  <div class="fun-blog-detail__content fun-blog-detail__content--exhibitions">
-                   {%- if block.settings.blog_show_date -%}
                      <span class="circle-divider caption-with-letter-spacing" itemprop="dateCreated pubdate datePublished">{{ article.metafields.exhibitions.start_date | date: "%b %d" }} - {{ article.metafields.exhibitions.end_date | date: "%b %d, %Y" }}</span>
                    {%- endif -%}
                    {%- if block.settings.blog_show_author -%}
