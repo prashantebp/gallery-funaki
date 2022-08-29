@@ -75,19 +75,46 @@
       <div class="error">No Artist invovled for this exibation.</div>
     {% endif %}
     {% if exhibition_name != blank %}
-      <div class="fun-blog-detail__artist-list">                    
+    <div class="row fun-event__row fun-event__upcoming-row">                    
           {% for exhibition in exhibition_name %}
-            <div class="fun-blog-detail__artist-list--item">
-              {%- if articles[exhibition].image -%}
-              <div class="author-image"><img src="{{ articles[exhibition].image | img_url: '63x63' }}" alt="{{ articles[exhibition].title | escape }}" /></div>
-              {%- endif -%}
-              <a class="author-link" href="{{ articles[exhibition].url | escape }}">{{ articles[exhibition].title | escape }}</a>
+            <div class="col-sm-8 col-lg-5 fun-event__col">
+              <article class="fun-event__card fun-event__card--events">
+
+                {%- if articles[exhibition].image -%}
+                <figure class="fun-event__fig">
+                  <img
+                  src="{{ articles[exhibition].image | img_url: 533 }}"
+                  alt="{{ articles[exhibition].title | escape }}"
+                  class="motion-reduce fun-event__img"
+                  loading="lazy"
+                  />
+                  <a href="{{ articles[exhibition].url }}" class="fun-event__link fun-event__link--hidden">
+                    <span>{{ articles[exhibition].url }}</span>
+                  </a>
+                </figure>
+                {%- endif -%}
+                <div class="d-flex flex-column fun-event__description-wrapper">
+                    <a class="fun-event__card-title" href="{{ articles[exhibition].url }}">{{ articles[exhibition].title }}</a>
+                    <div>
+                      <h4 class="fun-event__subtitle section-subtitle">
+                      {%- if articles[exhibition].excerpt.size > 0 or articles[exhibition].content.size > 0 -%}
+                      {%- if articles[exhibition].excerpt.size > 0 -%}
+                        {{ articles[exhibition].excerpt | strip_html | truncatewords: 14 }}
+                      {%- else -%}
+                        {{ articles[exhibition].content | strip_html | truncatewords: 30 }}
+                      {%- endif -%}
+                  {%- endif -%}
+                    </h4>
+                      <date class="fun-event__date">{{ articles[exhibition].metafields.custom.start_date | date: "%b %d" }} - {{ articles[exhibition].metafields.custom.end_date | date: "%b %d, %Y" }}</date>
+                    </div>
+                </div>
+              </article>
             </div>
           {% endfor %}                    
       </div>
     {% endif %}
 
-
+    {% comment %}
     <div class="row fun-event__row fun-event__upcoming-row {% if section.settings.blog.articles.size > 2 %} justify-content-between {% endif %}">
       {% assign artist_name = article.title | upcase %}
       {%- for article in section.settings.blog.articles limit: section.settings.post_limits -%}
@@ -143,6 +170,7 @@
               
       {%- endfor -%}
     </div>
+    {% endcomment %}
   </div>
 </section>
 <script src="{{ 'splide.min.js' | asset_url }}" defer></script>
