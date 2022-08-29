@@ -105,3 +105,82 @@ div.error{
     font-family: var(--overpass);
     text-transform: uppercase;
 }
+
+.fun-checkout{
+    &__header{
+        h1{
+            font-weight: 400;
+            font-size: 20px;
+            line-height: 21px;
+            /* identical to box height, or 105% */
+
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            font-family: var(--overpass);
+            color: var(--black);
+            margin-bottom: 17px;
+        }
+    }
+
+    &__list{
+        display: flex;
+        flex-direction: column;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        padding-bottom: 22px;
+        border-bottom: 1px solid var(--neutral-grey-200);
+        margin-bottom: 22px;
+        & li{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+
+            & span , & a{
+                font-weight: 400;
+                font-size: 14px;
+                line-height: 24px;
+                font-family: var(--nanum);
+                color: var(--black);
+            }
+
+            &:last-child{
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    &__footer{
+        display: flex;
+        flex-direction: column;
+
+        padding: 0;
+
+        & .cart__note{
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        & .cart__blocks{
+            margin: 0;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            & .cart__ctas{
+                order: 1;
+            }
+        }
+    }
+
+    &__aside{
+        @include media-breakpoint-up(lg){
+            padding-left: 30px;
+            border-left: 1px solid var(--neutral-grey-200);
+        }
+        @include media-breakpoint-up(xl){
+            padding-left: 62px;
+        }
+    }
+}
