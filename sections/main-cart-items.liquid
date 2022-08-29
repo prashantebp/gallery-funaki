@@ -340,116 +340,43 @@
         </cart-items>
       </div>
       <aside class="col-md-6 col-lg-5 offset-lg-1">
-        <div class="cart__items" id="main-cart-items_summary" data-id="{{ section.id }}">
+        <div class="fun-checkout__sidebar cart__items" id="main-cart-items_summary" data-id="{{ section.id }}">
           <div class="js-contents_summary">
             {%- if cart != empty -%}
-            <table class="cart-items">
-                <tbody>
-                  {%- for item in cart.items -%}
-                    <tr class="cart-item" id="CartItem-{{ item.index | plus: 1 }}">
-                      <td class="cart-item__details">
-                        {%- if section.settings.show_vendor -%}
-                          <p class="caption-with-letter-spacing">{{ item.product.vendor }}</p>
-                        {%- endif -%}
-    
-                        <a href="{{ item.url }}" class="cart-item__name h4 break">{{ item.product.title | escape }}</a>
-                        <label class="" for="Quantity-{{ item.index | plus: 1 }}">
-                          {{ 'products.product.quantity.label' | t }} {{ item.quantity }}
-                        </label>
-                        {%- if item.product.has_only_default_variant == false or item.properties.size != 0 or item.selling_plan_allocation != nil -%}
-                          <dl>
-                            {%- if item.product.has_only_default_variant == false -%}
-                              {%- for option in item.options_with_values -%}
-                                <div class="product-option">
-                                  <dd>{{ option.value }}</dd>
-                                </div>
-                              {%- endfor -%}
-                            {%- endif -%}
-    
-                            {%- for property in item.properties -%}
-                              {%- assign property_first_char = property.first | slice: 0 -%}
-                              {%- if property.last != blank and property_first_char != '_' -%}
-                                <div class="product-option d-inline">
-                                  <dd>
-                                    {%- if property.last contains '/uploads/' -%}
-                                      <a href="{{ property.last }}" class="link" target="_blank">
-                                        {{ property.last | split: '/' | last }}
-                                      </a>
-                                    {%- else -%}
-                                      {{ property.last }},
-                                    {%- endif -%}
-                                  </dd>
-                                </div>
-                              {%- endif -%}
-                            {%- endfor -%}
-                          </dl>
-    
-                          <p class="product-option">{{ item.selling_plan_allocation.selling_plan.name }}</p>
-                        {%- endif -%}
-    
-                        <ul class="discounts list-unstyled" role="list" aria-label="{{ 'customer.order.discount' | t }}">
-                          {%- for discount in item.discounts -%}
-                            <li class="discounts__discount">
-                              {%- render 'icon-discount' -%}
-                              {{ discount.title }}
-                            </li>
-                          {%- endfor -%}
-                        </ul>
-                      </td>
-    
-                      
-    
-                      <td class="cart-item__totals right">
-                        <div class="loading-overlay hidden">
-                          <div class="loading-overlay__spinner">
-                            <svg aria-hidden="true" focusable="false" role="presentation" class="spinner" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
-                              <circle class="path" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
-                            </svg>
-                          </div>
-                        </div>
-    
-                        <div class="cart-item__price-wrapper">
-                          {%- if item.original_line_price != item.final_line_price -%}
-                            <dl class="cart-item__discounted-prices">
-                              <dt class="visually-hidden">
-                                {{ 'products.product.price.regular_price' | t }}
-                              </dt>
-                              <dd>
-                                <s class="cart-item__old-price price price--end">
-                                  {{ item.original_line_price | money }}
-                                </s>
-                              </dd>
-                              <dt class="visually-hidden">
-                                {{ 'products.product.price.sale_price' | t }}
-                              </dt>
-                              <dd class="price price--end">
-                                {{ item.final_line_price | money }}
-                              </dd>
-                            </dl>
-                          {%- else -%}
-                            <span class="price price--end">
+              <header class="fun-checkout__header">
+                <h1>Order summary</h1>
+              </header>
+              <ul class="fun-checkout__list">
+                {%- for item in cart.items -%}
+                  <li>
+                    <span><a href="{{ item.url }}" class="cart-item__name h4 break">{{ item.product.title | escape }}</a></span>
+                    <span>
+                      {%- if item.original_line_price != item.final_line_price -%}
+                        <dl class="cart-item__discounted-prices">
+                          <dt class="visually-hidden">
+                            {{ 'products.product.price.regular_price' | t }}
+                          </dt>
+                          <dd>
+                            <s class="cart-item__old-price price price--end">
                               {{ item.original_line_price | money }}
-                            </span>
-                          {%- endif -%}
-    
-                          {%- if item.variant.available and item.unit_price_measurement -%}
-                            <div class="unit-price caption">
-                              <span class="visually-hidden">{{ 'products.product.price.unit_price' | t }}</span>
-                              {{ item.variant.unit_price | money }}
-                              <span aria-hidden="true">/</span>
-                              <span class="visually-hidden">&nbsp;{{ 'accessibility.unit_price_separator' | t }}&nbsp;</span>
-                              {%- if item.variant.unit_price_measurement.reference_value != 1 -%}
-                                {{- item.variant.unit_price_measurement.reference_value -}}
-                              {%- endif -%}
-                              {{ item.variant.unit_price_measurement.reference_unit }}
-                            </div>
-                          {%- endif -%}
-                        </div>
-                      </td>
-                    </tr>
-                  {%- endfor -%}
-                </tbody>
-              </table>
+                            </s>
+                          </dd>
+                          <dt class="visually-hidden">
+                            {{ 'products.product.price.sale_price' | t }}
+                          </dt>
+                          <dd class="price price--end">
+                            {{ item.final_line_price | money }}
+                          </dd>
+                        </dl>
+                      {%- else -%}
+                        <span class="price price--end">
+                          {{ item.original_line_price | money }}
+                        </span>
+                      {%- endif -%}
+                    </span>
+                  </li>
+                {%- endfor -%}
+              </ul>
             {%- endif -%}
           </div>
           <div class="cart__ctas" {{ block.shopify_attributes }}>
