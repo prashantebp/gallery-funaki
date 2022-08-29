@@ -23,7 +23,6 @@
   <script src="{{ 'cart.js' | asset_url }}" defer="defer"></script>
 {%- endunless -%}
 
-{%- comment -%}
 <section class="{% if cart == empty %} is-empty{% else %} section-{{ section.id }}-padding{% endif %}">
   <div class="container-xxl">
     <div class="row">
@@ -61,7 +60,7 @@
                         <tr class="cart-item" id="CartItem-{{ item.index | plus: 1 }}">
                           <td class="cart-item__media">
                             {% if item.image %}
-                               <!-- Leave empty space due to a:empty CSS display: none rule  -->
+                              {% comment %} Leave empty space due to a:empty CSS display: none rule {% endcomment %}
                               <a href="{{ item.url }}" class="cart-item__link" aria-hidden="true" tabindex="-1"> </a>
                                 <div class="cart-item__image-container gradient global-media-settings">
                                   <img src="{{ item.image | image_url: width: 300 }}"
@@ -82,7 +81,7 @@
 
                             <a href="{{ item.url }}" class="cart-item__name h4 break fun-cart__product-name">{{ item.product.title | escape }}</a>
 
-                             {%- if item.original_price != item.final_price -%}
+                            {% comment %} {%- if item.original_price != item.final_price -%}
                               <div class="cart-item__discounted-prices">
                                 <span class="visually-hidden">
                                   {{ 'products.product.price.regular_price' | t }}
@@ -143,7 +142,7 @@
                                   {{ discount.title }}
                                 </li>
                               {%- endfor -%}
-                            </ul>
+                            </ul> {% endcomment %}
                           </td>
 
                           <td class="cart-item__totals right medium-hide large-up-hide">
@@ -199,10 +198,10 @@
                                 {{ 'products.product.quantity.label' | t }}
                               </label>
                               <quantity-input class="quantity">
-                                <button class="quantity__button no-js-hidden" name="minus" type="button">
+                                {% comment %} <button class="quantity__button no-js-hidden" name="minus" type="button">
                                   <span class="visually-hidden">{{ 'products.product.quantity.decrease' | t: product: item.product.title | escape }}</span>
                                   {% render 'icon-minus' %}
-                                </button>
+                                </button> {% endcomment %}
                                 <input class="quantity__input"
                                   type="number"
                                   name="updates[]"
@@ -212,10 +211,10 @@
                                   id="Quantity-{{ item.index | plus: 1 }}"
                                   data-index="{{ item.index | plus: 1 }}"
                                 >
-                                <button class="quantity__button no-js-hidden" name="plus" type="button">
+                                {% comment %} <button class="quantity__button no-js-hidden" name="plus" type="button">
                                   <span class="visually-hidden">{{ 'products.product.quantity.increase' | t: product: item.product.title | escape }}</span>
                                   {% render 'icon-plus' %}
-                                </button> 
+                                </button> {% endcomment %}
                               </quantity-input>
 
                               <cart-remove-button class="visually-hidden" id="Remove-{{ item.index | plus: 1 }}" data-index="{{ item.index | plus: 1 }}">
@@ -224,7 +223,7 @@
                                 </a>
                               </cart-remove-button>
                             </div>
-                            <div class="cart-item__error" id="Line-item-error-{{ item.index | plus: 1 }}" role="alert">
+                            {% comment %} <div class="cart-item__error" id="Line-item-error-{{ item.index | plus: 1 }}" role="alert">
                               <small class="cart-item__error-text"></small>
                               <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-error" viewBox="0 0 13 13">
                                 <circle cx="6.5" cy="6.50049" r="5.5" stroke="white" stroke-width="2"/>
@@ -232,7 +231,7 @@
                                 <path d="M5.87413 3.52832L5.97439 7.57216H7.02713L7.12739 3.52832H5.87413ZM6.50076 9.66091C6.88091 9.66091 7.18169 9.37267 7.18169 9.00504C7.18169 8.63742 6.88091 8.34917 6.50076 8.34917C6.12061 8.34917 5.81982 8.63742 5.81982 9.00504C5.81982 9.37267 6.12061 9.66091 6.50076 9.66091Z" fill="white"/>
                                 <path d="M5.87413 3.17832H5.51535L5.52424 3.537L5.6245 7.58083L5.63296 7.92216H5.97439H7.02713H7.36856L7.37702 7.58083L7.47728 3.537L7.48617 3.17832H7.12739H5.87413ZM6.50076 10.0109C7.06121 10.0109 7.5317 9.57872 7.5317 9.00504C7.5317 8.43137 7.06121 7.99918 6.50076 7.99918C5.94031 7.99918 5.46982 8.43137 5.46982 9.00504C5.46982 9.57872 5.94031 10.0109 6.50076 10.0109Z" fill="white" stroke="#EB001B" stroke-width="0.7">
                               </svg>
-                            </div> 
+                            </div> {% endcomment %}
                           </td>
 
                           <td class="cart-item__totals right small-hide">
@@ -316,7 +315,7 @@
                                 </a>
                               </cart-remove-button>
                             </div>
-                            <div class="cart-item__error" id="Line-item-error-{{ item.index | plus: 1 }}" role="alert">
+                            {% comment %} <div class="cart-item__error" id="Line-item-error-{{ item.index | plus: 1 }}" role="alert">
                               <small class="cart-item__error-text"></small>
                               <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-error" viewBox="0 0 13 13">
                                 <circle cx="6.5" cy="6.50049" r="5.5" stroke="white" stroke-width="2"/>
@@ -324,7 +323,7 @@
                                 <path d="M5.87413 3.52832L5.97439 7.57216H7.02713L7.12739 3.52832H5.87413ZM6.50076 9.66091C6.88091 9.66091 7.18169 9.37267 7.18169 9.00504C7.18169 8.63742 6.88091 8.34917 6.50076 8.34917C6.12061 8.34917 5.81982 8.63742 5.81982 9.00504C5.81982 9.37267 6.12061 9.66091 6.50076 9.66091Z" fill="white"/>
                                 <path d="M5.87413 3.17832H5.51535L5.52424 3.537L5.6245 7.58083L5.63296 7.92216H5.97439H7.02713H7.36856L7.37702 7.58083L7.47728 3.537L7.48617 3.17832H7.12739H5.87413ZM6.50076 10.0109C7.06121 10.0109 7.5317 9.57872 7.5317 9.00504C7.5317 8.43137 7.06121 7.99918 6.50076 7.99918C5.94031 7.99918 5.46982 8.43137 5.46982 9.00504C5.46982 9.57872 5.94031 10.0109 6.50076 10.0109Z" fill="white" stroke="#EB001B" stroke-width="0.7">
                               </svg>
-                            </div> 
+                            </div> {% endcomment %}
 
                           </td>
                         </tr>
@@ -419,9 +418,7 @@
     </div>
   </div>
 </section>
-{%- endcomment -%}
-
-<cart-items class="page-width {% if cart == empty %} is-empty{% else %} section-{{ section.id }}-padding{% endif %}">
+{% comment %} <cart-items class="page-width {% if cart == empty %} is-empty{% else %} section-{{ section.id }}-padding{% endif %}">
   <div class="title-wrapper-with-link">
     <h1 class="title title--primary">{{ 'sections.cart.title' | t }}</h1>
     <a href="{{ routes.all_products_collection_url }}" class="underlined-link">{{ 'general.continue_shopping' | t }}</a>
@@ -692,12 +689,48 @@
     <p class="visually-hidden" id="cart-live-region-text" aria-live="polite" role="status"></p>
     <p class="visually-hidden" id="shopping-cart-line-item-status" aria-live="polite" aria-hidden="true" role="status">{{ 'accessibility.loading' | t }}</p>
   </form>
-</cart-items>
+</cart-items> {% endcomment %}
 
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    function isIE() {
+      const ua = window.navigator.userAgent;
+      const msie = ua.indexOf('MSIE ');
+      const trident = ua.indexOf('Trident/');
+
+      return (msie > 0 || trident > 0);
+    }
+
+    if (!isIE()) return;
+    const cartSubmitInput = document.createElement('input');
+    cartSubmitInput.setAttribute('name', 'checkout');
+    cartSubmitInput.setAttribute('type', 'hidden');
+    document.querySelector('#cart').appendChild(cartSubmitInput);
+    document.querySelector('#checkout').addEventListener('click', function(event) {
+      document.querySelector('#cart').submit();
+    });
+  });
+</script>
 
 {% schema %}
 {
   "name": "t:sections.main-cart-items.name",
+  "blocks": [
+    {
+      "type": "subtotal",
+      "name": "t:sections.main-cart-footer.blocks.subtotal.name",
+      "limit": 1
+    },
+    {
+      "type": "buttons",
+      "name": "t:sections.main-cart-footer.blocks.buttons.name",
+      "limit": 1
+    },
+    {
+      "type": "@app"
+    }
+  ],
   "settings": [
     {
       "type": "header",
