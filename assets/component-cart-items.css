@@ -71,7 +71,6 @@
 
 .cart-item__details > * {
   margin: 0;
-  max-width: 30rem;
 }
 
 .cart-item__details > * + * {
@@ -338,10 +337,6 @@ cart-remove-button .icon-remove {
 
   .cart-item > td + td {
     padding-left: 24px;
-  }
-
-  .cart-item__details {
-    width: 35rem;
   }
 
   /* .cart-item__media {
