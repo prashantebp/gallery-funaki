@@ -163,7 +163,7 @@
                   {%- assign lazy_load = true -%}
                 {%- endif -%}
                 <div class="col-sm-6 col-lg-5 fun-product-list__col card-wrapper">
-                  <article class="fun-featured__card">
+                  <article class="fun-featured__card {% if product.type == "Art"%} fun-featured__card--portrait {% endif %} {% if product.type == "Books"%} fun-featured__card--portrait {% endif %}">
                       <figure class="fun-featured__figure">
                         {% if product.featured_media %}
                           <img
