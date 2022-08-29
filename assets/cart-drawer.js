@@ -8,7 +8,7 @@ class CartDrawer extends HTMLElement {
   }
 
   setHeaderCartIconAccessibility() {
-    const cartLink = document.querySelector('#cart-icon-bubble2');
+    const cartLink = document.querySelector('#cart-icon-bubble');
     cartLink.setAttribute('role', 'button');
     cartLink.setAttribute('aria-haspopup', 'dialog');
     cartLink.addEventListener('click', (event) => {
@@ -89,9 +89,6 @@ class CartDrawer extends HTMLElement {
       },
       {
         id: 'cart-icon-bubble'
-      },
-      {
-        id: 'cart-icon-bubble2'
       }
     ];
   }
@@ -119,11 +116,6 @@ class CartDrawerItems extends CartItems {
       },
       {
         id: 'cart-icon-bubble',
-        section: 'cart-icon-bubble',
-        selector: '.shopify-section'
-      },
-      {
-        id: 'cart-icon-bubble2',
         section: 'cart-icon-bubble',
         selector: '.shopify-section'
       }
