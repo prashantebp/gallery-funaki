@@ -39,9 +39,9 @@ class CartItems extends HTMLElement {
         selector: '.js-contents',
       },
       {
-        id: 'main-cart-items1',
-        section: document.getElementById('main-cart-items1').dataset.id,
-        selector: '.js-contents1',
+        id: 'main-cart-items_summary',
+        section: document.getElementById('main-cart-items_summary').dataset.id,
+        selector: '.js-contents_summary',
       },
       {
         id: 'cart-icon-bubble',
