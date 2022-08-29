@@ -71,7 +71,6 @@
 
 .cart-item__details > * {
   margin: 0;
-  max-width: 30rem;
 }
 
 .cart-item__details > * + * {
@@ -298,6 +297,14 @@ cart-remove-button .icon-remove {
   min-width: 300px;
 } */
 
+td.cart-item__quantity{
+  width: 244px;
+}
+
+td.cart-item__quantity{
+  width: 149px;
+}
+
 .cart-item > td + td {
   padding-left: 10px;
 }
@@ -338,10 +345,6 @@ cart-remove-button .icon-remove {
 
   .cart-item > td + td {
     padding-left: 24px;
-  }
-
-  .cart-item__details {
-    width: 35rem;
   }
 
   /* .cart-item__media {
