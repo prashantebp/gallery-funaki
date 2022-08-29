@@ -114,7 +114,7 @@
       </div>
     {% endif %}
 
-    {% comment %}
+ 
     <div class="row fun-event__row fun-event__upcoming-row {% if section.settings.blog.articles.size > 2 %} justify-content-between {% endif %}">
       {% assign artist_name = article.title | upcase %}
       {%- for article in section.settings.blog.articles limit: section.settings.post_limits -%}
@@ -170,7 +170,6 @@
               
       {%- endfor -%}
     </div>
-    {% endcomment %}
   </div>
 </section>
 <script src="{{ 'splide.min.js' | asset_url }}" defer></script>
