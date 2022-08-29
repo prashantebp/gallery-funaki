@@ -53,6 +53,8 @@
                 {% comment %} {% assign activeClass = '' %}
                 {% if forloop.first == true %} {% assign activeClass = 'active' %}{% endif %} {% endcomment %}
                 {% assign today_date = 'now' | date: '%s' %}
+                {{article.metafields.exhibitions.start_date}}
+                {{article.metafields.exhibitions.end_date}}
                 {% assign pre_date = article.metafields.exhibitions.start_date | date: '%s' %}
                 {% assign post_date = article.metafields.exhibitions.end_date | date: '%s' %}
               
