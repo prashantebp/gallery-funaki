@@ -173,4 +173,14 @@ div.error{
             }
         }
     }
+
+    &__aside{
+        @include media-breakpoint-up(lg){
+            padding-left: 30px;
+            border-left: 1px solid var(--neutral-grey-200);
+        }
+        @include media-breakpoint-up(xl){
+            padding-left: 62px;
+        }
+    }
 }
