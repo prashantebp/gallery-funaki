@@ -385,13 +385,6 @@
           </div>
         </div>
         <div class="fun-checkout__footer cart__footer">
-          {%- if settings.show_cart_note -%}
-            <cart-note class="cart__note field form-element">
-              <textarea class="text-area field__input form-control" name="note" form="cart" id="Cart-note" placeholder="{{ 'sections.cart.note' | t }}">{{ cart.note }}</textarea>
-              <label for="Cart-note" class="form-label">{{ 'sections.cart.note' | t }}</label>
-            </cart-note>
-          {%- endif -%}
-
           <div class="cart__blocks">
             {% for block in section.blocks %}
               {%- case block.type -%}
@@ -430,6 +423,12 @@
                       {%- endif -%}
                     </small> {% endcomment %}
                   </div>
+                  {%- if settings.show_cart_note -%}
+                    <cart-note class="cart__note field form-element">
+                      <textarea class="text-area field__input form-control" name="note" form="cart" id="Cart-note" placeholder="{{ 'sections.cart.note' | t }}">{{ cart.note }}</textarea>
+                      <label for="Cart-note" class="form-label">{{ 'sections.cart.note' | t }}</label>
+                    </cart-note>
+                  {%- endif -%}
                 {%- else -%}
 
 
