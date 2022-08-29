@@ -51,7 +51,7 @@
               <div class="js-contents">
                 {%- if cart != empty -%}
                   <table class="cart-items fun-cart__table">
-                    <thead>
+                    {% comment %} <thead>
                       <tr>
                         <th class="caption-with-letter-spacing" colspan="2" scope="col">{{ 'sections.cart.headings.product' | t }}</th>
                         <th class="medium-hide large-up-hide right caption-with-letter-spacing" colspan="1" scope="col">{{ 'sections.cart.headings.total' | t }}</th>
@@ -60,7 +60,7 @@
                         <th class="small-hide right caption-with-letter-spacing" colspan="1" scope="col">{{ 'sections.cart.headings.total' | t }}</th>
                         <th>action</th>
                       </tr>
-                    </thead>
+                    </thead> {% endcomment %}
 
                     <tbody>
                       {%- for item in cart.items -%}
