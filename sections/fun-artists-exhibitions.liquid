@@ -55,6 +55,9 @@
   endif
 -%}
 
+{% assign exhibition_name = article.metafields.artist.choose_exhibitions | split: "|" %}
+{% assign exhibition_size = article.metafields.artist.choose_exhibitions | size %}
+
 <section class="section fun-bookmark__section fun-bookmark__section--no-divider section-{{ section.id }}-padding">
   <div class="container-xxl">
     <div class="row fun-bookmark__row d-md-flex">
@@ -68,6 +71,23 @@
         </div>
       </div>
     </div>
+    {% if exhibition_size == 0  %}
+      <div class="error">No Artist invovled for this exibation.</div>
+    {% endif %}
+    {% if exhibition_name != blank %}
+      <div class="fun-blog-detail__artist-list">                    
+          {% for exhibition in exhibition_name %}
+            <div class="fun-blog-detail__artist-list--item">
+              {%- if articles[exhibition].image -%}
+              <div class="author-image"><img src="{{ articles[exhibition].image | img_url: '63x63' }}" alt="{{ articles[exhibition].title | escape }}" /></div>
+              {%- endif -%}
+              <a class="author-link" href="{{ articles[exhibition].url | escape }}">{{ articles[exhibition].title | escape }}</a>
+            </div>
+          {% endfor %}                    
+      </div>
+    {% endif %}
+
+
     <div class="row fun-event__row fun-event__upcoming-row {% if section.settings.blog.articles.size > 2 %} justify-content-between {% endif %}">
       {% assign artist_name = article.title | upcase %}
       {%- for article in section.settings.blog.articles limit: section.settings.post_limits -%}
@@ -147,7 +167,8 @@
       "type": "text",
       "id": "section_heading",
       "label": "Section Heading",
-      "default": "Exhibitions"
+      "default": "Exhibitions",
+      "info": "Artists list can be managable from custom fields"
     },
     {
       "type": "blog",
