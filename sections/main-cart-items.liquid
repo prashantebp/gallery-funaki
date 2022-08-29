@@ -37,7 +37,7 @@
           <h2>Shopping Cart</h2>
         </div>
       </div>
-      <div class="col-md-10 col-lg-9">
+      <div class="col-md-10 col-xl-9">
         <cart-items>
           <form action="{{ routes.cart_url }}" class="cart__contents critical-hidden" method="post" id="cart">
             <div class="cart__items" id="main-cart-items" data-id="{{ section.id }}">
@@ -336,7 +336,7 @@
           </form>
         </cart-items>
       </div>
-      <aside class="col-md-6 col-lg-5 offset-lg-1 fun-checkout__aside mt-4 mt-md-0" id="main-cart-footer" data-id="{{ section.id }}">
+      <aside class="col-md-6 col-xl-5 offset-xl-1 fun-checkout__aside mt-4 mt-md-0" id="main-cart-footer" data-id="{{ section.id }}">
         <div class="fun-checkout__sidebar cart__items" id="main-cart-items_summary" data-id="{{ section.id }}">
           <div class="js-contents_summary">
             {%- if cart != empty -%}
