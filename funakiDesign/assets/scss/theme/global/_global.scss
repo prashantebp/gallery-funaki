@@ -144,6 +144,9 @@ div.error{
                 line-height: 24px;
                 font-family: var(--nanum);
                 color: var(--black);
+                &:last-child{
+                    margin-left: 1rem;
+                }
             }
 
             &:last-child{
