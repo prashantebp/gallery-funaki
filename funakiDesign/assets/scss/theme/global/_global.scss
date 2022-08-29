@@ -160,6 +160,8 @@ div.error{
 
         & .cart__note{
             width: 100%;
+            display: flex;
+            flex-direction: column;
         }
         & .cart__blocks{
             margin: 0;
