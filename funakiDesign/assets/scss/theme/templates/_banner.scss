@@ -63,7 +63,9 @@
             padding-bottom: 11px;
         }
 
-        position: absolute;
+        &--banner{
+            position: absolute;
+        }
         top: 622px;
         @include media-breakpoint-up(sm){
             top: 625px;

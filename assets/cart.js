@@ -39,6 +39,11 @@ class CartItems extends HTMLElement {
         selector: '.js-contents',
       },
       {
+        id: 'main-cart-items_summary',
+        section: document.getElementById('main-cart-items_summary').dataset.id,
+        selector: '.js-contents_summary',
+      },
+      {
         id: 'cart-icon-bubble',
         section: 'cart-icon-bubble',
         selector: '.shopify-section'
@@ -51,7 +56,7 @@ class CartItems extends HTMLElement {
       {
         id: 'main-cart-footer',
         section: document.getElementById('main-cart-footer').dataset.id,
-        selector: '.js-contents',
+        selector: '.js-contents2',
       }
     ];
   }
@@ -80,7 +85,6 @@ class CartItems extends HTMLElement {
         if (cartDrawerWrapper) cartDrawerWrapper.classList.toggle('is-empty', parsedState.item_count === 0);
 
         this.getSectionsToRender().forEach((section => {
-          if(section.id === 'main-cart-footer') return;
           const elementToReplace =
             document.getElementById(section.id).querySelector(section.selector) || document.getElementById(section.id);
           elementToReplace.innerHTML =
@@ -106,7 +110,7 @@ class CartItems extends HTMLElement {
   }
 
   updateLiveRegions(line, itemCount) {
-    if (this.currentItemCount == itemCount) {
+    if (this.currentItemCount === itemCount) {
       const lineItemError = document.getElementById(`Line-item-error-${line}`) || document.getElementById(`CartDrawer-LineItemError-${line}`);
       const quantityElement = document.getElementById(`Quantity-${line}`) || document.getElementById(`Drawer-quantity-${line}`);
 
