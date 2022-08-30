@@ -30,119 +30,101 @@
         {%- for video_article in blogs.videos.articles -%}
 
             {% assign artist_name = video_article.metafields.accentuate.choose_artist %} 
-            {% assign video_url = video_article.metafields.accentuate.video_url %}    
             {% assign artist_name = articles[artist_name].title %}
-            {% if artist_name == article.title %}    
-            <div class="col-sm-8 col-md-4 fun-bookmark__col--past">
-                <article class="fun-bookmark__card fun-bookmark__card--past-new">
-                  <figure class="fun-bookmark__fig">
-                    <img
-                      srcset="{%- if video_article.image.src.width >= 165 -%}{{ video_article.image.src | image_url: width: 165 }} 165w,{%- endif -%}
-                        {%- if video_article.image.src.width >= 360 -%}{{ video_article.image.src | image_url: width: 360 }} 360w,{%- endif -%}
-                        {%- if video_article.image.src.width >= 533 -%}{{ video_article.image.src | image_url: width: 533 }} 533w,{%- endif -%}
-                        {%- if video_article.image.src.width >= 720 -%}{{ video_article.image.src | image_url: width: 720 }} 720w,{%- endif -%}
-                        {%- if video_article.image.src.width >= 1000 -%}{{ video_article.image.src | image_url: width: 1000 }} 1000w,{%- endif -%}
-                        {%- if video_article.image.src.width >= 1500 -%}{{ video_article.image.src | image_url: width: 1500 }} 1500w,{%- endif -%}
-                        {{ video_article.image.src | image_url }} {{ video_article.image.src.width }}w"
-                      src="{{ video_article.image.src | image_url: width: 533 }}"
-                      sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px, (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)"
-                      alt="{{ video_article.image.src.alt | escape }}"
-                      class="motion-reduce fun-bookmark__img"
-                      loading="lazy"
-                      width="{{ video_article.image.width }}"
-                      height="{{ video_article.image.height }}"
-                    >
-                    <a class="fun-bookmark__link fun-bookmark__link--hidden" href="{{ video_url }}" data-fancybox>
-                      <span>{{ video_article.url }}</span>
-                    </a>
-                  </figure>
-                  <div class="d-flex flex-column justify-content-between fun-bookmark__past-desc-wrapper">
-                    <div>
-                      <a class="fun-bookmark__card-title" href="{{ video_url }}" data-fancybox>{{ video_article.title }}</a>                      
-                      <div class="artist-name">
-                        {{ articles[artist_name].title }}
-                      </div>
-                      
-                    </div>
-                  </div>
-                </article>
-              </div>
-              {% endif %}
-    
-          {%- endfor -%}
+            {% if artist_name == article.title %}
+              {% assign video_url = video_article.metafields.accentuate.video_url %}
+              {% comment %} First of all, we get last part of the URL that's supposedly the Youtube Video ID {% endcomment %}
+
+              {% assign video_type = video_url | split: '.com' | first %}
+              {% assign video_type = video_type | split: 'www.' | last %}
+
+              {% assign video_id = video_url | split: '/' | last %}
+
+              {% comment %} but we need strip any extra URL params {% endcomment %}
+              {% assign video_id = video_id | split: '?' | last %}
 
 
+              {% comment %} Finally, remove any hash string {% endcomment %}
+              {% assign video_id = video_id | split: 'v=' | last %}
 
-        <noscript>
-          <div class="video-section__media"
-            {% if section.settings.cover_image != blank %} style="padding-bottom: {{ 1 | divided_by: section.settings.cover_image.aspect_ratio | times: 100 }}%;"{% endif %}
-          >
-            <a href="{{ section.settings.video_url }}" class="video-section__poster media media--transparent media--landscape{% if section.settings.cover_image == blank %} video-section__placeholder{% endif %}">
-              {%- if section.settings.cover_image != blank -%}
-                <img
-                  srcset="{%- if section.settings.cover_image.width >= 375 -%}{{ section.settings.cover_image | image_url: width: 375 }} 375w,{%- endif -%}
-                    {%- if section.settings.cover_image.width >= 750 -%}{{ section.settings.cover_image | image_url: width: 750 }} 750w,{%- endif -%}
-                    {%- if section.settings.cover_image.width >= 1100 -%}{{ section.settings.cover_image | image_url: width: 1100 }} 1100w,{%- endif -%}
-                    {%- if section.settings.cover_image.width >= 1500 -%}{{ section.settings.cover_image | image_url: width: 1500 }} 1500w,{%- endif -%}
-                    {%- if section.settings.cover_image.width >= 1780 -%}{{ section.settings.cover_image | image_url: width: 1780 }} 1780w,{%- endif -%}
-                    {%- if section.settings.cover_image.width >= 2000 -%}{{ section.settings.cover_image | image_url: width: 2000 }} 2000w,{%- endif -%}
-                    {%- if section.settings.cover_image.width >= 3000 -%}{{ section.settings.cover_image | image_url: width: 3000 }} 3000w,{%- endif -%}
-                    {%- if section.settings.cover_image.width >= 3840 -%}{{ section.settings.cover_image | image_url: width: 3840 }} 3840w,{%- endif -%}
-                    {{ section.settings.cover_image | image_url }} {{ section.settings.cover_image.width }}w"
-                  src="{{ section.settings.cover_image | image_url: width: 1920 }}"
-                  sizes="{% if section.settings.full_width %}100vw{% else %}(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 }}px, (min-width: 750px) calc(100vw - 10rem), 100vw{% endif %}"
-                  alt="{{ 'sections.video.load_video' | t: description: section.settings.description | escape }}"
-                  loading="lazy"
-                  width="{{ section.settings.cover_image.width }}"
-                  height="{{ section.settings.cover_image.height }}"
+              {% if video_url contains "vimeo.com" %}
+                {% assign video_id = video_url | split: '/' | last %}
+                {% assign video_id = video_id | split: 'vimeo.com' | last %}
+              {% endif %} 
+              
+              
+              <noscript>
+                <div class="video-section__media"
+                  {% if articles[artist_name].image != blank %} style="padding-bottom: {{ 1 | divided_by: articles[artist_name].image.aspect_ratio | times: 100 }}%;"{% endif %}
                 >
-              {%- else -%}
-                {{ 'collection-2' | placeholder_svg_tag: 'placeholder-svg placeholder' }}
-              {%- endif -%}
-            </a>
-          </div>
-        </noscript>
-        <deferred-media class="video-section__media deferred-media no-js-hidden gradient global-media-settings{% if section.settings.full_width %} global-media-settings--full-width{% endif %}" data-media-id="{{ section.settings.video_url.id }}"
-          {% if section.settings.cover_image != blank %} style="padding-bottom: {{ 1 | divided_by: section.settings.cover_image.aspect_ratio | times: 100 }}%;"{% endif %}
-        >
-          <button
-            id="Deferred-Poster-Modal-{{ section.settings.video_url.id }}"
-            class="video-section__poster media deferred-media__poster media--landscape"
-            type="button"
-          >
-            {%- if section.settings.cover_image != blank -%}
-              <img
-                srcset="{%- if section.settings.cover_image.width >= 375 -%}{{ section.settings.cover_image | image_url: width: 375 }} 375w,{%- endif -%}
-                  {%- if section.settings.cover_image.width >= 750 -%}{{ section.settings.cover_image | image_url: width: 750 }} 750w,{%- endif -%}
-                  {%- if section.settings.cover_image.width >= 1100 -%}{{ section.settings.cover_image | image_url: width: 1100 }} 1100w,{%- endif -%}
-                  {%- if section.settings.cover_image.width >= 1500 -%}{{ section.settings.cover_image | image_url: width: 1500 }} 1500w,{%- endif -%}
-                  {%- if section.settings.cover_image.width >= 1780 -%}{{ section.settings.cover_image | image_url: width: 1780 }} 1780w,{%- endif -%}
-                  {%- if section.settings.cover_image.width >= 2000 -%}{{ section.settings.cover_image | image_url: width: 2000 }} 2000w,{%- endif -%}
-                  {%- if section.settings.cover_image.width >= 3000 -%}{{ section.settings.cover_image | image_url: width: 3000 }} 3000w,{%- endif -%}
-                  {%- if section.settings.cover_image.width >= 3840 -%}{{ section.settings.cover_image | image_url: width: 3840 }} 3840w,{%- endif -%}
-                  {{ section.settings.cover_image | image_url }} {{ section.settings.cover_image.width }}w"
-                src="{{ section.settings.cover_image | image_url: width: 1920 }}"
-                sizes="{% if section.settings.full_width %}100vw{% else %}(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 }}px, (min-width: 750px) calc(100vw - 10rem), 100vw{% endif %}"
-                alt="{{ 'sections.video.load_video' | t: description: section.settings.description | escape }}"
-                loading="lazy"
-                width="{{ section.settings.cover_image.width }}"
-                height="{{ section.settings.cover_image.height }}"
+                  <a href="{{ video_url }}" class="video-section__poster media media--transparent media--landscape{% if articles[artist_name].image == blank %} video-section__placeholder{% endif %}">
+                    {%- if articles[artist_name].image != blank -%}
+                      <img
+                        srcset="{%- if articles[artist_name].image.width >= 375 -%}{{ articles[artist_name].image | image_url: width: 375 }} 375w,{%- endif -%}
+                          {%- if articles[artist_name].image.width >= 750 -%}{{ articles[artist_name].image | image_url: width: 750 }} 750w,{%- endif -%}
+                          {%- if articles[artist_name].image.width >= 1100 -%}{{ articles[artist_name].image | image_url: width: 1100 }} 1100w,{%- endif -%}
+                          {%- if articles[artist_name].image.width >= 1500 -%}{{ articles[artist_name].image | image_url: width: 1500 }} 1500w,{%- endif -%}
+                          {%- if articles[artist_name].image.width >= 1780 -%}{{ articles[artist_name].image | image_url: width: 1780 }} 1780w,{%- endif -%}
+                          {%- if articles[artist_name].image.width >= 2000 -%}{{ articles[artist_name].image | image_url: width: 2000 }} 2000w,{%- endif -%}
+                          {%- if articles[artist_name].image.width >= 3000 -%}{{ articles[artist_name].image | image_url: width: 3000 }} 3000w,{%- endif -%}
+                          {%- if articles[artist_name].image.width >= 3840 -%}{{ articles[artist_name].image | image_url: width: 3840 }} 3840w,{%- endif -%}
+                          {{ articles[artist_name].image | image_url }} {{ articles[artist_name].image.width }}w"
+                        src="{{ articles[artist_name].image | image_url: width: 1920 }}"
+                        alt="{{ 'sections.video.load_video' | t: description: section.settings.description | escape }}"
+                        loading="lazy"
+                        width="{{ articles[artist_name].image.width }}"
+                        height="{{ articles[artist_name].image.height }}"
+                      >
+                    {%- else -%}
+                      {{ 'collection-2' | placeholder_svg_tag: 'placeholder-svg placeholder' }}
+                    {%- endif -%}
+                  </a>
+                </div>
+              </noscript>
+              <deferred-media class="video-section__media deferred-media no-js-hidden gradient global-media-settings" data-media-id="{{ video_id }}"
+                {% if articles[artist_name].image != blank %} style="padding-bottom: {{ 1 | divided_by: articles[artist_name].image.aspect_ratio | times: 100 }}%;"{% endif %}
               >
-            {%- else -%}
-              {{ 'collection-2' | placeholder_svg_tag: 'placeholder-svg placeholder' }}
-            {%- endif -%}
-            <span class="deferred-media__poster-button motion-reduce">
-              {%- render 'icon-play' -%}
-            </span>
-          </button>
-          <template>
-            {%- if section.settings.video_url.type == 'youtube' -%}
-              <iframe src="https://www.youtube.com/embed/{{ section.settings.video_url.id }}?enablejsapi=1" class="js-youtube" allow="autoplay; encrypted-media" allowfullscreen title="{{ section.settings.description | escape }}"></iframe>
-            {%- else -%}
-              <iframe src="https://player.vimeo.com/video/{{ section.settings.video_url.id }}" class="js-vimeo" allow="autoplay; encrypted-media" allowfullscreen title="{{ section.settings.description | escape }}"></iframe>
-            {%- endif -%}
-          </template>
-        </deferred-media>
+                <button
+                  id="Deferred-Poster-Modal-{{ video_id }}"
+                  class="video-section__poster media deferred-media__poster media--landscape"
+                  type="button"
+                >
+                  {%- if articles[artist_name].image != blank -%}
+                    <img
+                      srcset="{%- if articles[artist_name].image.width >= 375 -%}{{ articles[artist_name].image | image_url: width: 375 }} 375w,{%- endif -%}
+                        {%- if articles[artist_name].image.width >= 750 -%}{{ articles[artist_name].image | image_url: width: 750 }} 750w,{%- endif -%}
+                        {%- if articles[artist_name].image.width >= 1100 -%}{{ articles[artist_name].image | image_url: width: 1100 }} 1100w,{%- endif -%}
+                        {%- if articles[artist_name].image.width >= 1500 -%}{{ articles[artist_name].image | image_url: width: 1500 }} 1500w,{%- endif -%}
+                        {%- if articles[artist_name].image.width >= 1780 -%}{{ articles[artist_name].image | image_url: width: 1780 }} 1780w,{%- endif -%}
+                        {%- if articles[artist_name].image.width >= 2000 -%}{{ articles[artist_name].image | image_url: width: 2000 }} 2000w,{%- endif -%}
+                        {%- if articles[artist_name].image.width >= 3000 -%}{{ articles[artist_name].image | image_url: width: 3000 }} 3000w,{%- endif -%}
+                        {%- if articles[artist_name].image.width >= 3840 -%}{{ articles[artist_name].image | image_url: width: 3840 }} 3840w,{%- endif -%}
+                        {{ articles[artist_name].image | image_url }} {{ articles[artist_name].image.width }}w"
+                      src="{{ articles[artist_name].image | image_url: width: 1920 }}"
+                      sizes="{% if section.settings.full_width %}100vw{% else %}(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 }}px, (min-width: 750px) calc(100vw - 10rem), 100vw{% endif %}"
+                      alt="{{ 'sections.video.load_video' | t: description: section.settings.description | escape }}"
+                      loading="lazy"
+                      width="{{ articles[artist_name].image.width }}"
+                      height="{{ articles[artist_name].image.height }}"
+                    >
+                  {%- else -%}
+                    {{ 'collection-2' | placeholder_svg_tag: 'placeholder-svg placeholder' }}
+                  {%- endif -%}
+                  <span class="deferred-media__poster-button motion-reduce">
+                    {%- render 'icon-play' -%}
+                  </span>
+                </button>
+                <template>
+                  {%- if video_type == 'youtube' -%}
+                    <iframe src="https://www.youtube.com/embed/{{ video_id }}?enablejsapi=1" class="js-youtube" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                  {%- else -%}
+                    <iframe src="https://player.vimeo.com/video/{{ video_id }}" class="js-vimeo" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                  {%- endif -%}
+                </template>
+              </deferred-media>   
+
+            {% endif %}    
+          {%- endfor -%}
       </div>
     </div>
   </div>
