@@ -79,7 +79,7 @@
                         </figure>
                         <div class="fun-ex-blogs__card-desc">
                             <a class="fun-ex-blogs__card-title" href="{{ article.url }}">{{ article.title }}</a>
-                            <date class="fun-event__date">{{ article.metafields.custom.start_date | date: "%b %d" }} - {{ article.metafields.custom.end_date | date: "%b %d, %Y" }}</date>
+                            <date class="fun-event__date">{{ article.metafields.custom.start_date | date: "%d %b" }} - {{ article.metafields.custom.end_date | date: "%d %b %Y" }}</date>
 
                             <p class="fun-ex-blogs__card-subtitle">
                               {%- if article.excerpt.size > 0 or article.content.size > 0 -%}

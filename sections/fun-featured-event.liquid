@@ -115,7 +115,7 @@
                       </figure>
                       <div class="d-flex flex-column fun-event__content-wrapper">
                           <a class="fun-event__card-title" href="{{ article.url }}">{{ article.title }}</a>
-                          <date class="fun-event__date">{{ article.metafields.custom.start_date | date: "%b %d" }} - {{ article.metafields.custom.end_date | date: "%b %d, %Y" }}</date>
+                          <date class="fun-event__date">{{ article.metafields.custom.start_date | date: "%d %b" }} - {{ article.metafields.custom.end_date | date: "%d %b %Y" }}</date>
                       </div>
                     </article>
                   </div>

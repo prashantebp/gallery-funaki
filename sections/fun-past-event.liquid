@@ -103,7 +103,7 @@
                   <a class="fun-bookmark__card-title" href="{{ article.url }}">{{ article.title }}</a>
 
                   {%- if  section.settings.custom_class == "fun-bookmark__card--past-new" -%}
-                    <date class="fun-event__date mb-4 d-flex">{{ article.metafields.custom.start_date | date: "%b %d" }} - {{ article.metafields.custom.end_date | date: "%b %d, %Y" }}</date>
+                    <date class="fun-event__date mb-4 d-flex">{{ article.metafields.custom.start_date | date: "%d %b" }} - {{ article.metafields.custom.end_date | date: "%d %b %Y" }}</date>
                   {%- else -%}
                     <h4 class="fun-bookmark__subtitle fun-bookmark__subtitle--past section-subtitle">
                       {%- if article.excerpt.size > 0 or article.content.size > 0 -%}
@@ -129,7 +129,7 @@
                         {%- endif -%}
                       </h4>
                     {%- else -%}
-                      <date class="fun-event__date">{{ article.metafields.exhibitions.start_date | date: "%b %d" }} - {{ article.metafields.exhibitions.end_date | date: "%b %d, %Y" }}</date>
+                      <date class="fun-event__date">{{ article.metafields.exhibitions.start_date | date: "%d %b" }} - {{ article.metafields.exhibitions.end_date | date: "%d %b %Y" }}</date>
                     {%- endif -%}
                   </div>
               </div>
