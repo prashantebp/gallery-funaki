@@ -21,14 +21,32 @@
   }
 }
 {%- endstyle -%}
-{%  assign section_content_size = article.metafields.accentuate.section_content | size %}
-{%  assign section_heading_size = article.metafields.accentuate.section_heading | size %}
 
   <section class="section fun-fullwidth_image__section section-{{ section.id }}-padding" itemscope itemtype="http://schema.org/BlogPosting">
     <div class="container">
         <div class="row">
             <div class="col-16 fun-blog-detail__bottom-col">
-              {%- if article.image -%}
+                {% assign article_size = article.metafields.artist.upload_image | size %}
+                {% if article_size > 0 %}
+                <div class="fun-blog-detail__images" {{ block.shopify_attributes }} itemprop="image">
+                    {% for image in article.metafields.artist.upload_image %}
+                    <img
+                      srcset="{% if image.width >= 350 %}{{ image | image_url: width: 350 }} 350w,{% endif %}
+                        {% if image.width >= 750 %}{{ image | image_url: width: 750 }} 750w,{% endif %}
+                        {% if image.width >= 1100 %}{{ image | image_url: width: 1100 }} 1100w,{% endif %}
+                        {% if image.width >= 1500 %}{{ image | image_url: width: 1500 }} 1500w,{% endif %}
+                        {% if image.width >= 2200 %}{{ image | image_url: width: 2200 }} 2200w,{% endif %}
+                        {% if image.width >= 3000 %}{{ image | image_url: width: 3000 }} 3000w,{% endif %}
+                        {{ image | image_url }} {{ image.width }}w"                      
+                      src="{{ image | image_url: width: 1100 }}"
+                      class="mb-0"
+                      loading="lazy"
+                      width="{{ image.width }}"
+                      height="{{ image.height }}"
+                      alt="{{ image.alt | escape }}">
+                      {% endfor %}
+                </div>               
+                {%- elsif article.image -%}
                 <div class="fun-blog-detail__images" {{ block.shopify_attributes }} itemprop="image">
                   <img
                     srcset="{% if article.image.width >= 350 %}{{ article.image | image_url: width: 350 }} 350w,{% endif %}
