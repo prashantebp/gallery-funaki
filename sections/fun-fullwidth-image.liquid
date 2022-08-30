@@ -31,7 +31,7 @@
                 {% if article_size > 0 %}
                 <div class="fun-blog-detail__images" {{ block.shopify_attributes }} itemprop="image">
                     {% for image in article.metafields.artist.upload_image %}
-                    {{ image }}
+                    {{ image | json }}
                     <img
                       srcset="{% if image.width >= 350 %}{{ image | image_url: width: 350 }} 350w,{% endif %}
                         {% if image.width >= 750 %}{{ image | image_url: width: 750 }} 750w,{% endif %}
