@@ -27,8 +27,8 @@
                     {% endif %}
                 </div>
                 <div class="fun-newsletter__form-wrapper">
-                  {% assign formID = 'newsletter-form' %}
-                    {% form 'customer',  class: 'newsletter-form', id:'newsletter-form'  %}
+                  {% assign formID = 'NewsletterForm' %}
+                    {% form 'customer',  class: 'newsletter-form', id:'NewsletterForm'  %}
                         <input type="hidden" name="contact[tags]" value="newsletter">
 
                         <div class="form-element__wrapper">
@@ -57,7 +57,7 @@
                                 {%- endif -%}
                                 {% endcomment %}
 
-                                {%- if form.posted_successfully? and formID == 'newsletter-form' -%}
+                                {%- if form.posted_successfully? and formID == 'NewsletterForm' -%}
                                     <small class="form-element__success" id="Newsletter-success--{{ section.id }}" tabindex="-1" autofocus>{{ 'newsletter.success' | t }}</small>
                                 {%- endif -%}
                             </div>
