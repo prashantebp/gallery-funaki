@@ -101,7 +101,7 @@
       </div>
 
       {%- if form.password_needed -%}
-        <div class="form-element test">
+        <div class="form-element">
           <input
             type="password"
             value=""
@@ -124,7 +124,7 @@
         </a>
       {%- endif -%}
 
-      <button class="btn btn-secondary">
+      <button class="btn btn-secondary mb-2">
         {{ 'customer.login_page.sign_in' | t }}
       </button>
 
@@ -141,7 +141,7 @@
       <h2>{{ 'customer.login_page.guest_title' | t }}</h2>
 
       {%- form 'guest_login' -%}
-        <button>
+        <button class="btn btn-primary">
           {{ 'customer.login_page.guest_continue' | t }}
         </button>
       {%- endform -%}

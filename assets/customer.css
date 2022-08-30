@@ -27,6 +27,18 @@
   margin-bottom: 32px;
 }
 
+.customer h2{
+  font-family: var(--overpass);
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 24px;
+  text-align: center;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #000;
+  margin-bottom: 32px;
+}
+
 .customer ul {
   line-height: calc(1 + 0.6 / var(--font-body-scale));
   padding-left: 4.4rem;
