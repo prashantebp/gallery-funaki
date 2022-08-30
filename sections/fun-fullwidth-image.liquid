@@ -1,0 +1,47 @@
+
+{{ 'section-blog-post.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+.section-{{ section.id }}-padding {
+  padding-top: {{ section.settings.padding_top | times: 0.5 | round: 0 }}px;
+  padding-bottom: {{ section.settings.padding_bottom | times: 0.5 | round: 0 }}px;
+}
+
+@media screen and (min-width: 769px) {
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+}
+
+@media screen and (min-width: 991px) {
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+  }
+}
+{%- endstyle -%}
+{%  assign section_content_size = article.metafields.accentuate.section_content | size %}
+{%  assign section_heading_size = article.metafields.accentuate.section_heading | size %}
+
+  <section class="section fun-fullwidth_image__section section-{{ section.id }}-padding" itemscope itemtype="http://schema.org/BlogPosting">
+      hello from full with image
+  </section>
+
+
+{% schema %}
+{
+    "name":"Full Width Image",
+    "settings":[       
+       {
+          "type":"header",
+          "content":"Image can be upload from metafield."
+       }       
+    ],
+    "presets":[
+       {
+          "name":"Full Width Image"
+       }
+    ]
+ }
+{% endschema %}
