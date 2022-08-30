@@ -134,6 +134,8 @@
 .cart-item cart-remove-button {
   display: flex;
   margin-left: 1rem;
+  align-items: center;
+  justify-content: center;
 }
 
 cart-remove-button .button {
