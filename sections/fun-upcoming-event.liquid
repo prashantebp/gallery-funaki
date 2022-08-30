@@ -69,10 +69,13 @@
       </div>
     </div>
     <div class="row fun-event__row fun-event__upcoming-row">
-      {%- for article in section.settings.blog.articles -%}
+      {% assign count = 0 %}
+      {%- for article in section.settings.blog.articles limit: section.settings.post_limits -%}
       {% assign today_date = 'now' | date: '%s' %}
-                {% assign pre_date = article.metafields.custom.start_date | date: '%s' %}
-                {% assign post_date = article.metafields.custom.end_date | date: '%s' %}
+          {% assign pre_date = article.metafields.exhibitions.start_date | date: '%s' %}
+          {% assign post_date = article.metafields.exhibitions.end_date | date: '%s' %}
+          {% if today_date < pre_date %}
+          {% assign count = count | plus: 1  %} 
         <div class="col-sm-8 col-lg-5 fun-event__col">
             <article class="fun-event__card fun-event__card--events">
               <figure class="fun-event__fig">
@@ -114,6 +117,10 @@
               </div>
             </article>
           </div>
+        {% endif %}
+        {% if  count == 0 %}
+        <div class="error">{{ section.settings.empty_message }}</div>
+        {%- break -%}                    
       {% endif %} 
       {%- endfor -%}
     </div>
@@ -196,6 +203,11 @@
       "unit": "px",
       "label": "t:sections.all.padding.padding_bottom",
       "default": 36
+    },
+    {
+      "type": "text",
+      "id": "empty_message",
+      "label": "Empty Message"
     }
   ],
   "presets": [
