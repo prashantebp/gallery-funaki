@@ -73,7 +73,6 @@
       {% assign today_date = 'now' | date: '%s' %}
                 {% assign pre_date = article.metafields.custom.start_date | date: '%s' %}
                 {% assign post_date = article.metafields.custom.end_date | date: '%s' %}
-                {% if today_date < pre_date %}
         <div class="col-sm-8 col-lg-5 fun-event__col">
             <article class="fun-event__card fun-event__card--events">
               <figure class="fun-event__fig">
@@ -115,7 +114,6 @@
               </div>
             </article>
           </div>
-        {% endif %}                 
       {% endif %} 
       {%- endfor -%}
     </div>
