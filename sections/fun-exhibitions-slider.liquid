@@ -109,12 +109,12 @@
                             </button>
                         </div>
                       {% endif %}
-                    {% endif %}
-                    {% if  today_date >= pre_date and today_date <= post_date and count == 0%}
+                      {% if  count == 0%}
                       <div class="error">Current Exhibitions not available.</div>
                       {%- break -%}                    
                     {% endif %}
-
+                    {% endif %}
+                    
             {%- endfor -%}
           </div>
           
