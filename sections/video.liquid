@@ -50,11 +50,8 @@
               {% if video_url contains "vimeo.com" %}
                 {% assign video_id = video_url | split: '/' | last %}
                 {% assign video_id = video_id | split: 'vimeo.com' | last %}
-              {% endif %}
-              
-              {{ articles[artist_name] }}
-              
-              
+              {% endif %}            
+
               <noscript>
                 <div class="video-section__media"
                   {% if articles[artist_name].image != blank %} style="padding-bottom: {{ 1 | divided_by: articles[artist_name].image.aspect_ratio | times: 100 }}%;"{% endif %}
