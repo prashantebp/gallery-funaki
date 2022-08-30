@@ -203,7 +203,7 @@ div.error{
     @supports (-webkit-appearance:none) {
 
         .fun-product__img, .fun-product__img--thumb{
-            object-fit: unset;
+            object-fit: unset !important;
         }
     }
 }
