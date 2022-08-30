@@ -198,3 +198,12 @@ div.error{
         content: unset !important;
     }
 }
+
+@media not all and (min-resolution:.001dpcm){
+    @supports (-webkit-appearance:none) {
+
+        .fun-product__img, .fun-product__img--thumb{
+            object-fit: unset !important;
+        }
+    }
+}
