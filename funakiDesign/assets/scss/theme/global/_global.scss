@@ -187,3 +187,14 @@ div.error{
         }
     }
 }
+
+.boost-pfs-action-overlay{
+    &:hover{
+        &::before{
+            content: unset;
+        }
+    }
+    &::before{
+        content: unset !important;
+    }
+}
