@@ -287,7 +287,7 @@ cart-remove-button .icon-remove {
 
 td.cart-item__quantity{
   width: 290px;
-  padding-left: 86px;
+  padding-left: 86px !important;
 }
 
 td.cart-item__totals{
