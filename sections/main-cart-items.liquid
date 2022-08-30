@@ -44,10 +44,10 @@
           <h2>Shopping Cart</h2>
         </div>
       </div>
-      <div class="title-wrapper-with-link">
+      {% comment %} <div class="title-wrapper-with-link">
     <h1 class="title title--primary">{{ 'sections.cart.title' | t }}</h1>
     {% comment %} <a href="{{ routes.all_products_collection_url }}" class="underlined-link">{{ 'general.continue_shopping' | t }}</a> {% endcomment %}
-  </div>
+  </div> {% endcomment %}
       <div class="col-md-10">
         <cart-items>
           <form action="{{ routes.cart_url }}" class="cart__contents critical-hidden" method="post" id="cart">
