@@ -74,9 +74,7 @@
       {% assign today_date = 'now' | date: '%s' %}
           {% assign pre_date = article.metafields.exhibitions.start_date | date: '%s' %}
           {% assign post_date = article.metafields.exhibitions.end_date | date: '%s' %}
-          {{ today_date }}
-          {{ pre_date }}
-          {% if pre_date  > today_date %} 
+          {% if today_date < pre_date %} 
           {% assign count = count | plus: 1  %} 
         <div class="col-sm-8 col-lg-5 fun-event__col">
             <article class="fun-event__card fun-event__card--events">
