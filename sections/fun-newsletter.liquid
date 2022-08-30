@@ -57,7 +57,7 @@
                                 {%- endif -%}
                                 {% endcomment %}
 
-                                {%- if form.posted_successfully? and formID == 'NewsletterForm' -%}
+                                {%- if form.posted_successfully?#NewsletterForm -%}
                                     <small class="form-element__success" id="Newsletter-success--{{ section.id }}" tabindex="-1" autofocus>{{ 'newsletter.success' | t }}</small>
                                 {%- endif -%}
                             </div>
