@@ -47,7 +47,7 @@
       "settings": {
         "section_heading": "Exhibitions",
         "large_title": true,
-        "margin_bottom": 50,
+        "margin_bottom": 80,
         "post_limits": 6,
         "padding_top": 88,
         "padding_bottom": 40
@@ -78,7 +78,7 @@
         "swipe_on_mobile": false,
         "padding_top": 40,
         "padding_bottom": 44,
-        "title_gap": 36,
+        "title_gap": 88,
         "empty_message": "Data Not Available"
       }
     },
