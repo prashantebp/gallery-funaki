@@ -20,7 +20,7 @@
       }
     }
  {%- endstyle -%}
- <section class="section fun-blog-detail__section artists section-{{ section.id }}-padding" itemscope itemtype="http://schema.org/BlogPosting">
+ <section class="section fun-blog-detail__section artists section-{{ section.id }}-padding pb-0" itemscope itemtype="http://schema.org/BlogPosting">
    <div class="container-xxl">
      <div class="row">
        <div class="col-md-8">
@@ -32,9 +32,9 @@
                </div>
              {%- when 'title'-%}
                <header class="fun-blog-detail__header" {{ block.shopify_attributes }}>
-                 <h1 class="article-template__title article-template__title-exhibitions" itemprop="headline">{{ article.title | escape }}</h1>
+                 <h1 class="article-template__title {% if block.settings.blog_show_date or block.settings.blog_show_author %} article-template__title-exhibitions {% else %} mb-0 {% endif %}" itemprop="headline">{{ article.title | escape }}</h1>
 
-                 <div class="fun-blog-detail__content fun-blog-detail__content--exhibitions">
+                 <div class="fun-blog-detail__content mb-0">
                    {%- if block.settings.blog_show_date -%}
                      <span class="circle-divider caption-with-letter-spacing" itemprop="dateCreated pubdate datePublished">{{ article.metafields.exhibitions.start_date | date: "%d %b" }} - {{ article.metafields.exhibitions.end_date | date: "%d %b %Y" }}</span>
                    {%- endif -%}
