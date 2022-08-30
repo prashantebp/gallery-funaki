@@ -69,74 +69,79 @@
       </div>
     </div>
     <div class="row fun-bookmark__past-row">
+      {% assign count = 0 %}
       {%- for article in section.settings.blog.articles limit: section.settings.post_limit -%}
 
           {% assign today_date = 'now' | date: '%s' %}
+          {% assign count = count | plus: 1  %}
           {% assign pre_date = article.metafields.exhibitions.start_date | date: '%s' %}
           {% assign post_date = article.metafields.exhibitions.end_date | date: '%s' %}
           {% if today_date > pre_date and today_date > post_date %}
-        <div class="col-sm-8 col-md-4 fun-bookmark__col--past">
-            <article class="fun-bookmark__card fun-bookmark__card--past {{ section.settings.custom_class }}">
-              <figure class="fun-bookmark__fig">
-                <img
-                  srcset="{%- if article.image.src.width >= 165 -%}{{ article.image.src | image_url: width: 165 }} 165w,{%- endif -%}
-                    {%- if article.image.src.width >= 360 -%}{{ article.image.src | image_url: width: 360 }} 360w,{%- endif -%}
-                    {%- if article.image.src.width >= 533 -%}{{ article.image.src | image_url: width: 533 }} 533w,{%- endif -%}
-                    {%- if article.image.src.width >= 720 -%}{{ article.image.src | image_url: width: 720 }} 720w,{%- endif -%}
-                    {%- if article.image.src.width >= 1000 -%}{{ article.image.src | image_url: width: 1000 }} 1000w,{%- endif -%}
-                    {%- if article.image.src.width >= 1500 -%}{{ article.image.src | image_url: width: 1500 }} 1500w,{%- endif -%}
-                    {{ article.image.src | image_url }} {{ article.image.src.width }}w"
-                  src="{{ article.image.src | image_url: width: 533 }}"
-                  sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px, (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)"
-                  alt="{{ article.image.src.alt | escape }}"
-                  class="motion-reduce fun-bookmark__img"
-                  loading="lazy"
-                  width="{{ article.image.width }}"
-                  height="{{ article.image.height }}"
-                >
-                <a href="{{ article.url }}" class="fun-bookmark__link fun-bookmark__link--hidden">
-                  <span>{{ article.url }}</span>
-                </a>
-              </figure>
-              <div class="d-flex flex-column justify-content-between fun-bookmark__past-desc-wrapper">
-                <div>
-                  <a class="fun-bookmark__card-title" href="{{ article.url }}">{{ article.title }}</a>
+            <div class="col-sm-8 col-md-4 fun-bookmark__col--past">
+                <article class="fun-bookmark__card fun-bookmark__card--past {{ section.settings.custom_class }}">
+                  <figure class="fun-bookmark__fig">
+                    <img
+                      srcset="{%- if article.image.src.width >= 165 -%}{{ article.image.src | image_url: width: 165 }} 165w,{%- endif -%}
+                        {%- if article.image.src.width >= 360 -%}{{ article.image.src | image_url: width: 360 }} 360w,{%- endif -%}
+                        {%- if article.image.src.width >= 533 -%}{{ article.image.src | image_url: width: 533 }} 533w,{%- endif -%}
+                        {%- if article.image.src.width >= 720 -%}{{ article.image.src | image_url: width: 720 }} 720w,{%- endif -%}
+                        {%- if article.image.src.width >= 1000 -%}{{ article.image.src | image_url: width: 1000 }} 1000w,{%- endif -%}
+                        {%- if article.image.src.width >= 1500 -%}{{ article.image.src | image_url: width: 1500 }} 1500w,{%- endif -%}
+                        {{ article.image.src | image_url }} {{ article.image.src.width }}w"
+                      src="{{ article.image.src | image_url: width: 533 }}"
+                      sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px, (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)"
+                      alt="{{ article.image.src.alt | escape }}"
+                      class="motion-reduce fun-bookmark__img"
+                      loading="lazy"
+                      width="{{ article.image.width }}"
+                      height="{{ article.image.height }}"
+                    >
+                    <a href="{{ article.url }}" class="fun-bookmark__link fun-bookmark__link--hidden">
+                      <span>{{ article.url }}</span>
+                    </a>
+                  </figure>
+                  <div class="d-flex flex-column justify-content-between fun-bookmark__past-desc-wrapper">
+                    <div>
+                      <a class="fun-bookmark__card-title" href="{{ article.url }}">{{ article.title }}</a>
 
-                  {%- if  section.settings.custom_class == "fun-bookmark__card--past-new" -%}
-                    <date class="fun-event__date mb-4 d-flex">{{ article.metafields.custom.start_date | date: "%d %b" }} - {{ article.metafields.custom.end_date | date: "%d %b %Y" }}</date>
-                  {%- else -%}
-                    <h4 class="fun-bookmark__subtitle fun-bookmark__subtitle--past section-subtitle">
-                      {%- if article.excerpt.size > 0 or article.content.size > 0 -%}
-                          {%- if article.excerpt.size > 0 -%}
-                            {{ article.excerpt | strip_html | truncate: 50 }}
-                          {%- else -%}
-                            {{ article.content | strip_html | truncate: 50 }}
+                      {%- if  section.settings.custom_class == "fun-bookmark__card--past-new" -%}
+                        <date class="fun-event__date mb-4 d-flex">{{ article.metafields.custom.start_date | date: "%d %b" }} - {{ article.metafields.custom.end_date | date: "%d %b %Y" }}</date>
+                      {%- else -%}
+                        <h4 class="fun-bookmark__subtitle fun-bookmark__subtitle--past section-subtitle">
+                          {%- if article.excerpt.size > 0 or article.content.size > 0 -%}
+                              {%- if article.excerpt.size > 0 -%}
+                                {{ article.excerpt | strip_html | truncate: 50 }}
+                              {%- else -%}
+                                {{ article.content | strip_html | truncate: 50 }}
+                              {%- endif -%}
                           {%- endif -%}
+                        </h4>
                       {%- endif -%}
-                    </h4>
-                  {%- endif -%}
-                </div>
+                    </div>
 
-                  <div>
-                    {%- if  section.settings.custom_class == "fun-bookmark__card--past-new" -%}
-                      <h4 class="fun-bookmark__subtitle fun-bookmark__subtitle--past section-subtitle mb-0">
-                        {%- if article.excerpt.size > 0 or article.content.size > 0 -%}
-                            {%- if article.excerpt.size > 0 -%}
-                              {{ article.excerpt | strip_html | truncate: 50 }}
-                            {%- else -%}
-                              {{ article.content | strip_html | truncate: 50 }}
+                      <div>
+                        {%- if  section.settings.custom_class == "fun-bookmark__card--past-new" -%}
+                          <h4 class="fun-bookmark__subtitle fun-bookmark__subtitle--past section-subtitle mb-0">
+                            {%- if article.excerpt.size > 0 or article.content.size > 0 -%}
+                                {%- if article.excerpt.size > 0 -%}
+                                  {{ article.excerpt | strip_html | truncate: 50 }}
+                                {%- else -%}
+                                  {{ article.content | strip_html | truncate: 50 }}
+                                {%- endif -%}
                             {%- endif -%}
+                          </h4>
+                        {%- else -%}
+                          <date class="fun-event__date">{{ article.metafields.exhibitions.start_date | date: "%d %b" }} - {{ article.metafields.exhibitions.end_date | date: "%d %b %Y" }}</date>
                         {%- endif -%}
-                      </h4>
-                    {%- else -%}
-                      <date class="fun-event__date">{{ article.metafields.exhibitions.start_date | date: "%d %b" }} - {{ article.metafields.exhibitions.end_date | date: "%d %b %Y" }}</date>
-                    {%- endif -%}
+                      </div>
                   </div>
+                </article>
               </div>
-            </article>
-          </div>
         {% endif %}
-
+        {% if  count == 0 %}
+        <div class="error">Past Events are not available.</div>
+        {%- break -%}                    
+      {% endif %}
       {%- endfor -%}
     </div>
   </div>
