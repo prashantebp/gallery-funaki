@@ -140,7 +140,7 @@
                           </div>
                           {%- if form.posted_successfully? -%}
                           {% assign post_successful = form.posted_successfully? %}
-                          {% if post_successful = 'True'%}
+                          {% if post_successful == 'true'%}
                           <small class="newsletter-form__message newsletter-form__message--success form__message"   autofocus>{% render 'icon-success' %}{{ 'newsletter.success' | t }}</small>
                           {% endif %}
                           <div class="newsletter_success_wrapper">
