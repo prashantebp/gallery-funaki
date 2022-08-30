@@ -1,15 +1,8 @@
 {
   "sections": {
     "main": {
-      "type": "main-article",
-      "blocks": {
-        "featured_image": {
-          "type": "featured_image",
-          "disabled": true,
-          "settings": {
-            "image_height": "adapt"
-          }
-        },
+      "type": "main-events-exhibitions",
+      "blocks": {        
         "title": {
           "type": "title",
           "settings": {
@@ -32,7 +25,6 @@
         }
       },
       "block_order": [
-        "featured_image",
         "title",
         "content",
         "share"
