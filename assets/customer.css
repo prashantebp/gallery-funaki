@@ -47,6 +47,8 @@
 
 .customer ul a {
   display: inline;
+  font-family: var(--nanum);
+  font-size: 14px;
 }
 
 .customer strong {
