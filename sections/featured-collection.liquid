@@ -121,10 +121,12 @@
     </div>
     <div class="row fun-featured-book__row">
       {% assign artist_name = article.title | upcase %}
+      {% assign count = 0 %}
       {%- for product in section.settings.collection.products limit: section.settings.products_to_show -%}
       {% assign artist_books = product.metafields.custom.product_and_artist_linking  %}
       
-      {% if product.metafields.custom.product_and_artist_linking == artist_name  %}      
+      {% if product.metafields.custom.product_and_artist_linking == artist_name  %} 
+      {% assign count = count | plus: 1  %}     
       <div class="col-sm-8 col-lg-4 fun-featured-book__col">
         <article class="fun-featured-book__card">
           <figure class="fun-featured-book__figure">
@@ -158,7 +160,10 @@
         </article>
       </div>
       {% endif %}
-        
+      {% if  count == 0 %}
+      <div class="error">{{ section.settings.empty_message }}</div>
+      {%- break -%}                    
+    {% endif %}
       {%- endfor -%}
     </div>
   </div>
@@ -415,6 +420,11 @@
       "unit": "px",
       "label": "t:sections.all.padding.padding_bottom",
       "default": 36
+    },
+    {
+      "type": "text",
+      "id": "empty_message",
+      "label": "Empty Message"
     }
   ],
   "presets": [
