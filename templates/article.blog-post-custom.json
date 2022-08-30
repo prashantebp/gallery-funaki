@@ -114,6 +114,11 @@
         "full_width": false,
         "color_scheme": "background-1"
       }
+    },
+    "1661833805becd5dc4": {
+      "type": "fun-fullwidth-image",
+      "settings": {
+      }
     }
   },
   "order": [
@@ -122,6 +127,7 @@
     "16611369401290ab2c",
     "1661227652b5d49f4e",
     "16588338213f2f35fe",
-    "165882886241b1cf5b"
+    "165882886241b1cf5b",
+    "1661833805becd5dc4"
   ]
 }
