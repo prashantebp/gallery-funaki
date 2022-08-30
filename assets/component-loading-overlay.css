@@ -8,6 +8,10 @@
   padding: 0;
 }
 
+.cart-item:not(:first-child) .loading-overlay{
+  top: 46px;
+}
+
 
 .loading-overlay__spinner {
   width: 1.8rem;
