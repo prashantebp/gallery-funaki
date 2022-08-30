@@ -15,6 +15,31 @@
   }
 {%- endstyle -%}
 
+
+{%- for video_article in blogs.videos.articles -%}
+
+{% assign artist_name = video_article.metafields.accentuate.choose_artist %} 
+{% assign name = articles[artist_name].title %}
+{% if name == article.title %}
+{% assign video_url = video_article.metafields.accentuate.video_url %}
+{% comment %} First of all, we get last part of the URL that's supposedly the Youtube Video ID {% endcomment %}
+
+{% assign video_type = video_url | split: '.com' | first %}
+{% assign video_type = video_type | split: 'www.' | last %}
+
+{% assign video_id = video_url | split: '/' | last %}
+
+{% comment %} but we need strip any extra URL params {% endcomment %}
+{% assign video_id = video_id | split: '?' | last %}
+
+
+{% comment %} Finally, remove any hash string {% endcomment %}
+{% assign video_id = video_id | split: 'v=' | last %}
+
+{% if video_url contains "vimeo.com" %}
+{% assign video_id = video_url | split: '/' | last %}
+{% assign video_id = video_id | split: 'vimeo.com' | last %}
+{% endif %}            
 <section class="section section-{{ section.id }}-padding divider">
   <div class="container-xxl">
     <div class="row">
@@ -26,31 +51,6 @@
             </div>
           {%- endunless -%}
         </div>
-
-        {%- for video_article in blogs.videos.articles -%}
-
-            {% assign artist_name = video_article.metafields.accentuate.choose_artist %} 
-            {% assign name = articles[artist_name].title %}
-            {% if name == article.title %}
-              {% assign video_url = video_article.metafields.accentuate.video_url %}
-              {% comment %} First of all, we get last part of the URL that's supposedly the Youtube Video ID {% endcomment %}
-
-              {% assign video_type = video_url | split: '.com' | first %}
-              {% assign video_type = video_type | split: 'www.' | last %}
-
-              {% assign video_id = video_url | split: '/' | last %}
-
-              {% comment %} but we need strip any extra URL params {% endcomment %}
-              {% assign video_id = video_id | split: '?' | last %}
-
-
-              {% comment %} Finally, remove any hash string {% endcomment %}
-              {% assign video_id = video_id | split: 'v=' | last %}
-
-              {% if video_url contains "vimeo.com" %}
-                {% assign video_id = video_url | split: '/' | last %}
-                {% assign video_id = video_id | split: 'vimeo.com' | last %}
-              {% endif %}            
 
               <noscript>
                 <div class="video-section__media"
@@ -123,11 +123,11 @@
               </deferred-media>   
 
             {% endif %}    
-          {%- endfor -%}
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
+  {%- endfor -%}
 
 {% schema %}
 {
