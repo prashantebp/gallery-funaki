@@ -38,6 +38,8 @@
     "1661833805becd5dc4": {
       "type": "fun-fullwidth-image",
       "settings": {
+        "padding_top": 100,
+        "padding_bottom": 105
       }
     },
     "16611369401290ab2c": {

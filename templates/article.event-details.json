@@ -2,7 +2,7 @@
   "sections": {
     "main": {
       "type": "main-events-exhibitions",
-      "blocks": {        
+      "blocks": {
         "title": {
           "type": "title",
           "settings": {
