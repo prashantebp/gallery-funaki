@@ -40,7 +40,7 @@
                         {% if image.width >= 2200 %}{{ image.cloudinary_src | append: 'w_2200' }} 2200w,{% endif %}
                         {% if image.width >= 3000 %}{{ image.cloudinary_src | append: 'w_3000' }} 3000w,{% endif %}
                         {{ image | img_url }} {{ image.width }}w"                      
-                      src="{{ image.cloudinary_src | append: 'w_100' }}"
+                      src="{{ image.cloudinary_src | append: 'w_1100' }}"
                       class="mb-0"
                       loading="lazy"
                       width="{{ image.width }}"
