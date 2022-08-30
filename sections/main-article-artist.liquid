@@ -32,6 +32,7 @@
             {%- when 'title'-%}
               <header class="fun-blog-detail__header" {{ block.shopify_attributes }}>
                 <h1 class="article-template__title" itemprop="headline">{{ article.title | escape }}</h1>
+                {% if article.metafields.accentuate.artist_sub_title != blank %}
                 <div>
                   {%- if block.settings.blog_show_date -%}
                     <span class="circle-divider caption-with-letter-spacing" itemprop="dateCreated pubdate datePublished">{{ article.published_at | time_tag: format: 'date' }}</span>
@@ -41,8 +42,9 @@
                       <span itemprop="name">{{ article.author }}</span>
                     </span>
                   {%- endif -%}
-                  <span>{{ article.metafields.custom.artist_sub_title }}</span>
+                  <span>{{ article.metafields.accentuate.artist_sub_title }}</span>
                 </div>
+                {% endif %}
               </header>
 
             {%- when 'content'-%}
