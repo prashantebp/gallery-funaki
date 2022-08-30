@@ -119,7 +119,8 @@
                 {%- endif -%}
             {%- endfor -%}
             {% if  count == 0 %}
-                  <div class="error">{{ section.settings.empty_message }}</div>                    
+                  <div class="error">{{ section.settings.empty_message }}</div>
+                  {%- break -%}                    
                 {% endif %}
         </div>
     </div>
