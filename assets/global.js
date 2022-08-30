@@ -169,13 +169,13 @@ function onKeyUpEscape(event) {
 
 class QuantityInput extends HTMLElement {
   constructor() {
-    super();
-    this.input = this.querySelector('input');
-    this.changeEvent = new Event('change', { bubbles: true })
+    // super();
+    // this.input = this.querySelector('input');
+    // this.changeEvent = new Event('change', { bubbles: true })
 
-    this.querySelectorAll('button').forEach(
-      (button) => button.addEventListener('click', this.onButtonClick.bind(this))
-    );
+    // this.querySelectorAll('button').forEach(
+    //   (button) => button.addEventListener('click', this.onButtonClick.bind(this))
+    // );
   }
 
   onButtonClick(event) {
