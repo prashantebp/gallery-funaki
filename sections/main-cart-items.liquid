@@ -50,7 +50,7 @@
   </div> {% endcomment %}
       <div class="col-md-10">
         <cart-items>
-          <form action="{{ routes }}" class="cart__contents critical-hidden" method="post" id="cart">
+          <form action="{{ routes.cart_url }}" class="cart__contents critical-hidden" method="post" id="cart">
             <div class="cart__items" id="main-cart-items" data-id="{{ section.id }}">
               <div class="js-contents">
                 {%- if cart != empty -%}
