@@ -20,7 +20,7 @@
         </svg>
         {{ 'templates.contact.form.error_heading' | t }}
       </h2>
-      <ul> 
+      <ul>
         {%- for field in form.errors -%}
           <li>
             {%- if field == 'form' -%}
@@ -35,11 +35,12 @@
         {%- endfor -%}
       </ul>
     {%- endif -%}
-    <div class="field">      
+    <div class="from-element">
       <input
         type="text"
         name="customer[first_name]"
         id="RegisterForm-FirstName"
+        class="form-control"
         {% if form.first_name %}value="{{ form.first_name }}"{% endif %}
         autocomplete="given-name"
         placeholder="{{ 'customer.register.first_name' | t }}"
@@ -48,11 +49,12 @@
         {{ 'customer.register.first_name' | t }}
       </label>
     </div>
-    <div class="field">
+    <div class="from-element">
       <input
         type="text"
         name="customer[last_name]"
         id="RegisterForm-LastName"
+        class="form-control"
         {% if form.last_name %}value="{{ form.last_name }}"{% endif %}
         autocomplete="family-name"
         placeholder="{{ 'customer.register.last_name' | t }}"
@@ -61,7 +63,7 @@
         {{ 'customer.register.last_name' | t }}
       </label>
     </div>
-    <div class="field">      
+    <div class="form-element">
       <input
         type="email"
         name="customer[email]"
@@ -71,6 +73,7 @@
         autocapitalize="off"
         autocomplete="email"
         aria-required="true"
+        class="form-control"
         {% if form.errors contains 'email' %}
           aria-invalid="true"
           aria-describedby="RegisterForm-email-error"
@@ -89,11 +92,12 @@
         {{ form.errors.translated_fields['email'] | capitalize }} {{ form.errors.messages['email'] }}.
       </span>
     {%- endif -%}
-    <div class="field">     
+    <div class="form-element">
       <input
         type="password"
         name="customer[password]"
         id="RegisterForm-password"
+        class="form-control"
         aria-required="true"
         {% if form.errors contains 'password' %}
           aria-invalid="true"
@@ -113,7 +117,7 @@
         {{ form.errors.translated_fields['password'] | capitalize }} {{ form.errors.messages['password'] }}.
       </span>
     {%- endif -%}
-    <button>
+    <button class="btn btn-secondary">
       {{ 'customer.register.submit' | t }}
     </button>
   {%- endform -%}
