@@ -50,7 +50,9 @@
               {% if video_url contains "vimeo.com" %}
                 {% assign video_id = video_url | split: '/' | last %}
                 {% assign video_id = video_id | split: 'vimeo.com' | last %}
-              {% endif %} 
+              {% endif %}
+              
+              {{articles[artist_name].image}}
               
               
               <noscript>
