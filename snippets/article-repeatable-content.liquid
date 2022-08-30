@@ -14,7 +14,7 @@
             <h2 class="h1">{{ section_heading }}</h2>
             <div class="content">{{ article.metafields.accentuate.section_content[forloop.index0].html  }}</div>
             {% if article.metafields.accentuate.quote[forloop.index0] != blank %}
-            <div class="quote"><blockquote>{{ article.metafields.accentuate.quote[forloop.index0]  }} 
+            <div class="quote"><blockquote><p>{{ article.metafields.accentuate.quote[forloop.index0]  }} </p>
               {% if article.metafields.accentuate.quote_author[forloop.index0] != blank %}<span class="quote-author">{{article.metafields.accentuate.quote_author[forloop.index0]}}</span></blockquote> {% endif %}
             </div>
             {% endif %}
