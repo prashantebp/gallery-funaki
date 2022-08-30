@@ -110,11 +110,8 @@
                         </div>
                       {% endif %}
                 {% else  today_date >= pre_date and today_date <= post_date and count == 0%}
-                    {%- if count == 1 -%}
                         <div class="error">Current Exhibitions not available. 1</div>
-                        {%- break -%}
-                    {%- endif -%}
-                    
+                        {%- break -%}                    
                 {% endif %}
 
             {%- endfor -%}
