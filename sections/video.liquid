@@ -27,35 +27,36 @@
           {%- endunless -%}
         </div>
 
-        {%- for article in blogs.videos.articles -%}
-            {% assign artist_name = article.metafields.accentuate.choose_artist %} 
-            {% assign video_url = article.metafields.accentuate.video_url %}    
+        {%- for video_article in blogs.videos.articles -%}
+
+            {% assign artist_name = video_article.metafields.accentuate.choose_artist %} 
+            {% assign video_url = video_article.metafields.accentuate.video_url %}    
             <div class="col-sm-8 col-md-4 fun-bookmark__col--past">
                 <article class="fun-bookmark__card fun-bookmark__card--past-new">
                   <figure class="fun-bookmark__fig">
                     <img
-                      srcset="{%- if article.image.src.width >= 165 -%}{{ article.image.src | image_url: width: 165 }} 165w,{%- endif -%}
-                        {%- if article.image.src.width >= 360 -%}{{ article.image.src | image_url: width: 360 }} 360w,{%- endif -%}
-                        {%- if article.image.src.width >= 533 -%}{{ article.image.src | image_url: width: 533 }} 533w,{%- endif -%}
-                        {%- if article.image.src.width >= 720 -%}{{ article.image.src | image_url: width: 720 }} 720w,{%- endif -%}
-                        {%- if article.image.src.width >= 1000 -%}{{ article.image.src | image_url: width: 1000 }} 1000w,{%- endif -%}
-                        {%- if article.image.src.width >= 1500 -%}{{ article.image.src | image_url: width: 1500 }} 1500w,{%- endif -%}
-                        {{ article.image.src | image_url }} {{ article.image.src.width }}w"
-                      src="{{ article.image.src | image_url: width: 533 }}"
+                      srcset="{%- if video_article.image.src.width >= 165 -%}{{ video_article.image.src | image_url: width: 165 }} 165w,{%- endif -%}
+                        {%- if video_article.image.src.width >= 360 -%}{{ video_article.image.src | image_url: width: 360 }} 360w,{%- endif -%}
+                        {%- if video_article.image.src.width >= 533 -%}{{ video_article.image.src | image_url: width: 533 }} 533w,{%- endif -%}
+                        {%- if video_article.image.src.width >= 720 -%}{{ video_article.image.src | image_url: width: 720 }} 720w,{%- endif -%}
+                        {%- if video_article.image.src.width >= 1000 -%}{{ video_article.image.src | image_url: width: 1000 }} 1000w,{%- endif -%}
+                        {%- if video_article.image.src.width >= 1500 -%}{{ video_article.image.src | image_url: width: 1500 }} 1500w,{%- endif -%}
+                        {{ video_article.image.src | image_url }} {{ video_article.image.src.width }}w"
+                      src="{{ video_article.image.src | image_url: width: 533 }}"
                       sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px, (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)"
-                      alt="{{ article.image.src.alt | escape }}"
+                      alt="{{ video_article.image.src.alt | escape }}"
                       class="motion-reduce fun-bookmark__img"
                       loading="lazy"
-                      width="{{ article.image.width }}"
-                      height="{{ article.image.height }}"
+                      width="{{ video_article.image.width }}"
+                      height="{{ video_article.image.height }}"
                     >
                     <a class="fun-bookmark__link fun-bookmark__link--hidden" href="{{ video_url }}" data-fancybox>
-                      <span>{{ article.url }}</span>
+                      <span>{{ video_article.url }}</span>
                     </a>
                   </figure>
                   <div class="d-flex flex-column justify-content-between fun-bookmark__past-desc-wrapper">
                     <div>
-                      <a class="fun-bookmark__card-title" href="{{ video_url }}" data-fancybox>{{ article.title }}</a>                      
+                      <a class="fun-bookmark__card-title" href="{{ video_url }}" data-fancybox>{{ video_article.title }}</a>                      
                       <div class="artist-name">
                         {{ articles[artist_name].title }}
                       </div>
