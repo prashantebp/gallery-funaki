@@ -30,8 +30,8 @@
         {%- for video_article in blogs.videos.articles -%}
 
             {% assign artist_name = video_article.metafields.accentuate.choose_artist %} 
-            {% assign artist_name = articles[artist_name].title %}
-            {% if artist_name == article.title %}
+            {% assign name = articles[artist_name].title %}
+            {% if name == article.title %}
               {% assign video_url = video_article.metafields.accentuate.video_url %}
               {% comment %} First of all, we get last part of the URL that's supposedly the Youtube Video ID {% endcomment %}
 
@@ -52,7 +52,7 @@
                 {% assign video_id = video_id | split: 'vimeo.com' | last %}
               {% endif %}
               
-              {{articles[artist_name].image}}
+              {{ articles[artist_name] }}
               
               
               <noscript>
