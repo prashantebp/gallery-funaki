@@ -137,7 +137,7 @@
                             {%- endif -%}
                             {% endcomment %}
                           </div>
-                          {%- if form.posted_successfully? -%}
+                          {%- if form.ContactFooter.posted_successfully? -%}
                           <div class="newsletter_success_wrapper">
                             <small class="newsletter-form__message newsletter-form__message--success form__message" id="ContactFooter-success"  autofocus>{% render 'icon-success' %}{{ 'newsletter.success' | t }}</small>
                           </div>
