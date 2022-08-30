@@ -84,14 +84,14 @@
         {{ 'customer.register.email' | t }}
       </label>
     </div>
-    {%- if form.errors contains 'email' -%}
+    {% comment %} {%- if form.errors contains 'email' -%}
       <span id="RegisterForm-email-error" class="form__message">
         <svg aria-hidden="true" focusable="false" role="presentation">
           <use href="#icon-error" />
         </svg>
         {{ form.errors.translated_fields['email'] | capitalize }} {{ form.errors.messages['email'] }}.
       </span>
-    {%- endif -%}
+    {%- endif -%} {% endcomment %}
     <div class="form-element">
       <input
         type="password"
@@ -109,14 +109,14 @@
         {{ 'customer.register.password' | t }}
       </label>
     </div>
-    {%- if form.errors contains 'password' -%}
+    {% comment %} {%- if form.errors contains 'password' -%}
       <span id="RegisterForm-password-error" class="form__message">
         <svg aria-hidden="true" focusable="false" role="presentation">
           <use href="#icon-error" />
         </svg>
         {{ form.errors.translated_fields['password'] | capitalize }} {{ form.errors.messages['password'] }}.
       </span>
-    {%- endif -%}
+    {%- endif -%} {% endcomment %}
     <button class="btn btn-secondary">
       {{ 'customer.register.submit' | t }}
     </button>
