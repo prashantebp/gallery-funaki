@@ -11,10 +11,11 @@
 
     {%- form 'recover_customer_password' -%}
       {% assign recover_success = form.posted_successfully? %}
-      <div class="field">
+      <div class="form-element">
         <input type="email"
           value=""
           name="email"
+          class="form-control"
           id="RecoverEmail"
           autocorrect="off"
           autocapitalize="off"
@@ -42,7 +43,7 @@
         </small>
       {%- endif -%}
 
-      <button>
+      <button class="btn btn-secondary">
         {{ 'customer.login_page.submit' | t }}
       </button>
 
