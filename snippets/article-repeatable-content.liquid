@@ -13,6 +13,7 @@
           <div class="col-md-8">
             <h2 class="h1">{{ section_heading }}</h2>
             <div class="content">{{ article.metafields.accentuate.section_content[forloop.index0].html  }}</div>
+            <div class="quote"><blockquote>{{ article.metafields.accentuate.quote[forloop.index0]  }} <span class="quote-author">{{article.metafields.accentuate.quote_author[forloop.index0]}}</span></blockquote></div>
           </div>
           {% if section_img != blank %}
           <div class="col-md-8 col-lg-7 offset-lg-1 fun-blog-detail__right-col">
