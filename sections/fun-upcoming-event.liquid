@@ -118,10 +118,10 @@
             </article>
           </div>
         {% endif %}
+        {%- endfor -%}
         {% if  count == 0 %}
           <div class="error">{{ section.settings.empty_message }}</div>                    
         {% endif %} 
-      {%- endfor -%}
     </div>
   </div>
 </section>
