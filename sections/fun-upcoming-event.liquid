@@ -70,7 +70,7 @@
     </div>
     <div class="row fun-event__row fun-event__upcoming-row">
       {% assign count = 0 %}
-      {%- for article in section.settings.blog.articles limit: section.settings.post_limits -%}
+      {%- for article in section.settings.blog.articles -%}
       {% assign today_date = 'now' | date: '%s' %}
           {% assign pre_date = article.metafields.exhibitions.start_date | date: '%s' %}
           {% assign post_date = article.metafields.exhibitions.end_date | date: '%s' %}
