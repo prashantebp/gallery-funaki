@@ -365,6 +365,7 @@
 .login a {
   display: block;
   margin: 0 auto;
+  font-family: var(--nanum);
   width: fit-content;
 }
 
@@ -372,6 +373,7 @@
   margin-left: 0;
   margin-right: 0;
   margin-bottom: 1rem;
+  font-family: var(--nanum);
 }
 
 .login .field + a {
