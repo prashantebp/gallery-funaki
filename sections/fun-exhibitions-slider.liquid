@@ -109,13 +109,12 @@
                             </button>
                         </div>
                       {% endif %}
-                      {% if  count == 0%}
-                      <div class="error">Current Exhibitions not available.</div>
-                      {%- break -%}                    
-                    {% endif %}
-                    {% endif %}
-                    
-            {%- endfor -%}
+                      {% endif %}
+                      
+                    {%- endfor -%}
+                  {% if  count == 0%}
+                  <div class="error">Current Exhibitions not available.</div>                   
+                {% endif %}
           </div>
           
       </div>
