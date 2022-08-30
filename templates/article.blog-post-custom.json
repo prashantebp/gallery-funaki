@@ -12,6 +12,7 @@
         },
         "content": {
           "type": "content",
+          "disabled": true,
           "settings": {
           }
         }
@@ -25,11 +26,19 @@
         "padding_bottom": 105
       }
     },
+    "166183053288a0c9c1": {
+      "type": "fun-repeatable-content",
+      "settings": {
+        "section_heading": "Repeatable content",
+        "padding_top": 80,
+        "padding_bottom": 36,
+        "title_gap": 88
+      }
+    },
     "16611369401290ab2c": {
       "type": "fun-artists-exhibitions",
       "settings": {
         "section_heading": "Exhibitions",
-        "blog": "exhibitions",
         "large_title": true,
         "margin_bottom": 50,
         "post_limits": 6,
@@ -96,19 +105,20 @@
       "type": "video",
       "settings": {
         "heading": "",
+        "padding_top": 52,
+        "padding_bottom": 100,
         "heading_size": "h1",
         "cover_image": "shopify:\/\/shop_images\/Rectangle_50_1.jpg",
         "video_url": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc",
         "description": "",
         "full_width": false,
-        "color_scheme": "background-1",
-        "padding_top": 52,
-        "padding_bottom": 100
+        "color_scheme": "background-1"
       }
     }
   },
   "order": [
     "main",
+    "166183053288a0c9c1",
     "16611369401290ab2c",
     "1661227652b5d49f4e",
     "16588338213f2f35fe",
