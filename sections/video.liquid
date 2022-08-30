@@ -80,7 +80,6 @@
               </div>
             </noscript>
             <deferred-media class="video-section__media deferred-media no-js-hidden gradient global-media-settings" data-media-id="{{ video_id }}"
-              {% if articles[artist_name].image != blank %} style="padding-bottom: {{ 1 | divided_by: articles[artist_name].image.aspect_ratio | times: 100 }}%;"{% endif %}
             >
               <button
                 id="Deferred-Poster-Modal-{{ video_id }}"

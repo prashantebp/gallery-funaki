@@ -1,6 +1,7 @@
 .video-section__media {
   position: relative;
-  padding-bottom: 56.25%;
+  /* padding-bottom: 56.25%; */
+  max-height: 604px;
 }
 
 .video-section__media.deferred-media {
