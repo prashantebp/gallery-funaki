@@ -71,7 +71,7 @@ class CartItems extends HTMLElement {
       sections_url: window.location.pathname
     });
 
-    fetch(`${routes.cart_change_url}`, {...fetchConfig(), ...{ body }})
+    fetch(`${routes.cart_url}`, {...fetchConfig(), ...{ body }})
       .then((response) => {
         return response.text();
       })
@@ -167,7 +167,7 @@ if (!customElements.get('cart-note')) {
 
       this.addEventListener('change', debounce((event) => {
         const body = JSON.stringify({ note: event.target.value });
-        fetch(`${routes.cart_url}`, {...fetchConfig(), ...{ body }});
+        fetch(`${routes.cart_update_url}`, {...fetchConfig(), ...{ body }});
       }, 300))
     }
   });
