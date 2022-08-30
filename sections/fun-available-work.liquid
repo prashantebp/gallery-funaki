@@ -78,10 +78,12 @@
         </div>
         <div class="row fun-featured__row">
             {% assign artist_name = article.title | upcase %}
+            {% assign count = 0 %}
             {%- for product in section.settings.collection.products limit: section.settings.products_to_show -%}
               {% assign artist_books = product.metafields.custom.product_and_artist_linking  %}
               
               {% if product.metafields.custom.product_and_artist_linking == artist_name  %} 
+              {% assign count = count | plus: 1  %}
                 <div class="col-sm-8 col-lg-4 fun-featured__col">
                     <article class="fun-featured__card {% if product.type == "Art"%} fun-featured__card--portrait {% endif %}">
                         <figure class="fun-featured__figure">
@@ -115,6 +117,10 @@
                     </article>
                 </div>
                 {%- endif -%}
+                {% if  count == 0 %}
+                  <div class="error">{{ section.settings.empty_message }}</div>
+                  {%- break -%}                    
+                {% endif %}
             {%- endfor -%}
         </div>
     </div>
@@ -381,7 +387,12 @@
         "unit": "px",
         "label": "SECTION TITLE GAP",
         "default": 36
-    }
+    },
+    {
+      "type": "text",
+      "id": "empty_message",
+      "label": "Empty Message"
+    },
 
   ],
   "presets": [

@@ -119,7 +119,7 @@
           </div>
         {% endif %}
         {% if  count == 0 %}
-        <div class="error">Upcoming Events are not available.</div>
+        <div class="error">{{ section.settings.empty_message }}</div>
         {%- break -%}                    
       {% endif %} 
       {%- endfor -%}
@@ -203,7 +203,12 @@
       "unit": "px",
       "label": "t:sections.all.padding.padding_bottom",
       "default": 36
-    }
+    },
+    {
+      "type": "text",
+      "id": "empty_message",
+      "label": "Empty Message"
+    },
   ],
   "presets": [
     {

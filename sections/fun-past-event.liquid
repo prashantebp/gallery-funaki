@@ -140,7 +140,7 @@
               </div>
         {% endif %}
         {% if  count == 0 %}
-        <div class="error">Past Events are not available.</div>
+        <div class="error">{{ section.settings.empty_message }}</div>
         {%- break -%}                    
       {% endif %}
       {%- endfor -%}
@@ -222,7 +222,12 @@
       "unit": "px",
       "label": "Margin gap between title",
       "default": 50
-    }
+    },
+    {
+      "type": "text",
+      "id": "empty_message",
+      "label": "Empty Message"
+    },
   ],
   "presets": [
     {
