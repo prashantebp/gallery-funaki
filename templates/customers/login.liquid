@@ -81,9 +81,10 @@
         {{ form.errors | default_errors }}
       {%- endif -%}
 
-      <div class="field">        
+      <div class="field form-element">
         <input
           type="email"
+          class="form-control"
           name="customer[email]"
           id="CustomerEmail"
           autocomplete="email"
@@ -100,10 +101,11 @@
       </div>
 
       {%- if form.password_needed -%}
-        <div class="field">          
+        <div class="field form-element">
           <input
             type="password"
             value=""
+            class="form-control"
             name="customer[password]"
             id="CustomerPassword"
             autocomplete="current-password"
@@ -122,17 +124,17 @@
         </a>
       {%- endif -%}
 
-      <button>
+      <button class="btn btn-secondary">
         {{ 'customer.login_page.sign_in' | t }}
       </button>
 
       <a href="{{ routes.account_register_url }}">
         {{ 'customer.login_page.create_account' | t }}
       </a>
-      
+
     {%- endform -%}
   </div>
-  
+
   {%- if shop.checkout.guest_login -%}
     <div>
       <hr>
