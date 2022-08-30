@@ -11,10 +11,11 @@
 
     {%- form 'recover_customer_password' -%}
       {% assign recover_success = form.posted_successfully? %}
-      <div class="field">
+      <div class="form-element">
         <input type="email"
           value=""
           name="email"
+          class="form-control"
           id="RecoverEmail"
           autocorrect="off"
           autocapitalize="off"
@@ -42,7 +43,7 @@
         </small>
       {%- endif -%}
 
-      <button>
+      <button class="btn btn-secondary mb-2">
         {{ 'customer.login_page.submit' | t }}
       </button>
 
@@ -81,9 +82,10 @@
         {{ form.errors | default_errors }}
       {%- endif -%}
 
-      <div class="field">        
+      <div class="form-element">
         <input
           type="email"
+          class="form-control"
           name="customer[email]"
           id="CustomerEmail"
           autocomplete="email"
@@ -100,10 +102,11 @@
       </div>
 
       {%- if form.password_needed -%}
-        <div class="field">          
+        <div class="form-element">
           <input
             type="password"
             value=""
+            class="form-control"
             name="customer[password]"
             id="CustomerPassword"
             autocomplete="current-password"
@@ -122,24 +125,24 @@
         </a>
       {%- endif -%}
 
-      <button>
+      <button class="btn btn-secondary mb-2">
         {{ 'customer.login_page.sign_in' | t }}
       </button>
 
       <a href="{{ routes.account_register_url }}">
         {{ 'customer.login_page.create_account' | t }}
       </a>
-      
+
     {%- endform -%}
   </div>
-  
+
   {%- if shop.checkout.guest_login -%}
     <div>
       <hr>
       <h2>{{ 'customer.login_page.guest_title' | t }}</h2>
 
       {%- form 'guest_login' -%}
-        <button>
+        <button class="btn btn-primary">
           {{ 'customer.login_page.guest_continue' | t }}
         </button>
       {%- endform -%}

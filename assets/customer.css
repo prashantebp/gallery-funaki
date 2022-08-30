@@ -12,11 +12,30 @@
 }
 
 .customer form {
-  margin-top: 4rem;
+  margin-top: 1.5rem;
 }
 
-.customer button {
-  margin: 4rem 0 1.5rem;
+.customer h1{
+  font-family: var(--overpass);
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 24px;
+  text-align: center;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #000;
+}
+
+.customer h2{
+  font-family: var(--overpass);
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 24px;
+  text-align: center;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #000;
+  margin-top: 32px;
 }
 
 .customer ul {
