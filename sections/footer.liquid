@@ -119,7 +119,7 @@
                                   aria-invalid="true"
                                   aria-describedby="ContactFooter-error"
                                 {% elsif form.posted_successfully? %}
-                                  aria-describedby="ContactFooter-success1"
+                                  aria-describedby="ContactFooter-success"
                                 {% endif %}
                                 placeholder="{{ block.settings.newsletter_label | escape }}"
                                 required
@@ -139,7 +139,7 @@
                           </div>
                           {%- if form.posted_successfully? -%}
                           <div class="newsletter_success_wrapper">
-                            <small class="newsletter-form__message newsletter-form__message--success form__message" id="ContactFooter-success" tabindex="-1" autofocus>{% render 'icon-success' %}{{ 'newsletter.success' | t }}</h3>
+                            <small class="newsletter-form__message newsletter-form__message--success form__message" id="ContactFooter-success"  autofocus>{% render 'icon-success' %}{{ 'newsletter.success' | t }}</h3>
                           </div>
                           {%- endif -%}
                         {%- endform -%}
