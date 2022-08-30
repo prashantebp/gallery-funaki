@@ -326,7 +326,6 @@
 
     &__artist-list{
         display: grid;
-        padding-bottom: 40px;
         grid-template-columns: 1fr;
         
         @include media-breakpoint-up(sm){
@@ -335,9 +334,7 @@
         @include media-breakpoint-up(md){
             grid-template-columns: 1fr 1fr 1fr;
         }
-        @include media-breakpoint-up(lg){
-            padding-bottom: 80px;
-        }
+        
         grid-gap: 8px;
         &--item{
             width: 100%;
@@ -367,6 +364,10 @@
         }
 
         & + .btn-wrapper{
+            margin-top: 40px;
+            @include media-breakpoint-up(lg){
+                margin-top: 80px;
+            }
             padding-top: 40px;
             @extend %divider;
             &::after{
