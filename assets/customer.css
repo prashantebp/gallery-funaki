@@ -42,7 +42,7 @@
   line-height: calc(1 + 0.6 / var(--font-body-scale));
   padding-left: 4.4rem;
   text-align: left;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
 }
 
 .customer ul a {

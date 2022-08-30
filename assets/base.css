@@ -1864,10 +1864,9 @@ input[type='checkbox'] {
 .form__message {
   align-items: center;
   display: flex;
-  font-size: 14px;
+  font-size: 1.4rem;
   line-height: 1;
   margin-top: 1rem;
-  font-family: var(--nanum);
 }
 
 .form__message--large {
@@ -1891,7 +1890,7 @@ input[type='checkbox'] {
 .customer .form__message svg {
   height: 1.5rem;
   width: 1.5rem;
-  margin-right: 8px;
+  margin-right: 1rem;
 }
 
 .customer .field .form__message svg {
