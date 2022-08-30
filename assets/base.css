@@ -1864,9 +1864,10 @@ input[type='checkbox'] {
 .form__message {
   align-items: center;
   display: flex;
-  font-size: 1.4rem;
+  font-size: 14px;
   line-height: 1;
-  margin-top: 1rem;
+  margin-bottom: 1rem;
+  font-family: var(--nanum);
 }
 
 .form__message--large {

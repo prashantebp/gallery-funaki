@@ -18,16 +18,21 @@
         "margin_bottom": 88,
         "post_limits": 12,
         "padding_top": 24,
-        "padding_bottom": 36
+        "padding_bottom": 36,
+        "empty_message": "Data Not Available"
       }
     },
     "165726543288017daf": {
       "type": "fun-past-event",
       "settings": {
         "blog": "exhibitions",
+        "custom_class": "normal",
+        "section_heading": "Past",
+        "large_title": false,
         "padding_top": 40,
         "padding_bottom": 152,
-        "margin_bottom": 88
+        "margin_bottom": 88,
+        "empty_message": ""
       }
     }
   },

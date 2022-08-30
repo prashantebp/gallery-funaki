@@ -35,6 +35,11 @@
         "title_gap": 88
       }
     },
+    "1661833805becd5dc4": {
+      "type": "fun-fullwidth-image",
+      "settings": {
+      }
+    },
     "16611369401290ab2c": {
       "type": "fun-artists-exhibitions",
       "settings": {
@@ -71,7 +76,8 @@
         "swipe_on_mobile": false,
         "padding_top": 36,
         "padding_bottom": 36,
-        "title_gap": 36
+        "title_gap": 36,
+        "empty_message": "Data Not Available"
       }
     },
     "16588338213f2f35fe": {
@@ -98,7 +104,8 @@
         "columns_mobile": "2",
         "swipe_on_mobile": false,
         "padding_top": 36,
-        "padding_bottom": 52
+        "padding_bottom": 52,
+        "empty_message": "Data Not Available"
       }
     },
     "165882886241b1cf5b": {
@@ -114,20 +121,15 @@
         "full_width": false,
         "color_scheme": "background-1"
       }
-    },
-    "1661833805becd5dc4": {
-      "type": "fun-fullwidth-image",
-      "settings": {
-      }
     }
   },
   "order": [
     "main",
     "166183053288a0c9c1",
+    "1661833805becd5dc4",
     "16611369401290ab2c",
     "1661227652b5d49f4e",
     "16588338213f2f35fe",
-    "165882886241b1cf5b",
-    "1661833805becd5dc4"
+    "165882886241b1cf5b"
   ]
 }

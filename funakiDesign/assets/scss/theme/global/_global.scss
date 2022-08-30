@@ -207,3 +207,11 @@ div.error{
         }
     }
 }
+
+.form-element{
+    & .form-control{
+        & + label{
+            color: var(--neutral-grey-800);
+        }
+    }
+}

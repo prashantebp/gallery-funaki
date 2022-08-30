@@ -42,11 +42,13 @@
   line-height: calc(1 + 0.6 / var(--font-body-scale));
   padding-left: 4.4rem;
   text-align: left;
-  margin-bottom: 4rem;
+  margin-bottom: 2rem;
 }
 
 .customer ul a {
   display: inline;
+  font-family: var(--nanum);
+  font-size: 14px;
 }
 
 .customer strong {
@@ -55,13 +57,18 @@
 }
 
 .customer h2.form__message {
-  font-size: calc(var(--font-heading-scale) * 1.8rem);
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+}
+.customer h2.form__message svg{
+  width: 16px;
+  height: 16px;
 }
 
-@media only screen and (min-width: 750px) {
-  .customer h2.form__message {
-    font-size: calc(var(--font-heading-scale) * 2.2rem);
-  }
+.customer .errors li{
+  font-family: var(--nanum);
+  font-size: 14px;
 }
 
 .customer .field {
@@ -351,6 +358,7 @@
 .login a[href='#recover'] {
   margin-left: 0;
   margin-right: 0;
+  margin-bottom: 1rem;
 }
 
 .login .field + a {
@@ -364,7 +372,7 @@
 .login h3 {
   margin-top: 1.5rem;
   text-align: left;
-  font-size: calc(var(--font-heading-scale) * 1.6rem);
+  font-size: 14px;
 }
 
 #customer_login_guest button {

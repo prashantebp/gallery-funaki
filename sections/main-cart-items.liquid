@@ -152,7 +152,7 @@
                             </ul> {% endcomment %}
                           </td>
 
-                          <td class="cart-item__totals right medium-hide large-up-hide">
+                          <td class="cart-item__totals">
                             <div class="loading-overlay hidden">
                               <div class="loading-overlay__spinner">
                                 <svg aria-hidden="true" focusable="false" role="presentation" class="spinner" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
@@ -241,7 +241,7 @@
                             </div> {% endcomment %}
                           </td>
 
-                          <td class="cart-item__totals right small-hide">
+                          {% comment %} <td class="cart-item__totals right small-hide">
                             <div class="loading-overlay hidden">
                               <div class="loading-overlay__spinner">
                                 <svg aria-hidden="true" focusable="false" role="presentation" class="spinner" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
@@ -287,7 +287,7 @@
                                 </div>
                               {%- endif -%}
                             </div>
-                          </td>
+                          </td> {% endcomment %}
 
                           <td class="cart-item__actions">
                             <div class="cart-item__quantity-wrapper">
@@ -431,7 +431,7 @@
                   {%- if settings.show_cart_note -%}
                     <cart-note class="cart__note field form-element">
                       <textarea class="text-area field__input form-control" name="note" form="cart" id="Cart-note" placeholder="{{ 'sections.cart.note' | t }}">{{ cart.note }}</textarea>
-                      <label for="Cart-note" class="form-label">{{ 'sections.cart.note' | t }}</label>
+                      <label for="Cart-note" class="form-label">WRITE NOTE NAI EDIT GAREDINU AHILE LAGI</label>
                     </cart-note>
                   {%- endif -%}
                 {%- else -%}

@@ -18,7 +18,8 @@
         "large_title": true,
         "padding_top": 88,
         "padding_bottom": 64,
-        "margin_bottom": 54
+        "margin_bottom": 54,
+        "empty_message": "Data not available"
       }
     },
     "1659429468f6ebcdce": {
