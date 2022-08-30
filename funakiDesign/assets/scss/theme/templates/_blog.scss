@@ -367,9 +367,11 @@
         }
 
         & + .btn-wrapper{
-            margin-top: 40px;
+            padding-top: 40px;
             @extend %divider;
             &::after{
+                top: 0;
+                bottom: unset;
                 width: 100%;
             }
         }
