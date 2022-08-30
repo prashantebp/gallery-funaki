@@ -36,12 +36,12 @@
 
                  <div class="fun-blog-detail__content mb-0">
                    {%- if block.settings.blog_show_author -%}
-                    <span class="caption-with-letter-spacing" itemprop="author" itemscope itemtype="http://schema.org/Person">
+                    <span class="circle-divider caption-with-letter-spacing" itemprop="author" itemscope itemtype="http://schema.org/Person">
                       <span itemprop="name">{{ article.author }}</span>
                     </span>
                     {%- endif -%}
                     {%- if block.settings.blog_show_date -%}
-                      <span class="circle-divider caption-with-letter-spacing" itemprop="dateCreated pubdate datePublished">{{ article.metafields.exhibitions.start_date | date: "%d %b" }} - {{ article.metafields.exhibitions.end_date | date: "%d %b %Y" }}</span>
+                      <span class="caption-with-letter-spacing" itemprop="dateCreated pubdate datePublished">{{ article.metafields.exhibitions.start_date | date: "%d %b" }} - {{ article.metafields.exhibitions.end_date | date: "%d %b %Y" }}</span>
                     {%- endif -%}
                  </div>
                </header>
