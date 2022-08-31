@@ -115,7 +115,7 @@ if (typeof theme !== 'undefined' && theme.hasOwnProperty('settings')) theme.sett
 			}
 
 		return `
-			<div class="col-sm-6 col-lg-4 fun-featured__col">
+			<div class="col-sm-6 col-lg-4 fun-featured__col fun-product-list__col">
 				<article class="fun-featured__card">
 					<figure class="fun-featured__figure">
 						${test}
