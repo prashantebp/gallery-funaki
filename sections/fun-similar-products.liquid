@@ -77,7 +77,7 @@
                                 </div>
                             {% endif %}
                         {% endfor %}
-                        {% if product.tags.size == 0 %}
+                        {% if product.tags.size < 0 %}
                         <div class="text-center">No {% if section.settings.heading != blank %} {{ section.settings.heading}} {% else %} data {% endif %}</div>
                         {%- break -%}
                     {% endif %}
