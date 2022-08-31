@@ -951,3 +951,8 @@ if(result && input_val != 0){
     document.querySelector('.fun-newsletter__form-wrapper').appendChild(add_ele);
     add_ele.classList.add('newsletter_already_subscribe');
 }
+
+jQuery(".boost-pfs-filter-button").on('click',function(){
+  jQuery(".boost-pfs-filter-button").parent().hide();
+  jQuery(this).parent().next().show();
+})
