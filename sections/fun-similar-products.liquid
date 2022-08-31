@@ -86,11 +86,12 @@
                 {% endif %}
             {%- endunless -%}
         {%- endfor -%}
-        <div class="row fun-featured__row">
+        
             {% assign counter_1 = 0 %}
                 {%- for product in collections.all.products -%}
                     {% if section.settings.recommended_by == 'type' %}
                         {% if current_product.type == product.type %}
+                        <div class="row fun-featured__row">
                             {%- assign counter_1 = counter_1 | plus: 1 -%}
                             <div class="col-sm-8 col-lg-4 fun-featured__col">
                                 <article class="fun-featured__card">
@@ -163,6 +164,7 @@
                                 
                             {% endif %}
                             {%- endcomment -%}
+                            </div>
                         {%- endif -%}
                     {%- endif -%}
                     {%- assign counter = counter | plus: 1 -%}
@@ -177,7 +179,6 @@
                 <div class="text-center">No test</div>
                 {%- break -%}                    
             {% endif %}
-        </div>
     </div>
 </section>
 
