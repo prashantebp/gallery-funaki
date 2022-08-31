@@ -106,7 +106,7 @@
             "heading_size": "h1",
             "text": "<p>I see nothing arcane or mysterious in my work, but if some people find some of it enigmatic or inexplicable I could take it as a compliment. Alchemists belived in the connection of things in taking them apart and putting them together again. This is a thought I find rather appealing as a metaphot. The esoteric part of alchemy is largly overrated Peter Bauhuis<\/p>",
             "author": "Peter Bauhuis",
-            "author_link": ""
+            "author_link": "#"
           }
         },
         "165519504389c102b4-1": {
@@ -117,7 +117,7 @@
             "heading_size": "h1",
             "text": "<p>I see nothing arcane or mysterious in my work, but if some people find some of it enigmatic or inexplicable I could take it as a compliment. Alchemists belived in the connection of things in taking them apart and putting them together again. This is a thought I find rather appealing as a metaphot. The esoteric part of alchemy is largly overrated Peter Bauhuis<\/p>",
             "author": "Peter Bauhuis",
-            "author_link": ""
+            "author_link": "#"
           }
         }
       },
@@ -155,7 +155,8 @@
         "columns_mobile": "2",
         "swipe_on_mobile": false,
         "padding_top": 36,
-        "padding_bottom": 36
+        "padding_bottom": 36,
+        "empty_message": ""
       }
     },
     "16554556799722835f": {
