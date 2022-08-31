@@ -225,3 +225,10 @@ div.error{
     text-transform: uppercase;
     color: var(--neutral-grey-600);
 }
+
+.boost-pfs-filter-mobile-toolbar-items .boost-pfs-filter-mobile-toolbar-left a, .boost-pfs-filter-mobile-toolbar-items .boost-pfs-filter-mobile-toolbar-left .boost-pfs-filter-back-btn{
+    padding: 4px 16px !important;
+    &::before{
+        top: 12px !important;
+    }
+}
