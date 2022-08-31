@@ -163,7 +163,10 @@
 
                         {% endif %}
                     {%- endif -%}
-
+                    {% if  count_1 == 0 %}
+                    <div class="text-center">No {% if section.settings.heading != blank %} {{ section.settings.heading}} {% else %} data {% endif %}</div>
+                        {%- break -%}                    
+                    {% endif %}
                     {%- assign counter = counter | plus: 1 -%}
 
                     {%- if counter == break_at -%}
@@ -171,10 +174,7 @@
                     {%- endif -%}
                 {%- endunless -%}
             {%- endfor -%}
-            {% if  count_1 == 0 %}
-            <div class="text-center">No {% if section.settings.heading != blank %} {{ section.settings.heading}} {% else %} data {% endif %}</div>
-                {%- break -%}                    
-            {% endif %}
+            
         </div>
     </div>
 </section>
