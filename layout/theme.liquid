@@ -268,23 +268,7 @@
         playSlideshow: `{{ 'sections.slideshow.play_slideshow' | t }}`,
       }
     </script>
-    <script type="text/javascript">
-      
-          $(document).ready(function() {
-            if($(window).width() < 767){
-          $('.xo-gimagewrapper').slick({
-          dots: false,
-          infinite: true,
-          speed: 500,
-          slidesToShow: 5,
-          slidesToScroll: 1,
-          autoplay: true,
-          autoplaySpeed: 2000,
-          arrows: false,
-          variableWidth: true
-          });
-          }});
-      </script>
+    
 
     {%- if settings.predictive_search_enabled -%}
       <script src="{{ 'predictive-search.js' | asset_url }}" defer="defer"></script>
