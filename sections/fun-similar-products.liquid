@@ -39,13 +39,10 @@
         {%- for product in collections.all.products -%}
             {%- unless product.handle == current_product.handle -%}
                 {% if section.settings.recommended_by == 'tags' %}
-                {%- comment -%}
-                {% if product.tags.size == 0 %}
-                        <div class="text-center">1No {% if section.settings.heading != blank %} {{ section.settings.heading}} {% else %} data {% endif %}</div>
+                    {% if product.tags.size == 0 %}
+                        <div class="text-center">No {% if section.settings.heading != blank %} {{ section.settings.heading}} {% else %} data {% endif %}</div>
                         {%- break -%}
                     {% endif %}
-                {%- endcomment -%}
-                    
                     <div class="row fun-featured__row">
                         {% for tag in product.tags %}
                             {% if current_product.tags contains tag %}
@@ -83,10 +80,6 @@
                                 </div>
                             {% endif %}
                         {% endfor %}
-                        {% if current_product.tags contains tag == 0 %}
-                        <div class="text-center">1No {% if section.settings.heading != blank %} {{ section.settings.heading}} {% else %} data {% endif %}</div>
-                        {%- break -%}
-                    {% endif %}
                     </div>
                 {% endif %}
             {%- endunless -%}
