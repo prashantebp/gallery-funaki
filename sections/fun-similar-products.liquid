@@ -126,6 +126,7 @@
                                     <a href="{{ product.url }}" class="fun-featured__anchor">{{ product.title }}</a>
                                 </article>
                             </div>
+                        {% endif %}
                     {% elsif section.settings.recommended_by == 'vendor' %}
                         {% if current_product.vendor == product.vendor %}
                             <div class="col-sm-8 col-lg-4 fun-featured__col">
@@ -163,10 +164,7 @@
 
                         {% endif %}
                     {%- endif -%}
-                    {% if  count_1 == 0 %}
-                    <div class="text-center">No {% if section.settings.heading != blank %} {{ section.settings.heading}} {% else %} data {% endif %}</div>
-                        {%- break -%}                    
-                    {% endif %}
+
                     {%- assign counter = counter | plus: 1 -%}
 
                     {%- if counter == break_at -%}
@@ -174,7 +172,10 @@
                     {%- endif -%}
                 {%- endunless -%}
             {%- endfor -%}
-            
+            {% if  count_1 == 0 %}
+            <div class="text-center">2No {% if section.settings.heading != blank %} {{ section.settings.heading}} {% else %} data {% endif %}</div>
+                {%- break -%}                    
+            {% endif %}
         </div>
     </div>
 </section>
