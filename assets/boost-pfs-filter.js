@@ -444,3 +444,12 @@ if (typeof theme !== 'undefined' && theme.hasOwnProperty('settings')) theme.sett
 
 	/************************** END BUILD TOOLBAR **************************/
 })();
+
+
+jQuery(document).ready(function(){
+	console.log('check',jQuery(".boost-pfs-filter-button"))
+	jQuery(".boost-pfs-filter-button").on('click',function(){
+	  jQuery(".boost-pfs-filter-button").parent().hide();
+	  jQuery(this).parent().next().show();
+	})
+})
