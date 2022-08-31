@@ -269,8 +269,9 @@
       }
     </script>
     <script type="text/javascript">
-      if($(window).width() < 767){
+      
           $(document).ready(function() {
+            if($(window).width() < 767){
           $('.xo-gimagewrapper').slick({
           dots: false,
           infinite: true,
@@ -282,8 +283,7 @@
           arrows: false,
           variableWidth: true
           });
-          });
-        }
+          }});
       </script>
 
     {%- if settings.predictive_search_enabled -%}
