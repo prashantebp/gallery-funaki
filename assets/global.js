@@ -11,7 +11,7 @@ jQuery(document).ready(function(jQuery){
       prevArrow: '.fun-banner__prev-btn',
       nextArrow: '.fun-banner__next-btn'
   });
-  
+
   jQuery('.fun-product__indicator').slick({
       slidesToShow: 3,
       slidesToScroll: 1,
@@ -944,10 +944,12 @@ if(result && input_val != 0){
 
 var live_url = window.location.href;
 var result = live_url.includes('form_type=customer');
-var input_val = document.querySelector('#NewsletterForm--template--16207607529684__16560488181854b832').value.length;
-if(result && input_val != 0){
-    const add_ele = document.createElement("p");
-    add_ele.innerText = "You have already subscribed!";
-    document.querySelector('.fun-newsletter__form-wrapper').appendChild(add_ele);
-    add_ele.classList.add('newsletter_already_subscribe');
+if(document.querySelector('#NewsletterForm--template--16207607529684__16560488181854b832').length){
+  var input_val = document.querySelector('#NewsletterForm--template--16207607529684__16560488181854b832').value.length;
+  if(result && input_val != 0){
+      const add_ele = document.createElement("p");
+      add_ele.innerText = "You have already subscribed!";
+      document.querySelector('.fun-newsletter__form-wrapper').appendChild(add_ele);
+      add_ele.classList.add('newsletter_already_subscribe');
+  }
 }
