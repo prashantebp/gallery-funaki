@@ -89,6 +89,7 @@
 
         <div class="row fun-featured__row">
             {% assign count_1 = 0 %}
+            {% assign count_2 = 0 %}
             {%- for product in collections.all.products -%}
             {% assign count_1 = count_1 | plus: 1  %}
                 {%- unless product.handle == current_product.handle -%}
@@ -128,7 +129,7 @@
                                     <a href="{{ product.url }}" class="fun-featured__anchor">{{ product.title }}</a>
                                 </article>
                             </div>
-                        {% if  count_1 == 0 %}
+                       
                             <div class="text-center">No Other works by Artist </div>
                                 {%- break -%}                    
                             {% endif %}
@@ -137,6 +138,7 @@
                         {% endif %}
                     {% elsif section.settings.recommended_by == 'vendor' %}
                         {% if current_product.vendor == product.vendor %}
+                        {% assign count_2 = count_2 | plus: 1  %}
                             <div class="col-sm-8 col-lg-4 fun-featured__col">
                                 <article class="fun-featured__card">
                                     <figure class="fun-featured__figure">
@@ -171,7 +173,8 @@
                             </div>
                         {% endif %}
                     {%- endif -%}
-                    {{ count_1}}
+                    {{ count_1 }}
+                    {{ count_2 }}
                     {%- assign counter = counter | plus: 1 -%}
 
                     {%- if counter == break_at -%}
