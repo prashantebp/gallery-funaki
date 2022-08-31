@@ -228,6 +228,7 @@ div.error{
 
 .boost-pfs-filter-mobile-toolbar-items .boost-pfs-filter-mobile-toolbar-left a, .boost-pfs-filter-mobile-toolbar-items .boost-pfs-filter-mobile-toolbar-left .boost-pfs-filter-back-btn{
     padding: 16px 16px !important;
+    position: absolute !important;
     &::before{
         top: 6px !important;
     }
