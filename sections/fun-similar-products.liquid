@@ -39,6 +39,7 @@
         {%- for product in collections.all.products -%}
             {%- unless product.handle == current_product.handle -%}
                 {% if section.settings.recommended_by == 'tags' %}
+
                     <div class="row fun-featured__row">
                         {% for tag in product.tags %}
                             {% if current_product.tags contains tag %}
@@ -87,13 +88,12 @@
         {%- endfor -%}
 
         <div class="row fun-featured__row">
-            {% assign count_1 = 0 %}
+
             {%- for product in collections.all.products -%}
                 {%- unless product.handle == current_product.handle -%}
 
                     {% if section.settings.recommended_by == 'type' %}
                         {% if current_product.type == product.type %}
-                        {% assign count_1 = count | plus: 1  %}
                             <div class="col-sm-8 col-lg-4 fun-featured__col">
                                 <article class="fun-featured__card">
                                     <figure class="fun-featured__figure">
@@ -126,6 +126,9 @@
                                     <a href="{{ product.url }}" class="fun-featured__anchor">{{ product.title }}</a>
                                 </article>
                             </div>
+                        {% else %}
+                            <div class="text-center">No {% if section.settings.heading != blank %} {{ section.settings.heading}} {% else %} data {% endif %}</div>
+                            {%- break -%}
                         {% endif %}
                     {% elsif section.settings.recommended_by == 'vendor' %}
                         {% if current_product.vendor == product.vendor %}
@@ -164,19 +167,14 @@
 
                         {% endif %}
                     {%- endif -%}
-                    {% if  count_1 == 0 %}
-                    <div class="text-center">2No {% if section.settings.heading != blank %} {{ section.settings.heading}} {% else %} data {% endif %}</div>
-                        {%- break -%}                    
-                    {% endif %}
+
                     {%- assign counter = counter | plus: 1 -%}
 
                     {%- if counter == break_at -%}
                         {%- break -%}
                     {%- endif -%}
                 {%- endunless -%}
-                
             {%- endfor -%}
-            
         </div>
     </div>
 </section>
