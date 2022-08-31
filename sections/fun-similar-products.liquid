@@ -164,13 +164,9 @@
                                     <a href="{{ product.url }}" class="fun-featured__anchor">{{ product.title }}</a>
                                 </article>
                             </div>
-                            {% if  counter_1 == 0 %}
-                                <div class="text-center">No {% if section.settings.heading != blank %} {{ section.settings.heading}} {% else %} data {% endif %}</div>
-                                {%- break -%}                    
-                            {% endif %}
+                            
                         {% endif %}
                     {%- endif -%}
-                    {{ counter_1 }}
                     {%- assign counter = counter | plus: 1 -%}
 
                     {%- if counter == break_at -%}
@@ -178,6 +174,11 @@
                     {%- endif -%}
                 {%- endunless -%}
             {%- endfor -%}
+            {{ counter_1 }}
+            {% if  counter_1 == 0 %}
+                <div class="text-center">No {% if section.settings.heading != blank %} {{ section.settings.heading}} {% else %} data {% endif %}</div>
+                {%- break -%}                    
+            {% endif %}
         </div>
     </div>
 </section>
