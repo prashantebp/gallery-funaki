@@ -953,3 +953,19 @@ if(document.querySelector('#NewsletterForm--template--16207607529684__1656048818
       add_ele.classList.add('newsletter_already_subscribe');
   }
 }
+
+      
+      $(document).ready(function() {
+        if($(window).width() < 767){
+      $('.xo-gallery .xo-gimagewrapper').slick({
+      dots: false,
+      infinite: true,
+      speed: 500,
+      slidesToShow: 5,
+      slidesToScroll: 1,
+      autoplay: true,
+      autoplaySpeed: 2000,
+      arrows: false,
+      variableWidth: true
+      });
+      }});
