@@ -165,10 +165,10 @@
                                     <a href="{{ product.url }}" class="fun-featured__anchor">{{ product.title }}</a>
                                 </article>
                             </div>
-
+                            {{ counter_1 }}
                         {% endif %}
                     {%- endif -%}
-                    {{ counter_1 }}
+                    
                     {%- assign counter = counter | plus: 1 -%}
 
                     {%- if counter == break_at -%}
