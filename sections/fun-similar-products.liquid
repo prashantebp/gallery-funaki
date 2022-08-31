@@ -40,7 +40,7 @@
             {%- unless product.handle == current_product.handle -%}
                 {% if section.settings.recommended_by == 'tags' %}
                     {% if product.tags.size == 0 %}
-                        <div class="text-center">No {% if section.settings.heading != blank %} {{ section.settings.heading}} {% else %} data {% endif %}</div>
+                        <div class="text-center">1No {% if section.settings.heading != blank %} {{ section.settings.heading}} {% else %} data {% endif %}</div>
                         {%- break -%}
                     {% endif %}
                     <div class="row fun-featured__row">
@@ -125,7 +125,7 @@
                                 </article>
                             </div>
                         {% else %}
-                            <div class="text-center">1No {% if section.settings.heading != blank %} {{ section.settings.heading}} {% else %} data {% endif %}</div>
+                            <div class="text-center">No {% if section.settings.heading != blank %} {{ section.settings.heading}} {% else %} data {% endif %}</div>
                             {%- break -%}
                         {% endif %}
                     {% elsif section.settings.recommended_by == 'vendor' %}
