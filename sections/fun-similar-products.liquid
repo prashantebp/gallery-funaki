@@ -89,8 +89,6 @@
         <div class="row fun-featured__row">
             {% assign counter_1 = 0 %}
             {%- for product in collections.all.products -%}
-                {%- unless product.handle == current_product.handle -%}
-                
                     {% if section.settings.recommended_by == 'type' %}
                         {% if current_product.type == product.type %}
                         {%- assign counter_1 = counter_1 | plus: 1 -%}
@@ -172,7 +170,6 @@
                     {%- if counter == break_at -%}
                         {%- break -%}
                     {%- endif -%}
-                {%- endunless -%}
             {%- endfor -%}
             {{ counter_1 }}
             {% if  counter_1 == 0 %}
