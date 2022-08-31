@@ -39,7 +39,10 @@
         {%- for product in collections.all.products -%}
             {%- unless product.handle == current_product.handle -%}
                 {% if section.settings.recommended_by == 'tags' %}
-
+                    {% if product.tags.size == 0 %}
+                        <div class="text-center">No {% if section.settings.heading != blank %} {{ section.settings.heading}} {% else %} data {% endif %}</div>
+                        {%- break -%}
+                    {% endif %}
                     <div class="row fun-featured__row">
                         {% for tag in product.tags %}
                             {% if current_product.tags contains tag %}
@@ -88,14 +91,11 @@
         {%- endfor -%}
 
         <div class="row fun-featured__row">
-            {% assign count_1 = 0 %}
-            {% assign count_2 = 0 %}
+
             {%- for product in collections.all.products -%}
-            {% assign count_1 = count_1 | plus: 1  %}
                 {%- unless product.handle == current_product.handle -%}
 
                     {% if section.settings.recommended_by == 'type' %}
-                    
                         {% if current_product.type == product.type %}
                             <div class="col-sm-8 col-lg-4 fun-featured__col">
                                 <article class="fun-featured__card">
@@ -129,16 +129,12 @@
                                     <a href="{{ product.url }}" class="fun-featured__anchor">{{ product.title }}</a>
                                 </article>
                             </div>
-                       
-                            <div class="text-center">No Other works by Artist </div>
-                                {%- break -%}                    
-                            {% endif %}
+                        {% else %}
                             <div class="text-center">No {% if section.settings.heading != blank %} {{ section.settings.heading}} {% else %} data {% endif %}</div>
                             {%- break -%}
                         {% endif %}
-                    {% else section.settings.recommended_by == 'vendor' %}
+                    {% elsif section.settings.recommended_by == 'vendor' %}
                         {% if current_product.vendor == product.vendor %}
-                        {% assign count_2 = count_2 | plus: 1  %}
                             <div class="col-sm-8 col-lg-4 fun-featured__col">
                                 <article class="fun-featured__card">
                                     <figure class="fun-featured__figure">
@@ -171,9 +167,10 @@
                                     <a href="{{ product.url }}" class="fun-featured__anchor">{{ product.title }}</a>
                                 </article>
                             </div>
+
                         {% endif %}
                     {%- endif -%}
-                    
+
                     {%- assign counter = counter | plus: 1 -%}
 
                     {%- if counter == break_at -%}
@@ -181,8 +178,6 @@
                     {%- endif -%}
                 {%- endunless -%}
             {%- endfor -%}
-            {{ count_2 }}
-            {{ counter }}
         </div>
     </div>
 </section>
