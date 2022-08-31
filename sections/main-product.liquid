@@ -48,7 +48,7 @@
             {%- when 'title' -%}
               <div class="fun-product__title" {{ block.shopify_attributes }}>
                 <h1>{{ product.title | escape }}</h1>
-                <a href="{{ product.url }}" class="d-flex fun-product__type"><span>{{ product.type }}</span></a>
+                <a href="{{ routes.all_products_collection_url }}?pf_pt_product_type={{ product.type }}" class="d-flex fun-product__type"><span>{{ product.type }}</span></a>
                 <span class="fun-product__published-date">{{ product.published_at | date: "%Y" }}</span>
                 {% comment %} <a href="{{ product.url }}" class="product__title">
                   <h2 class="h1">
