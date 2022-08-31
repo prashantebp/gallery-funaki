@@ -933,6 +933,7 @@ customElements.define('variant-radios', VariantRadios);
 
 
 jQuery(".boost-pfs-filter-button").on('click',function(){
+  console.log('check')
   jQuery(".boost-pfs-filter-button").parent().hide();
   jQuery(this).parent().next().show();
 })
