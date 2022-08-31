@@ -126,9 +126,6 @@
                                     <a href="{{ product.url }}" class="fun-featured__anchor">{{ product.title }}</a>
                                 </article>
                             </div>
-                        {% else %}
-                            <div class="text-center">No {% if section.settings.heading != blank %} {{ section.settings.heading}} {% else %} data {% endif %}</div>
-                            {%- break -%}
                         {% endif %}
                     {% elsif section.settings.recommended_by == 'vendor' %}
                         {% if current_product.vendor == product.vendor %}
@@ -175,6 +172,10 @@
                     {%- endif -%}
                 {%- endunless -%}
             {%- endfor -%}
+            {% if  count_1 == 0 %}
+            <div class="text-center">No {% if section.settings.heading != blank %} {{ section.settings.heading}} {% else %} data {% endif %}</div>
+                {%- break -%}                    
+            {% endif %}
         </div>
     </div>
 </section>
