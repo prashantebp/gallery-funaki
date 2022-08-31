@@ -22,6 +22,7 @@
   }
 {%- endstyle -%}
 
+{%- assign counter = 0 -%}
 {%- assign break_at = section.settings.number_of_products | plus: 0 -%}
 {%- assign current_product = product -%}
 
@@ -38,10 +39,6 @@
         {%- for product in collections.all.products -%}
             {%- unless product.handle == current_product.handle -%}
                 {% if section.settings.recommended_by == 'tags' %}
-                    {% if product.tags.size == 0 %}
-                        <div class="text-center">No {% if section.settings.heading != blank %} {{ section.settings.heading}} {% else %} data {% endif %}</div>
-                        {%- break -%}
-                    {% endif %}
                     <div class="row fun-featured__row">
                         {% for tag in product.tags %}
                             {% if current_product.tags contains tag %}
@@ -90,58 +87,94 @@
         {%- endfor -%}
 
         <div class="row fun-featured__row">
-            {%- assign counter = 0 -%}
+
             {%- for product in collections.all.products -%}
-                {% if section.settings.recommended_by == 'vendor' %}
-                    {% if current_product.vendor == product.vendor %}
+                {%- unless product.handle == current_product.handle -%}
+
+                    {% if section.settings.recommended_by == 'type' %}
+                        {% if current_product.type == product.type %}
+                            <div class="col-sm-8 col-lg-4 fun-featured__col">
+                                <article class="fun-featured__card">
+                                    <figure class="fun-featured__figure">
+                                        {% if product.featured_media %}
+                                            <img
+                                                srcset="{%- if product.featured_media.width >= 165 -%}{{ product.featured_media | image_url: width: 165 }} 165w,{%- endif -%}
+                                                    {%- if product.featured_media.width >= 360 -%}{{ product.featured_media | image_url: width: 360 }} 360w,{%- endif -%}
+                                                    {%- if product.featured_media.width >= 533 -%}{{ product.featured_media | image_url: width: 533 }} 533w,{%- endif -%}
+                                                    {%- if product.featured_media.width >= 720 -%}{{ product.featured_media | image_url: width: 720 }} 720w,{%- endif -%}
+                                                    {%- if product.featured_media.width >= 940 -%}{{ product.featured_media | image_url: width: 940 }} 940w,{%- endif -%}
+                                                    {%- if product.featured_media.width >= 1066 -%}{{ product.featured_media | image_url: width: 1066 }} 1066w,{%- endif -%}
+                                                    {{ product.featured_media | image_url }} {{ product.featured_media.width }}w"
+                                                src="{{ product.featured_media | image_url: width: 533 }}"
+                                                sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 130 | divided_by: 4 }}px, (min-width: 990px) calc((100vw - 130px) / 4), (min-width: 750px) calc((100vw - 120px) / 3), calc((100vw - 35px) / 2)"
+                                                alt="{{ product.featured_media.alt | escape }}"
+                                                class="motion-reduce fun-featured__img"
+                                                width="{{ product.featured_media.width }}"
+                                                height="{{ product.featured_media.height }}"
+                                                loading="lazy"
+                                            >
+                                        {%- else -%}
+                                        {{ 'lifestyle-2' | placeholder_svg_tag: 'placeholder-svg' }}
+                                        {%- endif -%}
+                                    </figure>
+                                    <div class="fun-featured__details">
+                                        <span class="fun-featured__desc">{{ product.title }}</span>
+                                        <span class="fun-featured__desc">{{ product.description }}</span>
+                                        {% render 'price' %}
+                                    </div>
+                                    <a href="{{ product.url }}" class="fun-featured__anchor">{{ product.title }}</a>
+                                </article>
+                            </div>
+                        {% else %}
+                            <div class="text-center">No {% if section.settings.heading != blank %} {{ section.settings.heading}} {% else %} data {% endif %}</div>
+                            {%- break -%}
+                        {% endif %}
+                    {% elsif section.settings.recommended_by == 'vendor' %}
+                        {% if current_product.vendor == product.vendor %}
+                            <div class="col-sm-8 col-lg-4 fun-featured__col">
+                                <article class="fun-featured__card">
+                                    <figure class="fun-featured__figure">
+                                        {% if product.featured_media%}
+                                            <img
+                                                srcset="{%- if product.featured_media.width >= 165 -%}{{ product.featured_media | image_url: width: 165 }} 165w,{%- endif -%}
+                                                    {%- if product.featured_media.width >= 360 -%}{{ product.featured_media | image_url: width: 360 }} 360w,{%- endif -%}
+                                                    {%- if product.featured_media.width >= 533 -%}{{ product.featured_media | image_url: width: 533 }} 533w,{%- endif -%}
+                                                    {%- if product.featured_media.width >= 720 -%}{{ product.featured_media | image_url: width: 720 }} 720w,{%- endif -%}
+                                                    {%- if product.featured_media.width >= 940 -%}{{ product.featured_media | image_url: width: 940 }} 940w,{%- endif -%}
+                                                    {%- if product.featured_media.width >= 1066 -%}{{ product.featured_media | image_url: width: 1066 }} 1066w,{%- endif -%}
+                                                    {{ product.featured_media | image_url }} {{ product.featured_media.width }}w"
+                                                src="{{ product.featured_media | image_url: width: 533 }}"
+                                                sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 130 | divided_by: 4 }}px, (min-width: 990px) calc((100vw - 130px) / 4), (min-width: 750px) calc((100vw - 120px) / 3), calc((100vw - 35px) / 2)"
+                                                alt="{{ product.featured_media.alt | escape }}"
+                                                class="motion-reduce fun-featured__img"
+                                                width="{{ product.featured_media.width }}"
+                                                height="{{ product.featured_media.height }}"
+                                                loading="lazy"
+                                            >
+                                        {%- else -%}
+                                        {{ 'lifestyle-2' | placeholder_svg_tag: 'placeholder-svg' }}
+                                        {%- endif -%}
+                                    </figure>
+                                    <div class="fun-featured__details">
+                                        <span class="fun-featured__desc">{{ product.title }}</span>
+                                        <span class="fun-featured__desc">{{ product.description }}</span>
+                                        {% render 'price' %}
+                                    </div>
+                                    <a href="{{ product.url }}" class="fun-featured__anchor">{{ product.title }}</a>
+                                </article>
+                            </div>
+
+                        {% endif %}
+                    {%- endif -%}
+
                     {%- assign counter = counter | plus: 1 -%}
-                        <div class="col-sm-8 col-lg-4 fun-featured__col">
-                            <article class="fun-featured__card">
-                                <figure class="fun-featured__figure">
-                                    {% if product.featured_media%}
-                                        <img
-                                            srcset="{%- if product.featured_media.width >= 165 -%}{{ product.featured_media | image_url: width: 165 }} 165w,{%- endif -%}
-                                                {%- if product.featured_media.width >= 360 -%}{{ product.featured_media | image_url: width: 360 }} 360w,{%- endif -%}
-                                                {%- if product.featured_media.width >= 533 -%}{{ product.featured_media | image_url: width: 533 }} 533w,{%- endif -%}
-                                                {%- if product.featured_media.width >= 720 -%}{{ product.featured_media | image_url: width: 720 }} 720w,{%- endif -%}
-                                                {%- if product.featured_media.width >= 940 -%}{{ product.featured_media | image_url: width: 940 }} 940w,{%- endif -%}
-                                                {%- if product.featured_media.width >= 1066 -%}{{ product.featured_media | image_url: width: 1066 }} 1066w,{%- endif -%}
-                                                {{ product.featured_media | image_url }} {{ product.featured_media.width }}w"
-                                            src="{{ product.featured_media | image_url: width: 533 }}"
-                                            sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 130 | divided_by: 4 }}px, (min-width: 990px) calc((100vw - 130px) / 4), (min-width: 750px) calc((100vw - 120px) / 3), calc((100vw - 35px) / 2)"
-                                            alt="{{ product.featured_media.alt | escape }}"
-                                            class="motion-reduce fun-featured__img"
-                                            width="{{ product.featured_media.width }}"
-                                            height="{{ product.featured_media.height }}"
-                                            loading="lazy"
-                                        >
-                                    {%- else -%}
-                                    {{ 'lifestyle-2' | placeholder_svg_tag: 'placeholder-svg' }}
-                                    {%- endif -%}
-                                </figure>
-                                <div class="fun-featured__details">
-                                    <span class="fun-featured__desc">{{ product.title }}</span>
-                                    <span class="fun-featured__desc">{{ product.description }}</span>
-                                    {% render 'price' %}
-                                </div>
-                                <a href="{{ product.url }}" class="fun-featured__anchor">{{ product.title }}</a>
-                            </article>
-                        </div>
 
-                    {% endif %}
-                {%- endif -%}
-
-                
-
-                {%- if counter == break_at -%}
-                    {%- break -%}
-                {%- endif -%}
+                    {%- if counter == break_at -%}
+                        {%- break -%}
+                    {%- endif -%}
+                {%- endunless -%}
             {%- endfor -%}
-            {% if  counter == 0 %}
-                <div class="text-center">No {% if section.settings.heading != blank %} {{ section.settings.heading}} {% else %} data {% endif %}</div>
-                    {%- break -%}                    
-                {% endif %}
-
+            
         </div>
     </div>
 </section>
