@@ -167,7 +167,7 @@
 
                         {% endif %}
                     {%- endif -%}
-
+                    {{ counter }}
                     {%- assign counter = counter | plus: 1 -%}
 
                     {%- if counter == break_at -%}
@@ -175,7 +175,6 @@
                     {%- endif -%}
                 {%- endunless -%}
             {%- endfor -%}
-            {{ counter }}
         </div>
     </div>
 </section>
