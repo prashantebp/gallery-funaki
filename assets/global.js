@@ -957,7 +957,7 @@ if(document.querySelector('#NewsletterForm--template--16207607529684__1656048818
       
       $(document).ready(function() {
         if($(window).width() < 767){
-      $('.xo-gimagewrapper').slick({
+      $('.xo-gallery .xo-gimagewrapper').slick({
       dots: false,
       infinite: true,
       speed: 500,
