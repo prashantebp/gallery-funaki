@@ -77,6 +77,10 @@
                                 </div>
                             {% endif %}
                         {% endfor %}
+                        {% if  count == 0 %}
+                        <div class="text-center">1No {% if section.settings.heading != blank %} {{ section.settings.heading}} {% else %} data {% endif %}</div>
+                            {%- break -%}                    
+                        {% endif %}
                     </div>
                 {% endif %}
             {%- endunless -%}
