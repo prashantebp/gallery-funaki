@@ -79,7 +79,7 @@
         <div class="row fun-featured__row">
             {% assign artist_name = article.title | upcase %}
             {% assign count = 0 %}
-            {%- for product in section.settings.collection.products limit: section.settings.products_to_show -%}
+            {%- for product in section.settings.collection.products -%}
               {% assign artist_books = product.metafields.custom.product_and_artist_linking  %}
               
               {% if product.metafields.custom.product_and_artist_linking == artist_name  %} 
@@ -118,10 +118,7 @@
                 </div>
                 {%- endif -%}
             {%- endfor -%}
-            {% if  count == 0 %}
-                  <div class="error">{{ section.settings.empty_message }}</div>
-                  {%- break -%}                    
-                {% endif %}
+            
         </div>
     </div>
 </section>
