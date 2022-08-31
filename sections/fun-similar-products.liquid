@@ -127,7 +127,6 @@
                                     <a href="{{ product.url }}" class="fun-featured__anchor">{{ product.title }}</a>
                                 </article>
                             </div>
-                        {% else %}
                         {% if  count_1 == 0 %}
                             <div class="text-center">No Other works by Artist </div>
                                 {%- break -%}                    
@@ -171,7 +170,7 @@
                             </div>
                         {% endif %}
                     {%- endif -%}
-                    
+                    {{ count_1}}
                     {%- assign counter = counter | plus: 1 -%}
 
                     {%- if counter == break_at -%}
