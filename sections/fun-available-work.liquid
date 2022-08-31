@@ -116,13 +116,12 @@
                         <a href="{{ product.url }}" class="fun-featured__anchor">{{ product.title }}</a>
                     </article>
                 </div>
-                {% if  count == 0 %}
+                {%- endif -%}
+            {%- endfor -%}
+            {% if  count == 0 %}
                   <div class="error">{{ section.settings.empty_message }}</div>
                   {%- break -%}                    
                 {% endif %}
-                {%- endif -%}
-            {%- endfor -%}
-            
         </div>
     </div>
 </section>
