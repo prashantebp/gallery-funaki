@@ -73,7 +73,7 @@
                                     <a href="{{ product.url }}" class="fun-featured__anchor">{{ product.title }}</a>
                                 </article>
                             </div>
-                            {% else %}
+                            {% elsif current_product.type != product.type %}
                             <div class="text-center">1No {% if section.settings.heading != blank %} {{ section.settings.heading}} {% else %} data {% endif %}</div>
                             {%- break -%}
                         {% endif %}
@@ -111,7 +111,7 @@
                                     <a href="{{ product.url }}" class="fun-featured__anchor">{{ product.title }}</a>
                                 </article>
                             </div>
-                        {% else %}
+                        {% elsif current_product.vendor != product.vendor %}
                         <div class="text-center">2No {% if section.settings.heading != blank %} {{ section.settings.heading}} {% else %} data {% endif %}</div>
                         {%- break -%}
                         {% endif %}
