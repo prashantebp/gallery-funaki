@@ -74,6 +74,10 @@
                                 </article>
                             </div>
                         {% endif %}
+                        {% if current_product.type != product.type %}
+                            <div class="text-center">No {% if section.settings.heading != blank %} {{ section.settings.heading}} {% else %} data {% endif %}</div>
+                            {%- break -%}
+                        {% endif %}
                     {% elsif section.settings.recommended_by == 'vendor' %}
                         {% if current_product.vendor == product.vendor %}
                             <div class="col-sm-8 col-lg-4 fun-featured__col">
