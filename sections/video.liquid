@@ -72,7 +72,7 @@
                         {%- if video_thumb.width >= 3840 -%}{{ video_thumb | image_url: width: 3840 }} 3840w,{%- endif -%}
                         {{ video_thumb | image_url }} {{ video_thumb.width }}w"
                       src="{{ video_thumb | image_url: width: 1920 }}"
-                      alt="{{ 'sections.video.load_video' | t: description: section.settings.description | escape }}"
+                      alt=""
                       loading="lazy"
                       width="{{ video_thumb.width }}"
                       height="{{ video_thumb.height }}"
