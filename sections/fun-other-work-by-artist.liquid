@@ -39,9 +39,10 @@
 
             {%- for product in collections.all.products -%}
                 {%- unless product.handle == current_product.handle -%}
-                {%- assign counter = counter | plus: 1 -%}
+                
                     {% if section.settings.recommended_by == 'type' %}
                         {% if current_product.type == product.type %}
+                        
                             <div class="col-sm-8 col-lg-4 fun-featured__col">
                                 <article class="fun-featured__card">
                                     <figure class="fun-featured__figure">
@@ -80,6 +81,7 @@
                         {% endif %}
                     {% elsif section.settings.recommended_by == 'vendor' %}
                         {% if current_product.vendor == product.vendor %}
+                        {%- assign counter = counter | plus: 1 -%}
                             <div class="col-sm-8 col-lg-4 fun-featured__col">
                                 <article class="fun-featured__card">
                                     <figure class="fun-featured__figure">
