@@ -39,7 +39,7 @@
 
             {%- for product in collections.all.products -%}
                 {%- unless product.handle == current_product.handle -%}
-
+                {%- assign counter = counter | plus: 1 -%}
                     {% if section.settings.recommended_by == 'type' %}
                         {% if current_product.type == product.type %}
                             <div class="col-sm-8 col-lg-4 fun-featured__col">
@@ -116,7 +116,7 @@
                         {% endif %}
                     {%- endif -%}
 
-                    {%- assign counter = counter | plus: 1 -%}
+                    
 
                     {%- if counter == break_at -%}
                         {%- break -%}
