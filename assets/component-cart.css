@@ -33,14 +33,22 @@ cart-items.is-empty .title-wrapper-with-link,
 
 .cart__login-title {
   margin-top: 2.5rem;
+  text-transform: none;
+  font-family: var(--nanum);
+  font-size: 16px;
 }
 
 .cart__login-paragraph {
   margin-top: 0.8rem;
+  font-size: 14px;
+  font-family: var(--nanum);
+  text-transform: none;
 }
 
 .cart__login-paragraph a {
-  font-size: inherit;
+  font-size: var(--nanum);
+  text-transform: none;
+  font-size: 14px;
 }
 
 @media screen and (min-width: 990px) {
