@@ -195,6 +195,72 @@
         "padding_top": 0,
         "padding_bottom": 100
       }
+    },
+    "1662031179fdb5f403": {
+      "type": "fun-image-gallery",
+      "blocks": {
+        "16620311790c5d9555-0": {
+          "type": "image",
+          "settings": {
+            "col_image": "shopify:\/\/shop_images\/1.webp"
+          }
+        },
+        "16620311790c5d9555-1": {
+          "type": "image",
+          "settings": {
+            "col_image": "shopify:\/\/shop_images\/2.webp"
+          }
+        },
+        "16620311790c5d9555-2": {
+          "type": "image",
+          "settings": {
+            "col_image": "shopify:\/\/shop_images\/3.webp"
+          }
+        },
+        "16620311790c5d9555-3": {
+          "type": "image",
+          "settings": {
+            "col_image": "shopify:\/\/shop_images\/4.webp"
+          }
+        },
+        "e20440d5-fbfb-4d29-8328-ea5b53c4fb91": {
+          "type": "image",
+          "settings": {
+            "col_image": "shopify:\/\/shop_images\/8.webp"
+          }
+        },
+        "7a7c2899-b872-4892-ae86-80b303115163": {
+          "type": "image",
+          "settings": {
+            "col_image": "shopify:\/\/shop_images\/6.webp"
+          }
+        },
+        "fab97c3b-d8a4-401a-9fa4-584b921e4c15": {
+          "type": "image",
+          "settings": {
+            "col_image": "shopify:\/\/shop_images\/5.webp"
+          }
+        },
+        "8c003a60-d374-4a0b-84cd-26f00a22b116": {
+          "type": "image",
+          "settings": {
+            "col_image": "shopify:\/\/shop_images\/7.webp"
+          }
+        }
+      },
+      "block_order": [
+        "16620311790c5d9555-0",
+        "16620311790c5d9555-1",
+        "16620311790c5d9555-2",
+        "16620311790c5d9555-3",
+        "e20440d5-fbfb-4d29-8328-ea5b53c4fb91",
+        "7a7c2899-b872-4892-ae86-80b303115163",
+        "fab97c3b-d8a4-401a-9fa4-584b921e4c15",
+        "8c003a60-d374-4a0b-84cd-26f00a22b116"
+      ],
+      "settings": {
+        "title": "Image Gallery"
+      }
     }
   },
   "order": [
@@ -205,6 +271,7 @@
     "1655195044e26e08fc",
     "1653306485a617fc43",
     "16554556799722835f",
-    "1655447913f79fdbb2"
+    "1655447913f79fdbb2",
+    "1662031179fdb5f403"
   ]
 }
