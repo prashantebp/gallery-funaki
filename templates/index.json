@@ -189,6 +189,7 @@
     },
     "1655447913f79fdbb2": {
       "type": "custom-liquid",
+      "disabled": true,
       "settings": {
         "custom_liquid": "<div class=\"container-xxl\">\n<div class=\"xo-gallery\" data-id=\"2\"><\/div>\n<\/div>",
         "color_scheme": "background-1",
