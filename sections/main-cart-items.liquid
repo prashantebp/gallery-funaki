@@ -23,7 +23,7 @@
   <script src="{{ 'cart.js' | asset_url }}" defer="defer"></script>
 {%- endunless -%}
 
-<cart-items class="section-{{ section.id }}-padding is-empty">
+<cart-items class="{% if cart == empty %}section-{{ section.id }}-padding is-empty{% else %} section-{{ section.id }}-padding{% endif %}">
   <div class="container-xxl">
     <div class="row">
       <div class="col-16">
