@@ -46,7 +46,7 @@ cart-items.is-empty .title-wrapper-with-link,
 }
 
 .cart__login-paragraph a {
-  font-size: var(--nanum);
+  font-family: var(--nanum);
   text-transform: none;
   font-size: 14px;
 }
