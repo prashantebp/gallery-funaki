@@ -19,10 +19,12 @@ cart-items.is-empty .title-wrapper-with-link,
   display: none;
   text-align: center;
   padding: 1rem 0 1rem;
+  text-transform: uppercase;
+  font-family: var(--overpass);
 }
 
 .cart__empty-text {
-  margin: 4.5rem 0 2rem;
+  margin-bottom: 1.5rem;
 }
 
 .cart__contents > * + * {
@@ -30,7 +32,7 @@ cart-items.is-empty .title-wrapper-with-link,
 }
 
 .cart__login-title {
-  margin: 5.5rem 0 0.5rem;
+  margin-top: 2.5rem;
 }
 
 .cart__login-paragraph {
@@ -44,10 +46,6 @@ cart-items.is-empty .title-wrapper-with-link,
 @media screen and (min-width: 990px) {
   .cart__warnings {
     padding: 1rem 0 1rem;
-  }
-
-  .cart__empty-text {
-    margin: 0 0 3rem;
   }
 }
 
