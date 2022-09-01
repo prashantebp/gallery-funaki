@@ -90,23 +90,23 @@
                 class="video-section__poster media deferred-media__poster media--landscape"
                 type="button"
               >
-                {%- if articles[artist_name].image != blank -%}
+                {%- if video_thumb != blank -%}
                   <img
-                    srcset="{%- if articles[artist_name].image.width >= 375 -%}{{ articles[artist_name].image | image_url: width: 375 }} 375w,{%- endif -%}
-                      {%- if articles[artist_name].image.width >= 750 -%}{{ articles[artist_name].image | image_url: width: 750 }} 750w,{%- endif -%}
-                      {%- if articles[artist_name].image.width >= 1100 -%}{{ articles[artist_name].image | image_url: width: 1100 }} 1100w,{%- endif -%}
-                      {%- if articles[artist_name].image.width >= 1500 -%}{{ articles[artist_name].image | image_url: width: 1500 }} 1500w,{%- endif -%}
-                      {%- if articles[artist_name].image.width >= 1780 -%}{{ articles[artist_name].image | image_url: width: 1780 }} 1780w,{%- endif -%}
-                      {%- if articles[artist_name].image.width >= 2000 -%}{{ articles[artist_name].image | image_url: width: 2000 }} 2000w,{%- endif -%}
-                      {%- if articles[artist_name].image.width >= 3000 -%}{{ articles[artist_name].image | image_url: width: 3000 }} 3000w,{%- endif -%}
-                      {%- if articles[artist_name].image.width >= 3840 -%}{{ articles[artist_name].image | image_url: width: 3840 }} 3840w,{%- endif -%}
-                      {{ articles[artist_name].image | image_url }} {{ articles[artist_name].image.width }}w"
-                    src="{{ articles[artist_name].image | image_url: width: 1920 }}"
+                    srcset="{%- if video_thumb.width >= 375 -%}{{ video_thumb | image_url: width: 375 }} 375w,{%- endif -%}
+                      {%- if video_thumb.width >= 750 -%}{{ video_thumb | image_url: width: 750 }} 750w,{%- endif -%}
+                      {%- if video_thumb.width >= 1100 -%}{{ video_thumb | image_url: width: 1100 }} 1100w,{%- endif -%}
+                      {%- if video_thumb.width >= 1500 -%}{{ video_thumb | image_url: width: 1500 }} 1500w,{%- endif -%}
+                      {%- if video_thumb.width >= 1780 -%}{{ video_thumb | image_url: width: 1780 }} 1780w,{%- endif -%}
+                      {%- if video_thumb.width >= 2000 -%}{{ video_thumb | image_url: width: 2000 }} 2000w,{%- endif -%}
+                      {%- if video_thumb.width >= 3000 -%}{{ video_thumb | image_url: width: 3000 }} 3000w,{%- endif -%}
+                      {%- if video_thumb.width >= 3840 -%}{{ video_thumb | image_url: width: 3840 }} 3840w,{%- endif -%}
+                      {{ video_thumb | image_url }} {{ video_thumb.width }}w"
+                    src="{{ video_thumb | image_url: width: 1920 }}"
                     sizes="{% if section.settings.full_width %}100vw{% else %}(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 }}px, (min-width: 750px) calc(100vw - 10rem), 100vw{% endif %}"
                     alt="{{ 'sections.video.load_video' | t: description: section.settings.description | escape }}"
                     loading="lazy"
-                    width="{{ articles[artist_name].image.width }}"
-                    height="{{ articles[artist_name].image.height }}"
+                    width="{{ video_thumb.width }}"
+                    height="{{ video_thumb.height }}"
                   >
                 {%- else -%}
                   {{ 'collection-2' | placeholder_svg_tag: 'placeholder-svg placeholder' }}
