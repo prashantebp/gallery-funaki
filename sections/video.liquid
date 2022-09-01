@@ -24,7 +24,6 @@
   {% assign name = articles[artist_name].title %}
   {% if name == article.title %}
     {% assign video_thumb = video_article.image %}
-    {{ video_thumb | json }}
     {% assign video_url = video_article.metafields.accentuate.video_url %}
     {% comment %} First of all, we get last part of the URL that's supposedly the Youtube Video ID {% endcomment %}
 
