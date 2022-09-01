@@ -121,12 +121,25 @@
         "padding_bottom": 120,
         "title_gap": 88
       }
+    },
+    "16620005368d0cff1d": {
+      "type": "fun-other-work-by-artist",
+      "settings": {
+        "heading": "Other works by Artist",
+        "related_tag": "",
+        "recommended_by": "type",
+        "number_of_products": "4",
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "title_gap": 36
+      }
     }
   },
   "order": [
     "main",
     "product-recommendations",
     "1655788412ad891228",
-    "1655787633f5671394"
+    "1655787633f5671394",
+    "16620005368d0cff1d"
   ]
 }
