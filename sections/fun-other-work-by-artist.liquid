@@ -73,8 +73,9 @@
                                     <a href="{{ product.url }}" class="fun-featured__anchor">{{ product.title }}</a>
                                 </article>
                             </div>
-                            {% elsif current_product.type != product.type %}
-                            <div class="text-center">1No {% if section.settings.heading != blank %} {{ section.settings.heading}} {% else %} data {% endif %}</div>
+                        {% endif %}
+                        {% if current_product.type != product.type %}
+                            <div class="text-center">No {% if section.settings.heading != blank %} {{ section.settings.heading}} {% else %} data {% endif %}</div>
                             {%- break -%}
                         {% endif %}
                     {% elsif section.settings.recommended_by == 'vendor' %}
@@ -111,7 +112,7 @@
                                     <a href="{{ product.url }}" class="fun-featured__anchor">{{ product.title }}</a>
                                 </article>
                             </div>
-                        {% elsif current_product.vendor != product.vendor %}
+                        {% else %}
                         <div class="text-center">2No {% if section.settings.heading != blank %} {{ section.settings.heading}} {% else %} data {% endif %}</div>
                         {%- break -%}
                         {% endif %}
