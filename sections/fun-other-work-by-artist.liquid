@@ -128,8 +128,12 @@
             {%- endfor -%}
             {{ count_1}}
                     {{ count }}
-                <div class="text-center">No {% if section.settings.heading != blank %} {{ section.settings.heading}} {% else %} data {% endif %}</div>
-                    
+                    {% if  count == 0 %}
+                        <div class="text-center">No {% if section.settings.heading != blank %} {{ section.settings.heading}} {% else %} data {% endif %}</div>
+                            {%- break -%}  
+                            {% else count_1 == 0 %}
+                            <div class="text-center">No {% if section.settings.heading != blank %} {{ section.settings.heading}} {% else %} data {% endif %}</div>           
+                        {% endif %}
         </div>
     </div>
 </section>
