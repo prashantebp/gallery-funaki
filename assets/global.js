@@ -22,6 +22,19 @@ jQuery(document).ready(function(jQuery){
       infinite: true,
       arrows: false
   });
+  if($(window).width() < 767){
+      jQuery('#gallery').slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        arrows: true,
+        fade: true,
+        variableWidth: false,
+        infinite: true,
+        asNavFor: '.fun-product__indicator',
+        prevArrow: '.fun-banner__prev-btn',
+        nextArrow: '.fun-banner__next-btn'
+    });
+  }
 });
 
 //Slick Plugin start
@@ -953,19 +966,3 @@ if(document.querySelector('#NewsletterForm--template--16207607529684__1656048818
       add_ele.classList.add('newsletter_already_subscribe');
   }
 }
-
-      
-      $(document).ready(function() {
-        if($(window).width() < 767){
-      $('.xo-gallery .xo-gimagewrapper').slick({
-      dots: false,
-      infinite: true,
-      speed: 500,
-      slidesToShow: 5,
-      slidesToScroll: 1,
-      autoplay: true,
-      autoplaySpeed: 2000,
-      arrows: false,
-      variableWidth: true
-      });
-      }});
