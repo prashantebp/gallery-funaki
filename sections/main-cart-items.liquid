@@ -106,7 +106,7 @@
 
                             <a href="{{ item.url }}" class="cart-item__name h4 break fun-cart__product-name">{{ item.product.title | escape }}</a>
                             {% if item.variant.sku != blank %}
-                              <span>SKU: {{ item.variant.sku }}</span>
+                              <p class="fun-cart__product-sku">SKU: {{ item.variant.sku }}</p>
                             {% endif %}
 
 
