@@ -18,6 +18,8 @@
 
 {%- for video_article in blogs.videos.articles -%}
 
+  {{ video_article | json }}
+
   {% assign artist_name = video_article.metafields.accentuate.choose_artist %} 
   {% assign name = articles[artist_name].title %}
   {% if name == article.title %}
