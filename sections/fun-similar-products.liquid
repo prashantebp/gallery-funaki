@@ -39,7 +39,7 @@
         {%- for product in collections.all.products -%}
             {%- unless product.handle == current_product.handle -%}
                 {% if section.settings.recommended_by == 'tags' %}
-                    <div class="row fun-featured__row d-none">
+                    <div class="row fun-featured__row">
                         {% for tag in product.tags %}
                             {% if current_product.tags contains tag %}
                             {% assign count = count | plus: 1  %}
