@@ -378,7 +378,7 @@ $rem-base: 16px !default;
         @include breakpoint(md){
             width: calc( 100% - 48px );
         }
-        max-width: calc(1360px - 48px);
+        max-width: calc(1360px);
         left: 50%;
         transform: translateX(-50%);
         background-color: var(--neutral-grey-200);
