@@ -451,6 +451,7 @@ jQuery(document).ready(function(){
 	jQuery(".boost-pfs-filter-button").on('click',function(){
 	  jQuery(".boost-pfs-filter-button").parent().hide();
 	  jQuery(this).parent().next().show();
+	  console.log(jQuery(this).parent().next().find('.boost-pfs-filter-option-content-inner'));
 	  jQuery(this).parent().next().find('.boost-pfs-filter-option-content-inner').show();
 	})
 })
