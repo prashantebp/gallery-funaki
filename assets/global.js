@@ -24,12 +24,12 @@ jQuery(document).ready(function(jQuery){
   });
   if($(window).width() < 767){
       jQuery('#gallery').slick({
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        arrows: true,
-        fade: true,
-        variableWidth: false,
+        dots: true,
         infinite: true,
+        speed: 300,
+        slidesToShow: 1,
+        centerMode: true,
+        variableWidth: true,
         asNavFor: '.fun-product__indicator',
         prevArrow: '.fun-banner__prev-btn',
         nextArrow: '.fun-banner__next-btn'
