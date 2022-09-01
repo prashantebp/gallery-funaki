@@ -23,17 +23,16 @@ jQuery(document).ready(function(jQuery){
       arrows: false
   });
   if($(window).width() < 767){
-      jQuery('#gallery').slick({
-        dots: true,
-        infinite: true,
-        speed: 300,
-        slidesToShow: 1,
-        centerMode: true,
-        variableWidth: true,
-        asNavFor: '.fun-product__indicator',
-        prevArrow: '.fun-banner__prev-btn',
-        nextArrow: '.fun-banner__next-btn'
-    });
+    jQuery('#gallery').slick({
+      slidesToShow: 3,
+      slidesToScroll: 1,
+      asNavFor: '.fun-product__carousel-inner',
+      dots: false,
+      centerMode: false,
+      focusOnSelect: true,
+      infinite: true,
+      arrows: false
+  });
   }
 });
 
