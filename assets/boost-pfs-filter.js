@@ -448,7 +448,7 @@ if (typeof theme !== 'undefined' && theme.hasOwnProperty('settings')) theme.sett
 
 jQuery(document).ready(function(){
 	// console.log('check',jQuery(".boost-pfs-filter-button"))
-	jQuery(".boost-pfs-filter-button").on('click',function(){
+	jQuery(".boost-pfs-filter-option-title .boost-pfs-filter-button").on('click',function(){
 	  jQuery(".boost-pfs-filter-button").parent().hide();
 	  jQuery(this).parent().next().show();
 	  console.log(jQuery(this).parent().next().find('.boost-pfs-filter-option-content-inner'));
