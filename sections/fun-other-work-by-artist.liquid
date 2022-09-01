@@ -37,6 +37,7 @@
         </div>
         <div class="row fun-featured__row">
             {% assign count = 0 %}
+            {% assign count_1 = 0 %}
             {%- for product in collections.all.products -%}
                 {%- unless product.handle == current_product.handle -%}
                 
@@ -81,7 +82,7 @@
                         {% endif %}
                     {% elsif section.settings.recommended_by == 'vendor' %}
                         {% if current_product.vendor == product.vendor %}
-                        {%- assign count = count | plus: 1 -%}
+                        {%- assign count_1 = count_1 | plus: 1 -%}
                             <div class="col-sm-8 col-lg-4 fun-featured__col">
                                 <article class="fun-featured__card">
                                     <figure class="fun-featured__figure">
@@ -117,7 +118,7 @@
 
                         {% endif %}
                     {%- endif -%}
-                    {{ count }}
+                    
                     
 
                     {%- if counter == break_at -%}
@@ -125,7 +126,8 @@
                     {%- endif -%}
                 {%- endunless -%}
             {%- endfor -%}
-            
+            {{ count_1}}
+                    {{ count }}
                 <div class="text-center">No {% if section.settings.heading != blank %} {{ section.settings.heading}} {% else %} data {% endif %}</div>
                     
         </div>
