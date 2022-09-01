@@ -58,13 +58,8 @@
 }
 .gallery img {
   max-width: 100%;
-  border-radius: 8px;
-  box-shadow: 0 0 16px #333;
-  transition: all 1.5s ease;
 }
-.gallery img:hover {
-  box-shadow: 0 0 32px #333;
-}
+
 .gallery .content {
   padding: 4px;
 }
@@ -74,9 +69,7 @@
   transition: all 0.5s ease;
   cursor: pointer;
 }
-.gallery .gallery-item:hover {
-  transform: scale(1.025);
-}
+
 @media (max-width: 600px) {
   .gallery {
     grid-template-columns: repeat(auto-fill, minmax(30%, 1fr));
