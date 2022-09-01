@@ -85,7 +85,10 @@
                 {% endif %}
             {%- endunless -%}
         {%- endfor -%}
-
+    </div>
+</section>
+<section class="section section-md fun-featured__section section-{{ section.id }}-padding">
+    <div class="container-xxl">
         <div class="row fun-featured__row">
 
             {%- for product in collections.all.products -%}
