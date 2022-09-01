@@ -78,6 +78,7 @@
                             </div>
                             {% elsif count == 0 %}
                             test 1
+                            {%- break -%}
                         {% endif %}
                     {% elsif section.settings.recommended_by == 'vendor' %}
                         {% if current_product.vendor == product.vendor %}
