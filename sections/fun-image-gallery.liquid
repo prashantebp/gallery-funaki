@@ -41,7 +41,13 @@ gallery.querySelectorAll('img').forEach(function (item) {
             gitem.style.gridRowEnd = "span " + Math.ceil((getHeight(gitem) + gap) / (altura + gap));
         });
 });
-window.addEventListener('resize', resizeAll);
+
+var doit;
+window.onresize = function(){
+  clearTimeout(doit);
+  doit = setTimeout(resizeAll, 500);
+};
+{% comment %} window.addEventListener('resize', resizeAll); {% endcomment %}
 gallery.querySelectorAll('.gallery-item').forEach(function (item) {
     item.addEventListener('click', function () {        
         item.classList.toggle('full');        
