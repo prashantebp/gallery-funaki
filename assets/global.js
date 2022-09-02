@@ -30,7 +30,9 @@ jQuery(document).ready(function(jQuery){
       centerMode: false,
       focusOnSelect: true,
       infinite: true,
-      arrows: true
+      arrows: true,
+      prevArrow: '.fun-banner__prev-btn',
+      nextArrow: '.fun-banner__next-btn'
   });
   }
   
