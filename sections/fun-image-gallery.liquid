@@ -45,7 +45,7 @@ gallery.querySelectorAll('img').forEach(function (item) {
 var doit;
 window.onresize = function(){
   clearTimeout(doit);
-  doit = setTimeout(resizeAll, 500);
+  doit = setTimeout(resizeAll, 300);
 };
 {% comment %} window.addEventListener('resize', resizeAll); {% endcomment %}
 gallery.querySelectorAll('.gallery-item').forEach(function (item) {
