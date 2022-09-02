@@ -260,7 +260,9 @@
         "7a7c2899-b872-4892-ae86-80b303115163"
       ],
       "settings": {
-        "title": "Image Gallery"
+        "title": "Image Gallery",
+        "padding_top": 40,
+        "padding_bottom": 40
       }
     }
   },
