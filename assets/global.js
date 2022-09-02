@@ -22,6 +22,17 @@ jQuery(document).ready(function(jQuery){
       infinite: true,
       arrows: false
   });
+  if($(window).width() < 767){
+    jQuery('#gallery').slick({
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      dots: false,
+      centerMode: false,
+      focusOnSelect: true,
+      infinite: true,
+      arrows: true
+  });
+  }
   
 });
 
