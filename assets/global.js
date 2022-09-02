@@ -30,7 +30,7 @@ jQuery(document).ready(function(jQuery){
       centerMode: false,
       focusOnSelect: true,
       infinite: true,
-      prevArrow: '<button class="slide-arrow prev-arrow"></button>',
+      prevArrow: '<button class="btn fun-banner__next-btn p-0" aria-label="next" data-bs-target="#fun_hihc_slider1" data-bs-slide="next"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000 svg"><path d="M10 6L8.59003 7.41L13.17 12L8.59003 16.59L10 18L16 12L10 6Z" fill="#323232"></path></svg></button>',
     nextArrow: '<button class="slide-arrow next-arrow"></button>'
   });
   }
