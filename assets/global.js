@@ -22,6 +22,7 @@ jQuery(document).ready(function(jQuery){
       infinite: true,
       arrows: false
   });
+  $(window).on('resize',function(){location.reload();});
   if($(window).width() < 767){
     jQuery('#gallery').slick({
       slidesToShow: 1,
