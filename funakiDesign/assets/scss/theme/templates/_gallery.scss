@@ -59,13 +59,17 @@ animation: zoomin 1s ease; */
 .gallery img {
     width: 100%;
     max-width: 251px;
+    margin-right: 1rem;
     @include media-breakpoint-up(md){
         max-width: 100%;
+        margin: 0;
     }
 }
 
 .gallery .content {
-    padding: 4px;
+    @include media-breakpoint-up(md){
+        padding: 4px;
+    }
 }
 
 .gallery .gallery-item {
