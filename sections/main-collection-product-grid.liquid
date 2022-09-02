@@ -37,6 +37,7 @@
 {{ 'component-facets.css' | asset_url | stylesheet_tag }}
 <script src="{{ 'facets.js' | asset_url }}" defer="defer"></script>
 
+{%- paginate collection.products by section.settings.products_per_page_1 -%}
 <section class="section section-md fun-product-list__section section-{{ section.id }}-padding">
   <div class="container-xxl">
     <div class="row">
@@ -246,6 +247,7 @@
     </div>
   </div>
 </section>
+{%- endpaginate -%}
 
 <script>
 // Declare boostPFSThemeConfig variable
@@ -309,11 +311,11 @@ var boostPFSTemplate = {
     },
     {
       "type": "range",
-      "id": "products_per_page",
+      "id": "products_per_page_1",
       "min": 8,
       "max": 24,
-      "step": 4,
-      "default": 16,
+      "step": 3,
+      "default": 15,
       "label": "t:sections.main-collection-product-grid.settings.products_per_page.label"
     },
     {
