@@ -55,7 +55,7 @@ animation: zoomin 1s ease; */
 
 .gallery img {
     width: 100%;
-    max-width: 258px;
+    max-width: 251px;
     @include media-breakpoint-up(md){
         max-width: 100%;
     }
