@@ -54,6 +54,7 @@ animation: zoomin 1s ease; */
         grid-template-columns: repeat(auto-fill, minmax(30%, 1fr));
         grid-auto-rows: 8px;
     }
+    
     @include media-breakpoint-up(lg){
         grid-template-columns:  repeat(auto-fill, minmax(20%, 1fr));
     }
