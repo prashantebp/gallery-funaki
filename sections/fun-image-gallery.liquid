@@ -183,6 +183,18 @@ gallery.querySelectorAll('.gallery-item').forEach(function (item) {
     });
 });
 
+if($(window).width() < 767){
+    jQuery('#gallery').slick({
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      dots: false,
+      centerMode: false,
+      focusOnSelect: true,
+      infinite: true,
+      arrows: true
+  });
+  }
+
    </script>
    
    {% schema %}

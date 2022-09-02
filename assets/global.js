@@ -22,18 +22,7 @@ jQuery(document).ready(function(jQuery){
       infinite: true,
       arrows: false
   });
-  if($(window).width() < 767){
-    jQuery('#gallery').slick({
-      slidesToShow: 3,
-      slidesToScroll: 1,
-      asNavFor: '.fun-product__carousel-inner',
-      dots: false,
-      centerMode: false,
-      focusOnSelect: true,
-      infinite: true,
-      arrows: false
-  });
-  }
+  
 });
 
 //Slick Plugin start
