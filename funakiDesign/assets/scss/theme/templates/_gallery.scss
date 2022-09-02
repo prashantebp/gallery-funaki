@@ -54,7 +54,11 @@ animation: zoomin 1s ease; */
 }
 
 .gallery img {
-    max-width: 100%;
+    width: 100%;
+    max-width: 258px;
+    @include media-breakpoint-up(md){
+        max-width: 100%;
+    }
 }
 
 .gallery .content {
