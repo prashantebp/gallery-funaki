@@ -30,7 +30,7 @@ jQuery(document).ready(function(jQuery){
       centerMode: false,
       focusOnSelect: true,
       infinite: true,
-      arrows: true
+      arrows: true 
   });
   }
   
