@@ -31,24 +31,11 @@
       "settings": {
         "layout": "grid",
         "slide_height": "adapt_image",
-        "slider_visual": "counter",
-        "auto_rotate": false,
+        "slider_visual": "numbers",
+        "auto_rotate": true,
         "change_slides_speed": 5,
         "show_text_below": true,
         "accessibility_info": "Slideshow about our brand"
-      }
-    },
-    "16551853499d8978dd": {
-      "type": "custom-home-textbanner",
-      "disabled": true,
-      "settings": {
-        "heading": "LONG HEADLINE TO TURN YOUR VISITORS INTO USERS",
-        "subheading": "SUBTITLE",
-        "discription": "<p>Separated they live in Bookmarksgrove right at the coast of the famous Semantics, large language ocean and many more stuff and more more more<\/p>",
-        "text_center": false,
-        "hide_divider": false,
-        "padding_top": 32,
-        "padding_bottom": 32
       }
     },
     "165518962316c4ac3a": {
@@ -130,35 +117,6 @@
         "padding_bottom": 52
       }
     },
-    "1653306485a617fc43": {
-      "type": "featured-collection",
-      "disabled": true,
-      "settings": {
-        "title": "Featured collection",
-        "heading_size": "h1",
-        "description": "",
-        "show_description": false,
-        "description_style": "body",
-        "collection": "frontpage",
-        "products_to_show": 4,
-        "columns_desktop": 4,
-        "full_width": false,
-        "show_view_all": true,
-        "view_all_style": "solid",
-        "enable_desktop_slider": false,
-        "color_scheme": "background-1",
-        "image_ratio": "adapt",
-        "show_secondary_image": false,
-        "show_vendor": false,
-        "show_rating": false,
-        "enable_quick_add": false,
-        "columns_mobile": "2",
-        "swipe_on_mobile": false,
-        "padding_top": 36,
-        "padding_bottom": 36,
-        "empty_message": ""
-      }
-    },
     "16554556799722835f": {
       "type": "fun-featured-collection",
       "settings": {
@@ -185,16 +143,6 @@
         "padding_top": 0,
         "padding_bottom": 120,
         "title_gap": 80
-      }
-    },
-    "1655447913f79fdbb2": {
-      "type": "custom-liquid",
-      "disabled": true,
-      "settings": {
-        "custom_liquid": "<div class=\"container-xxl\">\n<div class=\"xo-gallery\" data-id=\"2\"><\/div>\n<\/div>",
-        "color_scheme": "background-1",
-        "padding_top": 0,
-        "padding_bottom": 100
       }
     },
     "1662031179fdb5f403": {
@@ -268,13 +216,10 @@
   },
   "order": [
     "16556919766098cc8c",
-    "16551853499d8978dd",
     "165518962316c4ac3a",
     "1656557640f2bf9945",
     "1655195044e26e08fc",
-    "1653306485a617fc43",
     "16554556799722835f",
-    "1655447913f79fdbb2",
     "1662031179fdb5f403"
   ]
 }
