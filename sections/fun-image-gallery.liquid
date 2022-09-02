@@ -69,6 +69,7 @@
 
 @media (max-width: 600px) {
   .gallery {
+    display: block;
     grid-template-columns: repeat(auto-fill, minmax(30%, 1fr));
   }
 }
@@ -168,8 +169,6 @@ var resizeAll = function () {
     });
 };
 gallery.querySelectorAll('img').forEach(function (item) {
-    item.classList.add('byebye');
-
         item.addEventListener('load', function () {
             var altura = getVal(gallery, 'grid-auto-rows');
             var gap = getVal(gallery, 'grid-row-gap');
