@@ -54,6 +54,15 @@ animation: zoomin 1s ease; */
         grid-template-columns: repeat(auto-fill, minmax(30%, 1fr));
         grid-auto-rows: 8px;
     }
+
+    & .btn{
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        &.fun-gallery__prev-btn{
+            right: 18px;
+        }
+    }
 }
 
 .gallery img {
