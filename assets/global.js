@@ -221,13 +221,33 @@ class QuantityInput extends HTMLElement {
     );
   }
 
-  onButtonClick(event) {
+   onButtonClick(event) {
     event.preventDefault();
-    const previousValue = this.input.value;
-
-    event.target.name === 'plus' ? this.input.stepUp() : this.input.stepDown();
-    if (previousValue !== this.input.value) this.input.dispatchEvent(this.changeEvent);
-  }
+    
+    if (this.productSlider) {
+    const slideScrollPosition = event.currentTarget.name === 'next' ? this.slider.scrollLeft + (this.slider.clientWidth): this.slider.scrollLeft - (this.slider.clientWidth);
+    this.slider.scrollTo({
+    left: Math.floor(slideScrollPosition)
+    });
+    
+    this.currSlide = Math.round(slideScrollPosition / this.slider.clientWidth);
+    if (this.currSlide === 0 ) {
+    this.prevButton.setAttribute('disabled', true);
+    } else {
+    this.prevButton.removeAttribute('disabled');
+    }
+    if (this.currSlide === this.totalPages / 3 ) {
+    this.nextButton.setAttribute('disabled', true);
+    } else {
+    this.nextButton.removeAttribute('disabled');
+    }
+    } else {
+    const slideScrollPosition = event.currentTarget.name === 'next' ? this.slider.scrollLeft + this.sliderLastItem.clientWidth : this.slider.scrollLeft - this.sliderLastItem.clientWidth;
+    this.slider.scrollTo({
+    left: Math.floor(slideScrollPosition)
+    });
+    }
+    }
 }
 
 customElements.define('quantity-input', QuantityInput);
@@ -603,6 +623,7 @@ class SliderComponent extends HTMLElement {
     this.pageTotalElement = this.querySelector('.slider-counter--total');
     this.prevButton = this.querySelector('button[name="previous"]');
     this.nextButton = this.querySelector('button[name="next"]');
+     this.productSlider = this.querySelector('.product-slider-box');
 
     if (!this.slider || !this.nextButton) return;
 
@@ -865,6 +886,15 @@ class VariantSelects extends HTMLElement {
     if (!modalContent) return;
     const newMediaModal = modalContent.querySelector( `[data-media-id="${this.currentVariant.featured_media.id}"]`);
     modalContent.prepend(newMediaModal);
+    const newId = newMedia.dataset.mediaId;
+const newThumb = document.querySelector(`[data-thumb-id="${newId}"]`);
+const thumbLocate = newThumb["offsetLeft"];
+
+document.querySelectorAll('.slide-image').forEach(thumb => thumb. classList.remove('active-thumb'));
+document.querySelector(`[data-thumb-id="${newId}"] > img`).classList.add('active-thumb');
+const sliderBox = document.querySelector(".product-slider-box");
+sliderBox.scrollTo({left: thumbLocate});
+zoom(); 
   }
 
   updateURL() {
