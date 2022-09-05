@@ -64,7 +64,7 @@
         "header": "Planning a group visit?",
         "content": "We welcome groups of up to six by prior arrangement, with morning or afternoon tea if required. Contact us for details.",
         "show_link": true,
-        "url_text": "Contact Us",
+        "url_text": "",
         "url_link": "shopify:\/\/pages\/contact",
         "padding_top": 44,
         "padding_bottom": 82
