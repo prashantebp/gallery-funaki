@@ -98,6 +98,7 @@
     },
     "16560488181854b832": {
       "type": "fun-newsletter",
+      "disabled": true,
       "settings": {
         "heading_title": "Join our news letter!",
         "subtitle": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dolor enim vel urna, quam vel arcu at. Feugiat morbi nunc nisl sit.",
