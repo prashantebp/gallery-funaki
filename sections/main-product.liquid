@@ -389,11 +389,12 @@
           {%- else -%}
             {{ 'lifestyle-2' | placeholder_svg_tag: 'placeholder-svg' }}
           {%- endif -%}
-          <div class="button-wrapper {% if product.media.size < 3 %}hidden{% endif %}" >
-            <button type="button" class="slider-button slider-button--prev bigger-slider" name="previous" aria-label="{{ 'accessibility.previous_slide' | t }}">prev</button>
-            <button type="button" class="slider-button slider-button--next bigger-slider" name="next" aria-label="{{ 'accessibility.next_slide' | t }}">Next</button>
-            </div>
+          
         </div>
+        <div class="button-wrapper {% if product.media.size < 3 %}hidden{% endif %}" >
+          <button type="button" class="slider-button slider-button--prev bigger-slider" name="previous" aria-label="{{ 'accessibility.previous_slide' | t }}">prev</button>
+          <button type="button" class="slider-button slider-button--next bigger-slider" name="next" aria-label="{{ 'accessibility.next_slide' | t }}">Next</button>
+          </div>
           <!-- <div class="carousel-indicators fun-product__indicator"> -->
           <div class="fun-product__indicator">
             {%- for media in product.media -%}
