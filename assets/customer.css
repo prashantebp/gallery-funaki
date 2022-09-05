@@ -5,6 +5,11 @@
   text-align: center;
 }
 
+.customer.account{
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+}
+
 @media screen and (min-width: 750px) {
   .customer:not(.account):not(.order) {
     max-width: 47.8rem;
