@@ -6,6 +6,10 @@
         margin-bottom: 0;
     }
 
+    & select{
+        height: 66px;
+    }
+
     &__wrapper{
         display: flex;
         @include media-breakpoint-down(sm){
