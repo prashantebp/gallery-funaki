@@ -42,10 +42,19 @@
         "padding_bottom": 36,
         "title_gap": 88
       }
+    },
+    "166234996979ff361b": {
+      "type": "video-listing",
+      "settings": {
+        "section_heading": "Videos",
+        "padding_top": 36,
+        "padding_bottom": 148
+      }
     }
   },
   "order": [
     "main",
-    "1661851329dc6400bf"
+    "1661851329dc6400bf",
+    "166234996979ff361b"
   ]
 }
