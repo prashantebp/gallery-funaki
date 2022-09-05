@@ -467,6 +467,10 @@
                       <path d="M10 6L8.59003 7.41L13.17 12L8.59003 16.59L10 18L16 12L10 6Z" fill="#323232"/>
                   </svg>
               </button>
+              <div class="button-wrapper {% if product.media.size < 3 %}hidden{% endif %} " >
+                <button type="button" class="slider-button slider-button--prev bigger-slider btn fun-banner__prev-btn p-0" name="previous" aria-label="{{ 'accessibility.previous_slide' | t }}">{% render 'icon-caret' %}</button>
+                <button type="button" class="slider-button slider-button--next bigger-slider btn fun-banner__next-btn p-0" name="next" aria-label="{{ 'accessibility.next_slide' | t }}">{% render 'icon-caret' %}</button>
+                </div>
             </div>
           </div>
           <!-- <div class="carousel-indicators fun-product__indicator"> -->
