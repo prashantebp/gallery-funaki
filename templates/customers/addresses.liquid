@@ -105,9 +105,11 @@
       {%- for address in customer.addresses -%}
         <li data-address>
           {%- if address == customer.default_address -%}
-            <h2>{{ 'customer.addresses.default' | t }}</h2>
+            <h2 class="mb-3">{{ 'customer.addresses.default' | t }}</h2>
           {%- endif -%}
-          {{ address | format_address }}
+          <div class="mb-3">
+            {{ address | format_address }}
+          </div>
           <button
             class="btn btn-primary mt-0"
             type="button"
