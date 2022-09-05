@@ -396,13 +396,13 @@
       <!-- <div id="product_main_carousel" class="fun-banner__carousel fun-product__carousel carousel slide" data-bs-ride="carousel"> -->
       <div id="product_main_carousel" class="fun-banner__carousel fun-product__carousel carousel slide">
         <!-- <div class="carousel-inner"> -->
-        <div class="fun-product__carousel-inner">
+        <div class="fun-product__carousel-inner product-slider-box slider">
           {%- if product.media.size > 0 -%}
             {%- for media in product.media -%}
               {% assign activeClass = '' %}
-              {% if forloop.first == true %} {% assign activeClass = 'active' %} {% if enable_image_zoom %} js-zoom-enabled{% endif %} {% endif %}
+              {% if forloop.first == true %} {% assign activeClass = 'active' %} {% endif %}
               <!-- <div class="carousel-item {{ activeClass }}">-->
-              <div class="slide-item">
+              <div class="slide-item product-slider slider__slide">
                 <img
                   srcset="{% if media.preview_image.width >= 493 %}{{ media.preview_image | image_url: width: 493 }} 493w,{% endif %}
                     {% if media.preview_image.width >= 600 %}{{ media.preview_image | image_url: width: 600 }} 600w,{% endif %}
