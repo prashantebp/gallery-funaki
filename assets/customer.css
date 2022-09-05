@@ -282,7 +282,7 @@
   .customer td::before {
     color: rgba(var(--color-foreground), 0.75);
     content: attr(data-label);
-    font-size: 1.4rem;
+    font-size: 1rem;
     padding-right: 2rem;
     text-transform: uppercase;
     flex-grow: 1;
@@ -547,7 +547,7 @@
 
 .order tfoot tr:last-of-type td,
 .order tfoot tr:last-of-type th {
-  font-size: 2.2rem;
+  font-size: 1rem;
   padding-top: 1.5rem;
   padding-bottom: 4rem;
 }
@@ -560,7 +560,7 @@
 }
 
 .order tfoot tr:last-of-type td:before {
-  font-size: 2.2rem;
+  font-size: 1rem;
 }
 
 .order table p,
@@ -571,7 +571,7 @@
 
 .order > div:nth-of-type(2) > div:first-of-type h2 ~ p {
   margin-bottom: 0;
-  font-size: 1.4rem;
+  font-size: 1rem;
 }
 
 .order > div:nth-of-type(2) > div:first-of-type h2 ~ p:last-of-type {
