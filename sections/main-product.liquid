@@ -399,7 +399,9 @@
           <div class="slider-container" >
             <a class="skip-to-content-link button visually-hidden" href="#ProductInfo-{{ section.id }}">{{ "accessibility.skip_to_product_info" | t }}</a>
             <ul class="large-image" id="large-image" data-scale="1.6">
-            {%- for media in product.media -%}
+              {%- for media in product.media -%}
+              {% assign activeClass = '' %}
+              {% if forloop.first == true %} {% assign activeClass = 'active' %}{% endif %}
             <li class="large-image-item product__media-item grid__item slider__slide
             {% if media.media_type != 'image' %} hide-modal {% endif %}"
             data-media-id="{{ section.id }}-{{ media.id }}"
@@ -408,6 +410,43 @@
             </li>
             {%- endfor -%}
             </ul>
+            <slider-component class="slider-wrapper">
+            <ul class="product-slider-box slider" role="list">
+            {%- assign variant_images = product.images| where: 'attached_to_variant?', true | map: 'src' -%}
+            {%- for media in product.media -%}
+            <li class="product-slider slider__slide" onclick="newLargeImage(this)" data-thumb-id="{{ section.id }}-{{ media.id }}"
+            {% if section.settings.hide_variants and variant_images contains media.src %}
+            style="display: none;"
+            {% endif %} >
+            {% if media.media_type == 'video' %}
+            <div class="video-btn" style="display: block" >
+            <span class="product__media-icon motion-reduce v-btn" aria-hidden="true">
+            {%- liquid
+            case media.media_type
+            when 'video' or 'external_video'
+            render 'icon-play'
+            when 'model'
+            render 'icon-3d-model'
+            else
+            render 'icon-zoom'
+            endcase
+            -%}
+            </span>
+            <img class="slide-image {% if forloop.first %}active-thumb {% endif %}"
+            src="{{ media.preview_image | img_url: 'large' }}"
+            alt="{{ media.alt}}"
+            {% if section.settings.square_image == true %} style="aspect-ratio: 1;" {% endif %}>
+            </div>
+            {% else %}
+            <img class="slide-image {% if forloop.first %}active-thumb {% endif %}"
+            src="{{ media.preview_image | img_url: 'large' }}"
+            alt="{{ media.alt }}"
+            {% if section.settings.square_image == true %}style="aspect-ratio: 1;" {% endif %}>
+            {% endif %}
+            </li>
+            {% endfor %}
+            </ul>
+            </slider-component>
             </div>
             
         {%- if product.media.size > 1 -%}
