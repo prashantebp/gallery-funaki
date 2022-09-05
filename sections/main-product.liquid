@@ -358,39 +358,58 @@
         <!-- <div class="carousel-inner"> -->
         <div class="fun-product__carousel-inner">
           {%- if product.media.size > 0 -%}
-          {%- for media in product.media -%}
-          {% assign activeClass = '' %}
-          {% if forloop.first == true %} {% assign activeClass = 'active' %}{% endif %}
-          <!-- <div class="carousel-item {{ activeClass }}">-->
-          <div class="slide-item">
-            <img
-              srcset="{% if media.preview_image.width >= 493 %}{{ media.preview_image | image_url: width: 493 }} 493w,{% endif %}
-                {% if media.preview_image.width >= 600 %}{{ media.preview_image | image_url: width: 600 }} 600w,{% endif %}
-                {% if media.preview_image.width >= 713 %}{{ media.preview_image | image_url: width: 713 }} 713w,{% endif %}
-                {% if media.preview_image.width >= 823 %}{{ media.preview_image | image_url: width: 823 }} 823w,{% endif %}
-                {% if media.preview_image.width >= 990 %}{{ media.preview_image | image_url: width: 990 }} 990w,{% endif %}
-                {% if media.preview_image.width >= 1100 %}{{ media.preview_image | image_url: width: 1100 }} 1100w,{% endif %}
-                {% if media.preview_image.width >= 1206 %}{{ media.preview_image | image_url: width: 1206 }} 1206w,{% endif %}
-                {% if media.preview_image.width >= 1346 %}{{ media.preview_image | image_url: width: 1346 }} 1346w,{% endif %}
-                {% if media.preview_image.width >= 1426 %}{{ media.preview_image | image_url: width: 1426 }} 1426w,{% endif %}
-                {% if media.preview_image.width >= 1646 %}{{ media.preview_image | image_url: width: 1646 }} 1646w,{% endif %}
-                {% if media.preview_image.width >= 1946 %}{{ media.preview_image | image_url: width: 1946 }} 1946w,{% endif %}
-                {{ media.preview_image | image_url }} {{ media.preview_image.width }}w"
-              src="{{ media | image_url: width: 1946 }}"
-              sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | times: 100 | round }}px, (min-width: 990px) calc({{ 100 | times: 100 }}vw - 10rem), (min-width: 750px) calc((100vw - 11.5rem) / 2), calc(100vw - 4rem)"
-              loading="lazy"
-              width="973"
-              class="fun-product__img"
-              height="{{ 973 | divided_by: media.preview_image.aspect_ratio | ceil }}"
-              alt="{{ media.preview_image.alt | escape }}"
-            >
-          </div>
-        {%- endfor -%}
+            {%- for media in product.media -%}
+              {% assign activeClass = '' %}
+              {% if forloop.first == true %} {% assign activeClass = 'active' %}{% endif %}
+              <!-- <div class="carousel-item {{ activeClass }}">-->
+              <div class="slide-item">
+                <img
+                  srcset="{% if media.preview_image.width >= 493 %}{{ media.preview_image | image_url: width: 493 }} 493w,{% endif %}
+                    {% if media.preview_image.width >= 600 %}{{ media.preview_image | image_url: width: 600 }} 600w,{% endif %}
+                    {% if media.preview_image.width >= 713 %}{{ media.preview_image | image_url: width: 713 }} 713w,{% endif %}
+                    {% if media.preview_image.width >= 823 %}{{ media.preview_image | image_url: width: 823 }} 823w,{% endif %}
+                    {% if media.preview_image.width >= 990 %}{{ media.preview_image | image_url: width: 990 }} 990w,{% endif %}
+                    {% if media.preview_image.width >= 1100 %}{{ media.preview_image | image_url: width: 1100 }} 1100w,{% endif %}
+                    {% if media.preview_image.width >= 1206 %}{{ media.preview_image | image_url: width: 1206 }} 1206w,{% endif %}
+                    {% if media.preview_image.width >= 1346 %}{{ media.preview_image | image_url: width: 1346 }} 1346w,{% endif %}
+                    {% if media.preview_image.width >= 1426 %}{{ media.preview_image | image_url: width: 1426 }} 1426w,{% endif %}
+                    {% if media.preview_image.width >= 1646 %}{{ media.preview_image | image_url: width: 1646 }} 1646w,{% endif %}
+                    {% if media.preview_image.width >= 1946 %}{{ media.preview_image | image_url: width: 1946 }} 1946w,{% endif %}
+                    {{ media.preview_image | image_url }} {{ media.preview_image.width }}w"
+                  src="{{ media | image_url: width: 1946 }}"
+                  sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | times: 100 | round }}px, (min-width: 990px) calc({{ 100 | times: 100 }}vw - 10rem), (min-width: 750px) calc((100vw - 11.5rem) / 2), calc(100vw - 4rem)"
+                  loading="lazy"
+                  width="973"
+                  class="fun-product__img"
+                  height="{{ 973 | divided_by: media.preview_image.aspect_ratio | ceil }}"
+                  alt="{{ media.preview_image.alt | escape }}"
+                >
+              </div>
+            {%- endfor -%}
           {%- else -%}
             {{ 'lifestyle-2' | placeholder_svg_tag: 'placeholder-svg' }}
           {%- endif -%}
-          
         </div>
+        {%- if product.media.size > 1 -%}
+          <div class="fun-banner__actions justify-content-between">
+            <div class="fun-banner__actions-text">
+              <span>View sample pages</span>
+            </div>
+            <div>
+              <!-- <button class="btn fun-banner__prev-btn p-0" aria-label="previous" data-bs-target="#product_main_carousel" data-bs-slide="prev"> -->
+              <button class="btn fun-banner__prev-btn p-0">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M15.41 7.41L14 6L8 12L14 18L15.41 16.59L10.83 12L15.41 7.41Z" fill="#323232"/>
+                  </svg>
+              </button>
+              <!-- <button class="btn fun-banner__next-btn p-0" aria-label="next" data-bs-target="#product_main_carousel" data-bs-slide="next"> -->
+              <button class="btn fun-banner__next-btn p-0">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M10 6L8.59003 7.41L13.17 12L8.59003 16.59L10 18L16 12L10 6Z" fill="#323232"/>
+                  </svg>
+              </button>
+            </div>
+          </div>
           <!-- <div class="carousel-indicators fun-product__indicator"> -->
           <div class="fun-product__indicator">
             {%- for media in product.media -%}
@@ -421,6 +440,7 @@
               </button>
             {%- endfor -%}
           </div>
+        {%- endif -%}
       </div>
     </div>
 
