@@ -21,7 +21,9 @@
                     <div class="gallery-item">
                         <div class="content">
                             {% if block.settings.col_image %}
+                            <a href="{{ block.settings.col_image | img_url: "grande" }}" data-fancybox="gallery" data-caption="Caption Images 1">
                                     <img  src="{{ block.settings.col_image | img_url: "grande" }}" loading="lazy">
+                                  </a>
                             {% endif %}
                         </div>
                     </div>
@@ -70,20 +72,20 @@
         });
     });
     // Fancybox Config
-      $('[data-fancybox="gallery"]').fancybox({
-        buttons: [
-          "slideShow",
-          "thumbs",
-          "zoom",
-          "fullScreen",
-          "share",
-          "close"
-        ],
-        loop: false,
-        protect: true
-      });
+    $('[data-fancybox="gallery"]').fancybox({
+      buttons: [
+        "slideShow",
+        "thumbs",
+        "zoom",
+        "fullScreen",
+        "share",
+        "close"
+      ],
+      loop: false,
+      protect: true
+    });
    </script>
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+   <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script> -->
    
    {% schema %}
    {
