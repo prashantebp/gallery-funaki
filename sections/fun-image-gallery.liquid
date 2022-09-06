@@ -21,7 +21,7 @@
                     <div class="gallery-item">
                         <div class="content">
                             {% if block.settings.col_image %}
-                            <a href="{{ block.settings.col_image | img_url: "grande" }}" data-fancybox="gallery" data-caption="Caption Images 1">
+                            <a href="{{ block.settings.col_image | img_url: "grande" }}" data-fancybox="gallery">
                                     <img  src="{{ block.settings.col_image | img_url: "grande" }}" loading="lazy">
                                   </a>
                             {% endif %}
