@@ -18,15 +18,15 @@
         <div class="row">
             <div class="gallery" id="gallery">
                 {% for block in section.blocks %}
+                <a href="{{ block.settings.col_image | img_url: "grande" }}" data-fancybox="gallery">
                     <div class="gallery-item">
                         <div class="content">
                             {% if block.settings.col_image %}
-                            <a href="#">
                                     <img  src="{{ block.settings.col_image | img_url: "grande" }}" loading="lazy" >
-                                  </a>
                             {% endif %}
                         </div>
                     </div>
+                    </a>
                 {%- endfor -%}
             </div>
         </div>
@@ -57,7 +57,7 @@
    <script>
     var gallery = document.querySelector('#gallery');
     var getVal = function (elem, style) { return parseInt(window.getComputedStyle(elem).getPropertyValue(style)); };
-    var getHeight = function (item) { return item.querySelector('.content a').getBoundingClientRect().height; };
+    var getHeight = function (item) { return item.querySelector('.content').getBoundingClientRect().height; };
     var resizeAll = function () {
         var altura = getVal(gallery, 'grid-auto-rows');
         var gap = getVal(gallery, 'grid-row-gap');
