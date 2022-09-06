@@ -38,6 +38,21 @@
        <div> No Section items</div>
     {% endif %}
     </section>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css"> 
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+    <script>
+     jQuery('[data-fancybox="gallery"]').fancybox({
+       buttons: [
+         "slideShow",
+         "fullScreen",
+         "close"
+       ],
+       loop: false,
+       protect: true
+     });
+    </script>
     
    <script>
     var gallery = document.querySelector('#gallery');
@@ -73,20 +88,7 @@
     // });
     
    </script>
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css"> 
-
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
-   <script>
-    jQuery('[data-fancybox="gallery"]').fancybox({
-      buttons: [
-        "slideShow",
-        "fullScreen",
-        "close"
-      ],
-      loop: false,
-      protect: true
-    });
-   </script>
+   
    
    {% schema %}
    {
