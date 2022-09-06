@@ -21,7 +21,9 @@
                     <div class="gallery-item">
                         <div class="content">
                             {% if block.settings.col_image %}
+                            <a href="#">
                                     <img  src="{{ block.settings.col_image | img_url: "grande" }}" loading="lazy" >
+                                  </a>
                             {% endif %}
                         </div>
                     </div>
