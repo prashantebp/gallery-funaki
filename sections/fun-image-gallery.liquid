@@ -21,9 +21,7 @@
                     <div class="gallery-item">
                         <div class="content">
                             {% if block.settings.col_image %}
-                            <a href="{{ block.settings.col_image | img_url: "grande" }}" data-fancybox="gallery" >
                                     <img  src="{{ block.settings.col_image | img_url: "grande" }}" loading="lazy" >
-                                  </a>
                             {% endif %}
                         </div>
                     </div>
@@ -39,7 +37,7 @@
     {% endif %}
     </section>
 
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css">  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css"> 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
     <script>
