@@ -23,7 +23,48 @@
   {%- endstyle -%}
 
   <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
+  <script>
+    function newLargeImage(x) {
+        let clickedImage = x.dataset.thumbId;
+        const newImage = document.querySelector(`[data-media-id="${clickedImage}"]`);
+        const parentData = newImage.parentElement;
 
+        parentData.prepend(newImage);
+        newImage.style.display = "block";
+
+        document.querySelectorAll('.slide-image')
+            .forEach(thumb => thumb.classList.remove('active-thumb'));
+        const sliderComp = document.querySelector("slider-component");
+        document.querySelector(`[data-thumb-id="${clickedImage}"] > img`).classList.add('active-thumb');
+        zoom();
+    }
+    window.setTimeout(() => {
+        zoom()
+    });
+
+    function zoom() {
+        const mediaSmall = window.matchMedia('( min-width: 400px )');
+        const imageZoom = document.querySelector('#large-image');
+        const zoomItem = document.querySelector("#large-image > li:nth-child(1)")
+        imageZoom.addEventListener("mouseout", function () {
+            zoomItem.style.transform = 'scale(1)';
+        });
+        if (mediaSmall.matches) {
+            imageZoom.addEventListener("mouseover", function () {
+                zoomItem.style.transform = 'scale(1.8)';
+            });
+            imageZoom.addEventListener("mousemove", function (e) {
+                const itemWidth = zoomItem.getBoundingClientRect().width;
+                const itemLeft = zoomItem.getBoundingClientRect().left;
+                const itemHt = zoomItem.getBoundingClientRect().height;
+                const itemTop = zoomItem.getBoundingClientRect().top + window.scrollY;
+                const translateX = Math.round((e.pageX - itemLeft) / itemWidth * 100);
+                const translateY = Math.round((e.pageY - itemTop) / itemHt * 100);
+                zoomItem.style.transformOrigin = `${translateX}% ${translateY}%`;
+            });
+        }
+    }
+</script>
   {%- assign first_3d_model = product.media | where: "media_type", "model" | first -%}
   {%- if first_3d_model -%}
     {{ 'component-product-model.css' | asset_url | stylesheet_tag }}
@@ -356,90 +397,63 @@
       <!-- <div id="product_main_carousel" class="fun-banner__carousel fun-product__carousel carousel slide" data-bs-ride="carousel"> -->
       <div id="product_main_carousel" class="fun-banner__carousel fun-product__carousel carousel slide">
         <!-- <div class="carousel-inner"> -->
-        <div class="fun-product__carousel-inner">
-          {%- if product.media.size > 0 -%}
-            {%- for media in product.media -%}
-              {% assign activeClass = '' %}
-              {% if forloop.first == true %} {% assign activeClass = 'active' %}{% endif %}
-              <!-- <div class="carousel-item {{ activeClass }}">-->
-              <div class="slide-item">
-                <img
-                  srcset="{% if media.preview_image.width >= 493 %}{{ media.preview_image | image_url: width: 493 }} 493w,{% endif %}
-                    {% if media.preview_image.width >= 600 %}{{ media.preview_image | image_url: width: 600 }} 600w,{% endif %}
-                    {% if media.preview_image.width >= 713 %}{{ media.preview_image | image_url: width: 713 }} 713w,{% endif %}
-                    {% if media.preview_image.width >= 823 %}{{ media.preview_image | image_url: width: 823 }} 823w,{% endif %}
-                    {% if media.preview_image.width >= 990 %}{{ media.preview_image | image_url: width: 990 }} 990w,{% endif %}
-                    {% if media.preview_image.width >= 1100 %}{{ media.preview_image | image_url: width: 1100 }} 1100w,{% endif %}
-                    {% if media.preview_image.width >= 1206 %}{{ media.preview_image | image_url: width: 1206 }} 1206w,{% endif %}
-                    {% if media.preview_image.width >= 1346 %}{{ media.preview_image | image_url: width: 1346 }} 1346w,{% endif %}
-                    {% if media.preview_image.width >= 1426 %}{{ media.preview_image | image_url: width: 1426 }} 1426w,{% endif %}
-                    {% if media.preview_image.width >= 1646 %}{{ media.preview_image | image_url: width: 1646 }} 1646w,{% endif %}
-                    {% if media.preview_image.width >= 1946 %}{{ media.preview_image | image_url: width: 1946 }} 1946w,{% endif %}
-                    {{ media.preview_image | image_url }} {{ media.preview_image.width }}w"
-                  src="{{ media | image_url: width: 1946 }}"
-                  sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | times: 100 | round }}px, (min-width: 990px) calc({{ 100 | times: 100 }}vw - 10rem), (min-width: 750px) calc((100vw - 11.5rem) / 2), calc(100vw - 4rem)"
-                  loading="lazy"
-                  width="973"
-                  class="fun-product__img"
-                  height="{{ 973 | divided_by: media.preview_image.aspect_ratio | ceil }}"
-                  alt="{{ media.preview_image.alt | escape }}"
-                >
-              </div>
-            {%- endfor -%}
-          {%- else -%}
-            {{ 'lifestyle-2' | placeholder_svg_tag: 'placeholder-svg' }}
-          {%- endif -%}
+          <div class="slider-container">
+            <a class="skip-to-content-link button visually-hidden"
+                href="#ProductInfo-{{ section.id }}">{{ "accessibility.skip_to_product_info" | t }}</a>
+            <ul class="large-image" id="large-image" data-scale="1.6">
+                {%- for media in product.media -%}
+                <li class="large-image-item product__media-item slider__slide  
+                    {% if media.media_type != 'image' %} hide-modal {% endif %}" data-media-id="{{ section.id }}-{{ media.id }}"
+                    data-background="zoom-image">
+                    {% render 'product-thumbnail', media: media, position: forloop.index, loop: section.settings.enable_video_looping, modal_id: section.id, xr_button: true %}
+                </li>
+                {%- endfor -%}
+            </ul>
+            <slider-component class="slider-wrapper ">
+                <ul class="product-slider-box slider" role="list">
+                    {%- assign variant_images = product.images| where: 'attached_to_variant?', true | map: 'src' -%}
+                    {%- for media in product.media -%}
+                    <li class="product-slider slider__slide " onclick="newLargeImage(this)"
+                        data-thumb-id="{{ section.id }}-{{ media.id }}" 
+                        {% if section.settings.hide_variants and variant_images contains media.src %}
+                        style="display: none;" {% endif %}>
+                        {% if media.media_type == 'video' %}
+                        <div class="video-btn" style="display: block">
+                            <span class="product__media-icon motion-reduce v-btn" aria-hidden="true">
+                                {%- liquid
+                                    case media.media_type
+                                    when 'video' or 'external_video'
+                                    render 'icon-play'
+                                    when 'model'
+                                    render 'icon-3d-model'
+                                    else
+                                    render 'icon-zoom'
+                                    endcase
+                                    -%}
+                            </span>
+                            <img class="slide-image {% if forloop.first %}active-thumb {% endif %}"
+                                src="{{ media.preview_image | img_url: 'large' }}" alt="{{ media.alt}}">
+                        </div>
+                        {% else %}
+                        <img class="slide-image {% if forloop.first %}active-thumb {% endif %}"
+                            src="{{ media.preview_image | img_url: 'large' }}" alt="{{ media.alt }}"
+                            {% if section.settings.square_image == true %}style="aspect-ratio: 1;" {% endif %}>
+                        {% endif %}
+                    </li>
+                    {% endfor %}
+                </ul>
+
+            </slider-component>
         </div>
-        {%- if product.media.size > 1 -%}
-          <div class="fun-banner__actions justify-content-between">
-            <div class="fun-banner__actions-text">
-              <span>View sample pages</span>
-            </div>
-            <div>
-              <!-- <button class="btn fun-banner__prev-btn p-0" aria-label="previous" data-bs-target="#product_main_carousel" data-bs-slide="prev"> -->
-              <button class="btn fun-banner__prev-btn p-0">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M15.41 7.41L14 6L8 12L14 18L15.41 16.59L10.83 12L15.41 7.41Z" fill="#323232"/>
-                  </svg>
-              </button>
-              <!-- <button class="btn fun-banner__next-btn p-0" aria-label="next" data-bs-target="#product_main_carousel" data-bs-slide="next"> -->
-              <button class="btn fun-banner__next-btn p-0">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M10 6L8.59003 7.41L13.17 12L8.59003 16.59L10 18L16 12L10 6Z" fill="#323232"/>
-                  </svg>
-              </button>
-            </div>
-          </div>
-          <!-- <div class="carousel-indicators fun-product__indicator"> -->
-          <div class="fun-product__indicator">
-            {%- for media in product.media -%}
-              {% assign activeClass = '' %}
-              {% if forloop.first == true %} {% assign activeClass = 'active' %}{% endif %}
-              <button type="button" class="{{ activeClass }}" data-bs-target="#product_main_carousel" data-bs-slide-to="{{ forloop.index0  }}">
-                <img
-                  srcset="{% if media.preview_image.width >= 493 %}{{ media.preview_image | image_url: width: 493 }} 493w,{% endif %}
-                    {% if media.preview_image.width >= 600 %}{{ media.preview_image | image_url: width: 600 }} 600w,{% endif %}
-                    {% if media.preview_image.width >= 713 %}{{ media.preview_image | image_url: width: 713 }} 713w,{% endif %}
-                    {% if media.preview_image.width >= 823 %}{{ media.preview_image | image_url: width: 823 }} 823w,{% endif %}
-                    {% if media.preview_image.width >= 990 %}{{ media.preview_image | image_url: width: 990 }} 990w,{% endif %}
-                    {% if media.preview_image.width >= 1100 %}{{ media.preview_image | image_url: width: 1100 }} 1100w,{% endif %}
-                    {% if media.preview_image.width >= 1206 %}{{ media.preview_image | image_url: width: 1206 }} 1206w,{% endif %}
-                    {% if media.preview_image.width >= 1346 %}{{ media.preview_image | image_url: width: 1346 }} 1346w,{% endif %}
-                    {% if media.preview_image.width >= 1426 %}{{ media.preview_image | image_url: width: 1426 }} 1426w,{% endif %}
-                    {% if media.preview_image.width >= 1646 %}{{ media.preview_image | image_url: width: 1646 }} 1646w,{% endif %}
-                    {% if media.preview_image.width >= 1946 %}{{ media.preview_image | image_url: width: 1946 }} 1946w,{% endif %}
-                    {{ media.preview_image | image_url }} {{ media.preview_image.width }}w"
-                  src="{{ media | image_url: width: 1946 }}"
-                  sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | times: 300 | round }}px, (min-width: 990px) calc({{ 300 | times: 100 }}vw - 10rem), (min-width: 750px) calc((100vw - 11.5rem) / 2), calc(100vw - 4rem)"
-                  loading="lazy"
-                  width="973"
-                  class="fun-product__img--thumb"
-                  height="{{ 973 | divided_by: media.preview_image.aspect_ratio | ceil }}"
-                  alt="{{ media.preview_image.alt | escape }}"
-                >
-              </button>
-            {%- endfor -%}
-          </div>
+
+        {%- if first_3d_model -%}
+        <button class="button button--full-width product__xr-button" type="button"
+            aria-label="{{ 'products.product.xr_button_label' | t }}" data-shopify-xr
+            data-shopify-model3d-id="{{ first_3d_model.id }}" data-shopify-title="{{ product.title | escape }}"
+            data-shopify-xr-hidden>
+            {% render 'icon-3d-model' %}
+            {{ 'products.product.xr_button' | t }}
+        </button>
         {%- endif -%}
       </div>
     </div>
@@ -531,6 +545,184 @@
 </section>
 
 <script src="{{ 'bootstrap.min.js' | asset_url }}" defer></script>
+{% javascript %}
+class ProductModal extends ModalDialog {
+constructor() {
+super();
+}
+
+hide() {
+super.hide();
+}
+
+show(opener) {
+super.show(opener);
+this.showActiveMedia();
+}
+
+showActiveMedia() {
+this.querySelectorAll(`[data-media-id]:not([data-media-id="${this.openedBy.getAttribute("data-media-id")}"])`).forEach((element)
+=> {
+element.classList.remove('active');
+}
+)
+const activeMedia = this.querySelector(`[data-media-id="${this.openedBy.getAttribute("data-media-id")}"]`);
+const activeMediaTemplate = activeMedia.querySelector('template');
+const activeMediaContent = activeMediaTemplate ? activeMediaTemplate.content : null;
+activeMedia.classList.add('active');
+activeMedia.scrollIntoView();
+
+const container = this.querySelector('[role="document"]');
+container.scrollLeft = (activeMedia.width - container.clientWidth) / 2;
+
+if (activeMedia.nodeName == 'DEFERRED-MEDIA' && activeMediaContent && activeMediaContent.querySelector('.js-youtube'))
+activeMedia.loadContent();
+}
+}
+
+customElements.define('product-modal', ProductModal);
+{% endjavascript %}
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        function isIE() {
+            const ua = window.navigator.userAgent;
+            const msie = ua.indexOf('MSIE ');
+            const trident = ua.indexOf('Trident/');
+
+            return (msie > 0 || trident > 0);
+        }
+
+        if (!isIE()) return;
+        const hiddenInput = document.querySelector('#{{ product_form_id }} input[name="id"]');
+        const noScriptInputWrapper = document.createElement('div');
+        const variantSwitcher = document.querySelector('variant-radios[data-section="{{ section.id }}"]') ||
+            document.querySelector('variant-selects[data-section="{{ section.id }}"]');
+        noScriptInputWrapper.innerHTML = document.querySelector(
+            '.product-form__noscript-wrapper-{{ section.id }}').textContent;
+        variantSwitcher.outerHTML = noScriptInputWrapper.outerHTML;
+
+        document.querySelector('#Variants-{{ section.id }}').addEventListener('change', function (event) {
+            hiddenInput.value = event.currentTarget.value;
+        });
+    });
+</script>
+
+{%- if first_3d_model -%}
+<script type="application/json" id="ProductJSON-{{ product.id }}">
+    {
+        {
+            product.media | where: 'media_type', 'model' | json
+        }
+    }
+</script>
+
+<script src="{{ 'product-model.js' | asset_url }}" defer></script>
+{%- endif -%}
+
+{%- liquid
+if product.selected_or_first_available_variant.featured_media
+assign seo_media = product.selected_or_first_available_variant.featured_media
+else
+assign seo_media = product.featured_media
+endif
+-%}
+
+<script type="application/ld+json">
+    {
+        "@context": "http://schema.org/",
+        "@type": "Product",
+        "name": {
+            {
+                product.title | json
+            }
+        },
+        "url": {
+            {
+                shop.url | append: product.url | json
+            }
+        },
+        {
+            %
+            if seo_media - %
+        } {
+            % -assign media_size = seo_media.preview_image.width | append: 'x' - %
+        }
+        "image": [{
+            {
+                seo_media | img_url: media_size | prepend: "https:" | json
+            }
+        }],
+        {
+            % -endif %
+        }
+        "description": {
+            {
+                product.description | strip_html | json
+            }
+        },
+        {
+            %
+            if product.selected_or_first_available_variant.sku != blank - %
+        }
+        "sku": {
+            {
+                product.selected_or_first_available_variant.sku | json
+            }
+        },
+        {
+            % -endif %
+        }
+        "brand": {
+            "@type": "Thing",
+            "name": {
+                {
+                    product.vendor | json
+                }
+            }
+        },
+        "offers": [{
+            % -
+            for variant in product.variants - %
+        } {
+            "@type": "Offer",
+            {
+                % -
+                if variant.sku != blank - %
+            }
+            "sku": {
+                {
+                    variant.sku | json
+                }
+            },
+            {
+                % -endif - %
+            }
+            "availability": "http://schema.org/{% if variant.available %}InStock{% else %}OutOfStock{% endif %}",
+            "price": {
+                {
+                    variant.price | divided_by: 100.00 | json
+                }
+            },
+            "priceCurrency": {
+                {
+                    cart.currency.iso_code | json
+                }
+            },
+            "url": {
+                {
+                    shop.url | append: variant.url | json
+                }
+            }
+        } {
+            % unless forloop.last %
+        }, {
+            % endunless %
+        } {
+            % -endfor - %
+        }]
+    }
+</script>
 
 {% schema %}
 {
