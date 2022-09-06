@@ -21,7 +21,9 @@
                     <div class="gallery-item">
                         <div class="content">
                             {% if block.settings.col_image %}
+                            <a href="#">
                                     <img  src="{{ block.settings.col_image | img_url: "grande" }}" loading="lazy" >
+                                  </a>
                             {% endif %}
                         </div>
                     </div>
@@ -79,12 +81,12 @@
       clearTimeout(doit);
       doit = setTimeout(resizeAll, 300);
     };
-    {% comment %} window.addEventListener('resize', resizeAll); {% endcomment %}
-    // gallery.querySelectorAll('.gallery-item').forEach(function (item) {
-    //     item.addEventListener('click', function () {        
-    //         item.classList.toggle('full');        
-    //     });
-    // });
+    window.addEventListener('resize', resizeAll);
+    gallery.querySelectorAll('.gallery-item').forEach(function (item) {
+        item.addEventListener('click', function () {        
+            item.classList.toggle('full');        
+        });
+    });
     
    </script>
    
