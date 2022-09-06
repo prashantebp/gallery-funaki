@@ -21,9 +21,7 @@
                     <div class="gallery-item">
                         <div class="content">
                             {% if block.settings.col_image %}
-                            <a href="{{ block.settings.col_image | img_url: "grande" }}" data-fancybox="gallery-slider">
                                     <img  src="{{ block.settings.col_image | img_url: "grande" }}" loading="lazy" >
-                                    </a>
                             {% endif %}
                         </div>
                     </div>
@@ -39,11 +37,26 @@
        <div> No Section items</div>
     {% endif %}
     </section>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css"> 
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+    <script>
+     jQuery('[data-fancybox="gallery-slider"]').fancybox({
+       buttons: [
+         "slideShow",
+         "fullScreen",
+         "close"
+       ],
+       loop: false,
+       protect: true
+     });
+    </script>
     
    <script>
     var gallery = document.querySelector('#gallery');
     var getVal = function (elem, style) { return parseInt(window.getComputedStyle(elem).getPropertyValue(style)); };
-    var getHeight = function (item) { return item.querySelector('a').getBoundingClientRect().height; };
+    var getHeight = function (item) { return item.querySelector('.content').getBoundingClientRect().height; };
     var resizeAll = function () {
         var altura = getVal(gallery, 'grid-auto-rows');
         var gap = getVal(gallery, 'grid-row-gap');
