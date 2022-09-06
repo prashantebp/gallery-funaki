@@ -66,7 +66,7 @@
             el.style.gridRowEnd = "span " + Math.ceil((getHeight(item) + gap) / (altura + gap));
         });
     };
-    gallery.querySelectorAll('img').forEach(function (item) {
+    gallery.querySelectorAll('a img').forEach(function (item) {
             item.addEventListener('load', function () {
                 var altura = getVal(gallery, 'grid-auto-rows');
                 var gap = getVal(gallery, 'grid-row-gap');
