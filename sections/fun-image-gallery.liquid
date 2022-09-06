@@ -22,7 +22,9 @@
                     <div class="gallery-item">
                         <div class="content">
                             {% if block.settings.col_image %}
-                                    <img  src="{{ block.settings.col_image | img_url: "grande" }}" loading="lazy" data-fancybox="gallery" >
+                            <a href="{{ block.settings.col_image }}" data-fancybox="gallery" >
+                                    <img  src="{{ block.settings.col_image | img_url: "grande" }}" loading="lazy" >
+                                  </a>
                             {% endif %}
                         </div>
                     </div>
