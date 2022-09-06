@@ -58,7 +58,7 @@
    <script>
     var gallery = document.querySelector('#gallery');
     var getVal = function (elem, style) { return parseInt(window.getComputedStyle(elem).getPropertyValue(style)); };
-    var getHeight = function (item) { return item.querySelector('.content').getBoundingClientRect().height; };
+    var getHeight = function (item) { return item.querySelector('.a').getBoundingClientRect().height; };
     var resizeAll = function () {
         var altura = getVal(gallery, 'grid-auto-rows');
         var gap = getVal(gallery, 'grid-row-gap');
@@ -67,7 +67,7 @@
             el.style.gridRowEnd = "span " + Math.ceil((getHeight(item) + gap) / (altura + gap));
         });
     };
-    gallery.querySelectorAll('a img').forEach(function (item) {
+    gallery.querySelectorAll('img').forEach(function (item) {
             item.addEventListener('load', function () {
                 var altura = getVal(gallery, 'grid-auto-rows');
                 var gap = getVal(gallery, 'grid-row-gap');
