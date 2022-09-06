@@ -1,27 +1,51 @@
 //Product slider
 jQuery(document).ready(function(jQuery){
-  jQuery('.fun-product__carousel-inner').slick({
-      slidesToShow: 1,
-      slidesToScroll: 1,
-      arrows: true,
-      fade: true,
-      variableWidth: false,
-      infinite: true,
-      asNavFor: '.fun-product__indicator',
-      prevArrow: '.fun-banner__prev-btn',
-      nextArrow: '.fun-banner__next-btn'
-  });
+  // jQuery('.fun-product__carousel-inner').slick({
+  //     slidesToShow: 1,
+  //     slidesToScroll: 1,
+  //     arrows: true,
+  //     fade: true,
+  //     variableWidth: false,
+  //     infinite: true,
+  //     asNavFor: '.fun-product__indicator',
+  //     prevArrow: '.fun-banner__prev-btn',
+  //     nextArrow: '.fun-banner__next-btn'
+  // });
 
-  jQuery('.fun-product__indicator').slick({
-      slidesToShow: 3,
-      slidesToScroll: 1,
-      asNavFor: '.fun-product__carousel-inner',
-      dots: false,
-      centerMode: false,
-      focusOnSelect: true,
-      infinite: true,
-      arrows: false
-  });
+  // jQuery('.fun-product__indicator').slick({
+  //     slidesToShow: 3,
+  //     slidesToScroll: 1,
+  //     asNavFor: '.fun-product__carousel-inner',
+  //     dots: false,
+  //     centerMode: false,
+  //     focusOnSelect: true,
+  //     infinite: true,
+  //     arrows: false
+  // });
+
+  jQuery('.fun-product__carousel-inner').slick({
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: true,
+    fade: true,
+    variableWidth: false,
+    infinite: true,
+    prevArrow: '.slider-button--prev',
+    nextArrow: '.slider-button--next'
+});
+
+jQuery('.product-slider-box').slick({
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    dots: false,
+    centerMode: false,
+    focusOnSelect: true,
+    infinite: true,
+    arrows: true,
+    prevArrow: '<button class="btn fun-gallery__prev-btn"> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M15.41 7.41L14 6L8 12L14 18L15.41 16.59L10.83 12L15.41 7.41Z" fill="#323232"></path> </svg> </button>',
+    nextArrow: '<button class="btn fun-gallery__next-btn"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000 svg"><path d="M10 6L8.59003 7.41L13.17 12L8.59003 16.59L10 18L16 12L10 6Z" fill="#323232"></path></svg></button>'
+    
+});
 
   // var slickGallery = jQuery('#gallery').slick({
   //     slidesToShow: 1,

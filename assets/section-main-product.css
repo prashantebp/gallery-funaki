@@ -1421,3 +1421,12 @@ a.product__text {
   overflow: hidden;
   position: relative !important;
   }
+  .product__modal-opener--external_video{
+    display:none !important;
+  }
+  
+  li.large-image-item.product__media-item.slider__slide.hide-modal {
+      display: block;
+      transform: unset !important;
+      transform-origin: unset !important;
+  }
