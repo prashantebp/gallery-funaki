@@ -18,11 +18,12 @@
         <div class="row">
             <div class="gallery" id="gallery">
                 {% for block in section.blocks %}
-                <a href="{{ block.settings.col_image | img_url: "grande" }}" data-fancybox="gallery-slider">
                     <div class="gallery-item">
                         <div class="content">
                             {% if block.settings.col_image %}
+                            <a href="{{ block.settings.col_image | img_url: "grande" }}" data-fancybox="gallery-slider">
                                     <img  src="{{ block.settings.col_image | img_url: "grande" }}" loading="lazy" >
+                                    </a>
                             {% endif %}
                         </div>
                     </div>
