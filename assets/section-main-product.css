@@ -1379,10 +1379,10 @@ a.product__text {
   left: 2% !important;
   }
   
-  .active-thumb {
+  /* .active-thumb {
   border: 3px solid white;
   outline: 2px solid black;
-  }
+  } */
   
   /* ==== custom codes in editing the product page ==== */
   @media screen and (min-width: 750px) {

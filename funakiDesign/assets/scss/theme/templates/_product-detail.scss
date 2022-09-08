@@ -30,6 +30,7 @@
         & .btn{
             &.fun-banner__prev-btn,&.fun-banner__next-btn{
                 width: 24px;
+                position: absolute;
             }
         }
     }
