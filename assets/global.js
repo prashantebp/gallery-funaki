@@ -66,7 +66,7 @@ jQuery('.product-slider-box').slick({
         $('#gallery').slick("unslick");
       }
     }else{
-      jQuery('#gallery').slick({
+      jQuery('#gallery').not('.slick-initialized').slick({
         slidesToShow: 1,
         slidesToScroll: 1,
         dots: false,
