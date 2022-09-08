@@ -20,6 +20,7 @@
                 {% for block in section.blocks %}
                     <div class="gallery-item">
                         <div class="content">
+                          <a href="{{ block.settings.col_image | img_url: "grande" }}" data-fancybox="gallery-slider">
                             {% if block.settings.col_image %}
                                     <img  src="{{ block.settings.col_image | img_url: "grande" }}" loading="lazy" >
                             {% endif %}
@@ -80,12 +81,12 @@
       doit = setTimeout(resizeAll, 300);
     };
     window.addEventListener('resize', resizeAll);
-    gallery.querySelectorAll('.gallery-item').forEach(function (item) {
+    {% comment %} gallery.querySelectorAll('.gallery-item').forEach(function (item) {
         item.addEventListener('click', function () {        
             item.classList.toggle('full');        
         });
     });
-    
+     {% endcomment %}
    </script>
    
    
