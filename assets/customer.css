@@ -485,12 +485,21 @@
 }
 
 :is(.account, .order) h1 {
-  margin-bottom: 1rem;
+  /* margin-bottom: 1rem; */
+}
+
+
+.customer-div{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
 }
 
 :is(.account, .order) h2 {
   margin-top: 4rem;
   margin-bottom: 1rem;
+  text-align: left;
 }
 
 @media screen and (min-width: 990px) {
@@ -502,11 +511,14 @@
 .account h1 + a {
   display: inline-flex;
   align-items: center;
+  font-size: 14px;
+  font-family: var(--nanum);
 }
 
 .account a svg {
-  width: 1.5rem;
-  margin-bottom: -0.03rem;
+  width: 16px;
+  height: 16px;
+  /* margin-bottom: -0.03rem; */
   margin-right: 1rem;
 }
 
