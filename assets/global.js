@@ -62,7 +62,9 @@ jQuery('.product-slider-box').slick({
     // Haven't resized in 100ms!
 
     if($(window).width() > 768){
-      $('#gallery').slick("unslick");
+      if($('#gallery').hasClass("slick-initialized")){
+        $('#gallery').slick("unslick");
+      }
     }else{
       jQuery('#gallery').slick({
         slidesToShow: 1,
