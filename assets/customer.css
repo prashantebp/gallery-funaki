@@ -483,6 +483,8 @@
 :is(.account, .order) p {
   margin: 0 0 2rem;
   font-size: 1rem;
+  border: .01rem solid rgba(var(--color-foreground),.08);
+  padding: 12px;
 }
 
 :is(.account, .order) h1 {

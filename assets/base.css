@@ -704,6 +704,8 @@ details > * {
   text-underline-offset: 0.3rem;
   text-decoration-thickness: 0.1rem;
   transition: text-decoration-thickness ease 100ms;
+  font-family: var(--nanum);
+  font-size: 14px;
 }
 
 .underlined-link:hover,
