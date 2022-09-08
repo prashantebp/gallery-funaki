@@ -57,8 +57,10 @@ jQuery('.product-slider-box').slick({
   //     prevArrow: '<button class="btn fun-gallery__prev-btn"> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M15.41 7.41L14 6L8 12L14 18L15.41 16.59L10.83 12L15.41 7.41Z" fill="#323232"></path> </svg> </button>',
   //   nextArrow: '<button class="btn fun-gallery__next-btn"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000 svg"><path d="M10 6L8.59003 7.41L13.17 12L8.59003 16.59L10 18L16 12L10 6Z" fill="#323232"></path></svg></button>'
   // });
-  $(window).on('resize',function(){
-    // location.reload();
+
+  function resizeGalleryCallback(){
+    // Haven't resized in 100ms!
+
     if($(window).width() > 768){
       $('#gallery').slick("unslick");
     }else{
@@ -74,7 +76,31 @@ jQuery('.product-slider-box').slick({
         nextArrow: '<button class="btn fun-gallery__next-btn"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000 svg"><path d="M10 6L8.59003 7.41L13.17 12L8.59003 16.59L10 18L16 12L10 6Z" fill="#323232"></path></svg></button>'
       });
     }
-  });
+  }
+
+  var doit;
+  window.onresize = function(){
+    clearTimeout(doit);
+    doit = setTimeout(resizeGalleryCallback, 100);
+  };
+  // $(window).on('resize',function(){
+  //   // location.reload();
+  //   if($(window).width() > 768){
+  //     $('#gallery').slick("unslick");
+  //   }else{
+  //     jQuery('#gallery').slick({
+  //       slidesToShow: 1,
+  //       slidesToScroll: 1,
+  //       dots: false,
+  //       centerMode: false,
+  //       focusOnSelect: true,
+  //       variableWidth: true,
+  //       infinite: true,
+  //       prevArrow: '<button class="btn fun-gallery__prev-btn"> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M15.41 7.41L14 6L8 12L14 18L15.41 16.59L10.83 12L15.41 7.41Z" fill="#323232"></path> </svg> </button>',
+  //       nextArrow: '<button class="btn fun-gallery__next-btn"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000 svg"><path d="M10 6L8.59003 7.41L13.17 12L8.59003 16.59L10 18L16 12L10 6Z" fill="#323232"></path></svg></button>'
+  //     });
+  //   }
+  // });
   if($(window).width() < 767){
     jQuery('#gallery').slick({
       slidesToShow: 1,
