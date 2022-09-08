@@ -31,6 +31,14 @@
             &.fun-gallery__prev-btn,&.fun-gallery__next-btn{
                 width: 24px;
                 position: absolute;
+                right: 0;
+                bottom: 0;
+            }
+        }
+
+        & .slider-wrapper {
+            & ul{
+                width: 100%;
             }
         }
     }
