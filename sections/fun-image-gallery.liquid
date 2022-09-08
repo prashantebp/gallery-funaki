@@ -19,13 +19,13 @@
             <div class="gallery" id="gallery">
                 {% for block in section.blocks %}
                     <div class="gallery-item">
-                      <a class="content" href="{{ block.settings.col_image | img_url: "grande" }}" data-fancybox="gallery-slider">
-                        <div >
-                            {% if block.settings.col_image %}
-                                    <img  src="{{ block.settings.col_image | img_url: "grande" }}" loading="lazy" >
-                            {% endif %}
-                        </div>
-                      </a>
+                      <div class="content" href="{{ block.settings.col_image | img_url: "grande" }}" data-fancybox="gallery-slider">
+                          {% if block.settings.col_image %}
+                              <img  src="{{ block.settings.col_image | img_url: "grande" }}" loading="lazy" >
+                          {% endif %}
+                      </div>
+                      {% comment %} <a >
+                      </a> {% endcomment %}
                     </div>
                 {%- endfor -%}
             </div>
