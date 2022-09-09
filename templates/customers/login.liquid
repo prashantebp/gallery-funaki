@@ -67,7 +67,7 @@
         {{ 'customer.recover_password.success' | t }}
       </h3>
     {%- endif -%}
-    {%- form 'customer_login', novalidate: 'novalidate' -%}
+    {%- form 'customer_login', novalidate: 'novalidate', return_to: '/account' -%}
       {%- if form.errors -%}
         <!-- <h2 class="form__message" tabindex="-1" autofocus>
           <span class="visually-hidden">{{ 'accessibility.error' | t }} </span>

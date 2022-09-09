@@ -1078,3 +1078,16 @@ if(document.querySelector('#NewsletterForm--template--16207607529684__1656048818
       add_ele.classList.add('newsletter_already_subscribe');
   }
 }
+
+// logout redirection
+
+$(document).ready( function() {
+  $('a[href^="/account/logout"]').on("click", function() {
+    $.ajax( $(this).attr('href') )
+      .done(function() {
+       // Here you will change the url to whatever page you want to redirect to
+       window.location.href = "/account/login";
+      });
+    return false;
+  });
+});
