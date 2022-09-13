@@ -766,6 +766,7 @@ label[for='AddressProvinceNew'] {
     align-items: center;
     gap: 1rem;
     border: 1px solid var(--black);
+    padding: 1rem;
   }
 }
 
