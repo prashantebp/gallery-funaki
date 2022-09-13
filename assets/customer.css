@@ -750,6 +750,23 @@ label[for='AddressProvinceNew'] {
   list-style: none;
   padding-left: 0;
   text-align: center;
+  display: grid;
+  grid-gap: 1.5rem;
+}
+
+@media screen and (min-width: 768px) {
+  .addresses ul{
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .addresses ul li{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    border: 1px solid var(--black);
+  }
 }
 
 li[data-address] {
