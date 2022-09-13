@@ -31,45 +31,30 @@
 
 
         <div class="row fun-bookmark__past-row">
-          {%- for article in blogs.videos.articles -%}
-            {% assign artist_name = article.metafields.accentuate.choose_artist %}
-            {% assign video_url = article.metafields.accentuate.video_url %}
-            <div class="col-sm-8 col-md-4 fun-bookmark__col--past">
-                <article class="fun-bookmark__card fun-bookmark__card--past-new me-0">
-                  <figure class="fun-bookmark__fig">
-                    <img
-                      srcset="{%- if article.image.src.width >= 165 -%}{{ article.image.src | image_url: width: 165 }} 165w,{%- endif -%}
-                        {%- if article.image.src.width >= 360 -%}{{ article.image.src | image_url: width: 360 }} 360w,{%- endif -%}
-                        {%- if article.image.src.width >= 533 -%}{{ article.image.src | image_url: width: 533 }} 533w,{%- endif -%}
-                        {%- if article.image.src.width >= 720 -%}{{ article.image.src | image_url: width: 720 }} 720w,{%- endif -%}
-                        {%- if article.image.src.width >= 1000 -%}{{ article.image.src | image_url: width: 1000 }} 1000w,{%- endif -%}
-                        {%- if article.image.src.width >= 1500 -%}{{ article.image.src | image_url: width: 1500 }} 1500w,{%- endif -%}
-                        {{ article.image.src | image_url }} {{ article.image.src.width }}w"
-                      src="{{ article.image.src | image_url: width: 533 }}"
-                      sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px, (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)"
-                      alt="{{ article.image.src.alt | escape }}"
-                      class="motion-reduce fun-bookmark__img"
-                      loading="lazy"
-                      width="{{ article.image.width }}"
-                      height="{{ article.image.height }}"
-                    >
-                    <a class="fun-bookmark__link fun-bookmark__link--hidden" href="{{ video_url }}" data-fancybox>
-                      <span>{{ article.url }}</span>
-                    </a>
-                  </figure>
-                  <div class="d-flex flex-column justify-content-between fun-bookmark__past-desc-wrapper">
-                    <div>
-                      <a class="fun-bookmark__card-title" href="{{ video_url }}" data-fancybox>{{ article.title }}</a>
-                      <div class="artist-name">
-                        {{ articles[artist_name].title }}
-                      </div>
-
-                    </div>
+            <div class="fun-product-list__gallery-wrapper">
+                {% for image in article.metafields.video_url.video_url %}
+                  {% assign video_url = '' %}
+                    {% if article.metafields.video_url.video_url[forloop.index0] != blank %}     
+                       {% assign video_url = article.metafields.video_url.video_url[forloop.index0] %}
+                    {% endif %}
+                  <div class="link {% if video_url != blank %} link--anchor {% endif %}" {{ block.shopify_attributes }}>  
+                    {% if video_url contains "https://" or video_url contains "www." %}
+                      <a class="fun-bookmark__card-title" href="{{ video_url }}" data-fancybox>
+                        <img
+                           src="{{ installation_img.src }}"
+                           loading="lazy"
+                           width="{{ installation_img.width }}"
+                           height="{{ installation_img.height }}"
+                           alt="{{ installation_img.alt | escape }}">
+                        <svg width="89" height="89" viewBox="0 0 89 89" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <circle opacity="0.3" cx="44.5" cy="44.5" r="44.5" fill="white"/>
+                          <path d="M30.7266 26.78V61.4251C30.7266 64.067 33.6359 65.6722 35.8765 64.2342L63.0977 46.9116C65.171 45.6074 65.171 42.5977 63.0977 41.2601L35.8765 23.971C33.6359 22.533 30.7266 24.1382 30.7266 26.78Z" fill="#323232"/>
+                        </svg>              
+                      </a>
+                     {% endif %}
                   </div>
-                </article>
-              </div>
-
-          {%- endfor -%}
+                  {%  endfor %}
+               </div>
         </div>
 
       </div>
