@@ -16,7 +16,7 @@
   }
 {%- endstyle -%}
 
-
+{% assign list_size = article.metafields.video_url.video_url | size %}
 <section class="section section-{{ section.id }}-padding">
   <div class="container-xxl">
     <div class="row">
@@ -32,6 +32,9 @@
 
         <div class="row fun-bookmark__past-row">
             <div class="fun-product-list__gallery-wrapper">
+                {% if list_size == 0  %}
+                    <div class="error">Events are not available.</div>
+                {% endif %}
                 {% for image in article.metafields.video_url.video_url %}
                   {% assign video_url = '' %}
                     {% if article.metafields.video_url.video_url[forloop.index0] != blank %}     
