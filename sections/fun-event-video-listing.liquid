@@ -35,11 +35,11 @@
                     <div class="error">Events are not available.</div>
                 {% endif %}
             <div class="fun-product-list__gallery-wrapper">
-                {% for image in article.metafields.video_url.image %}
+                {% for image in article.metafields.image.image %}
                     {% assign events_image = '' %}
                     {% assign video_url = '' %}
-                        {% if article.metafields.video_url.image[forloop.index0] != blank %}      
-                            {% for image in article.metafields.video_url.image[forloop.index0] %}
+                        {% if article.metafields.image.image[forloop.index0] != blank %}      
+                            {% for image in article.metafields.image.image[forloop.index0] %}
                             {% assign events_image = image %}
                             {% endfor %}
                         {% endif %}
