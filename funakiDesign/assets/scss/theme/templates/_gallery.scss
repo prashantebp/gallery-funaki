@@ -63,6 +63,10 @@ animation: zoomin 1s ease; */
         position: absolute;
         right: 0;
         bottom: -44px;
+        border: 0;
+        &:hover,&:focus{
+            border: 0;
+        }
         &.fun-gallery__prev-btn{
             right: 18px;
         }
