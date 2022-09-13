@@ -236,6 +236,17 @@
                     min-height: auto;
                 }
             }
+
+            &--anchor{
+                & a {
+                    & img{
+                        width: 100%!important;
+                        height: 100%!important;
+                        aspect-ratio: 322/311;
+                        object-fit: cover;
+                    }
+                }
+            }
         }
     }
 
