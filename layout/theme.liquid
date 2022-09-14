@@ -278,5 +278,12 @@
  <!--begin-boost-pfs-js-->
    {% render 'boost-pfs' %}
  <!--end-boost-pfs-js-->
+ {% 'ajaxinate.min.js' | asset_url | script_tag  %}
+<script>
+      const endlessCollection = new Ajaxinate({
+      container: '#product-grid',
+      pagination: '.infinite_next',
+      });
+</script>
 </body>
 </html>
