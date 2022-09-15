@@ -6,7 +6,8 @@
   {{ 'component-slider.css' | asset_url | stylesheet_tag }}
   {{ 'component-rating.css' | asset_url | stylesheet_tag }}
   {{ 'component-loading-overlay.css' | asset_url | stylesheet_tag }}
-  {{ 'component-deferred-media.css' | asset_url | stylesheet_tag }}
+  <link rel="stylesheet" href="{{ 'component-deferred-media.css' | asset_url }}" media="print" onload="this.media='all'">
+
 
   {%- style -%}
     .section-{{ section.id }}-padding {
@@ -22,56 +23,53 @@
     }
   {%- endstyle -%}
 
+  <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
   <script>
-    function newLargeImage(x) {
-        let clickedImage = x.dataset.thumbId;
-        const newImage = document.querySelector(`[data-media-id="${clickedImage}"]`);
-        const parentData = newImage.parentElement;
+  function newLargeImage(x) {
+  let clickedImage = x.dataset.thumbId;
+  const newImage = document.querySelector(`[data-media-id="${clickedImage}"]`);
+  const parentData = newImage.parentElement;
+  
+  parentData.prepend(newImage);
+  newImage.style.display = "block";
+  
+  document.querySelectorAll('.slide-image')
+  .forEach(thumb => thumb. classList.remove('active-thumb'));
+  const sliderComp = document.querySelector("slider-component");
+  document.querySelector(`[data-thumb-id="${clickedImage}"] > img`).classList.add('active-thumb');
+  zoom();
+  }
+  window.setTimeout(() => {zoom()});
+  function zoom() {
+  const mediaSmall = window.matchMedia( '( min-width: 400px )' );
+  const imageZoom = document.querySelector('#large-image');
+  const zoomItem = document.querySelector("#large-image > li:nth-child(1)")
+  imageZoom.addEventListener("mouseout", function() {
+  zoomItem.style.transform = 'scale(1)';
+  });
+  if (mediaSmall.matches) {
+  imageZoom.addEventListener("mouseover", function() {
+  zoomItem.style.transform = 'scale(1.8)';
+  });
+  imageZoom.addEventListener("mousemove", function(e) {
+  const itemWidth = zoomItem.getBoundingClientRect().width;
+  const itemLeft = zoomItem.getBoundingClientRect().left;
+  const itemHt = zoomItem.getBoundingClientRect().height;
+  const itemTop = zoomItem.getBoundingClientRect().top + window.scrollY;
+  const translateX = Math.round((e.pageX - itemLeft ) / itemWidth * 100);
+  const translateY = Math.round((e.pageY - itemTop) / itemHt * 100);
+  zoomItem.style.transformOrigin = `${translateX}% ${translateY}%`;
+  });
+  }
+  }
+  </script>
 
-        parentData.prepend(newImage);
-        newImage.style.display = "block";
-
-        document.querySelectorAll('.slide-image')
-            .forEach(thumb => thumb.classList.remove('active-thumb'));
-        const sliderComp = document.querySelector("slider-component");
-        document.querySelector(`[data-thumb-id="${clickedImage}"] > img`).classList.add('active-thumb');
-        zoom();
-    }
-    window.setTimeout(() => {
-        zoom()
-    });
-
-    function zoom() {
-        const mediaSmall = window.matchMedia('( min-width: 400px )');
-        const imageZoom = document.querySelector('#large-image');
-        const zoomItem = document.querySelector("#large-image > li:nth-child(1)")
-        imageZoom.addEventListener("mouseout", function () {
-            zoomItem.style.transform = 'scale(1)';
-        });
-        if (mediaSmall.matches) {
-            imageZoom.addEventListener("mouseover", function () {
-                zoomItem.style.transform = 'scale(1.8)';
-            });
-            imageZoom.addEventListener("mousemove", function (e) {
-                const itemWidth = zoomItem.getBoundingClientRect().width;
-                const itemLeft = zoomItem.getBoundingClientRect().left;
-                const itemHt = zoomItem.getBoundingClientRect().height;
-                const itemTop = zoomItem.getBoundingClientRect().top + window.scrollY;
-                const translateX = Math.round((e.pageX - itemLeft) / itemWidth * 100);
-                const translateY = Math.round((e.pageY - itemTop) / itemHt * 100);
-                zoomItem.style.transformOrigin = `${translateX}% ${translateY}%`;
-            });
-        }
-    }
-</script>
-
-<script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
-  {%- assign first_3d_model = product.media | where: "media_type", "model" | first -%}
-  {%- if first_3d_model -%}
-    {{ 'component-product-model.css' | asset_url | stylesheet_tag }}
-    <link id="ModelViewerStyle" rel="stylesheet" href="https://cdn.shopify.com/shopifycloud/model-viewer-ui/assets/v1.0/model-viewer-ui.css" media="print" onload="this.media='all'">
-    <link id="ModelViewerOverride" rel="stylesheet" href="{{ 'component-model-viewer-ui.css' | asset_url }}" media="print" onload="this.media='all'">
-  {%- endif -%}
+{%- assign first_3d_model = product.media | where: "media_type", "model" | first -%}
+{%- if first_3d_model -%}
+{{ 'component-product-model.css' | asset_url | stylesheet_tag }}
+<link id="ModelViewerStyle" rel="stylesheet" href="https://cdn.shopify.com/shopifycloud/model-viewer-ui/assets/v1.0/model-viewer-ui.css" media="print" onload="this.media='all'">
+<link id="ModelViewerOverride" rel="stylesheet" href="{{ 'component-model-viewer-ui.css' | asset_url }}" media="print" onload="this.media='all'">
+{%- endif -%}
 
   <div class="row fun-product__row">
     <div class="col-md-7">
@@ -457,6 +455,79 @@
         </button>
         {%- endif -%}
       </div>
+
+      <div class="grid__item product__media-wrapper">
+
+        <div class="slider-container" >
+        <a class="skip-to-content-link button visually-hidden" href="#ProductInfo-{{ section.id }}">{{ "accessibility.skip_to_product_info" | t }}</a>
+        <ul class="large-image" id="large-image" data-scale="1.6">
+        {%- for media in product.media -%}
+        <li class="large-image-item product__media-item grid__item slider__slide
+        {% if media.media_type != 'image' %} hide-modal {% endif %}"
+        data-media-id="{{ section.id }}-{{ media.id }}"
+        data-background="zoom-image">
+        {% render 'product-thumbnail', media: media, position: forloop.index, loop: section.settings.enable_video_looping, modal_id: section.id, xr_button: true %}
+        </li>
+        {%- endfor -%}
+        </ul>
+        <slider-component class="slider-wrapper">
+        <ul class="product-slider-box slider" role="list">
+        {%- assign variant_images = product.images| where: 'attached_to_variant?', true | map: 'src' -%}
+        {%- for media in product.media -%}
+        <li class="product-slider slider__slide" onclick="newLargeImage(this)" data-thumb-id="{{ section.id }}-{{ media.id }}"
+        {% if section.settings.hide_variants and variant_images contains media.src %}
+        style="display: none;"
+        {% endif %} >
+        {% if media.media_type == 'video' %}
+        <div class="video-btn" style="display: block" >
+        <span class="product__media-icon motion-reduce v-btn" aria-hidden="true">
+        {%- liquid
+        case media.media_type
+        when 'video' or 'external_video'
+        render 'icon-play'
+        when 'model'
+        render 'icon-3d-model'
+        else
+        render 'icon-zoom'
+        endcase
+        -%}
+        </span>
+        <img class="slide-image {% if forloop.first %}active-thumb {% endif %}"
+        src="{{ media.preview_image | img_url: 'large' }}"
+        alt="{{ media.alt}}"
+        {% if section.settings.square_image == true %} style="aspect-ratio: 1;" {% endif %}>
+        </div>
+        {% else %}
+        <img class="slide-image {% if forloop.first %}active-thumb {% endif %}"
+        src="{{ media.preview_image | img_url: 'large' }}"
+        alt="{{ media.alt }}"
+        {% if section.settings.square_image == true %}style="aspect-ratio: 1;" {% endif %}>
+        {% endif %}
+        </li>
+        {% endfor %}
+        </ul>
+        <div class="button-wrapper {% if product.media.size < 3 %}hidden{% endif %}" >
+        <button type="button" class="slider-button slider-button--prev bigger-slider" name="previous" aria-label="{{ 'accessibility.previous_slide' | t }}">{% render 'icon-caret' %}</button>
+        <button type="button" class="slider-button slider-button--next bigger-slider" name="next" aria-label="{{ 'accessibility.next_slide' | t }}">{% render 'icon-caret' %}</button>
+        </div>
+        </slider-component>
+        </div>
+        
+        {%- if first_3d_model -%}
+        <button
+        class="button button--full-width product__xr-button"
+        type="button"
+        aria-label="{{ 'products.product.xr_button_label' | t }}"
+        data-shopify-xr
+        data-shopify-model3d-id="{{ first_3d_model.id }}"
+        data-shopify-title="{{ product.title | escape }}"
+        data-shopify-xr-hidden
+        >
+        {% render 'icon-3d-model' %}
+        {{ 'products.product.xr_button' | t }}
+        </button>
+        {%- endif -%}
+        </div>
     </div>
 
   </div>
