@@ -45,7 +45,7 @@
     function zoom() {
         const mediaSmall = window.matchMedia('( min-width: 400px )');
         const imageZoom = document.querySelector('#large-image');
-        const zoomItem = document.querySelector("#large-image > li:nth-child(2)")
+        const zoomItem = document.querySelector("#large-image > li:last-child()")
         imageZoom.addEventListener("mouseout", function () {
             zoomItem.style.transform = 'scale(1)';
         });
