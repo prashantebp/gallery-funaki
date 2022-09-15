@@ -74,71 +74,6 @@
 
   <div class="row fun-product__row">
     <div class="col-md-7">
-      <div id="product_main_carousel" class="fun-banner__carousel fun-product__carousel carousel slide">
-        <!-- <div class="carousel-inner"> -->
-          <div class="slider-container">
-            <a class="skip-to-content-link button visually-hidden"
-                href="#ProductInfo-{{ section.id }}">{{ "accessibility.skip_to_product_info" | t }}</a>
-            <ul class="large-image" id="large-image" data-scale="1.6">
-                {%- for media in product.media -%}
-                <li class="large-image-item product__media-item slider__slide   onclick="newLargeImage(this) 
-                    {% if media.media_type != 'image' %} hide-modal {% endif %}" data-media-id="{{ section.id }}-{{ media.id }}"
-                    data-background="zoom-image">
-                    {% render 'product-thumbnail', media: media, position: forloop.index, loop: section.settings.enable_video_looping, modal_id: section.id, xr_button: true %}
-                </li>
-                {%- endfor -%}
-            </ul>
-            <slider-component class="slider-wrapper ">
-                <ul class="product-slider-box slider" role="list">
-                    {%- assign variant_images = product.images| where: 'attached_to_variant?', true | map: 'src' -%}
-                    {%- for media in product.media -%}
-                    <li class="product-slider slider__slide " onclick="newLargeImage(this)"
-                        data-thumb-id="{{ section.id }}-{{ media.id }}" 
-                        {% if section.settings.hide_variants and variant_images contains media.src %}
-                        style="display: none;" {% endif %}>
-                        {% if media.media_type == 'video' %}
-                        <div class="video-btn" style="display: block">
-                            <span class="product__media-icon motion-reduce v-btn" aria-hidden="true">
-                                {%- liquid
-                                    case media.media_type
-                                    when 'video' or 'external_video'
-                                    render 'icon-play'
-                                    when 'model'
-                                    render 'icon-3d-model'
-                                    else
-                                    render 'icon-zoom'
-                                    endcase
-                                    -%}
-                            </span>
-                            <img class="slide-image {% if forloop.first %}active-thumb {% endif %}"
-                                src="{{ media.preview_image | img_url: 'large' }}" alt="{{ media.alt}}">
-                        </div>
-                        {% else %}
-                        <img class="slide-image {% if forloop.first %}active-thumb {% endif %}"
-                            src="{{ media.preview_image | img_url: 'large' }}" alt="{{ media.alt }}"
-                            {% if section.settings.square_image == true %}style="aspect-ratio: 1;" {% endif %}>
-                        {% endif %}
-                    </li>
-                    {% endfor %}
-                </ul>
-
-            </slider-component>
-        </div>
-
-        {%- if first_3d_model -%}
-        <button class="button button--full-width product__xr-button" type="button"
-            aria-label="{{ 'products.product.xr_button_label' | t }}" data-shopify-xr
-            data-shopify-model3d-id="{{ first_3d_model.id }}" data-shopify-title="{{ product.title | escape }}"
-            data-shopify-xr-hidden>
-            {% render 'icon-3d-model' %}
-            {{ 'products.product.xr_button' | t }}
-        </button>
-        {%- endif -%}
-      </div>
-    </div>
-    <div class="offset-lg-2 col-md-9 col-lg-7 fun-product__img-col">
-      <!-- <div id="product_main_carousel" class="fun-banner__carousel fun-product__carousel carousel slide" data-bs-ride="carousel"> -->
-      
       <div class="fun__info-wrapper">
         <div id="ProductInfo-{{ section.id }}" class="product__info-container{% if section.settings.enable_sticky_info %} product__info-container--sticky{% endif %}">
           {%- assign product_form_id = 'product-form-' | append: section.id -%}
@@ -457,6 +392,71 @@
           </a> {% endcomment %}
         </div>
       </div>
+    </div>
+    <div class="offset-lg-2 col-md-9 col-lg-7 fun-product__img-col">
+      <!-- <div id="product_main_carousel" class="fun-banner__carousel fun-product__carousel carousel slide" data-bs-ride="carousel"> -->
+        <div id="product_main_carousel" class="fun-banner__carousel fun-product__carousel carousel slide">
+          <!-- <div class="carousel-inner"> -->
+            <div class="slider-container">
+              <a class="skip-to-content-link button visually-hidden"
+                  href="#ProductInfo-{{ section.id }}">{{ "accessibility.skip_to_product_info" | t }}</a>
+              <ul class="large-image" id="large-image" data-scale="1.6">
+                  {%- for media in product.media -%}
+                  <li class="large-image-item product__media-item slider__slide   onclick="newLargeImage(this) 
+                      {% if media.media_type != 'image' %} hide-modal {% endif %}" data-media-id="{{ section.id }}-{{ media.id }}"
+                      data-background="zoom-image">
+                      {% render 'product-thumbnail', media: media, position: forloop.index, loop: section.settings.enable_video_looping, modal_id: section.id, xr_button: true %}
+                  </li>
+                  {%- endfor -%}
+              </ul>
+              <slider-component class="slider-wrapper ">
+                  <ul class="product-slider-box slider" role="list">
+                      {%- assign variant_images = product.images| where: 'attached_to_variant?', true | map: 'src' -%}
+                      {%- for media in product.media -%}
+                      <li class="product-slider slider__slide " onclick="newLargeImage(this)"
+                          data-thumb-id="{{ section.id }}-{{ media.id }}" 
+                          {% if section.settings.hide_variants and variant_images contains media.src %}
+                          style="display: none;" {% endif %}>
+                          {% if media.media_type == 'video' %}
+                          <div class="video-btn" style="display: block">
+                              <span class="product__media-icon motion-reduce v-btn" aria-hidden="true">
+                                  {%- liquid
+                                      case media.media_type
+                                      when 'video' or 'external_video'
+                                      render 'icon-play'
+                                      when 'model'
+                                      render 'icon-3d-model'
+                                      else
+                                      render 'icon-zoom'
+                                      endcase
+                                      -%}
+                              </span>
+                              <img class="slide-image {% if forloop.first %}active-thumb {% endif %}"
+                                  src="{{ media.preview_image | img_url: 'large' }}" alt="{{ media.alt}}">
+                          </div>
+                          {% else %}
+                          <img class="slide-image {% if forloop.first %}active-thumb {% endif %}"
+                              src="{{ media.preview_image | img_url: 'large' }}" alt="{{ media.alt }}"
+                              {% if section.settings.square_image == true %}style="aspect-ratio: 1;" {% endif %}>
+                          {% endif %}
+                      </li>
+                      {% endfor %}
+                  </ul>
+  
+              </slider-component>
+          </div>
+  
+          {%- if first_3d_model -%}
+          <button class="button button--full-width product__xr-button" type="button"
+              aria-label="{{ 'products.product.xr_button_label' | t }}" data-shopify-xr
+              data-shopify-model3d-id="{{ first_3d_model.id }}" data-shopify-title="{{ product.title | escape }}"
+              data-shopify-xr-hidden>
+              {% render 'icon-3d-model' %}
+              {{ 'products.product.xr_button' | t }}
+          </button>
+          {%- endif -%}
+        </div>
+      
     </div>
 
   </div>
