@@ -22,7 +22,6 @@
     }
   {%- endstyle -%}
 
-  <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
   <script>
     function newLargeImage(x) {
         let clickedImage = x.dataset.thumbId;
@@ -65,6 +64,8 @@
         }
     }
 </script>
+
+<script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
   {%- assign first_3d_model = product.media | where: "media_type", "model" | first -%}
   {%- if first_3d_model -%}
     {{ 'component-product-model.css' | asset_url | stylesheet_tag }}
