@@ -54,7 +54,7 @@
      });
     </script>
     
-   <script>
+   <!-- <script>
     var gallery = document.querySelector('#gallery');
     var getVal = function (elem, style) { return parseInt(window.getComputedStyle(elem).getPropertyValue(style)); };
     var getHeight = function (item) { return item.querySelector('.content').getBoundingClientRect().height; };
@@ -81,13 +81,13 @@
       doit = setTimeout(resizeAll, 300);
     };
     window.addEventListener('resize', resizeAll);
-    {% comment %} gallery.querySelectorAll('.gallery-item').forEach(function (item) {
+    gallery.querySelectorAll('.gallery-item').forEach(function (item) {
         item.addEventListener('click', function () {        
             item.classList.toggle('full');        
         });
     });
-     {% endcomment %}
-   </script>
+    
+   </script> -->
    
    
    {% schema %}

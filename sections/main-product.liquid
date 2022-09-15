@@ -402,9 +402,9 @@
                 href="#ProductInfo-{{ section.id }}">{{ "accessibility.skip_to_product_info" | t }}</a>
             <ul class="large-image" id="large-image" data-scale="1.6">
                 {%- for media in product.media -%}
-                <li class="large-image-item product__media-item slider__slide
+                <li class="large-image-item product__media-item slider__slide   onclick="newLargeImage(this) 
                     {% if media.media_type != 'image' %} hide-modal {% endif %}" data-media-id="{{ section.id }}-{{ media.id }}"
-                    data-background="zoom-image" onclick="newLargeImage(this)" >
+                    data-background="zoom-image">
                     {% render 'product-thumbnail', media: media, position: forloop.index, loop: section.settings.enable_video_looping, modal_id: section.id, xr_button: true %}
                 </li>
                 {%- endfor -%}
@@ -468,7 +468,7 @@
   {%- endif -%}
 
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('DOMContentLoaded', function() {
       function isIE() {
         const ua = window.navigator.userAgent;
         const msie = ua.indexOf('MSIE ');
@@ -484,7 +484,7 @@
       noScriptInputWrapper.innerHTML = document.querySelector('.product-form__noscript-wrapper-{{ section.id }}').textContent;
       variantSwitcher.outerHTML = noScriptInputWrapper.outerHTML;
 
-      document.querySelector('#Variants-{{ section.id }}').addEventListener('change', function(event) {
+      document.querySelector('#Variants-{{ section.id }}').querySelectorAll('change', function(event) {
         hiddenInput.value = event.currentTarget.value;
       });
     });
