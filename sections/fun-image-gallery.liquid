@@ -72,6 +72,7 @@
                 var gap = getVal(gallery, 'grid-row-gap');
                 var gitem = item.parentElement.parentElement;
                 // gitem.style.gridRowEnd = "span " + Math.ceil((getHeight(gitem) + gap) / (altura + gap));
+                gitem.style.gridRowEnd = "span " + Math.ceil((getHeight(gitem) + gap));
             });
     });
 
