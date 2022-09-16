@@ -50,7 +50,7 @@
             zoomItem.style.transform = 'scale(1)';
         });
         if (mediaSmall.matches) {
-            imageZoom.addEventListener("mouseover", function () {
+            imageZoom.addEventListener("mouseover", function (e) {
                 zoomItem.style.transform = 'scale(1.8)';
             });
             imageZoom.addEventListener("mousemove", function (e) {
