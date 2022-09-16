@@ -103,8 +103,8 @@
                             {% endif %}
                         </figure>
                         <div class="fun-featured__details">
-                            <span class="fun-featured__desc"><a href="{{ product.url }}">{{ product.title }} </a></span>
-                            <span class="fun-featured__desc">{{ product.description | truncate: 30 }}</span>
+                            <span class="fun-featured__desc">{{ product.title }}</span>
+                            <span class="fun-featured__desc">{{ product.description | truncatewords: 8 }}</span>
                             {% render 'price' %}
                         </div>
                         <a href="{{ product.url }}" class="fun-featured__anchor">{{ product.title }}</a>
