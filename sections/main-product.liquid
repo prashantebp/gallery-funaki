@@ -46,14 +46,14 @@
         const mediaSmall = window.matchMedia('( min-width: 400px )');
         const imageZoom = document.querySelector('#large-image');
         const zoomItem = document.querySelector("#large-image > li:nth-child(1) ")
-        imageZoom.addEventListener("mouseout", function (e) {
+        imageZoom.addEventListener("mouseout", function () {
             zoomItem.style.transform = 'scale(1)';
         });
         if (mediaSmall.matches) {
-            imageZoom.addEventListener("mouseover", function (e) {
+            imageZoom.addEventListener("mouseover", function () {
                 zoomItem.style.transform = 'scale(1.8)';
             });
-            imageZoom.addEventListener("mousemove", function (e) {
+            imageZoom.addEventListener("mousemove", function () {
                 const itemWidth = zoomItem.getBoundingClientRect().width;
                 const itemLeft = zoomItem.getBoundingClientRect().left;
                 const itemHt = zoomItem.getBoundingClientRect().height;
