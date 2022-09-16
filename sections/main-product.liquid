@@ -68,7 +68,7 @@
 
 
   <div class="row fun-product__row">
-    <div class="offset-lg-2 col-md-9 col-lg-7 fun-product__img-col">
+    <div class="col-md-7">
       <!-- <div id="product_main_carousel" class="fun-banner__carousel fun-product__carousel carousel slide" data-bs-ride="carousel"> -->
         <div id="product_main_carousel" class="fun-banner__carousel fun-product__carousel carousel slide">
           <!-- <div class="carousel-inner"> -->
@@ -131,7 +131,7 @@
           {%- endif -%}
         </div>
     </div>
-    <div class="col-md-7">
+    <div class="offset-lg-2 col-md-9 col-lg-7 fun-product__img-col">
       <div class="fun__info-wrapper">
         <div id="ProductInfo-{{ section.id }}" class="product__info-container{% if section.settings.enable_sticky_info %} product__info-container--sticky{% endif %}">
           {%- assign product_form_id = 'product-form-' | append: section.id -%}
