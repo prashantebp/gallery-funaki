@@ -62,7 +62,7 @@ if (!customElements.get('media-gallery')) {
       thumbnail.querySelector('button').setAttribute('aria-current', true);
       if (this.elements.thumbnails.isSlideVisible(thumbnail, 10)) return;
 
-      this.elements.thumbnails.slider.scrollTo({ left: thumbnail.offsetLeft });
+      this.elements.thumbnails.slider.scrollTo({ right: thumbnail.offsetRight });
     }
 
     announceLiveRegion(activeItem, position) {
