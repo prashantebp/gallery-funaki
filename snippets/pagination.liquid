@@ -65,19 +65,19 @@
               <span><i class="fa fa-chevron-left"></i> <span>{{ 'general.paginate.prev' | t }}</span></span>
           </li>
       {% endif %}
-      {% for part in paginate.parts %}
-          {% if part.is_link %}
-              <li>
-                  <a href="{{ part.url }}" title="">{{ part.title }}</a>
-              </li>
-          {% else %}
-              {% if part.title == paginate.current_page %}
-                  <li class="active"><span>{{ part.title }}</span></li>
-              {% else %}
-                  <li><span>{{ part.title }}</span></li>
-              {% endif %}
-          {% endif %}
-      {% endfor %}
+      {%- for part in paginate.parts -%}
+        <li>
+          {%- if part.is_link -%}
+            <a href="{{ part.url }}{{ anchor }}" class="pagination__item link" aria-label="{{ 'general.pagination.page' | t: number: part.title }}">{{ part.title }}</a>
+          {%- else -%}
+            {%- if part.title == paginate.current_page -%}
+              <span class="pagination__item pagination__item--current" aria-current="page" aria-label="{{ 'general.pagination.page' | t: number: part.title }}">{{ part.title }}</span>
+            {%- else -%}
+              <span class="pagination__item">{{ part.title }}</span>
+            {%- endif -%}
+          {%- endif -%}
+        </li>
+      {%- endfor -%}
       {% if paginate.next %}
           <li class="infinite_next">
             <a href="{{ paginate.next.url }}{{ anchor }}" class="pagination__item pagination__item--prev pagination__item-arrow link motion-reduce" aria-label="{{ 'general.pagination.next' | t }}" >
