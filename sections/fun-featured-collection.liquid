@@ -108,7 +108,7 @@
                               {%- if product.excerpt.size > 0 -%}
                               {{ product.description | truncate: 30 }}
                                   {%- else -%}
-                                  {{ product.description | truncate: 30 }}
+                                  {{ product.description | truncate: 30 }} 
                                   {%- endif -%}
                             </span>
                             {% render 'price' %}
