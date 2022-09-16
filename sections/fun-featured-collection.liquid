@@ -104,7 +104,13 @@
                         </figure>
                         <div class="fun-featured__details">
                             <span class="fun-featured__desc">{{ product.title }}</span>
-                            <span class="fun-featured__desc">{{ product.description | truncatewords: 10 }}</span>
+                            <span class="fun-featured__desc">
+                              {%- if product.excerpt.size > 0 -%}
+                              {{ product.description | truncatewords: 10 }}
+                                  {%- else -%}
+                                  {{ product.description | truncatewords: 10 }}
+                                  {%- endif -%}
+                            </span>
                             {% render 'price' %}
                         </div>
                         <a href="{{ product.url }}" class="fun-featured__anchor">{{ product.title }}</a>
