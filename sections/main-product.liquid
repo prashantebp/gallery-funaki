@@ -38,9 +38,8 @@
         document.querySelector(`[data-thumb-id="${clickedImage}"] > img`).classList.add('active-thumb');
         zoom();
     }
-    window.setTimeout(() => {
-        zoom()
-    });
+    document.addEventListener("DOMContentLoaded", zoom());
+
 
     function zoom() {
         const mediaSmall = window.matchMedia('( min-width: 400px )');
