@@ -54,12 +54,12 @@
 
 <nav class="velaPagination clearfix">
   <ul class="pagination">
-      {% if paginate.previous %}
-          <li class="pagiPrevious">
-              <a href="{{ paginate.previous.url }}" title="{{ 'general.paginate.prev' | t }}">
-                  <i class="fa fa-chevron-left"></i> <span>{{ 'general.paginate.prev' | t }}</span>
-              </a>
-          </li>
+    {%- if paginate.previous -%}
+    <li>
+      <a href="{{ paginate.previous.url }}{{ anchor }}" class="pagination__item pagination__item--next pagination__item-arrow link motion-reduce" aria-label="{{ 'general.pagination.previous' | t }}">
+        {% render 'icon-caret' %}
+      </a>
+    </li>
       {% else %}
           <li class="disabled">
               <span><i class="fa fa-chevron-left"></i> <span>{{ 'general.paginate.prev' | t }}</span></span>
@@ -79,10 +79,10 @@
           {% endif %}
       {% endfor %}
       {% if paginate.next %}
-          <li class="pagiNext">
-              <a href="{{ paginate.next.url }}" title="{{ 'general.paginate.next' | t }}">
-                  <span>{{ 'general.paginate.next' | t }}</span> <i class="fa fa-chevron-right"></i>
-              </a>
+          <li class="infinite_next">
+            <a href="{{ paginate.next.url }}{{ anchor }}" class="pagination__item pagination__item--prev pagination__item-arrow link motion-reduce" aria-label="{{ 'general.pagination.next' | t }}" >
+              {%- render 'icon-caret' -%}
+            </a>
           </li>
       {% else %}
           <li class="disabled">
