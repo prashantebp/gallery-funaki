@@ -53,7 +53,7 @@
             imageZoom.addEventListener("mouseover", function () {
                 zoomItem.style.transform = 'scale(1.8)';
             });
-            imageZoom.addEventListener("mousemove", function () {
+            imageZoom.addEventListener("mousemove", function (e) {
                 const itemWidth = zoomItem.getBoundingClientRect().width;
                 const itemLeft = zoomItem.getBoundingClientRect().left;
                 const itemHt = zoomItem.getBoundingClientRect().height;
