@@ -144,9 +144,8 @@
         {% if  count == 0 %}
           <div class="error">{{ section.settings.empty_message }}</div>                    
         {% endif %}
-        {% if paginate.pages > 1 %}
-            {% include 'pagination' %}
-        {% endif %}
+        {% render 'load-more', next_page: paginate.next.url, page_size: paginate.pages, load_more_text: "Load more", end_text: "No more products to load" %}
+
         {% endpaginate %}
     </div>
   </div>
