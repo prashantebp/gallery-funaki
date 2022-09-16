@@ -104,7 +104,7 @@
                         </figure>
                         <div class="fun-featured__details">
                             <span class="fun-featured__desc">{{ product.title }}</span>
-                            <span class="fun-featured__desc">{{ product.description }}</span>
+                            <span class="fun-featured__desc">{{ product.description | truncate: 30 }}</span>
                             {% render 'price' %}
                         </div>
                         <a href="{{ product.url }}" class="fun-featured__anchor">{{ product.title }}</a>
