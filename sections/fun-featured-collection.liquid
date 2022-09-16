@@ -106,9 +106,9 @@
                             <span class="fun-featured__desc">{{ product.title }}</span>
                             <span class="fun-featured__desc">
                               {%- if product.excerpt.size > 0 -%}
-                              {{ product.description | truncate: 10 }}
+                              {{ product.description | truncate: 30 }}
                                   {%- else -%}
-                                  {{ product.description | truncate: 10 }}
+                                  {{ product.description | truncate: 30 }}
                                   {%- endif -%}
                             </span>
                             {% render 'price' %}
