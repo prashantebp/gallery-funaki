@@ -41,7 +41,7 @@ if (!customElements.get('media-gallery')) {
       this.preventStickyHeader();
       window.setTimeout(() => {
         if (this.elements.thumbnails) {
-          activeMedia.parentElement.scrollTo({ left: activeMedia.offsetLeft });
+          activeMedia.parentElement.scrollTo({ right: activeMedia.offsetRight });
         }
         if (!this.elements.thumbnails || this.dataset.desktopLayout === 'stacked') {
           activeMedia.scrollIntoView({behavior: 'smooth'});
