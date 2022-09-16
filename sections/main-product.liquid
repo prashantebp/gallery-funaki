@@ -38,7 +38,7 @@
         document.querySelector(`[data-thumb-id="${clickedImage}"] > img`).classList.add('active-thumb');
         zoom();
     }
-    body.setTimeout(() => {
+    window.setTimeout(() => {
         zoom()
     });
 
