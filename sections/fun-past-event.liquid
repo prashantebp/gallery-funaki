@@ -69,9 +69,9 @@
       </div>
     </div>
     <div class="row fun-bookmark__past-row">
-      {% paginate blog.articles by 4 %}
+      {% paginate blog.articles by 8 %}
       {% assign count = 0 %}
-      {%- for article in section.settings.blog.articles limit: section.settings.post_limit -%}
+      {%- for article in section.settings.blog.articles -%}
 
           {% assign today_date = 'now' | date: '%s' %}
           
