@@ -69,7 +69,7 @@
       </div>
     </div>
     <div class="row fun-bookmark__past-row">
-      {%- paginate section.settings.blog.articles by section.settings.post_limit -%}
+      {% paginate blog.articles by 3 %}
       {% assign count = 0 %}
       {%- for article in section.settings.blog.articles -%}
 
@@ -141,7 +141,9 @@
               </div>
         {% endif %}
         {%- endfor -%}
-        {% render 'load-more', next_page: paginate.next.url, page_size: paginate.pages, load_more_text: "Load more", end_text: "No more products to load" %}
+        {% if paginate.pages > 1 %}
+          {% include 'pagination' %}
+        {% endif %}
         {%- endpaginate -%}
         {% if  count == 0 %}
           <div class="error">{{ section.settings.empty_message }}</div>                    
