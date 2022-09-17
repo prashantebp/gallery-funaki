@@ -69,7 +69,7 @@
       </div>
     </div>
     <div class="row fun-bookmark__past-row">
-      {% paginate section.settings.blog.articles by 3 %}
+      {% paginate section.settings.blog.articles by 1 %}
       {% assign count = 0 %}
       {%- for article in section.settings.blog.articles -%}
 
