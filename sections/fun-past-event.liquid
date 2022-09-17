@@ -69,7 +69,6 @@
       </div>
     </div>
     <div class="row fun-bookmark__past-row">
-      {% paginate section.settings.blog.articles by 3 %}
       {% assign count = 0 %}
       {%- for article in section.settings.blog.articles -%}
 
@@ -78,6 +77,7 @@
           {% assign pre_date = article.metafields.exhibitions.start_date | date: '%s' %}
           {% assign post_date = article.metafields.exhibitions.end_date | date: '%s' %}
           {% if today_date > pre_date and today_date > post_date %}
+          {% paginate section.settings.blog.articles by 3 %}
           {% assign count = count | plus: 1  %}
             <div class="col-sm-8 col-md-4 fun-bookmark__col--past">
                 <article class="fun-bookmark__card fun-bookmark__card--past {{ section.settings.custom_class }}">
@@ -139,12 +139,12 @@
                   </div>
                 </article>
               </div>
-        {% endif %}
-        {%- endfor -%}
-        {% if paginate.pages > 1 %}
+              {% if paginate.pages > 1 %}
           {% include 'pagination' %}
         {% endif %}
         {%- endpaginate -%}
+        {% endif %}
+        {%- endfor -%}
         {% if  count == 0 %}
           <div class="error">{{ section.settings.empty_message }}</div>                    
         {% endif %}
