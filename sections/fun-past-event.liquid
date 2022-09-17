@@ -69,9 +69,9 @@
       </div>
     </div>
     <div class="row fun-bookmark__past-row">
-      {% paginate blog.articles by 3 %}
-      {% assign count = 0 %}
-      {% assign today_date = 'now' | date: '%s' %}
+        {% paginate blog.articles by 3 %}
+          {% assign count = 0 %}
+          {% assign today_date = 'now' | date: '%s' %}
           {% assign pre_date = article.metafields.exhibitions.start_date | date: '%s' %}
           {% assign post_date = article.metafields.exhibitions.end_date | date: '%s' %}
           {% if today_date > pre_date and today_date > post_date %}
@@ -138,9 +138,9 @@
                   </article>
               </div>
             {%- endfor -%}
+            {% endif %}
             {% if paginate.pages > 1 %}
               {% include 'pagination' %}
-            {% endif %}
             {% endif %}
         {%- endpaginate -%}
         {% if  count == 0 %}
