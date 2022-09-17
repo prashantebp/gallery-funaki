@@ -69,8 +69,9 @@
       </div>
     </div>
     <div class="row fun-bookmark__past-row">
+      {%- paginate customer.addresses by section.settings.post_limit -%}
       {% assign count = 0 %}
-      {%- for article in section.settings.blog.articles limit: section.settings.post_limit -%}
+      {%- for article in section.settings.blog.articles -%}
 
           {% assign today_date = 'now' | date: '%s' %}
           
@@ -140,6 +141,8 @@
               </div>
         {% endif %}
         {%- endfor -%}
+        {% render 'load-more', next_page: paginate.next.url, page_size: paginate.pages, load_more_text: "Load more", end_text: "No more products to load" %}
+        {%- endpaginate -%}
         {% if  count == 0 %}
           <div class="error">{{ section.settings.empty_message }}</div>                    
         {% endif %}
