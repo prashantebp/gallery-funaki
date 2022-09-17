@@ -69,9 +69,8 @@
       </div>
     </div>
     <div class="row fun-bookmark__past-row">
-      {% paginate blog.articles by 4 %}
       {% assign count = 0 %}
-      {%- for article in section.settings.blog.articles -%}
+      {%- for article in section.settings.blog.articles limit: section.settings.post_limit -%}
 
           {% assign today_date = 'now' | date: '%s' %}
           
@@ -144,10 +143,6 @@
         {% if  count == 0 %}
           <div class="error">{{ section.settings.empty_message }}</div>                    
         {% endif %}
-        {% if paginate.pages > 1 %}
-        {% render 'load-more', next_page: paginate.next.url, page_size: paginate.pages, load_more_text: "Load more", end_text: "No more products to load" %}
-        {% endif %}
-        {% endpaginate %}
     </div>
   </div>
 </section>
@@ -156,7 +151,7 @@
   document.addEventListener('DOMContentLoaded', function(){
     new Splide( '.js-splide-1', {
         perMove: 1,
-        // gap: "29px",
+        gap: "29px",
         autoWidth:true,
         pagination: false,
 
