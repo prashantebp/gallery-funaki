@@ -69,7 +69,7 @@
       </div>
     </div>
     <div class="row fun-bookmark__past-row">
-      {% paginate section.settings.blog.articles by 3 %}
+      {% paginate blog.articles by 3 %}
       {% assign count = 0 %}
       {% assign today_date = 'now' | date: '%s' %}
           {% assign pre_date = article.metafields.exhibitions.start_date | date: '%s' %}
