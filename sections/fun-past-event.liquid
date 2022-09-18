@@ -70,7 +70,7 @@
     </div>
     <div class="row fun-bookmark__past-row">
       {% assign count = 0 %}
-      {%- paginate blogs[section.settings.blog].articles by 9 -%}
+      {%- paginate blogs[section.settings.blog].articles by 4 -%}
       {%- for article in section.settings.blog.articles -%}
 
           {% assign today_date = 'now' | date: '%s' %}
