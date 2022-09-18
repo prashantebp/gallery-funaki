@@ -78,7 +78,6 @@
           {% assign pre_date = article.metafields.exhibitions.start_date | date: '%s' %}
           {% assign post_date = article.metafields.exhibitions.end_date | date: '%s' %}
          
-          {% assign count = count | plus: 1  %}
             <div class="col-sm-8 col-md-4 fun-bookmark__col--past">
                 <article class="fun-bookmark__card fun-bookmark__card--past {{ section.settings.custom_class }}">
                   <figure class="fun-bookmark__fig">
