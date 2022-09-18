@@ -75,6 +75,7 @@
           {% assign pre_date = article.metafields.exhibitions.start_date | date: '%s' %}
           {% assign post_date = article.metafields.exhibitions.end_date | date: '%s' %}
       {% if today_date > pre_date and today_date > post_date %}
+      test
       {%- paginate blogs[section.settings.blog].articles by 4 -%}
       {%- for article in section.settings.blog.articles -%}
       {% assign count = count | plus: 1  %}
