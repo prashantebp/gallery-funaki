@@ -72,7 +72,7 @@
       {% assign count = 0 %}
       {%- paginate blogs[section.settings.blog].articles by 4 -%}
       {%- for article in section.settings.blog.articles -%}
-
+      {% assign count = count | plus: 1  %}
           {% assign today_date = 'now' | date: '%s' %}
           
           {% assign pre_date = article.metafields.exhibitions.start_date | date: '%s' %}
