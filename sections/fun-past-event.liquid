@@ -70,6 +70,7 @@
     </div>
     <div class="row fun-bookmark__past-row">
       {% assign count = 0 %}
+      {% if today_date > pre_date and today_date > post_date %}
       {%- paginate blogs[section.settings.blog].articles by 4 -%}
       {%- for article in section.settings.blog.articles -%}
       {% assign count = count | plus: 1  %}
@@ -144,6 +145,7 @@
         {% endif %}
         {{ count }}
         {%- endpaginate -%}
+        {% endif %}
         {% if  count == 0 %}
           <div class="error">{{ section.settings.empty_message }}</div>                    
         {% endif %}
