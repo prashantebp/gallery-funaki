@@ -38,6 +38,10 @@
         <div class="row fun-featured__row">
             {%- for product in collections.all.products -%}
                 {%- unless product.handle == current_product.handle -%}
+                {% if product.type== empty %}
+                <h1>test </h1>
+                
+                {% endif %}
                 
                     {% if section.settings.recommended_by == 'type' %}
                         {% if current_product.type == product.type %}
