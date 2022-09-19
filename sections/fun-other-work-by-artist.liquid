@@ -35,12 +35,7 @@
                 {%- endif -%}
             </div>
         </div>
-        
         <div class="row fun-featured__row">
-
-            <div class="col-sm-8 col-lg-4 fun-featured__col">
-                test
-            </div>
             {%- for product in collections.all.products -%}
                 {%- unless product.handle == current_product.handle -%}
                 
