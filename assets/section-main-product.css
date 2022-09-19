@@ -1210,7 +1210,8 @@ a.product__text {
   }
 
   .slider-container .fun-banner__actions{
-    padding: 8px 19px;
+    padding: 8px 0 19px;
+    width: 100%;
   }
   
   .large-image-item {
