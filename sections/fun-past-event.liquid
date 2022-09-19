@@ -110,7 +110,7 @@
                       {%- if  section.settings.custom_class == "fun-bookmark__card--past-new" -%}
                         <date class="fun-event__date mb-4 d-flex">{{ article.metafields.custom.start_date | date: "%d %b" }} - {{ article.metafields.custom.end_date | date: "%d %b %Y" }}</date>
                       {%- else -%}
-                        <h4 class="fun-bookmark__subtitle fun-bookmark__subtitle--past section-subtitle">
+                        <h4 class="fun-bookmark__subtitle fun-bookmark__subtitle--past section-subtitle mb-0">
                           {%- if article.excerpt.size > 0 or article.content.size > 0 -%}
                               {%- if article.excerpt.size > 0 -%}
                                 {{ article.excerpt | strip_html | truncate: 50 }}

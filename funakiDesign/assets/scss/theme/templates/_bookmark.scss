@@ -13,6 +13,11 @@
 
     }
 
+    &__artist-list{
+        font-family: var(--overpass);
+        color: var(--neutral-grey-800);
+    }
+
     &__past-row{
         display: grid;
         grid-row-gap: 40px;
