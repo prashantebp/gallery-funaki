@@ -31,14 +31,17 @@
         <div class="row">
             <div classs="col-16">
                 {%- if section.settings.heading != blank -%}
-                    <h2 class="section-title title-{{ section.id }}-margin">{{ section.settings.heading | escape }} test{{ product.type }} </h2>
+                    <h2 class="section-title title-{{ section.id }}-margin">{{ section.settings.heading | escape }}</h2>
                 {%- endif -%}
             </div>
-            
+            {{ product.type }} 
         </div>
         
         <div class="row fun-featured__row">
-            
+
+            <div class="col-sm-8 col-lg-4 fun-featured__col">
+                test
+            </div>
             {%- for product in collections.all.products -%}
                 {%- unless product.handle == current_product.handle -%}
                 
