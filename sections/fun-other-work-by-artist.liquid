@@ -76,7 +76,7 @@
                             {% elsif counter == 0 %}
                             <div class="text-center error">No {% if section.settings.heading != blank %} {{ section.settings.heading}} {% else %} data {% endif %}</div>
                             {%- break -%}
-                            {% endif %}
+                        {% endif %}
                     {% elsif section.settings.recommended_by == 'vendor' %}
                         {% if current_product.vendor == product.vendor %}
                             <div class="col-sm-8 col-lg-4 fun-featured__col">
@@ -115,8 +115,6 @@
                             <div class="text-center error">No {% if section.settings.heading != blank %} {{ section.settings.heading}} {% else %} data {% endif %}</div>
                             {%- break -%}
                         {% endif %}
-                        {% else %}
-                            <div class="text-center error">No {% if section.settings.heading != blank %} {{ section.settings.heading}} {% else %} data {% endif %}</div>
                     {%- endif -%}
                     
                     
