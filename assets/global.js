@@ -1,6 +1,6 @@
 //Product slider
 jQuery(document).ready(function(jQuery){
-  jQuery('.large-image-item').slick({
+  jQuery('#large-image').slick({
       slidesToShow: 1,
       slidesToScroll: 1,
       arrows: true,
