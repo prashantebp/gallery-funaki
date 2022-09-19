@@ -474,6 +474,7 @@ a.product__text {
   aspect-ratio: unset;
   object-fit: contain;
   max-height: 559px;
+  height: auto !important;
 }
 
 @media screen and (max-width: 749px) {
