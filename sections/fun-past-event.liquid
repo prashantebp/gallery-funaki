@@ -122,7 +122,9 @@
                       {%- endif -%}
                     </div>
                     <div>
-                      <div class="fun-blog-detail__artist-list">                    
+                      <div class="fun-blog-detail__artist-list">  
+                        {% assign artist_name = article.metafields.exhibition.choose_artist | split: "|" %}
+                        {% assign artist_size = article.metafields.exhibition.choose_artist | size %}
                         {% for artist in artist_name %}
                           <div class="fun-blog-detail__artist-list--item">
                             <a class="author-link" href="{{ articles[artist].url | escape }}">{{ articles[artist].title | escape }}</a>
