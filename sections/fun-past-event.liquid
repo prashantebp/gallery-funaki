@@ -126,7 +126,13 @@
                         {% assign artist_name = article.metafields.exhibition.choose_artist | split: "|" %}
                         {% assign artist_size = article.metafields.exhibition.choose_artist | size %}
                         {% for artist in artist_name %}
-                            <a  href="{{ articles[artist].url | escape }}">{{ articles[artist].title | split: ", " }}</a>
+                            <a  href="{{ articles[artist].url | escape }}">{{ articles[artist].title }}
+                              {% unless forloop.last %}
+                                },
+                                {% else %}
+                                }
+                                {% endunless %}
+                            </a>
                         {% endfor %}                    
                       </div>
                     </div>
