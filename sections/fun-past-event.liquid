@@ -121,6 +121,7 @@
                         </h4>
                       {%- endif -%}
                     </div>
+                    {% if artist_name != blank %}
                     <div>
                       <div class="fun-bookmark__artist-list">  
                         {% assign artist_name = article.metafields.exhibition.choose_artist | split: "|" %}
@@ -130,6 +131,7 @@
                         {% endfor %}                    
                     </div>
                     </div>
+                    {%- endif -%}
 
                       <div>
                         {%- if  section.settings.custom_class == "fun-bookmark__card--past-new" -%}
