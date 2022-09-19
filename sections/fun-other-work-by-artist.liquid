@@ -40,7 +40,7 @@
                 {%- unless product.handle == current_product.handle -%}
                 
                     {% if section.settings.recommended_by == 'type' %}
-                        {% if current_product.type == product.type || current_product.type== null  %}
+                        {% if current_product.type == product.type %}
                             <div class="col-sm-8 col-lg-4 fun-featured__col">
                                 <article class="fun-featured__card">
                                     <figure class="fun-featured__figure">
