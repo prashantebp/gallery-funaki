@@ -470,6 +470,12 @@ a.product__text {
   border-radius: calc(var(--media-radius) - var(--media-border-width));
 }
 
+.product__media-item .slide-image{
+  aspect-ratio: unset;
+  object-fit: contain;
+  max-height: 559px;
+}
+
 @media screen and (max-width: 749px) {
   .product__media-list {
     margin-left: -2.5rem;
