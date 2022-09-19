@@ -42,8 +42,8 @@ jQuery('.product-slider-box').slick({
     focusOnSelect: true,
     infinite: true,
     arrows: true,
-    prevArrow: '.slider-button--prev',
-    nextArrow: '.slider-button--next'
+    prevArrow: '.fun-banner__prev-btn',
+    nextArrow: '.fun-banner__next-btn'
     
 });
 
