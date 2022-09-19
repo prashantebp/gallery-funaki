@@ -116,10 +116,7 @@
                             {%- break -%}
                         {% endif %}
                         {% else %}
-                        {% if current_product.vendor == null %}
                             <div class="text-center error">No {% if section.settings.heading != blank %} {{ section.settings.heading}} {% else %} data {% endif %}</div>
-                            {%- break -%}
-                        {% endif %}
                     {%- endif -%}
                     
                     
