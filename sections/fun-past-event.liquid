@@ -123,7 +123,7 @@
                     </div>
                     <div>
                       <div class="fun-bookmark__artist-list">  
-                        {% assign artist_name = article.metafields.exhibition.choose_artist | split: "|" %}
+                        {% assign artist_name = article.metafields.exhibition.choose_artist %}
                         {% assign artist_size = article.metafields.exhibition.choose_artist | size %}
                         {% for artist in artist_name %}
                             <a  href="{{ articles[artist].url | escape }}">{{ articles[artist].title }}</a>
