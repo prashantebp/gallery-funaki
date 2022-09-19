@@ -1206,6 +1206,11 @@ a.product__text {
   height: 100%;
   position: relative;
   overflow:hidden;
+  margin-bottom: 0;
+  }
+
+  .slider-container .fun-banner__actions{
+    padding: 8px 19px;
   }
   
   .large-image-item {
