@@ -1,16 +1,16 @@
 //Product slider
 jQuery(document).ready(function(jQuery){
-  jQuery('#large-image').slick({
-      slidesToShow: 1,
-      slidesToScroll: 1,
-      arrows: true,
-      fade: true,
-      variableWidth: false,
-      infinite: true,
-      asNavFor: '.fun-product__indicator',
-      prevArrow: '.fun-banner__prev-btn',
-      nextArrow: '.fun-banner__next-btn'
-  });
+  // jQuery('.fun-product__carousel-inner').slick({
+  //     slidesToShow: 1,
+  //     slidesToScroll: 1,
+  //     arrows: true,
+  //     fade: true,
+  //     variableWidth: false,
+  //     infinite: true,
+  //     asNavFor: '.fun-product__indicator',
+  //     prevArrow: '.fun-banner__prev-btn',
+  //     nextArrow: '.fun-banner__next-btn'
+  // });
 
   jQuery('.fun-product__indicator').slick({
       slidesToShow: 3,
@@ -20,7 +20,7 @@ jQuery(document).ready(function(jQuery){
       centerMode: false,
       focusOnSelect: true,
       infinite: true,
-      arrows: false
+      arrows: true
   });
 
   jQuery('.fun-product__carousel-inner').slick({
