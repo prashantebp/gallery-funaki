@@ -12,8 +12,9 @@
         }
 
     }
-    
+
     &__artist-list{
+        text-transform: uppercase;
         font-family: var(--overpass);
         color: var(--neutral-grey-800);
     }
