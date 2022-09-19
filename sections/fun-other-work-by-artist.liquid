@@ -36,13 +36,13 @@
             </div>
         </div>
         <div class="row fun-featured__row">
-            {%- for product in collections.all.products -%}
-                {%- unless product.handle == current_product.handle -%}
-                {% if product.type != null %}
+            {% if product.type != null %}
                 <h1>test </h1>
                 {% else %}
                     hello test
                 {% endif %}
+            {%- for product in collections.all.products -%}
+                {%- unless product.handle == current_product.handle -%}
                 
                     {% if section.settings.recommended_by == 'type' %}
                         {% if current_product.type == product.type %}
