@@ -128,9 +128,8 @@
                         {% for artist in artist_name %}
                             <a  href="{{ articles[artist].url | escape }}">{{ articles[artist].title }}
                               {% unless forloop.last %}
-                                },
+                                ,
                                 {% else %}
-                                }
                                 {% endunless %}
                             </a>
                         {% endfor %}                    
