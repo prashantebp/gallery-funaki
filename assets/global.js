@@ -42,8 +42,8 @@ jQuery('.product-slider-box').slick({
     focusOnSelect: true,
     infinite: true,
     arrows: true,
-    prevArrow: '<button class="btn fun-gallery__prev-btn"> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M15.41 7.41L14 6L8 12L14 18L15.41 16.59L10.83 12L15.41 7.41Z" fill="#323232"></path> </svg> </button>',
-    nextArrow: '<button class="btn fun-gallery__next-btn"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000 svg"><path d="M10 6L8.59003 7.41L13.17 12L8.59003 16.59L10 18L16 12L10 6Z" fill="#323232"></path></svg></button>'
+    prevArrow: '.slider-button--prev',
+    nextArrow: '.slider-button--next'
     
 });
 
