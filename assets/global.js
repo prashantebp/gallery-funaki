@@ -1,27 +1,27 @@
 //Product slider
 jQuery(document).ready(function(jQuery){
-  // jQuery('.fun-product__carousel-inner').slick({
-  //     slidesToShow: 1,
-  //     slidesToScroll: 1,
-  //     arrows: true,
-  //     fade: true,
-  //     variableWidth: false,
-  //     infinite: true,
-  //     asNavFor: '.fun-product__indicator',
-  //     prevArrow: '.fun-banner__prev-btn',
-  //     nextArrow: '.fun-banner__next-btn'
-  // });
+  jQuery('.fun-product__carousel-inner').slick({
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      arrows: true,
+      fade: true,
+      variableWidth: false,
+      infinite: true,
+      asNavFor: '.fun-product__indicator',
+      prevArrow: '.fun-banner__prev-btn',
+      nextArrow: '.fun-banner__next-btn'
+  });
 
-  // jQuery('.fun-product__indicator').slick({
-  //     slidesToShow: 3,
-  //     slidesToScroll: 1,
-  //     asNavFor: '.fun-product__carousel-inner',
-  //     dots: false,
-  //     centerMode: false,
-  //     focusOnSelect: true,
-  //     infinite: true,
-  //     arrows: false
-  // });
+  jQuery('.fun-product__indicator').slick({
+      slidesToShow: 3,
+      slidesToScroll: 1,
+      asNavFor: '.fun-product__carousel-inner',
+      dots: false,
+      centerMode: false,
+      focusOnSelect: true,
+      infinite: true,
+      arrows: false
+  });
 
   jQuery('.fun-product__carousel-inner').slick({
     slidesToShow: 1,
