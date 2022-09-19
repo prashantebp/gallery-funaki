@@ -65,15 +65,13 @@
           {% else %}
             <h3 class="fun-ex-blogs__sub-title mb-0">{{ section.settings.section_heading }}</h3>
           {% endif %}
-          <p>
-                <div class="fun-blog-detail__artist-list">                    
-                    {% for artist in artist_name %}
-                      <div class="fun-blog-detail__artist-list--item">
-                        <a class="author-link" href="{{ articles[artist].url | escape }}">{{ articles[artist].title | escape }}</a>
-                      </div>
-                    {% endfor %}                    
+          <div class="fun-blog-detail__artist-list">                    
+              {% for artist in artist_name %}
+                <div class="fun-blog-detail__artist-list--item">
+                  <a class="author-link" href="{{ articles[artist].url | escape }}">{{ articles[artist].title | escape }}</a>
                 </div>
-          </p>
+              {% endfor %}                    
+          </div>
         </div>
       </div>
     </div>
