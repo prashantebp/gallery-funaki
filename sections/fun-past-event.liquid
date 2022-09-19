@@ -65,13 +65,7 @@
           {% else %}
             <h3 class="fun-ex-blogs__sub-title mb-0">{{ section.settings.section_heading }}</h3>
           {% endif %}
-          <div class="fun-blog-detail__artist-list">                    
-              {% for artist in artist_name %}
-                <div class="fun-blog-detail__artist-list--item">
-                  <a class="author-link" href="{{ articles[artist].url | escape }}">{{ articles[artist].title | escape }}</a>
-                </div>
-              {% endfor %}                    
-          </div>
+                
         </div>
       </div>
     </div>
@@ -127,6 +121,15 @@
                         </h4>
                       {%- endif -%}
                     </div>
+                    <div>
+                      <div class="fun-blog-detail__artist-list">                    
+                        {% for artist in artist_name %}
+                          <div class="fun-blog-detail__artist-list--item">
+                            <a class="author-link" href="{{ articles[artist].url | escape }}">{{ articles[artist].title | escape }}</a>
+                          </div>
+                        {% endfor %}                    
+                    </div>
+                    </div>
 
                       <div>
                         {%- if  section.settings.custom_class == "fun-bookmark__card--past-new" -%}
@@ -143,6 +146,7 @@
                           <date class="fun-event__date">{{ article.metafields.exhibitions.start_date | date: "%d %b" }} - {{ article.metafields.exhibitions.end_date | date: "%d %b %Y" }}</date>
                         {%- endif -%}
                       </div>
+                      
                   </div>
                 </article>
               </div>
