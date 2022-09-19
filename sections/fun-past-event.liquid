@@ -70,7 +70,10 @@
     </div>
     <div class="row fun-bookmark__past-row">
       {% assign count = 0 %}
+      {%- comment -%}
       {%- paginate blogs[section.settings.blog].articles by 4 -%}
+      {%- endcomment -%}
+      
       {%- for article in section.settings.blog.articles -%}
       {% assign count = count | plus: 1  %}
 
@@ -141,11 +144,13 @@
               </div>
         {% endif %}
         {%- endfor -%}
+        {%- comment -%}
         {% if paginate.pages > 1 %}
           {% include 'pagination' %}
         {% endif %}
         {{ count }}
         {%- endpaginate -%}
+        {%- endcomment -%}
         {% if  count == 0 %}
           <div class="error">{{ section.settings.empty_message }}</div>                    
         {% endif %}
