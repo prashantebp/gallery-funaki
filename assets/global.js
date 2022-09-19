@@ -1,6 +1,6 @@
 //Product slider
 jQuery(document).ready(function(jQuery){
-  jQuery('.fun-product__carousel-inner').slick({
+  jQuery('.large-image-item').slick({
       slidesToShow: 1,
       slidesToScroll: 1,
       arrows: true,
