@@ -38,7 +38,7 @@
         <div class="row fun-featured__row">
             {%- for product in collections.all.products -%}
                 {%- unless product.handle == current_product.handle -%}
-                {% if product.type== empty %}
+                {% if product.type == null %}
                 <h1>test </h1>
                 
                 {% endif %}
