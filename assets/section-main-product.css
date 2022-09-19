@@ -471,10 +471,9 @@ a.product__text {
 }
 
 .product__media-item .slide-image{
-  aspect-ratio: unset;
+  aspect-ratio: 1;
   object-fit: contain;
   max-height: 559px;
-  height: auto !important;
 }
 
 @media screen and (max-width: 749px) {
