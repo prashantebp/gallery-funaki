@@ -128,9 +128,8 @@
                         {% for artist in artist_name %}
                             <a class="link" href="{{ articles[artist].url | escape }}">{{ articles[artist].title | escape }}</a>
                         {% endfor %}                    
+                      </div>
                     </div>
-                    </div>
-
                       <div>
                         {%- if  section.settings.custom_class == "fun-bookmark__card--past-new" -%}
                           <h4 class="fun-bookmark__subtitle fun-bookmark__subtitle--past section-subtitle mb-0">
@@ -146,7 +145,6 @@
                           <date class="fun-event__date">{{ article.metafields.exhibitions.start_date | date: "%d %b" }} - {{ article.metafields.exhibitions.end_date | date: "%d %b %Y" }}</date>
                         {%- endif -%}
                       </div>
-                      
                   </div>
                 </article>
               </div>
