@@ -34,8 +34,9 @@
                     <h2 class="section-title title-{{ section.id }}-margin">{{ section.settings.heading | escape }}</h2>
                 {%- endif -%}
             </div>
+            {{ product.type }} 
         </div>
-        {{ product.type }} 
+        
         <div class="row fun-featured__row">
             
             {%- for product in collections.all.products -%}
