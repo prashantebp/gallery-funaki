@@ -430,7 +430,7 @@
               </div>
               <slider-component class="slider-wrapper ">
                 <!-- {% assign count = 0 %} -->
-                {{ count }}
+                {{ forloop.index }}
                   <ul class="product-slider-box slider {% if forloop.index > 1 %} product-slider-box_slick {% endif %} " role="list">
                       {%- assign variant_images = product.images| where: 'attached_to_variant?', true | map: 'src' -%}
                       {%- for media in product.media -%}
