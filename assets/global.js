@@ -33,9 +33,8 @@ jQuery(document).ready(function(jQuery){
     prevArrow: '.slider-button--prev',
     nextArrow: '.slider-button--next'
 });
-jQuery('.product-slider-box').each(function(){
-  console.log($(this).length);
-})
+console.log(jQuery('.product-slider-box').slick.slideCount);
+
     jQuery('.product-slider-box').on('init', function(event, slick){
       jQuery(this).append('<span id="total">'+slick.slideCount+'</span>');
     });
@@ -52,7 +51,10 @@ jQuery('.product-slider-box').each(function(){
       prevArrow: '.fun-banner__prev-btn',
       nextArrow: '.fun-banner__next-btn'
     });
-    
+    console.log(jQuery('.product-slider-box').length);
+    jQuery('.product-slider-box').each(function(){
+      console.log($(this).length);
+    })
 
   // var slickGallery = jQuery('#gallery').slick({
   //     slidesToShow: 1,
