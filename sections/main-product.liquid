@@ -430,7 +430,7 @@
               </div>
               <slider-component class="slider-wrapper ">
                 {% assign count = 0 %}
-                {{ count }}
+                
                   <ul class="product-slider-box slider " role="list">
                       {%- assign variant_images = product.images| where: 'attached_to_variant?', true | map: 'src' -%}
                       {%- for media in product.media -%}
@@ -464,7 +464,7 @@
                       </li>
                       {% endfor %}
                   </ul>
-  
+                  {{ count }}
               </slider-component>
           </div>
   
