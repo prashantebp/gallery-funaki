@@ -35,7 +35,6 @@ jQuery(document).ready(function(jQuery){
 });
 
 
-jQuery(".product-slider-box").on("init", function(event, slick){
     jQuery('.product-slider-box').slick({
       slidesToShow: 3,
       slidesToScroll: 1,
@@ -47,7 +46,6 @@ jQuery(".product-slider-box").on("init", function(event, slick){
       prevArrow: '.fun-banner__prev-btn',
       nextArrow: '.fun-banner__next-btn'
     });
-  });
 
 
   // var slickGallery = jQuery('#gallery').slick({
