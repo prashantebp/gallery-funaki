@@ -34,7 +34,7 @@ jQuery(document).ready(function(jQuery){
     nextArrow: '.slider-button--next'
 });
 
-if (slick.slideCount <= 4) {
+if (slick.slideCount == 4) {
 jQuery('.product-slider-box').slick({
     slidesToShow: 3,
     slidesToScroll: 1,
