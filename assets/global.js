@@ -53,7 +53,7 @@ console.log(jQuery('.product-slider-box').slick.slideCount);
     });
     console.log(jQuery('.product-slider-box').length);
     jQuery('.product-slider-box').each(function(){
-      console.log($(this).slideCount);
+      console.log($(this).slick.slideCount);
     })
 
   // var slickGallery = jQuery('#gallery').slick({
