@@ -73,8 +73,6 @@
       {% assign count = 0 %}
       {% paginate blog.articles by 6 %}
       {%- for article in section.settings.blog.articles -%}
-      {% assign count = count | plus: 1  %}
-          {{ count }}
           {% assign today_date = 'now' | date: '%s' %}
           
           {% assign pre_date = article.metafields.exhibitions.start_date | date: '%s' %}
@@ -148,8 +146,13 @@
                   </div>
                 </article>
               </div>
-        {% endif %} 
+        {% endif %}
+        {% assign count = count | plus: 1 %}
+            {% if count >= 4 %}
+              {% break %}
+            {% endif %}
         {%- endfor -%}
+        
       {% endpaginate %}
       
         {% if  count == 0 %}
