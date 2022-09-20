@@ -156,11 +156,13 @@
           <div class="error">{{ section.settings.empty_message }}</div>                    
         {% endif %}
     </div>
-    {% if count > 4 %}
-        <div class="view_more">
-          <a href="#" class="btn">View more</a>
-        </div>
-      {% endif %}
+    <div class="row">
+      {% if count > 4 %}
+      <div class="view_more">
+        <a href="#" class="btn">View more</a>
+      </div>
+    {% endif %}
+    </div>
   </div>
 </section>
 <script src="{{ 'splide.min.js' | asset_url }}" defer></script>
