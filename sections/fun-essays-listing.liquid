@@ -26,7 +26,7 @@
       </div>
     </div>
     <div class="row fun-blogs__row">
-      {%- for article in blog.articles -%}
+      {%- for article in section.settings.blog.articles -%}
         {% if article.tags contains "essays" %}
           <div class="col-sm-8 col-lg-4 fun-blogs__col">
             <article class="fun-bookmark__card">
@@ -82,6 +82,11 @@
     {
       "type": "header",
       "content": "t:sections.main-blog.settings.header.content"
+    },
+    {
+      "type": "blog",
+      "id": "news",
+      "label": "t:sections.featured-blog.settings.blog.label"
     },
     {
       "type": "text",
