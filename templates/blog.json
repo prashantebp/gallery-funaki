@@ -6,6 +6,7 @@
         "heading": "NEWS + ESSAYS",
         "subheading": "",
         "discription": "",
+        "text_center": false,
         "hide_divider": true,
         "padding_top": 32,
         "padding_bottom": 32
@@ -34,8 +35,10 @@
         "show_author": false,
         "news_padding_top": 64,
         "news_padding_bottom": 88,
+        "view_more_news": "shopify:\/\/pages\/news-listing",
         "essays_padding_top": 88,
-        "essays_padding_bottom": 162
+        "essays_padding_bottom": 162,
+        "view_more_essays": "shopify:\/\/pages\/essays-listing"
       }
     }
   },
