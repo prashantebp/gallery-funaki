@@ -43,6 +43,7 @@ jQuery(document).ready(function(jQuery){
       focusOnSelect: true,
       infinite: true,
       arrows: true,
+      variableWidth: false,
       prevArrow: '.fun-banner__prev-btn',
       nextArrow: '.fun-banner__next-btn'
     });
