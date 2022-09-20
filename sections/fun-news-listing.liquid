@@ -1,0 +1,256 @@
+{{ 'component-article-card.css' | asset_url | stylesheet_tag }}
+{{ 'component-card.css' | asset_url | stylesheet_tag }}
+{{ 'section-main-blog.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-news-{{ section.id }}-padding {
+    padding-top: {{ section.settings.news_padding_top | times: 0.5 | round: 0 }}px;
+    padding-bottom: {{ section.settings.news_padding_bottom | times: 0.25 | round: 0 }}px;
+  }
+  .section-essays-{{ section.id }}-padding {
+    padding-top: {{ section.settings.essays_padding_top | times: 0.5 | round: 0 }}px;
+    padding-bottom: {{ section.settings.essays_padding_bottom | times: 0.25 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 769px) {
+    .section-news-{{ section.id }}-padding {
+      padding-top: {{ section.settings.news_padding_top }}px;
+      padding-bottom: {{ section.settings.news_padding_bottom }}px;
+    }
+    .section-essays-{{ section.id }}-padding {
+      padding-top: {{ section.settings.essays_padding_top }}px;
+      padding-bottom: {{ section.settings.essays_padding_bottom }}px;
+    }
+  }
+
+{%- endstyle -%}
+
+<section class="fun-blogs__section section-news-{{ section.id }}-padding">
+  <div class="container-xxl">
+    <div class="row">
+      <div class="col-16">
+        <h2>{{ section.settings.news_label }}</h2>
+        {% comment %} <h1 class="title--primary">{{ blog.title | escape }}</h1> {% endcomment %}
+      </div>
+    </div>
+    <div class="row fun-blogs__row">
+      {% assign count = 0 %}
+      {%- for article in blog.articles -%}
+        {% if article.tags contains "news" %}
+          <div class="col-sm-8 col-lg-4 fun-blogs__col">
+            <article class="fun-bookmark__card">
+              <figure class="fun-bookmark__fig">
+
+                <img
+                  srcset="{%- if article.image.src.width >= 165 -%}{{ article.image.src | image_url: width: 165 }} 165w,{%- endif -%}
+                    {%- if article.image.src.width >= 360 -%}{{ article.image.src | image_url: width: 360 }} 360w,{%- endif -%}
+                    {%- if article.image.src.width >= 533 -%}{{ article.image.src | image_url: width: 533 }} 533w,{%- endif -%}
+                    {%- if article.image.src.width >= 720 -%}{{ article.image.src | image_url: width: 720 }} 720w,{%- endif -%}
+                    {%- if article.image.src.width >= 1000 -%}{{ article.image.src | image_url: width: 1000 }} 1000w,{%- endif -%}
+                    {%- if article.image.src.width >= 1500 -%}{{ article.image.src | image_url: width: 1500 }} 1500w,{%- endif -%}
+                    {{ article.image.src | image_url }} {{ article.image.src.width }}w"
+                  src="{{ article.image.src | image_url: width: 533 }}"
+                  sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px, (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)"
+                  alt="{{ article.image.src.alt | escape }}"
+                  class="motion-reduce fun-bookmark__img fun-bookmark__img--news"
+                  loading="lazy"
+                  width="{{ article.image.width }}"
+                  height="{{ article.image.height }}"
+                >
+                <a href="{{ article.url }}" class="fun-bookmark__link fun-bookmark__link--hidden">
+                  <span>{{ article.url }}</span>
+                </a>
+              </figure>
+              <div class="d-flex flex-column">
+                  <a class="fun-bookmark__card-title" href="{{ article.url }}">{{ article.title }}</a>
+                  <h4 class="fun-bookmark__subtitle section-subtitle mb-0">
+                    {%- if article.excerpt.size > 0 or article.content.size > 0 -%}
+                        {%- if article.excerpt.size > 0 -%}
+                          {{ article.excerpt | strip_html | truncatewords: 30 }}
+                        {%- else -%}
+                          {{ article.content | strip_html | truncatewords: 30 }}
+                        {%- endif -%}
+                    {%- endif -%}
+                  </h4>
+                  <date class="fun-bookmark__date">{{ article.published_at | time_tag: format: 'date' }}</date>
+              </div>
+            </article>
+          </div>
+          {% assign count = count | plus: 1 %}
+          {% comment %}
+            {% if count >= 4 %}
+              {% break %}
+            {% endif %}
+          {% endcomment %}
+        {% endif %}
+      {%- endfor -%}
+
+      {% comment %} {%- paginate blog.articles by 12 -%}
+        {%- if paginate.pages > 1 -%}
+          {%- render 'pagination', paginate: paginate -%}
+        {%- endif -%}
+        <div class="main-blog page-width section-{{ section.id }}-padding">
+          <div class="blog-articles {% if section.settings.layout == 'collage' %}blog-articles--collage{% endif %}">
+          </div>
+        </div>
+      {%- endpaginate -%} {% endcomment %}
+    </div>
+  </div>
+</section>
+
+<section class="fun-blogs__section fun-blogs__section--hide-divider section-essays-{{ section.id }}-padding">
+  <div class="container-xxl">
+    <div class="row">
+      <div class="col-16">
+        <h2>{{ section.settings.essay_label }}</h2>
+        {% comment %} <h1 class="title--primary">{{ blog.title | escape }}</h1> {% endcomment %}
+      </div>
+    </div>
+    <div class="row fun-blogs__row">
+      {%- for article in blog.articles -%}
+        {% if article.tags contains "essays" %}
+          <div class="col-sm-8 col-lg-4 fun-blogs__col">
+            <article class="fun-bookmark__card">
+              <figure class="fun-bookmark__fig">
+
+                <img
+                  srcset="{%- if article.image.src.width >= 165 -%}{{ article.image.src | image_url: width: 165 }} 165w,{%- endif -%}
+                    {%- if article.image.src.width >= 360 -%}{{ article.image.src | image_url: width: 360 }} 360w,{%- endif -%}
+                    {%- if article.image.src.width >= 533 -%}{{ article.image.src | image_url: width: 533 }} 533w,{%- endif -%}
+                    {%- if article.image.src.width >= 720 -%}{{ article.image.src | image_url: width: 720 }} 720w,{%- endif -%}
+                    {%- if article.image.src.width >= 1000 -%}{{ article.image.src | image_url: width: 1000 }} 1000w,{%- endif -%}
+                    {%- if article.image.src.width >= 1500 -%}{{ article.image.src | image_url: width: 1500 }} 1500w,{%- endif -%}
+                    {{ article.image.src | image_url }} {{ article.image.src.width }}w"
+                  src="{{ article.image.src | image_url: width: 533 }}"
+                  sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px, (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)"
+                  alt="{{ article.image.src.alt | escape }}"
+                  class="motion-reduce fun-bookmark__img fun-bookmark__img--essay"
+                  loading="lazy"
+                  width="{{ article.image.width }}"
+                  height="{{ article.image.height }}"
+                >
+                <a href="{{ article.url }}" class="fun-bookmark__link fun-bookmark__link--hidden">
+                  <span>{{ article.url }}</span>
+                </a>
+              </figure>
+              <div class="d-flex flex-column">
+                  <a class="fun-bookmark__card-title" href="{{ article.url }}">{{ article.title }}</a>
+                  <h4 class="fun-bookmark__subtitle section-subtitle mb-0">
+                    {%- if article.excerpt.size > 0 or article.content.size > 0 -%}
+                        {%- if article.excerpt.size > 0 -%}
+                          {{ article.excerpt | strip_html | truncatewords: 30 }}
+                        {%- else -%}
+                          {{ article.content | strip_html | truncatewords: 30 }}
+                        {%- endif -%}
+                    {%- endif -%}
+                  </h4>
+                  <date class="fun-bookmark__date">{{ article.published_at | time_tag: format: 'date' }}</date>
+              </div>
+            </article>
+          </div>
+        {% endif %}
+      {%- endfor -%}
+
+      {% comment %} {%- paginate blog.articles by 12 -%}
+        {%- if paginate.pages > 1 -%}
+          {%- render 'pagination', paginate: paginate -%}
+        {%- endif -%}
+        <div class="main-blog page-width section-{{ section.id }}-padding">
+          <div class="blog-articles {% if section.settings.layout == 'collage' %}blog-articles--collage{% endif %}">
+          </div>
+        </div>
+      {%- endpaginate -%} {% endcomment %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "fun news listing",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "t:sections.main-blog.settings.header.content"
+    },
+    {
+      "type": "text",
+      "id": "news_label",
+      "label": "News label",
+      "default": "Latest News"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_image",
+      "default": true,
+      "label": "t:sections.main-blog.settings.show_image.label"
+    },
+    {
+      "type": "select",
+      "id": "image_height",
+      "options": [
+        {
+          "value": "adapt",
+          "label": "t:sections.main-blog.settings.image_height.options__1.label"
+        },
+        {
+          "value": "small",
+          "label": "t:sections.main-blog.settings.image_height.options__2.label"
+        },
+        {
+          "value": "medium",
+          "label": "t:sections.main-blog.settings.image_height.options__3.label"
+        },
+        {
+          "value": "large",
+          "label": "t:sections.main-blog.settings.image_height.options__4.label"
+        }
+      ],
+      "default": "medium",
+      "label": "t:sections.main-blog.settings.image_height.label",
+      "info": "t:sections.main-blog.settings.image_height.info"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_date",
+      "default": true,
+      "label": "t:sections.main-blog.settings.show_date.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_author",
+      "default": false,
+      "label": "t:sections.main-blog.settings.show_author.label"
+    },
+    {
+      "type": "paragraph",
+      "content": "t:sections.main-blog.settings.paragraph.content"
+    },
+    {
+      "type": "header",
+      "content": "News section padding"
+    },
+    {
+      "type": "range",
+      "id": "news_padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "news_padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    }
+  ]
+}
+{% endschema %}
