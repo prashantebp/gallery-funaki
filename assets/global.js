@@ -34,6 +34,10 @@ jQuery(document).ready(function(jQuery){
     nextArrow: '.slider-button--next'
 });
 
+    jQuery('.product-slider-box').on('init', function(event, slick){
+      jQuery(this).append('<div class="slider-count"><p><span id="current">1</span> von <span id="total">'+slick.slideCount+'</span></p></div>');
+    });
+
     jQuery('.product-slider-box').slick({
       slidesToShow: 3,
       slidesToScroll: 1,
