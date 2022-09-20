@@ -431,7 +431,7 @@
               <slider-component class="slider-wrapper ">
                 <!-- {% assign count = 0 %} -->
                 {{ count }}
-                  <ul class="product-slider-box slider " role="list">
+                  <ul class="product-slider-box slider {% if count >3 %} product-slider-box_slick{% endif %} " role="list">
                       {%- assign variant_images = product.images| where: 'attached_to_variant?', true | map: 'src' -%}
                       {%- for media in product.media -%}
                       {% assign count = count | plus:1 %}
