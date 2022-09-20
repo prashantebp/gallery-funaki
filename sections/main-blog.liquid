@@ -30,11 +30,12 @@
     <div class="row">
       <div class="col-16">
         <h2>{{ section.settings.news_label }}</h2>
+        <div>
+          <a href="{{ section.settings.view_more_news }}" class="fun-blogs__quick-link">View all</a>
+        </div>
         {% comment %} <h1 class="title--primary">{{ blog.title | escape }}</h1> {% endcomment %}
       </div>
-      <div>
-        <a href="{{ section.settings.view_more_news }}" class="fun-blogs__quick-link">View all</a>
-      </div>
+      
     </div>
     <div class="row fun-blogs__row">
       {% assign count = 0 %}
@@ -105,9 +106,9 @@
       <div class="col-16">
         <h2>{{ section.settings.essay_label }}</h2>
         {% comment %} <h1 class="title--primary">{{ blog.title | escape }}</h1> {% endcomment %}
-      </div>
-      <div>
-        <a href="{{ section.settings.view_more_essays }}" class="fun-blogs__quick-link">View all</a>
+        <div>
+          <a href="{{ section.settings.view_more_essays }}" class="fun-blogs__quick-link">View all</a>
+        </div>
       </div>
     </div> 
     <div class="row fun-blogs__row">
