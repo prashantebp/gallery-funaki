@@ -145,12 +145,11 @@
                   </div>
                 </article>
               </div>
-        {% endif %}
-        {% assign count = count | plus: 1 %}
-        {{ count }}
+              {% assign count = count | plus: 1 %}
             {% if count >= 4 %}
               {% break %}
             {% endif %}
+        {% endif %}
         {%- endfor -%}      
         {% if  count == 0 %}
           <div class="error">{{ section.settings.empty_message }}</div>                    
