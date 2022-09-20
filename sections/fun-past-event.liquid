@@ -149,11 +149,16 @@
             {% if count >= 4 %}
               {% break %}
             {% endif %}
+            {% if count > 4 %}
+              <a href="#" class="brn">View more</a>
+            {% endif %}
         {% endif %}
-        {%- endfor -%}      
+        {%- endfor -%}  
+            
         {% if  count == 0 %}
           <div class="error">{{ section.settings.empty_message }}</div>                    
         {% endif %}
+
     </div>
   </div>
 </section>
