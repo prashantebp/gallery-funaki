@@ -35,7 +35,7 @@ jQuery(document).ready(function(jQuery){
 });
 
     jQuery('.product-slider-box').on('init', function(event, slick){
-      jQuery(this).append('slick.slideCount');
+      jQuery(this).append('<span id="total">'+slick.slideCount+'</span>');
     });
 
     jQuery('.product-slider-box').slick({
