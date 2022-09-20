@@ -430,10 +430,11 @@
               </div>
               <slider-component class="slider-wrapper ">
                 {% assign count = 0 %}
-                  <ul class="product-slider-box slider" role="list">
-                    {% assign count = count | plus:1 %}
+                {{ count }}
+                  <ul class="product-slider-box slider " role="list">
                       {%- assign variant_images = product.images| where: 'attached_to_variant?', true | map: 'src' -%}
                       {%- for media in product.media -%}
+                      {% assign count = count | plus:1 %}
                       <li class="product-slider slider__slide " onclick="newLargeImage(this)"
                           data-thumb-id="{{ section.id }}-{{ media.id }}" 
                           {% if section.settings.hide_variants and variant_images contains media.src %}
