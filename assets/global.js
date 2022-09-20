@@ -34,6 +34,7 @@ jQuery(document).ready(function(jQuery){
     nextArrow: '.slider-button--next'
 });
 
+if (slick.slideCount <= 4) {
 jQuery('.product-slider-box').slick({
     slidesToShow: 3,
     slidesToScroll: 1,
@@ -44,8 +45,8 @@ jQuery('.product-slider-box').slick({
     arrows: true,
     prevArrow: '.fun-banner__prev-btn',
     nextArrow: '.fun-banner__next-btn'
-    
 });
+}
 
   // var slickGallery = jQuery('#gallery').slick({
   //     slidesToShow: 1,
