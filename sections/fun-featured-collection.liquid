@@ -82,6 +82,7 @@
                     <article class="fun-featured__card {% if product.type == "Art"%} fun-featured__card--portrait {% endif %}">
                       <a href="{{ product.url }}" class="fun-featured__anchor">{{ product.title }}</a>  
                       <figure class="fun-featured__figure">
+                        <a href="{{ product.url }}">
                           {% if product.featured_media %}
                             <img
                                 srcset="{%- if product.featured_media.width >= 165 -%}{{ product.featured_media | image_url: width: 165 }} 165w,{%- endif -%}
@@ -102,6 +103,7 @@
                             {% else %}
                               {{ 'lifestyle-2' | placeholder_svg_tag: 'placeholder-svg' }}
                             {% endif %}
+                      </a>
                         </figure>
                         <div class="fun-featured__details">
                             <span class="fun-featured__desc">{{ product.title }}</span>
