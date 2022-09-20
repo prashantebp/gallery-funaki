@@ -35,7 +35,7 @@ jQuery(document).ready(function(jQuery){
 });
 
     var totalItems = $('.item').length;
-    console.log(totalItems)
+    console.log('totalItems');
     jQuery('.product-slider-box').slick({
       slidesToShow: 3,
       slidesToScroll: 1,
