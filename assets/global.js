@@ -38,7 +38,7 @@ console.log(jQuery('.product-slider-box').slick.slideCount);
     jQuery('.product-slider-box').on('init', function(event, slick){
       jQuery(this).append('slick.slideCount');
     });
-    $( ".product-slider-box li" ).each(function( index ) {
+    $( ".product-slider-box li" ).each(function( index > 3 ) {
       console.log( index + ": " + $( this ).text() );
     });
 
