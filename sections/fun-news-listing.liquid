@@ -69,11 +69,9 @@
             </article>
           </div>
           {% assign count = count | plus: 1 %}
-          {% comment %}
-            {% if count >= 4 %}
+            {% if count >= 8 %}
               {% break %}
             {% endif %}
-          {% endcomment %}
         {% endif %}
       {%- endfor -%}
 
