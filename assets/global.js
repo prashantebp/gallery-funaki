@@ -34,19 +34,23 @@ jQuery(document).ready(function(jQuery){
     nextArrow: '.slider-button--next'
 });
 
-if (slick.slideCount == 4) {
-jQuery('.product-slider-box').slick({
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    dots: false,
-    centerMode: false,
-    focusOnSelect: true,
-    infinite: true,
-    arrows: true,
-    prevArrow: '.fun-banner__prev-btn',
-    nextArrow: '.fun-banner__next-btn'
+
+jQuery('.product-slider-box').on('init', function(event, slick){
+  if (slick.slideCount <= 4) {
+    jQuery('.product-slider-box').slick({
+      slidesToShow: 3,
+      slidesToScroll: 1,
+      dots: false,
+      centerMode: false,
+      focusOnSelect: true,
+      infinite: true,
+      arrows: true,
+      prevArrow: '.fun-banner__prev-btn',
+      nextArrow: '.fun-banner__next-btn'
+  });
+  }
 });
-}
+
 
   // var slickGallery = jQuery('#gallery').slick({
   //     slidesToShow: 1,
