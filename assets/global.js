@@ -34,9 +34,8 @@ jQuery(document).ready(function(jQuery){
     nextArrow: '.slider-button--next'
 });
 
-    const slidesToShow = (this.props.slides.length < 3)? this.props.slides.length : 3;
     jQuery('.product-slider-box').slick({
-      slidesToShow: slidesToShow,
+      slidesToShow: (this.props.slides.length < 3)? this.props.slides.length : 3,
       slidesToScroll: 1,
       dots: false,
       centerMode: false,
