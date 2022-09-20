@@ -32,7 +32,8 @@
         "padding_top": 40,
         "padding_bottom": 152,
         "margin_bottom": 88,
-        "empty_message": "Data not available"
+        "empty_message": "Data not available",
+        "view_more": "shopify:\/\/pages\/past-exhibition-listing"
       }
     }
   },
