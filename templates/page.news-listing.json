@@ -3,6 +3,7 @@
     "166366550074088e3f": {
       "type": "fun-news-listing",
       "settings": {
+        "news": "news",
         "news_label": "Latest News",
         "show_image": true,
         "image_height": "medium",
@@ -15,7 +16,7 @@
     "16636667731541f0ca": {
       "type": "fun-essays-listing",
       "settings": {
-        "news": "eassay",
+        "essays": "",
         "essay_label": "Latest Essays",
         "show_image": true,
         "image_height": "medium",
