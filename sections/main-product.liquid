@@ -430,10 +430,11 @@
               </div>
               <slider-component class="slider-wrapper ">
                 <!-- {% assign count = 0 %} -->
-                {{ forloop.index }}
+                
                   <ul class="product-slider-box slider {% if forloop.index > 1 %} product-slider-box_slick {% endif %} " role="list">
                       {%- assign variant_images = product.images| where: 'attached_to_variant?', true | map: 'src' -%}
                       {%- for media in product.media -%}
+                      {{ forloop.index }}
                       {% assign count = count | plus:1 %}
                       <li class="product-slider slider__slide " onclick="newLargeImage(this)"
                           data-thumb-id="{{ section.id }}-{{ media.id }}" 
