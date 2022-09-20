@@ -36,7 +36,7 @@ jQuery(document).ready(function(jQuery){
 
 
 jQuery('.product-slider-box').on('init', function(event, slick){
-  if (slick.slideCount <= 4) {
+  if (slick.slideCount > 4) {
     jQuery('.product-slider-box').slick({
       slidesToShow: 3,
       slidesToScroll: 1,
