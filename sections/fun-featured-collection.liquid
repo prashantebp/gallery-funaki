@@ -106,7 +106,7 @@
                         <div class="fun-featured__details">
                             <span class="fun-featured__desc">{{ product.title }}</span>
                             {% if product.description %}
-                            <span class="fun-featured__desc">{{ product.description | truncate: 82 }}</span>
+                            <span class="fun-featured__desc">{{ product.description }}</span>
                             {% endif %}
                             {% render 'price' %}
                         </div>
