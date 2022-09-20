@@ -464,11 +464,6 @@
                       {% endfor %}
                   </ul>
                   {{ count }}
-                  {% if count < 4 %}
-                        {% javascript %}
-                        jQuery('.product-slider-box').slick('unslick')
-                        {% endjavascript %}
-                      {% endif %}
               </slider-component>
           </div>
   
@@ -494,7 +489,12 @@
   {%- endif -%}
 
 
-
+  {% javascript %}
+  {% if count < 4 %}
+    jQuery('.product-slider-box').slick('unslick')
+  {% endif %}
+      
+  {% endjavascript %}
 
   <script type="application/ld+json">
     {
