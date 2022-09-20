@@ -11,6 +11,7 @@
     "166366563263f46884": {
       "type": "fun-essays-listing",
       "settings": {
+        "essays": "news-essays",
         "essay_label": "Latest Essays",
         "show_image": true,
         "image_height": "medium",
