@@ -77,11 +77,9 @@
             </article>
           </div>
           {% assign count = count | plus: 1 %}
-          {% comment %}
-            {% if count >= 4 %}
+            {% if count >= 8 %}
               {% break %}
             {% endif %}
-          {% endcomment %}
         {% endif %}
       {%- endfor -%}
 
@@ -107,6 +105,7 @@
       </div>
     </div>
     <div class="row fun-blogs__row">
+      {% assign count_essay = 0 %}
       {%- for article in blog.articles -%}
         {% if article.tags contains "essays" %}
           <div class="col-sm-8 col-lg-4 fun-blogs__col">
@@ -148,6 +147,10 @@
               </div>
             </article>
           </div>
+          {% assign count = count | plus: 1 %}
+            {% if count >= 4 %}
+              {% break %}
+            {% endif %}
         {% endif %}
       {%- endfor -%}
 
