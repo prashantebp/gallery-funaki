@@ -27,6 +27,7 @@
     </div>
     <div class="row fun-blogs__row">
       {%- for article in section.settings.essays.articles -%}
+        {% if article.tags contains "essays" %}
           <div class="col-sm-8 col-lg-4 fun-blogs__col">
             <article class="fun-bookmark__card">
               <figure class="fun-bookmark__fig">
@@ -66,6 +67,7 @@
               </div>
             </article>
           </div>
+        {% endif %}
       {%- endfor -%}
     </div>
   </div>
