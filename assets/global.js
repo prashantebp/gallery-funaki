@@ -35,7 +35,7 @@ jQuery(document).ready(function(jQuery){
 });
 
     jQuery('.product-slider-box').slick({
-      slidesToShow: (this.props.slides.length < 3)? this.props.slides.length : 3,
+      slidesToShow: 3,
       slidesToScroll: 1,
       dots: false,
       centerMode: false,
