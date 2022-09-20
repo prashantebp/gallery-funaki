@@ -38,6 +38,9 @@ console.log(jQuery('.product-slider-box').slick.slideCount);
     jQuery('.product-slider-box').on('init', function(event, slick){
       jQuery(this).append('slick.slideCount');
     });
+    $('.product-slider-box li').each(function() {
+      console.log($(this));
+    })
 
     jQuery('.product-slider-box').slick({
       slidesToShow: 3,
