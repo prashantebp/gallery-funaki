@@ -105,7 +105,7 @@
                         </figure>
                         <div class="fun-featured__details">
                             <span class="fun-featured__desc">{{ product.title }}</span>
-                            <span class="fun-featured__desc">{{ product.description | truncatewords: 8 }}</span>
+                            <span class="fun-featured__desc">{{ product.description | | strip_html | truncatewords: 5 }}</span>
                             {% render 'price' %}
                         </div>
                     </article>
