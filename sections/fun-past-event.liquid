@@ -71,7 +71,6 @@
     </div>
     <div class="row fun-bookmark__past-row">
       {% assign count = 0 %}
-      {% paginate blog.articles by 6 %}
       {%- for article in section.settings.blog.articles -%}
           {% assign today_date = 'now' | date: '%s' %}
           
@@ -151,10 +150,7 @@
             {% if count >= 4 %}
               {% break %}
             {% endif %}
-        {%- endfor -%}
-        
-      {% endpaginate %}
-      
+        {%- endfor -%}      
         {% if  count == 0 %}
           <div class="error">{{ section.settings.empty_message }}</div>                    
         {% endif %}
