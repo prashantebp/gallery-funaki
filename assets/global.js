@@ -35,11 +35,10 @@ jQuery(document).ready(function(jQuery){
 });
 
 
-jQuery('.product-slider-box').on('init', function(event, slick){
-  if (slick.slideCount <= slick.options.slidesToShow) {
-    $('.product-slider-box .slick-track').addClass('notransform');
-  }
-});
+jQuery(".product-slider-box").on("init", function(event, slick){
+  console.log(slick.slideCount);
+  console.log(slick.currentSlide+1);
+  });
 jQuery('.product-slider-box').slick({
     slidesToShow: 3,
     slidesToScroll: 1,
