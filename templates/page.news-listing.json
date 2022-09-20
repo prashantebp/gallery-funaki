@@ -11,9 +11,23 @@
         "news_padding_top": 36,
         "news_padding_bottom": 36
       }
+    },
+    "16636667731541f0ca": {
+      "type": "fun-essays-listing",
+      "settings": {
+        "news": "eassay",
+        "essay_label": "Latest Essays",
+        "show_image": true,
+        "image_height": "medium",
+        "show_date": true,
+        "show_author": false,
+        "essays_padding_top": 36,
+        "essays_padding_bottom": 36
+      }
     }
   },
   "order": [
-    "166366550074088e3f"
+    "166366550074088e3f",
+    "16636667731541f0ca"
   ]
 }
