@@ -26,7 +26,6 @@
       </div>
     </div>
     <div class="row fun-blogs__row">
-      {% assign count = 0 %}
       {%- for article in blog.articles -%}
         {% if article.tags contains "news" %}
           <div class="col-sm-8 col-lg-4 fun-blogs__col">
@@ -68,10 +67,6 @@
               </div>
             </article>
           </div>
-          {% assign count = count | plus: 1 %}
-            {% if count >= 8 %}
-              {% break %}
-            {% endif %}
         {% endif %}
       {%- endfor -%}
 
