@@ -50,7 +50,6 @@ jQuery('.product-slider-box').slick({
     prevArrow: '.fun-banner__prev-btn',
     nextArrow: '.fun-banner__next-btn'
 });
-}
 
   // var slickGallery = jQuery('#gallery').slick({
   //     slidesToShow: 1,
