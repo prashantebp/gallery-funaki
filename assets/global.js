@@ -34,7 +34,7 @@ jQuery(document).ready(function(jQuery){
     nextArrow: '.slider-button--next'
 });
 
-  
+
     jQuery('.product-slider-box').slick({
       slidesToShow: 3,
       slidesToScroll: 1,
