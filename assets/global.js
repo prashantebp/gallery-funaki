@@ -33,33 +33,23 @@ jQuery(document).ready(function(jQuery){
     prevArrow: '.slider-button--prev',
     nextArrow: '.slider-button--next'
 });
-console.log(jQuery('.product-slider-box').slick.slideCount);
 
-    jQuery('.product-slider-box').on('init', function(event, slick){
-      jQuery(this).append('slick.slideCount');
-    });
     $( ".product-slider-box li" ).each(function( index ) {
       if (index > 3) {
-        console.log( index + ": " + $( this ).text() );
+        jQuery('.product-slider-box').slick({
+          slidesToShow: 3,
+          slidesToScroll: 1,
+          dots: false,
+          centerMode: false,
+          focusOnSelect: true,
+          infinite: true,
+          arrows: true,
+          variableWidth: false,
+          prevArrow: '.fun-banner__prev-btn',
+          nextArrow: '.fun-banner__next-btn'
+        });
       }
     });
-
-    jQuery('.product-slider-box').slick({
-      slidesToShow: 3,
-      slidesToScroll: 1,
-      dots: false,
-      centerMode: false,
-      focusOnSelect: true,
-      infinite: true,
-      arrows: true,
-      variableWidth: false,
-      prevArrow: '.fun-banner__prev-btn',
-      nextArrow: '.fun-banner__next-btn'
-    });
-    console.log(jQuery('.product-slider-box').length);
-    jQuery('.product-slider-box').each(function(){
-      console.log($(this).slick.slideCount);
-    })
 
   // var slickGallery = jQuery('#gallery').slick({
   //     slidesToShow: 1,
