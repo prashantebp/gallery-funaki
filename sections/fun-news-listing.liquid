@@ -22,7 +22,6 @@
     <div class="row">
       <div class="col-16">
         <h2>{{ section.settings.news_label }}</h2>
-        {% comment %} <h1 class="title--primary">{{ blog.title | escape }}</h1> {% endcomment %}
       </div>
     </div>
     <div class="row fun-blogs__row">
@@ -69,16 +68,6 @@
           </div>
         {% endif %}
       {%- endfor -%}
-
-      {% comment %} {%- paginate blog.articles by 12 -%}
-        {%- if paginate.pages > 1 -%}
-          {%- render 'pagination', paginate: paginate -%}
-        {%- endif -%}
-        <div class="main-blog page-width section-{{ section.id }}-padding">
-          <div class="blog-articles {% if section.settings.layout == 'collage' %}blog-articles--collage{% endif %}">
-          </div>
-        </div>
-      {%- endpaginate -%} {% endcomment %}
     </div>
   </div>
 </section>
