@@ -71,7 +71,7 @@
     </div>
     <div class="row fun-bookmark__past-row">
       {% assign count = 0 %}
-      {% paginate collection.products by 12 %}
+      {% paginate blog.articles by 12 %}
       {%- for article in section.settings.blog.articles -%}
       {% assign count = count | plus: 1  %}
           {{ count }}
