@@ -662,4 +662,24 @@
             width: 100%;
         }
     }
+
+    &__quick-links{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+
+        margin-bottom: 40px;
+        @include media-breakpoint-up(md){
+            margin-bottom: 88px;
+        }
+
+        & h2{
+            margin-bottom: 0;
+        }
+
+        & .fun-blogs__quick-link{
+            @extend .fun-featured__quick-link;
+        }
+    }
 }
