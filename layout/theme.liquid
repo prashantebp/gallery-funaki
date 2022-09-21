@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="theme-color" content="">
-    <!-- Start cookieyes banner --> <script id="cookieyes" type="text/javascript" src="https://cdn-cookieyes.com/client_data/30169f12741e3a9e50bbb246/script.js"></script> <!-- End cookieyes banner -->
+
     <link rel="canonical" href="{{ canonical_url }}">
     <link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
 
@@ -31,7 +31,7 @@
     {% render 'meta-tags' %}
     <script  src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="{{ 'global.js' | asset_url }}" defer="defer"></script>
-    {{ content_for_header }}{% include 'cookie-body' %}
+    {{ content_for_header }}
 
     {%- liquid
       assign body_font_bold = settings.type_body_font | font_modify: 'weight', 'bold'
@@ -205,6 +205,7 @@
     {%- endif -%}
     {{ 'style.css' | asset_url | stylesheet_tag }}
     {{ 'custom-css.css' | asset_url | stylesheet_tag }}
+    <script src="https://app.enzuzo.com/apps/enzuzo/static/js/__enzuzo-cookiebar.js?uuid=8df10a5e-395e-11ed-a2e1-0f9e0358779e"></script>
 
     <script>document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
     if (Shopify.designMode) {
@@ -214,9 +215,7 @@
   
  <!--begin-boost-pfs-filter-css-->
    {% render 'boost-pfs-style' %}
- <!--end-boost-pfs-filter-css-->
-
- 
+ <!--end-boost-pfs-filter-css--> 
 </head>
 
   <body class="gradient">
@@ -278,5 +277,13 @@
  <!--begin-boost-pfs-js-->
    {% render 'boost-pfs' %}
  <!--end-boost-pfs-js-->
+ {% 'ajaxinate.min.js' | asset_url | script_tag  %}
+<script>
+      const endlessCollection = new Ajaxinate({
+      container: '#product-grid',
+      pagination: '.infinite_next',
+      });
+</script>
+
 </body>
 </html>
