@@ -188,7 +188,7 @@
                       </figure>
                       <div class="fun-featured__details">
                           <span class="fun-featured__desc">{{ product.title }}</span>
-                          <span class="fun-featured__desc">{{ product.description | truncate: 80, '...' }}</span>
+                          <span class="fun-featured__desc">{{ product.description }}</span>
                           {% render 'price' %}
                       </div>
                       <a href="{{ product.url }}" class="fun-featured__anchor">{{ product.title }}</a>
@@ -222,7 +222,7 @@
                   </figure>
                   <div class="fun-featured__details">
                       <span class="fun-featured__desc">{{ product.title }}</span>
-                      <span class="fun-featured__desc">{{ product.description | truncate: 80, '...' }}</span>
+                      <span class="fun-featured__desc">{{ product.description }}</span>
                       {% render 'price' %}
                   </div>
                   <a href="{{ product.url }}" class="fun-featured__anchor">{{ product.title }}</a>
