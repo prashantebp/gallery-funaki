@@ -400,7 +400,9 @@
           <!-- <div class="carousel-inner"> -->
             <div class="slider-container">
               <ul class="large-image" id="large-image" data-scale="1.6">
+                {% assign count = 0 %}
                   {%- for media in product.media -%}
+                  {% assign count = count | plus:1 %}
                   <li class="large-image-item product__media-item slider__slide
                     {% if media.media_type != 'image' %} hide-modal {% endif %}"
                     data-media-id="{{ section.id }}-{{ media.id }}"
@@ -413,6 +415,7 @@
                 <div class="fun-banner__actions-text">
                   <span>View sample pages</span>
                 </div>
+                {% if count >3 %}
                 <div>
                   <!-- <button class="btn fun-banner__prev-btn p-0" aria-label="previous" data-bs-target="#product_main_carousel" data-bs-slide="prev"> -->
                   <button class="btn fun-banner__prev-btn p-0  slick-arrow">
@@ -427,6 +430,8 @@
                       </svg>
                   </button>
                 </div>
+                {% endif %}
+                
               </div>
               <slider-component class="slider-wrapper ">
                 <!-- {% assign count = 0 %} -->
@@ -434,7 +439,7 @@
                   <ul class="product-slider-box slider {% if forloop.index > 1 %} product-slider-box_slick {% endif %} " role="list">
                       {%- assign variant_images = product.images| where: 'attached_to_variant?', true | map: 'src' -%}
                       {%- for media in product.media -%}
-                      {% assign count = count | plus:1 %}
+                      <!-- {% assign count = count | plus:1 %} -->
                       <li class="product-slider slider__slide " onclick="newLargeImage(this)"
                           data-thumb-id="{{ section.id }}-{{ media.id }}" 
                           {% if section.settings.hide_variants and variant_images contains media.src %}
