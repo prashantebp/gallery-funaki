@@ -59,16 +59,18 @@
   <div class="container-xxl">
     <div class="row fun-bookmark__row">
       <div class="col-16">
-        <div class='fun-ex-blogs__sub-title-wrapper section-title-{{ section.id }}-margin'>
-          {% if section.settings.large_title %}
-            <h2 class="fun-ex-blogs__title">{{ section.settings.section_heading }}</h2>
-          {% else %}
-            <h3 class="fun-ex-blogs__sub-title mb-0">{{ section.settings.section_heading }}</h3>
-          {% endif %}
-                
-        </div>
-        <div class="fun-ex-blogs__view_more">
-          <a href="{{ section.settings.view_more }}" class="btn">View more</a>
+        <div class="fun-blogs__title-wrapper section-title-{{ section.id }}-margin">
+          <div class='fun-ex-blogs__sub-title-wrapper'>
+            {% if section.settings.large_title %}
+              <h2 class="fun-ex-blogs__title">{{ section.settings.section_heading }}</h2>
+            {% else %}
+              <h3 class="fun-ex-blogs__sub-title mb-0">{{ section.settings.section_heading }}</h3>
+            {% endif %}
+                  
+          </div>
+          <div class="fun-ex-blogs__view_more">
+            <a href="{{ section.settings.view_more }}" class="fun-blogs__quick-link">View more</a>
+          </div>
         </div>
       </div>
     </div>
