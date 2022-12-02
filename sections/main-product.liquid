@@ -317,7 +317,7 @@
                       <button
                         type="submit"
                         name="add"
-                        class="btn {% if block.settings.show_dynamic_checkout and product.selling_plan_groups == empty %}btn-secondary{% else %}btn-secondary{% endif %}"
+                        class="1 btn {% if block.settings.show_dynamic_checkout and product.selling_plan_groups == empty %}btn-secondary{% else %}btn-secondary{% endif %}"
                         {% if product.selected_or_first_available_variant.available == false %}disabled{% endif %}
                       >
                           {%- if product.selected_or_first_available_variant.available -%}
@@ -327,6 +327,7 @@
                           {%- endif -%}
                           {% comment %} <span>
                           </span> {% endcomment %}
+                          
                           <div class="loading-overlay__spinner hidden">
                             <svg aria-hidden="true" focusable="false" role="presentation" class="spinner" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
                               <circle class="path" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
