@@ -108,7 +108,9 @@
                 <span>ISBN: {% if product.metafields.facts.isbn %} {{ product.metafields.facts.isbn }} {% else %} N/A {% endif %}</span>
                 <span>Pages: {% if product.metafields.custom.pages %} {{ product.metafields.custom.pages }} {% else %} N/A {% endif %}</span>
               </div>
+              
             {%- when 'price' -%}
+              {%- if template != 'product.enquiry-product' -%}
               <div class="no-js-hidden fun-product__price-container" id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }}>
                 {%- render 'price', product: product, use_variant: true, show_badges: false, price_class: 'price--large' -%}
               </div>
@@ -129,6 +131,7 @@
                   {{ form | payment_terms }}
                 {%- endform -%}
               </div>
+                {%- endif -%}
             {%- when 'description' -%}
               {%- if product.description != blank -%}
                 <div class="product__description rte quick-add-hidden fun-product__description-container">
@@ -155,7 +158,9 @@
                   </div>
                 </details>
               </div>
+              
             {%- when 'quantity_selector' -%}
+              {%- if template != 'product.enquiry-product' -%}
               <div class="product-form__input fun-product__input-wrapper product-form__quantity{% if settings.inputs_shadow_vertical_offset != 0 and settings.inputs_shadow_vertical_offset < 0 %} product-form__quantity-top{% endif %}" {{ block.shopify_attributes }}>
                 <label class="form__label" for="Quantity-{{ section.id }}">
                   {{ 'products.product.quantity.label' | t }}
@@ -180,6 +185,7 @@
                   </button> {% endcomment %}
                 </quantity-input>
               </div>
+              {%- endif -%}
             {%- when 'popup' -%}
                 <modal-opener class="product-popup-modal__opener no-js-hidden quick-add-hidden" data-modal="#PopupModal-{{ block.id }}" {{ block.shopify_attributes }}>
                   <button id="ProductPopup-{{ block.id }}" class="product-popup-modal__button link" type="button" aria-haspopup="dialog">{{ block.settings.text | default: block.settings.page.title }}</button>
