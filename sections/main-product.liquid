@@ -311,34 +311,24 @@
                     <span class="product-form__error-message"></span>
                   </div>
 
-                  {%- form 'product', product, id: product_form_id, class: 'form', novalidate: 'novalidate', data-type: 'add-to-cart-form' -%}
-                    <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}" disabled>
-                    <div class=" fun-product__buttons">
-                      <button
-                        type="submit"
-                        name="add"
-                        class="1 btn {% if block.settings.show_dynamic_checkout and product.selling_plan_groups == empty %}btn-secondary{% else %}btn-secondary{% endif %}"
-                        {% if product.selected_or_first_available_variant.available == false %}disabled{% endif %}
-                      >
-                          {%- if product.selected_or_first_available_variant.available -%}
-                            {{ 'products.product.add_to_cart' | t }}
-                          {%- else -%}
-                            {{ 'products.product.sold_out' | t }}
-                          {%- endif -%}
-                          {% comment %} <span>
-                          </span> {% endcomment %}
-                          
-                          <div class="loading-overlay__spinner hidden">
-                            <svg aria-hidden="true" focusable="false" role="presentation" class="spinner" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
-                              <circle class="path" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
-                            </svg>
-                          </div>
-                      </button>
-                      {% comment %} {%- if block.settings.show_dynamic_checkout -%}
-                        {{ form | payment_button }}
-                      {%- endif -%} {% endcomment %}
-                    </div>
-                  {%- endform -%}
+                  <a href="mailto:rajan.silwal@ebpearls.com?subject=Enquiry about {{ product.title }}">
+  <button
+    class="product-form--atc-button {% unless selected_variant.available %}disabled{% endunless %}"
+    type="submit"
+    {% unless selected_variant.available %}disabled{% endunless %}
+    data-product-atc>
+    <span class="atc-button--text">
+      {% if selected_variant.available %}
+        {{ 'product.buttons.add_to_cart' | t }}
+      {% else %}
+        {{ 'product.buttons.sold_out' | t }}
+      {% endif %}
+    </span>
+    <span class="atc-button--icon">
+      {%- include 'icon-spinner' -%}
+    </span>
+  </button>
+</a>
                 </product-form>
 
                 {{ 'component-pickup-availability.css' | asset_url | stylesheet_tag }}
