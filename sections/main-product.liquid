@@ -310,7 +310,17 @@
                     </svg>
                     <span class="product-form__error-message"></span>
                   </div>
-
+                  {%- if template == 'product.enquiry-product' -%}
+                  <a href="mailto:rajan.silwal@ebpearls.com?subject=Enquiry about {{ product.title }}">
+                    <button
+                      class="product-form--atc-button {% unless selected_variant.available %}disabled{% endunless %}"
+                      type="submit">
+                      <span class="btn btn-secondary">
+                        {{ "Enqury Now" }}
+                      </span>
+                    </button>
+                  </a>
+                  {%- else -%}
                   {%- form 'product', product, id: product_form_id, class: 'form', novalidate: 'novalidate', data-type: 'add-to-cart-form' -%}
                     <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}" disabled>
                     <div class=" fun-product__buttons">
@@ -338,6 +348,7 @@
                       {%- endif -%} {% endcomment %}
                     </div>
                   {%- endform -%}
+                    {%- endif -%}
                 </product-form>
 
                 {{ 'component-pickup-availability.css' | asset_url | stylesheet_tag }}
