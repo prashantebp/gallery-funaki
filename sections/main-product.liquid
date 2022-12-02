@@ -311,7 +311,7 @@
                     <span class="product-form__error-message"></span>
                   </div>
 
-                  <a href="mailto:rajan.silwal@ebpearls.com?subject=Enquiry about {{ product.title }}">
+                  <form action="mailto:rajan.silwal@ebpearls.com?subject=Enquiry about {{product.title}}" target="_blank">  
   <button
     class="product-form--atc-button {% unless selected_variant.available %}disabled{% endunless %}"
     type="submit"
@@ -321,7 +321,7 @@
       {{ "Enqury Now" }}
     </span>
   </button>
-</a>
+</form>
                 </product-form>
 
                 {{ 'component-pickup-availability.css' | asset_url | stylesheet_tag }}
